@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Jost', sans-serif;
+    @apply bg-white text-gray-900 m-0 p-0;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Jost', sans-serif;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.partner-text {
+  font-family: 'Jost', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}

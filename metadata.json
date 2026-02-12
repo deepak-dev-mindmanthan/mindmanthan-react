@@ -1,0 +1,8 @@
+{
+  "name": "Mind Manthan - Software Solutions",
+  "description": "A high-performance, modern React-based replication of the Mind Manthan theme, featuring dark-themed aesthetics, neon accents, and comprehensive software development services.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
