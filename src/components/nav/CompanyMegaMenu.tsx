@@ -2,22 +2,26 @@ import React from 'react';
 
 interface CompanyMegaMenuProps {
   onAboutUsClick?: () => void;
+  onWhyUsClick?: () => void;
+  onContactClick?: () => void;
   isOpen?: boolean;
   onItemClick?: () => void;
 }
 
 const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({
   onAboutUsClick,
+  onWhyUsClick,
+  onContactClick,
   isOpen = false,
   onItemClick,
 }) => {
   const companyLinks = [
     { label: 'About us', path: '#', onClick: onAboutUsClick },
-    { label: 'Why US', path: '#' },
-    { label: 'Our Team', path: '#' },
-    { label: 'Partners & Certifications', path: '#' },
-    { label: 'Careers', path: '#', badge: 'WE ARE HIRING' },
-    { label: 'Reviews & Awards', path: '#' },
+    { label: 'Why Us', path: '#', onClick: onWhyUsClick },
+    { label: 'Our Team', path: '#', onClick: onAboutUsClick },
+    { label: 'Partners & Certifications', path: '#', onClick: onAboutUsClick },
+    { label: 'Careers', path: '#', onClick: onContactClick, badge: 'WE ARE HIRING' },
+    { label: 'Reviews & Awards', path: '#', onClick: onAboutUsClick },
   ];
 
   return (
@@ -70,9 +74,15 @@ const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({
             <p className="text-[20px] font-bold text-[#1a1b1f] leading-snug mb-8">
               Tecnologia has been recognized as a Leader in the 2022 Gartner®
             </p>
-            <a href="#" className="text-[#001fcc] font-bold text-[14px] underline underline-offset-4 hover:text-[#0017a8] transition-colors">
+            <button
+              onClick={() => {
+                if (onContactClick) onContactClick();
+                if (onItemClick) onItemClick();
+              }}
+              className="text-[#001fcc] font-bold text-[14px] underline underline-offset-4 hover:text-[#0017a8] transition-colors text-left"
+            >
               View the report
-            </a>
+            </button>
           </div>
 
           {/* Geometric Pattern - Simplified version of the Gartner grid */}

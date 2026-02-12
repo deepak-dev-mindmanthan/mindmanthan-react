@@ -24,6 +24,7 @@ interface NavbarProps {
   onLondonTravelCaseStudyClick?: () => void;
   onPortfolioClick?: () => void;
   onAboutUsClick?: () => void;
+  onWhyUsClick?: () => void;
   onServicesClick?: () => void;
   onContactClick?: () => void;
   onFaqClick?: () => void;
@@ -111,6 +112,7 @@ const Navbar: React.FC<NavbarProps> = ({
   onLondonTravelCaseStudyClick,
   onPortfolioClick,
   onAboutUsClick,
+  onWhyUsClick,
   onServicesClick,
   onContactClick,
   onGetInTouchClick,
@@ -248,6 +250,8 @@ const Navbar: React.FC<NavbarProps> = ({
                           isOpen={activeDropdown === 'Company'}
                           onItemClick={closeDropdown}
                           onAboutUsClick={onAboutUsClick}
+                          onWhyUsClick={onWhyUsClick}
+                          onContactClick={onContactClick || onGetInTouchClick}
                         />
                       ) : link.label === 'Resources' ? (
                         <ResourcesDropdown

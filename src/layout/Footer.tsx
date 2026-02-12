@@ -99,16 +99,23 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
               <li className="break-words">info@mindmanthansoftwaresolutions.com</li>
               <li className="break-words">+91 70115 02461</li>
               <li className="break-words">A90, A Block, Sector 4, Noida, Uttar Pradesh 201301</li>
-              <li className="text-[#001fcc] font-bold underline cursor-pointer">Schedule a Call</li>
+              <li>
+                <button
+                  onClick={onContactClick}
+                  className="text-[#001fcc] font-bold underline cursor-pointer"
+                >
+                  Schedule a Call
+                </button>
+              </li>
             </ul>
           </div>
         </div>
         <div className="mt-16 md:mt-24 pt-8 md:pt-10 border-t border-blue-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-gray-400 text-sm font-medium">
           <p className="break-words">&copy; 2024 Mind Manthan Software Solutions. All Rights Reserved.</p>
           <div className="flex flex-wrap gap-6">
-            <a href="#" className="hover:text-[#001fcc]">Privacy Policy</a>
-            <a href="#" className="hover:text-[#001fcc]">Terms of Service</a>
-            <a href="#" className="hover:text-[#001fcc]">Sitemap</a>
+            <a href="/contact" className="hover:text-[#001fcc]">Privacy Policy</a>
+            <a href="/contact" className="hover:text-[#001fcc]">Terms of Service</a>
+            <a href="/sitemap.xml" className="hover:text-[#001fcc]">Sitemap</a>
           </div>
         </div>
       </div>

@@ -375,6 +375,7 @@ const App: React.FC = () => {
     onLondonTravelCaseStudyClick: () => navigate(ROUTES.londonTravelCaseStudy),
     onPortfolioClick: () => navigate(ROUTES.portfolio),
     onAboutUsClick: () => navigate(ROUTES.about),
+    onWhyUsClick: () => navigate(ROUTES.whyUs),
     onServicesClick: () => navigate(ROUTES.services),
     onContactClick: () => navigate(ROUTES.contact),
     onViewAllClick: () => navigate(ROUTES.blog),
