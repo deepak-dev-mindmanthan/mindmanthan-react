@@ -4,15 +4,22 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "node server.js",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "vite build --ssr entry-server.tsx --outDir dist/server",
+    "start": "cross-env NODE_ENV=production node server.js",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "compression": "^1.8.1",
+    "cross-env": "^10.1.0",
+    "express": "^5.2.1",
     "lucide-react": "^0.344.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "serve-static": "^2.2.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.64",
