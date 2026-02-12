@@ -189,6 +189,14 @@ const Navbar: React.FC<NavbarProps> = ({
                         e.preventDefault();
                         onPortfolioClick();
                         closeDropdown();
+                      } else if (link.label === 'Solutions' && onServicesClick) {
+                        e.preventDefault();
+                        onServicesClick();
+                        closeDropdown();
+                      } else if (link.label === 'Company' && onAboutUsClick) {
+                        e.preventDefault();
+                        onAboutUsClick();
+                        closeDropdown();
                       } else if (!link.hasDropdown) {
                         closeDropdown();
                       }
