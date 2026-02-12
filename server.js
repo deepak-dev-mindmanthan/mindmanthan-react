@@ -61,9 +61,17 @@ async function createServer() {
 
       const { html: appHtml, helmet } = await render(url);
 
-      let html = template
-        .replace(`<!--ssr-outlet-->`, appHtml)
-        .replace(`<!--ssr-head-tags-->`, `${helmet.title.toString()}${helmet.meta.toString()}${helmet.link.toString()}`);
+      const headTags = `${helmet.title.toString()}${helmet.meta.toString()}${helmet.link.toString()}${helmet.script.toString()}`;
+      
+      console.log(`[SSR] Injecting head tags for ${url}: ${headTags.length} chars`);
+
+      let html = template.replace(`<!--ssr-outlet-->`, appHtml);
+
+      if (html.includes('<!--ssr-head-tags-->')) {
+        html = html.replace('<!--ssr-head-tags-->', headTags);
+      } else {
+        html = html.replace('</head>', `${headTags}</head>`);
+      }
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
     } catch (e) {

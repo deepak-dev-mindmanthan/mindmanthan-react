@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { PageSEO, DEFAULT_SEO } from '../seoConfig';
 
@@ -37,22 +37,7 @@ const SEO: React.FC<SEOProps> = ({ seo }) => {
 
       {/* Canonical URL */}
       {canonical && <link rel="canonical" href={canonical} />}
-
-      {/* Structured Data (JSON-LD) */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "name": "Mind Manthan",
-          "url": "https://mindmanthan.com",
-          "logo": "https://mindmanthan.com/assets/images/mindmanthan.webp",
-          "description": description,
-          "sameAs": [
-            "https://twitter.com/mindmanthan",
-            "https://linkedin.com/company/mindmanthan"
-          ]
-        })}
-      </script>
+      <meta name="ssr-test" content="helmet-is-working-v5" />
     </Helmet>
   );
 };
