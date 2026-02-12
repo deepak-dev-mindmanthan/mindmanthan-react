@@ -146,13 +146,14 @@ const Navbar: React.FC<NavbarProps> = ({
     }
   }, [isMobileMenuOpen]);
 
-  const activeBg = isLight 
-    ? 'bg-white/95 backdrop-blur-md border-b border-blue-50 shadow-sm py-3' 
-    : isScrolled 
-      ? 'bg-[#010417] py-3 shadow-2xl backdrop-blur-md border-b border-white/5' 
+  const activeBg = isScrolled
+    ? 'bg-white/95 backdrop-blur-md border-b border-blue-50 shadow-sm py-3'
+    : isLight
+      ? 'bg-white/95 backdrop-blur-md border-b border-blue-50 shadow-sm py-3'
       : 'bg-transparent py-5';
 
-  const linkColor = isLight ? 'text-[#1a1b1f]' : 'text-white';
+  const isLightHeader = isScrolled || isLight;
+  const linkColor = isLightHeader ? 'text-[#1a1b1f]' : 'text-white';
   const hoverColor = isLight ? 'hover:text-[#001fcc]' : 'hover:text-teal-400';
   const ctaBg = isLight ? 'bg-[#001fcc] text-white' : 'bg-white text-black';
   const closeDropdown = () => setActiveDropdown(null);
@@ -175,7 +176,7 @@ const Navbar: React.FC<NavbarProps> = ({
         <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex justify-between items-center">
             <div onClick={onLogoClick} className="relative z-[70] flex-shrink-0">
-              <MindManthanLogo isLight={isLight} />
+              <MindManthanLogo isLight={isLightHeader} />
             </div>
 
             <div className="hidden lg:flex items-center space-x-12">
@@ -298,7 +299,9 @@ const Navbar: React.FC<NavbarProps> = ({
               </button>
               <button 
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`p-2 relative z-[70] ${isLight && !isMobileMenuOpen ? 'text-[#1a1b1f]' : 'text-white'}`}
+                className={`p-2 relative z-[70] ${
+                  isMobileMenuOpen ? (isScrolled || isLight ? 'text-[#1a1b1f]' : 'text-white') : (isScrolled || isLight ? 'text-[#1a1b1f]' : 'text-white')
+                }`}
               >
                 {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
