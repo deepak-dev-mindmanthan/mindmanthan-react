@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import SEO from './components/SEO';
+import { getSEO } from './seoConfig';
+import './index.css';
 import StatsBanner from './components/StatsBanner';
 import LatestInsights from './components/LatestInsights';
 import ContactSection from './components/ContactSection';
@@ -114,11 +117,70 @@ const IndustryCard: React.FC<IndustryCardProps> = ({
   </div>
 );
 
-const App: React.FC = () => {
+type View = 'home' | 'case-studies' | 'custom-software' | 'mobile-app' | 'staff-augmentation' | 'web-app' | 'blockchain' | 'ios-development' | 'android-development' | 'digital-transformation' | 'security' | 'fintech' | 'consulting' | 'insurance-case-study' | 'coffee-case-study' | 'london-travel-case-study' | 'about-us' | 'why-us' | 'services' | 'portfolio' | 'contact' | 'events' | 'blog-detail' | 'blog-archive';
+
+const PATH_TO_VIEW: Record<string, View> = {
+  '/': 'home',
+  '/about-us': 'about-us',
+  '/why-us': 'why-us',
+  '/services': 'services',
+  '/portfolio': 'portfolio',
+  '/contact': 'contact',
+  '/case-studies': 'case-studies',
+  '/custom-software': 'custom-software',
+  '/mobile-app': 'mobile-app',
+  '/staff-augmentation': 'staff-augmentation',
+  '/web-app': 'web-app',
+  '/blockchain': 'blockchain',
+  '/ios-development': 'ios-development',
+  '/android-development': 'android-development',
+  '/digital-transformation': 'digital-transformation',
+  '/security': 'security',
+  '/fintech': 'fintech',
+  '/consulting': 'consulting',
+  '/events': 'events',
+  '/blog': 'blog-archive',
+};
+
+const VIEW_TO_PATH: Record<View, string> = Object.entries(PATH_TO_VIEW).reduce((acc, [path, view]) => {
+  acc[view] = path;
+  return acc;
+}, {} as Record<View, string>);
+
+interface AppProps {
+  initialPath?: string;
+}
+
+const App: React.FC<AppProps> = ({ initialPath }) => {
   const [zoomScale, setZoomScale] = useState(1.2);
   const [selectedBlogId, setSelectedBlogId] = useState<number>(1);
-  const [currentView, setCurrentView] = useState<'home' | 'case-studies' | 'custom-software' | 'mobile-app' | 'staff-augmentation' | 'web-app' | 'blockchain' | 'ios-development' | 'android-development' | 'digital-transformation' | 'security' | 'fintech' | 'consulting' | 'insurance-case-study' | 'coffee-case-study' | 'london-travel-case-study' | 'about-us' | 'why-us' | 'services' | 'portfolio' | 'contact' | 'events' | 'blog-detail' | 'blog-archive'>('home');
+  const [currentView, setCurrentView] = useState<View>(() => {
+    if (initialPath) return PATH_TO_VIEW[initialPath] || 'home';
+    if (typeof window !== 'undefined') {
+      return PATH_TO_VIEW[window.location.pathname] || 'home';
+    }
+    return 'home';
+  });
   const techSectionRef = useRef<HTMLElement>(null);
+
+  // Sync URL with state
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const path = VIEW_TO_PATH[currentView];
+      if (path && window.location.pathname !== path) {
+        window.history.pushState({}, '', path);
+      }
+    }
+  }, [currentView]);
+
+  // Handle browser back/forward
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentView(PATH_TO_VIEW[window.location.pathname] || 'home');
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   const partners = [
     { name: 'Microsoft', type: 'logo', src: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg' },
@@ -177,7 +239,6 @@ const App: React.FC = () => {
         faqEl.scrollIntoView({ behavior: 'smooth' });
         return;
       }
-      // navigate to home then scroll shortly after to allow render
       setCurrentView('home');
       setTimeout(() => {
         const faqEl2 = document.querySelector('[data-faq-section]');
@@ -198,527 +259,371 @@ const App: React.FC = () => {
     isHomePage: currentView === 'home',
   };
 
-  if (currentView === 'about-us') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><AboutUsPage onLearnMoreClick={() => setCurrentView('why-us')} /></main>
-        <CoreValues />
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'why-us') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><WhyUsPage onExploreServices={() => setCurrentView('services')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'services') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><ServicesPage onNavigateHome={commonNavProps.onGetInTouchClick} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'portfolio') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><PortfolioPage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'contact') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><ContactPage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'case-studies') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><CaseStudies onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'custom-software') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><CustomSoftwarePage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'mobile-app') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><MobileAppPage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'staff-augmentation') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><StaffAugmentationPage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'web-app') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><WebAppPage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'blockchain') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><BlockchainPage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'ios-development') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><IOSDevelopmentPage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'android-development') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><AndroidDevelopmentPage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'digital-transformation') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><DigitalTransformationPage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'security') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><SecurityPage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'fintech') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><FintechPage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'consulting') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><ConsultingProvidersPage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'insurance-case-study') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><InsuranceCaseStudyPage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'coffee-case-study') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><CoffeeCaseStudyPage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-
-  if (currentView === 'london-travel-case-study') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><LondonTravelCaseStudyPage onBackHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-  if (currentView === 'events') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><EventsPage onContactClick={commonNavProps.onContactClick} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-  if (currentView === 'blog-archive') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><BlogArchive onReadMoreClick={(id) => {
+  const renderContent = () => {
+    switch (currentView) {
+      case 'about-us':
+        return (
+          <>
+            <AboutUsPage onLearnMoreClick={() => setCurrentView('why-us')} />
+            <CoreValues />
+          </>
+        );
+      case 'why-us':
+        return <WhyUsPage onExploreServices={() => setCurrentView('services')} />;
+      case 'services':
+        return <ServicesPage onNavigateHome={commonNavProps.onGetInTouchClick} />;
+      case 'portfolio':
+        return <PortfolioPage onBackHome={() => setCurrentView('home')} />;
+      case 'contact':
+        return <ContactPage onBackHome={() => setCurrentView('home')} />;
+      case 'case-studies':
+        return <CaseStudies onBackHome={() => setCurrentView('home')} />;
+      case 'custom-software':
+        return <CustomSoftwarePage onBackHome={() => setCurrentView('home')} />;
+      case 'mobile-app':
+        return <MobileAppPage onBackHome={() => setCurrentView('home')} />;
+      case 'staff-augmentation':
+        return <StaffAugmentationPage onBackHome={() => setCurrentView('home')} />;
+      case 'web-app':
+        return <WebAppPage onBackHome={() => setCurrentView('home')} />;
+      case 'blockchain':
+        return <BlockchainPage onBackHome={() => setCurrentView('home')} />;
+      case 'ios-development':
+        return <IOSDevelopmentPage onBackHome={() => setCurrentView('home')} />;
+      case 'android-development':
+        return <AndroidDevelopmentPage onBackHome={() => setCurrentView('home')} />;
+      case 'digital-transformation':
+        return <DigitalTransformationPage onBackHome={() => setCurrentView('home')} />;
+      case 'security':
+        return <SecurityPage onBackHome={() => setCurrentView('home')} />;
+      case 'fintech':
+        return <FintechPage onBackHome={() => setCurrentView('home')} />;
+      case 'consulting':
+        return <ConsultingProvidersPage onBackHome={() => setCurrentView('home')} />;
+      case 'insurance-case-study':
+        return <InsuranceCaseStudyPage onBackHome={() => setCurrentView('home')} />;
+      case 'coffee-case-study':
+        return <CoffeeCaseStudyPage onBackHome={() => setCurrentView('home')} />;
+      case 'london-travel-case-study':
+        return <LondonTravelCaseStudyPage onBackHome={() => setCurrentView('home')} />;
+      case 'events':
+        return <EventsPage onContactClick={commonNavProps.onContactClick} />;
+      case 'blog-archive':
+        return <BlogArchive onReadMoreClick={(id) => {
           setSelectedBlogId(id);
           setCurrentView('blog-detail');
-        }} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
-  if (currentView === 'blog-detail') {
-    return (
-      <div className="min-h-screen bg-white">
-        <Navbar {...commonNavProps} />
-        <main><BlogPage blogId={selectedBlogId} onBackToHome={() => setCurrentView('home')} /></main>
-        <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
-      </div>
-    );
-  }
+        }} />;
+      case 'blog-detail':
+        return <BlogPage blogId={selectedBlogId} onBackToHome={() => setCurrentView('home')} />;
+      case 'home':
+      default:
+        return (
+          <>
+            <section id="hero-section"><Hero /></section>
+            <section id="about-section" className="pt-32 pb-48 px-6 bg-white relative z-10">
+              <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
+                <h2 className="text-3xl md:text-5xl lg:text-[52px] font-bold text-[#1a1b1f] leading-[1.1] mb-10 tracking-tight max-w-5xl">
+                  Experienced teams and a agile framework, we prioritise the commercial goals of the client to deliver the highest business value.
+                </h2>
+                <button onClick={() => setCurrentView('why-us')} className="bg-[#e8edff] text-[#001fcc] px-8 py-3 rounded-md font-bold text-[15px] hover:bg-[#d9e2ff] transition-all active:scale-95">
+                  Why to choose us
+                </button>
+              </div>
+            </section>
+
+            <section id="partners-section" className="pb-32 bg-white overflow-hidden border-b border-gray-100">
+              <div className="relative flex items-center">
+                <div className="animate-marquee flex items-center">
+                  {[...Array(3)].map((_, i) => (
+                    <div key={i} className="flex items-center gap-24 px-12">
+                      {partners.map((partner, idx) => (
+                        <div key={`${i}-${idx}`} className="flex items-center opacity-40 grayscale hover:opacity-100 transition-all duration-500 cursor-default">
+                          {partner.type === 'text' ? (
+                            <span className={`partner-text text-5xl text-gray-800 ${partner.className || ''}`}>
+                              {partner.name}
+                            </span>
+                          ) : (
+                            <img src={partner.src} className="h-11" alt={partner.name} />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section id="technology-team" ref={techSectionRef} className="px-6 max-w-7xl mx-auto mb-20 mt-32">
+              <div className="relative rounded-[2.5rem] overflow-hidden aspect-[16/8] md:aspect-[21/9] shadow-2xl border border-gray-100 bg-gray-100">
+                <img 
+                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=2070" 
+                  alt="Technology Team Working Together" 
+                  className="w-full h-full object-cover block will-change-transform transition-transform duration-300 ease-out"
+                  style={{ transform: `scale(${zoomScale})` }}
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none"></div>
+              </div>
+            </section>
+
+            <section className="py-24 bg-white">
+              <div className="max-w-7xl mx-auto px-6">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
+                  <div className="max-w-3xl">
+                    <h2 className="text-4xl md:text-[64px] font-bold text-[#1a1b1f] leading-[1.1] tracking-tight">
+                      We provide clients <br /> with award-winning services
+                    </h2>
+                  </div>
+                  <div className="flex flex-col items-center md:items-end">
+                    <div className="mb-4">
+                      <svg width="60" height="60" viewBox="0 0 100 100">
+                        <path d="M50 10 L85 30 V70 L50 90 L15 70 V30 Z" fill="none" stroke="#e2e8f0" strokeWidth="2" />
+                        <path d="M50 20 L75 35 V65 L50 80 L25 65 V35 Z" fill="none" stroke="#94a3b8" strokeWidth="1" />
+                      </svg>
+                    </div>
+                    <span className="text-gray-400 font-medium text-[11px] uppercase tracking-[0.2em] whitespace-nowrap">
+                      Top-NotCH Developers
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16">
+                  <div className="flex flex-col items-start group cursor-pointer" onClick={() => setCurrentView('staff-augmentation')}>
+                    <StaffIcon />
+                    <h3 className="text-[22px] font-bold text-[#1a1b1f] mb-4 leading-tight group-hover:text-[#001fcc] transition-colors">Staff Augmentation</h3>
+                    <p className="text-gray-500 text-[15px] leading-relaxed">Instantly scale your internal team with top-tier, vetted tech talent for your specific roadmap.</p>
+                  </div>
+                  <div className="flex flex-col items-start group cursor-pointer" onClick={() => setCurrentView('mobile-app')}>
+                    <MobileIcon />
+                    <h3 className="text-[22px] font-bold text-[#1a1b1f] mb-4 leading-tight group-hover:text-[#001fcc] transition-colors">Mobile App Development</h3>
+                    <p className="text-gray-500 text-[15px] leading-relaxed">From Social Media Apps like TikTok to Fitness Tracking and Marketplaces.</p>
+                  </div>
+                  <div className="flex flex-col items-start group cursor-pointer" onClick={() => setCurrentView('web-app')}>
+                    <WebIcon />
+                    <h3 className="text-[22px] font-bold text-[#1a1b1f] mb-4 leading-tight group-hover:text-[#001fcc] transition-colors">Web App Development</h3>
+                    <p className="text-gray-500 text-[15px] leading-relaxed">Enterprise-grade platforms optimized for performance and world-wide scale.</p>
+                  </div>
+                  <div className="flex flex-col items-start group cursor-pointer" onClick={() => setCurrentView('custom-software')}>
+                    <SoftwareIcon />
+                    <h3 className="text-[22px] font-bold text-[#1a1b1f] mb-4 leading-tight group-hover:text-[#001fcc] transition-colors">Software Development</h3>
+                    <p className="text-gray-500 text-[15px] leading-relaxed">From a custom CRM to Transportation Management System, we've built it all.</p>
+                  </div>
+                </div>
+
+                <div className="mt-20">
+                  <button onClick={() => setCurrentView('services')} className="inline-block relative text-[#001fcc] hover:text-black font-bold text-[19px] group transition-colors duration-300">
+                    <span className="relative z-10">View all services</span>
+                    <span className="absolute -bottom-1 left-0 w-full h-[6px] bg-[#e8edff] group-hover:bg-black group-hover:h-[6px] -z-0 transition-all duration-300"></span>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <section className="py-32 bg-white">
+              <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center mb-20">
+                  <span className="inline-block px-4 py-1.5 bg-[#f1f5f9] rounded-md text-[#64748b] text-[11px] font-bold uppercase tracking-[0.2em] mb-6">Selected Projects</span>
+                  <h2 className="text-4xl md:text-[64px] font-bold text-[#1a1b1f] leading-[1.1] tracking-tight">Apps we built been trending <br /> on the App Store</h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  <div className="bg-[#e0e7ff] rounded-[3rem] p-12 flex flex-col justify-between h-[600px] relative overflow-hidden group">
+                    <div>
+                      <div className="flex justify-between items-start mb-12">
+                        <span className="text-[24px] font-medium text-[#1a1b1f]">01.</span>
+                        <span className="text-[14px] font-bold uppercase tracking-widest text-[#1a1b1f]">Showcase</span>
+                      </div>
+                      <h3 className="text-6xl font-black text-[#1a1b1f] mb-8 tracking-tighter">scuoLa</h3>
+                      <p className="text-[24px] font-bold text-[#1a1b1f] leading-[1.2] max-w-xs">Convenience, savings and rewards at your fingertips</p>
+                    </div>
+                    <div className="absolute right-0 bottom-0 w-[320px] h-[320px] opacity-100 group-hover:translate-x-4 transition-transform duration-700">
+                      <svg viewBox="0 0 200 200" className="w-full h-full">
+                        <path d="M40 160 Q40 100 60 80 L65 40 Q65 30 70 30 Q75 30 75 40 L70 80 Q90 100 90 160" fill="#f97316" />
+                        <path d="M100 160 Q100 80 120 70 L115 40 Q115 30 125 30 Q135 30 135 40 L130 70 Q150 80 150 160" fill="#1a1b1f" />
+                        <path d="M160 160 Q160 90 175 80 L180 50 Q180 40 185 40 Q190 40 190 50 L185 80 Q200 90 200 160" fill="#fbbf24" />
+                      </svg>
+                    </div>
+                    <div className="flex justify-between items-end relative z-10">
+                      <span className="text-[14px] font-bold text-[#1a1b1f]">Lounge Project</span>
+                      <div className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center group-hover:bg-[#1a1b1f] group-hover:text-white transition-all">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-[#fdf6e3] rounded-[3rem] p-12 flex flex-col justify-between h-[600px] relative overflow-hidden group">
+                    <div>
+                      <div className="flex justify-between items-start mb-12">
+                        <span className="text-[24px] font-medium text-[#1a1b1f]">02.</span>
+                        <span className="text-[14px] font-bold uppercase tracking-widest text-[#1a1b1f]">Showcase</span>
+                      </div>
+                      <h3 className="text-6xl font-black text-[#1a1b1f] mb-8 tracking-tighter">JOLIE.</h3>
+                      <p className="text-[24px] font-bold text-[#1a1b1f] leading-[1.2] max-w-xs">Private trust management and trading platform</p>
+                    </div>
+                    <div className="absolute right-12 bottom-24 w-[280px] h-[200px] group-hover:scale-105 transition-transform duration-700">
+                      <svg viewBox="0 0 200 150" className="w-full h-full overflow-visible">
+                        <path d="M0 150 L20 120 L40 140 L60 110 L80 130 L100 100 L120 115 L140 80 L160 100 L180 40 L200 20" fill="none" stroke="#22c55e" strokeWidth="4" />
+                        <path d="M200 20 L185 20 M200 20 L200 35" fill="none" stroke="#22c55e" strokeWidth="4" />
+                        <path d="M0 150 H200 M0 120 H200 M0 90 H200 M0 60 H200 M0 30 H200" stroke="#000" strokeWidth="0.5" strokeOpacity="0.1" />
+                      </svg>
+                    </div>
+                    <div className="flex justify-between items-end relative z-10">
+                      <span className="text-[14px] font-bold text-[#1a1b1f]">Lounge Project</span>
+                      <div className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center group-hover:bg-[#1a1b1f] group-hover:text-white transition-all">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-[#1a1b1f] rounded-[3rem] p-12 md:p-20 flex flex-col md:flex-row justify-between min-h-[500px] relative overflow-hidden group">
+                  <div className="flex flex-col justify-between max-w-md mb-12 md:mb-0">
+                    <div>
+                      <div className="flex justify-between items-start mb-16"><span className="text-[24px] font-medium text-white/40">03.</span></div>
+                      <div className="flex items-center gap-3 mb-10">
+                        <div className="w-8 h-8 relative">
+                          <div className="absolute inset-0 bg-yellow-400 rotate-45 rounded-sm"></div>
+                          <div className="absolute inset-0 flex items-center justify-center text-[10px] text-black font-black">S</div>
+                        </div>
+                        <h3 className="text-6xl font-black text-white tracking-tighter">Skole</h3>
+                      </div>
+                      <p className="text-[32px] font-bold text-white leading-[1.1]">Online platform for distance learning</p>
+                    </div>
+                    <div className="mt-auto"><span className="text-[14px] font-bold text-white/40 block mb-6 md:mb-0">Lounge Project</span></div>
+                  </div>
+                  <div className="flex-1 flex justify-center items-center relative">
+                    <span className="hidden md:block absolute top-0 right-0 text-[14px] font-bold uppercase tracking-widest text-white/40">Showcase</span>
+                    <div className="flex gap-4 md:gap-8 translate-y-12 md:translate-y-24 group-hover:translate-y-8 md:group-hover:translate-y-20 transition-transform duration-700">
+                      {[1, 2, 3].map((i) => (
+                        <div key={i} className="w-[140px] h-[280px] md:w-[200px] md:h-[400px] bg-[#2a2b2f] rounded-[2rem] border-[6px] border-[#3a3b3f] relative overflow-hidden shadow-2xl">
+                          <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-transparent"></div>
+                          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-white/20 rounded-full"></div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="absolute right-0 bottom-0 md:bottom-[-20px] w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-20 text-center">
+                  <button onClick={() => setCurrentView('case-studies')} className="inline-block relative text-[#001fcc] hover:text-black font-bold text-[19px] group transition-colors duration-300">
+                    <span className="relative z-10">View all Case Studies</span>
+                    <span className="absolute -bottom-1 left-0 w-full h-[6px] bg-[#e8edff] group-hover:bg-black group-hover:h-[6px] -z-0 transition-all duration-300"></span>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <section className="bg-white py-32 px-6">
+              <div className="max-w-7xl mx-auto">
+                <div className="text-center mb-16">
+                  <h2 className="text-5xl md:text-[64px] font-black text-[#1a1b1f] mb-12 tracking-tighter">Industries we've excelled in</h2>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    {['Digital Transformation', 'Security', 'Fintech'].map((tab) => (
+                      <button 
+                        key={tab} 
+                        onClick={() => {
+                          if (tab === 'Digital Transformation') setCurrentView('digital-transformation');
+                          if (tab === 'Security') setCurrentView('security');
+                          if (tab === 'Fintech') setCurrentView('fintech');
+                        }}
+                        className="px-8 py-2.5 rounded-full border border-gray-200 text-[14px] font-bold text-gray-500 hover:border-[#001fcc] hover:text-[#001fcc] transition-all bg-white shadow-sm"
+                      >{tab}</button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="relative mt-20">
+                  <IndustryCard tag="INDUSTRIES WE SERVE" title="Fintech" description="Building secure and scalable financial solutions that redefine how people manage their wealth and transactions." bgColor="bg-[#f0f4ff]" stickyTop="100px" onClick={() => setCurrentView('fintech')}>
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      <div className="w-[300px] h-[300px] bg-[#a8ffad] rounded-full absolute -z-10 blur-3xl opacity-30 animate-pulse"></div>
+                      <div className="w-[350px] h-[350px] bg-[#a8ffad] rounded-full flex items-center justify-center relative shadow-inner overflow-hidden">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                          <div className="flex flex-col gap-4 animate-bounce duration-1000">
+                            {[1, 2, 3, 4, 5].map((i) => (
+                              <div key={i} className="w-12 h-12 bg-yellow-400 rounded-full border-4 border-yellow-600 flex items-center justify-center text-yellow-800 font-bold shadow-lg transform rotate-12 -ml-8">$</div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </IndustryCard>
+
+                  <IndustryCard tag="INDUSTRIES WE SERVE" title="Digital Transformation" description="Modernize your entire workflow. We implement digital strategies that eliminate legacy friction and drive technical efficiency." bgColor="bg-[#f9f7ff]" stickyTop="140px" onClick={() => setCurrentView('digital-transformation')}>
+                    <div className="w-full h-full flex justify-center items-center">
+                      <div className="w-[320px] h-[500px] bg-white rounded-[2rem] shadow-2xl border border-gray-100 p-8 flex flex-col relative overflow-hidden group">
+                          <div className="flex justify-between items-center mb-8">
+                            <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white"><RefreshCw width={16} height={16} /></div>
+                            <div className="text-gray-300"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></div>
+                          </div>
+                          <h4 className="text-4xl font-black text-[#1a1b1f] mb-6">pipeline</h4>
+                          <div className="flex gap-4 mb-8">
+                            <div className="flex-1 p-4 bg-gray-50 rounded-xl border border-gray-100"><span className="text-3xl font-black block">98%</span><span className="text-[10px] text-gray-400 font-bold uppercase">Efficiency</span></div>
+                            <div className="flex-1 p-4 bg-gray-50 rounded-xl border border-gray-100"><span className="text-3xl font-black block">0</span><span className="text-[10px] text-gray-400 font-bold uppercase">Tech Debt</span></div>
+                          </div>
+                          <div className="space-y-4">
+                            <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden"><div className="h-full w-[85%] bg-blue-500 rounded-full"></div></div>
+                            <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden"><div className="h-full w-[65%] bg-teal-400 rounded-full"></div></div>
+                          </div>
+                          <div className="absolute top-10 right-[-20px] bg-white p-4 rounded-xl shadow-xl flex gap-3 text-[10px] font-bold text-gray-400 uppercase tracking-widest border border-gray-50 transform group-hover:-translate-x-4 transition-transform duration-500">
+                            <span className="text-[#001fcc]">cloud</span><span>scale</span><span>agility</span>
+                          </div>
+                      </div>
+                    </div>
+                  </IndustryCard>
+
+                  <IndustryCard tag="INDUSTRIES WE SERVE" title="Security" description="Protecting your most valuable digital assets with proactive monitoring and multi-layered threat mitigation systems." bgColor="bg-[#fff9f0]" stickyTop="180px" onClick={() => setCurrentView('security')}>
+                    <div className="w-full h-full flex justify-center items-center">
+                      <div className="relative w-full max-w-[500px] h-[400px]">
+                        <div className="absolute left-0 bottom-0 w-[240px] h-[350px] bg-white rounded-[2rem] shadow-2xl border border-4 border-[#1a1b1f] p-4 transform -rotate-6 z-10 overflow-hidden flex flex-col items-center justify-center">
+                          <Shield size={120} className="text-[#001fcc] mb-6 animate-pulse" strokeWidth={1} />
+                          <div className="text-[#1a1b1f] font-black text-xl tracking-tighter uppercase">Vault Secured</div>
+                        </div>
+                        <div className="absolute right-0 bottom-0 w-[240px] h-[350px] bg-[#1a1b1f] rounded-[2rem] shadow-2xl border border-4 border-[#1a1b1f] p-4 transform rotate(6deg) z-0 overflow-hidden flex flex-col items-center justify-center">
+                          <div className="w-full h-full opacity-20 bg-[radial-gradient(circle_at_center,_#fff_1px,_transparent_1px)] bg-[length:20px_20px] absolute inset-0"></div>
+                          <div className="relative z-10 text-white font-mono text-xs opacity-60 leading-loose">
+                              01101010 11010101 <br />10101111 00101010 <br />ENCRYPTED_LAYER_07 <br />STATUS_ACTIVE <br />NO_THREATS_DETECTED
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </IndustryCard>
+                </div>
+              </div>
+            </section>
+
+            <Reviews />
+            <RecognitionGrid />
+            <StatsBanner onGetInTouchClick={commonNavProps.onGetInTouchClick} />
+            <LatestInsights onLearnMoreClick={(id) => {
+              setSelectedBlogId(id);
+              setCurrentView('blog-detail');
+            }} onViewAllClick={() => setCurrentView('blog-archive')} />
+            <FAQSection />
+            <ContactSection />
+            <JourneySection />
+          </>
+        );
+    }
+  };
+
+  const showCoreValues = currentView === 'home';
+
   return (
     <div className="min-h-screen bg-white">
+      <SEO seo={getSEO(currentView, selectedBlogId)} />
       <Navbar {...commonNavProps} />
       <main>
-        <section id="hero-section"><Hero /></section>
-        <section id="about-section" className="pt-32 pb-48 px-6 bg-white relative z-10">
-          <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
-            <h2 className="text-3xl md:text-5xl lg:text-[52px] font-bold text-[#1a1b1f] leading-[1.1] mb-10 tracking-tight max-w-5xl">
-              Experienced teams and a agile framework, we prioritise the commercial goals of the client to deliver the highest business value.
-            </h2>
-            <button className="bg-[#e8edff] text-[#001fcc] px-8 py-3 rounded-md font-bold text-[15px] hover:bg-[#d9e2ff] transition-all active:scale-95">
-              Why to choose us
-            </button>
-          </div>
-        </section>
-
-        <section id="partners-section" className="pb-32 bg-white overflow-hidden border-b border-gray-100">
-          <div className="relative flex items-center">
-            <div className="animate-marquee flex items-center">
-              {[...Array(3)].map((_, i) => (
-                <div key={i} className="flex items-center gap-24 px-12">
-                  {partners.map((partner, idx) => (
-                    <div key={`${i}-${idx}`} className="flex items-center opacity-40 grayscale hover:opacity-100 transition-all duration-500 cursor-default">
-                      {partner.type === 'text' ? (
-                        <span className={`partner-text text-5xl text-gray-800 ${partner.className || ''}`}>
-                          {partner.name}
-                        </span>
-                      ) : (
-                        <img src={partner.src} className="h-11" alt={partner.name} />
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="technology-team" ref={techSectionRef} className="px-6 max-w-7xl mx-auto mb-20 mt-32">
-          <div className="relative rounded-[2.5rem] overflow-hidden aspect-[16/8] md:aspect-[21/9] shadow-2xl border border-gray-100 bg-gray-100">
-            <img 
-              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=2070" 
-              alt="Technology Team Working Together" 
-              className="w-full h-full object-cover block will-change-transform transition-transform duration-300 ease-out"
-              style={{ transform: `scale(${zoomScale})` }}
-              loading="eager"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none"></div>
-          </div>
-        </section>
-
-        <section className="py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
-              <div className="max-w-3xl">
-                <h2 className="text-4xl md:text-[64px] font-bold text-[#1a1b1f] leading-[1.1] tracking-tight">
-                  We provide clients <br /> with award-winning services
-                </h2>
-              </div>
-              <div className="flex flex-col items-center md:items-end">
-                <div className="mb-4">
-                  <svg width="60" height="60" viewBox="0 0 100 100">
-                    <path d="M50 10 L85 30 V70 L50 90 L15 70 V30 Z" fill="none" stroke="#e2e8f0" strokeWidth="2" />
-                    <path d="M50 20 L75 35 V65 L50 80 L25 65 V35 Z" fill="none" stroke="#94a3b8" strokeWidth="1" />
-                  </svg>
-                </div>
-                <span className="text-gray-400 font-medium text-[11px] uppercase tracking-[0.2em] whitespace-nowrap">
-                  Top-NotCH Developers
-                </span>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16">
-              <div className="flex flex-col items-start group cursor-pointer" onClick={() => setCurrentView('staff-augmentation')}>
-                <StaffIcon />
-                <h3 className="text-[22px] font-bold text-[#1a1b1f] mb-4 leading-tight group-hover:text-[#001fcc] transition-colors">Staff Augmentation</h3>
-                <p className="text-gray-500 text-[15px] leading-relaxed">Instantly scale your internal team with top-tier, vetted tech talent for your specific roadmap.</p>
-              </div>
-              <div className="flex flex-col items-start group cursor-pointer" onClick={() => setCurrentView('mobile-app')}>
-                <MobileIcon />
-                <h3 className="text-[22px] font-bold text-[#1a1b1f] mb-4 leading-tight group-hover:text-[#001fcc] transition-colors">Mobile App Development</h3>
-                <p className="text-gray-500 text-[15px] leading-relaxed">From Social Media Apps like TikTok to Fitness Tracking and Marketplaces.</p>
-              </div>
-              <div className="flex flex-col items-start group cursor-pointer" onClick={() => setCurrentView('web-app')}>
-                <WebIcon />
-                <h3 className="text-[22px] font-bold text-[#1a1b1f] mb-4 leading-tight group-hover:text-[#001fcc] transition-colors">Web App Development</h3>
-                <p className="text-gray-500 text-[15px] leading-relaxed">Enterprise-grade platforms optimized for performance and world-wide scale.</p>
-              </div>
-              <div className="flex flex-col items-start group cursor-pointer" onClick={() => setCurrentView('custom-software')}>
-                <SoftwareIcon />
-                <h3 className="text-[22px] font-bold text-[#1a1b1f] mb-4 leading-tight group-hover:text-[#001fcc] transition-colors">Software Development</h3>
-                <p className="text-gray-500 text-[15px] leading-relaxed">From a custom CRM to Transportation Management System, we've built it all.</p>
-              </div>
-            </div>
-
-            <div className="mt-20">
-              <a href="#" className="inline-block relative text-[#001fcc] hover:text-black font-bold text-[19px] group transition-colors duration-300">
-                <span className="relative z-10">View all services</span>
-                <span className="absolute -bottom-1 left-0 w-full h-[6px] bg-[#e8edff] group-hover:bg-black group-hover:h-[6px] -z-0 transition-all duration-300"></span>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-32 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20">
-              <span className="inline-block px-4 py-1.5 bg-[#f1f5f9] rounded-md text-[#64748b] text-[11px] font-bold uppercase tracking-[0.2em] mb-6">Selected Projects</span>
-              <h2 className="text-4xl md:text-[64px] font-bold text-[#1a1b1f] leading-[1.1] tracking-tight">Apps we built been trending <br /> on the App Store</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-[#e0e7ff] rounded-[3rem] p-12 flex flex-col justify-between h-[600px] relative overflow-hidden group">
-                <div>
-                  <div className="flex justify-between items-start mb-12">
-                    <span className="text-[24px] font-medium text-[#1a1b1f]">01.</span>
-                    <span className="text-[14px] font-bold uppercase tracking-widest text-[#1a1b1f]">Showcase</span>
-                  </div>
-                  <h3 className="text-6xl font-black text-[#1a1b1f] mb-8 tracking-tighter">scuoLa</h3>
-                  <p className="text-[24px] font-bold text-[#1a1b1f] leading-[1.2] max-w-xs">Convenience, savings and rewards at your fingertips</p>
-                </div>
-                <div className="absolute right-0 bottom-0 w-[320px] h-[320px] opacity-100 group-hover:translate-x-4 transition-transform duration-700">
-                  <svg viewBox="0 0 200 200" className="w-full h-full">
-                    <path d="M40 160 Q40 100 60 80 L65 40 Q65 30 70 30 Q75 30 75 40 L70 80 Q90 100 90 160" fill="#f97316" />
-                    <path d="M100 160 Q100 80 120 70 L115 40 Q115 30 125 30 Q135 30 135 40 L130 70 Q150 80 150 160" fill="#1a1b1f" />
-                    <path d="M160 160 Q160 90 175 80 L180 50 Q180 40 185 40 Q190 40 190 50 L185 80 Q200 90 200 160" fill="#fbbf24" />
-                  </svg>
-                </div>
-                <div className="flex justify-between items-end relative z-10">
-                  <span className="text-[14px] font-bold text-[#1a1b1f]">Lounge Project</span>
-                  <div className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center group-hover:bg-[#1a1b1f] group-hover:text-white transition-all">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#fdf6e3] rounded-[3rem] p-12 flex flex-col justify-between h-[600px] relative overflow-hidden group">
-                <div>
-                  <div className="flex justify-between items-start mb-12">
-                    <span className="text-[24px] font-medium text-[#1a1b1f]">02.</span>
-                    <span className="text-[14px] font-bold uppercase tracking-widest text-[#1a1b1f]">Showcase</span>
-                  </div>
-                  <h3 className="text-6xl font-black text-[#1a1b1f] mb-8 tracking-tighter">JOLIE.</h3>
-                  <p className="text-[24px] font-bold text-[#1a1b1f] leading-[1.2] max-w-xs">Private trust management and trading platform</p>
-                </div>
-                <div className="absolute right-12 bottom-24 w-[280px] h-[200px] group-hover:scale-105 transition-transform duration-700">
-                  <svg viewBox="0 0 200 150" className="w-full h-full overflow-visible">
-                    <path d="M0 150 L20 120 L40 140 L60 110 L80 130 L100 100 L120 115 L140 80 L160 100 L180 40 L200 20" fill="none" stroke="#22c55e" strokeWidth="4" />
-                    <path d="M200 20 L185 20 M200 20 L200 35" fill="none" stroke="#22c55e" strokeWidth="4" />
-                    <path d="M0 150 H200 M0 120 H200 M0 90 H200 M0 60 H200 M0 30 H200" stroke="#000" strokeWidth="0.5" strokeOpacity="0.1" />
-                  </svg>
-                </div>
-                <div className="flex justify-between items-end relative z-10">
-                  <span className="text-[14px] font-bold text-[#1a1b1f]">Lounge Project</span>
-                  <div className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center group-hover:bg-[#1a1b1f] group-hover:text-white transition-all">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-[#1a1b1f] rounded-[3rem] p-12 md:p-20 flex flex-col md:flex-row justify-between min-h-[500px] relative overflow-hidden group">
-              <div className="flex flex-col justify-between max-w-md mb-12 md:mb-0">
-                <div>
-                  <div className="flex justify-between items-start mb-16"><span className="text-[24px] font-medium text-white/40">03.</span></div>
-                  <div className="flex items-center gap-3 mb-10">
-                    <div className="w-8 h-8 relative">
-                      <div className="absolute inset-0 bg-yellow-400 rotate-45 rounded-sm"></div>
-                      <div className="absolute inset-0 flex items-center justify-center text-[10px] text-black font-black">S</div>
-                    </div>
-                    <h3 className="text-6xl font-black text-white tracking-tighter">Skole</h3>
-                  </div>
-                  <p className="text-[32px] font-bold text-white leading-[1.1]">Online platform for distance learning</p>
-                </div>
-                <div className="mt-auto"><span className="text-[14px] font-bold text-white/40 block mb-6 md:mb-0">Lounge Project</span></div>
-              </div>
-              <div className="flex-1 flex justify-center items-center relative">
-                <span className="hidden md:block absolute top-0 right-0 text-[14px] font-bold uppercase tracking-widest text-white/40">Showcase</span>
-                <div className="flex gap-4 md:gap-8 translate-y-12 md:translate-y-24 group-hover:translate-y-8 md:group-hover:translate-y-20 transition-transform duration-700">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="w-[140px] h-[280px] md:w-[200px] md:h-[400px] bg-[#2a2b2f] rounded-[2rem] border-[6px] border-[#3a3b3f] relative overflow-hidden shadow-2xl">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-transparent"></div>
-                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-white/20 rounded-full"></div>
-                    </div>
-                  ))}
-                </div>
-                <div className="absolute right-0 bottom-0 md:bottom-[-20px] w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l10-10M7 7h10v10"/></svg>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-20 text-center">
-              <button onClick={() => setCurrentView('case-studies')} className="inline-block relative text-[#001fcc] hover:text-black font-bold text-[19px] group transition-colors duration-300">
-                <span className="relative z-10">View all Case Studies</span>
-                <span className="absolute -bottom-1 left-0 w-full h-[6px] bg-[#e8edff] group-hover:bg-black group-hover:h-[6px] -z-0 transition-all duration-300"></span>
-              </button>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-white py-32 px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-5xl md:text-[64px] font-black text-[#1a1b1f] mb-12 tracking-tighter">Industries we've excelled in</h2>
-              <div className="flex flex-wrap justify-center gap-4">
-                {['Digital Transformation', 'Security', 'Fintech'].map((tab) => (
-                  <button 
-                    key={tab} 
-                    onClick={() => {
-                       if (tab === 'Digital Transformation') setCurrentView('digital-transformation');
-                       if (tab === 'Security') setCurrentView('security');
-                       if (tab === 'Fintech') setCurrentView('fintech');
-                    }}
-                    className="px-8 py-2.5 rounded-full border border-gray-200 text-[14px] font-bold text-gray-500 hover:border-[#001fcc] hover:text-[#001fcc] transition-all bg-white shadow-sm"
-                  >{tab}</button>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative mt-20">
-              <IndustryCard tag="INDUSTRIES WE SERVE" title="Fintech" description="Building secure and scalable financial solutions that redefine how people manage their wealth and transactions." bgColor="bg-[#f0f4ff]" stickyTop="100px" onClick={() => setCurrentView('fintech')}>
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <div className="w-[300px] h-[300px] bg-[#a8ffad] rounded-full absolute -z-10 blur-3xl opacity-30 animate-pulse"></div>
-                  <div className="w-[350px] h-[350px] bg-[#a8ffad] rounded-full flex items-center justify-center relative shadow-inner overflow-hidden">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                      <div className="flex flex-col gap-4 animate-bounce duration-1000">
-                        {[1, 2, 3, 4, 5].map((i) => (
-                          <div key={i} className="w-12 h-12 bg-yellow-400 rounded-full border-4 border-yellow-600 flex items-center justify-center text-yellow-800 font-bold shadow-lg transform rotate-12 -ml-8">$</div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </IndustryCard>
-
-              <IndustryCard tag="INDUSTRIES WE SERVE" title="Digital Transformation" description="Modernize your entire workflow. We implement digital strategies that eliminate legacy friction and drive technical efficiency." bgColor="bg-[#f9f7ff]" stickyTop="140px" onClick={() => setCurrentView('digital-transformation')}>
-                <div className="w-full h-full flex justify-center items-center">
-                   <div className="w-[320px] h-[500px] bg-white rounded-[2rem] shadow-2xl border border-gray-100 p-8 flex flex-col relative overflow-hidden group">
-                      <div className="flex justify-between items-center mb-8">
-                        <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white"><RefreshCw width={16} height={16} /></div>
-                        <div className="text-gray-300"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></div>
-                      </div>
-                      <h4 className="text-4xl font-black text-[#1a1b1f] mb-6">pipeline</h4>
-                      <div className="flex gap-4 mb-8">
-                         <div className="flex-1 p-4 bg-gray-50 rounded-xl border border-gray-100"><span className="text-3xl font-black block">98%</span><span className="text-[10px] text-gray-400 font-bold uppercase">Efficiency</span></div>
-                         <div className="flex-1 p-4 bg-gray-50 rounded-xl border border-gray-100"><span className="text-3xl font-black block">0</span><span className="text-[10px] text-gray-400 font-bold uppercase">Tech Debt</span></div>
-                      </div>
-                      <div className="space-y-4">
-                        <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden"><div className="h-full w-[85%] bg-blue-500 rounded-full"></div></div>
-                        <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden"><div className="h-full w-[65%] bg-teal-400 rounded-full"></div></div>
-                      </div>
-                      <div className="absolute top-10 right-[-20px] bg-white p-4 rounded-xl shadow-xl flex gap-3 text-[10px] font-bold text-gray-400 uppercase tracking-widest border border-gray-50 transform group-hover:-translate-x-4 transition-transform duration-500">
-                        <span className="text-[#001fcc]">cloud</span><span>scale</span><span>agility</span>
-                      </div>
-                   </div>
-                </div>
-              </IndustryCard>
-
-              <IndustryCard tag="INDUSTRIES WE SERVE" title="Security" description="Protecting your most valuable digital assets with proactive monitoring and multi-layered threat mitigation systems." bgColor="bg-[#fff9f0]" stickyTop="180px" onClick={() => setCurrentView('security')}>
-                <div className="w-full h-full flex justify-center items-center">
-                  <div className="relative w-full max-w-[500px] h-[400px]">
-                    <div className="absolute left-0 bottom-0 w-[240px] h-[350px] bg-white rounded-[2rem] shadow-2xl border border-4 border-[#1a1b1f] p-4 transform -rotate-6 z-10 overflow-hidden flex flex-col items-center justify-center">
-                       <Shield size={120} className="text-[#001fcc] mb-6 animate-pulse" strokeWidth={1} />
-                       <div className="text-[#1a1b1f] font-black text-xl tracking-tighter uppercase">Vault Secured</div>
-                    </div>
-                    <div className="absolute right-0 bottom-0 w-[240px] h-[350px] bg-[#1a1b1f] rounded-[2rem] shadow-2xl border border-4 border-[#1a1b1f] p-4 transform rotate(6deg) z-0 overflow-hidden flex flex-col items-center justify-center">
-                       <div className="w-full h-full opacity-20 bg-[radial-gradient(circle_at_center,_#fff_1px,_transparent_1px)] bg-[length:20px_20px] absolute inset-0"></div>
-                       <div className="relative z-10 text-white font-mono text-xs opacity-60 leading-loose">
-                          01101010 11010101 <br />10101111 00101010 <br />ENCRYPTED_LAYER_07 <br />STATUS_ACTIVE <br />NO_THREATS_DETECTED
-                       </div>
-                    </div>
-                  </div>
-                </div>
-              </IndustryCard>
-            </div>
-          </div>
-        </section>
-
-        <Reviews />
-        <RecognitionGrid />
-        <StatsBanner onGetInTouchClick={commonNavProps.onGetInTouchClick} />
-        <LatestInsights onLearnMoreClick={(id) => {
-          setSelectedBlogId(id);
-          setCurrentView('blog-detail');
-        }} onViewAllClick={() => setCurrentView('blog-archive')} />
-        <FAQSection />
-        <ContactSection />
-        <JourneySection />
+        {renderContent()}
       </main>
-      <Footer onAboutUsClick={() => setCurrentView('about-us')} onServicesClick={() => setCurrentView('services')} onPortfolioClick={() => setCurrentView('portfolio')} onContactClick={() => setCurrentView('contact')} />
+      <Footer 
+        onAboutUsClick={() => setCurrentView('about-us')} 
+        onServicesClick={() => setCurrentView('services')} 
+        onPortfolioClick={() => setCurrentView('portfolio')} 
+        onContactClick={() => setCurrentView('contact')} 
+      />
     </div>
   );
 };

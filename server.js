@@ -54,9 +54,11 @@ async function createServer() {
         render = (await import(renderPath)).render;
       }
 
-      const { html: appHtml } = await render(url);
+      const { html: appHtml, helmet } = await render(url);
 
-      const html = template.replace(`<!--ssr-outlet-->`, appHtml);
+      let html = template
+        .replace(`<!--ssr-outlet-->`, appHtml)
+        .replace(`<!--ssr-head-tags-->`, `${helmet.title.toString()}${helmet.meta.toString()}${helmet.link.toString()}`);
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
     } catch (e) {
