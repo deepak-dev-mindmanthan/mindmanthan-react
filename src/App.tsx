@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import SEO from "./components/SEO";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
@@ -12,29 +12,47 @@ import CoreValues from "./sections/CoreValues";
 import Reviews from "./sections/Reviews";
 import RecognitionGrid from "./sections/RecognitionGrid";
 import FAQSection from "./sections/FAQSection";
-import CaseStudies from "./pages/CaseStudies";
-import CustomSoftwarePage from "./pages/CustomSoftwarePage";
-import MobileAppPage from "./pages/MobileAppPage";
-import StaffAugmentationPage from "./pages/StaffAugmentationPage";
-import WebAppPage from "./pages/WebAppPage";
-import BlockchainPage from "./pages/BlockchainPage";
-import IOSDevelopmentPage from "./pages/IOSDevelopmentPage";
-import AndroidDevelopmentPage from "./pages/AndroidDevelopmentPage";
-import DigitalTransformationPage from "./pages/DigitalTransformationPage";
-import SecurityPage from "./pages/SecurityPage";
-import FintechPage from "./pages/FintechPage";
-import ConsultingProvidersPage from "./pages/ConsultingProvidersPage";
-import InsuranceCaseStudyPage from "./pages/InsuranceCaseStudyPage";
-import CoffeeCaseStudyPage from "./pages/CoffeeCaseStudyPage";
-import LondonTravelCaseStudyPage from "./pages/LondonTravelCaseStudyPage";
-import AboutUsPage from "./pages/AboutUsPage";
-import WhyUsPage from "./pages/WhyUsPage";
-import ServicesPage from "./pages/ServicesPage";
-import PortfolioPage from "./pages/PortfolioPage";
-import ContactPage from "./pages/ContactPage";
-import BlogPage from "./pages/BlogPage";
-import BlogArchive from "./pages/BlogArchive";
-import EventsPage from "./pages/EventsPage";
+const AboutUsPage = React.lazy(() => import("./pages/AboutUsPage"));
+const WhyUsPage = React.lazy(() => import("./pages/WhyUsPage"));
+const ServicesPage = React.lazy(() => import("./pages/ServicesPage"));
+const PortfolioPage = React.lazy(() => import("./pages/PortfolioPage"));
+const ContactPage = React.lazy(() => import("./pages/ContactPage"));
+const CaseStudies = React.lazy(() => import("./pages/CaseStudies"));
+const InsuranceCaseStudyPage = React.lazy(
+  () => import("./pages/InsuranceCaseStudyPage"),
+);
+const CoffeeCaseStudyPage = React.lazy(
+  () => import("./pages/CoffeeCaseStudyPage"),
+);
+const LondonTravelCaseStudyPage = React.lazy(
+  () => import("./pages/LondonTravelCaseStudyPage"),
+);
+const CustomSoftwarePage = React.lazy(
+  () => import("./pages/CustomSoftwarePage"),
+);
+const MobileAppPage = React.lazy(() => import("./pages/MobileAppPage"));
+const StaffAugmentationPage = React.lazy(
+  () => import("./pages/StaffAugmentationPage"),
+);
+const WebAppPage = React.lazy(() => import("./pages/WebAppPage"));
+const BlockchainPage = React.lazy(() => import("./pages/BlockchainPage"));
+const IOSDevelopmentPage = React.lazy(
+  () => import("./pages/IOSDevelopmentPage"),
+);
+const AndroidDevelopmentPage = React.lazy(
+  () => import("./pages/AndroidDevelopmentPage"),
+);
+const DigitalTransformationPage = React.lazy(
+  () => import("./pages/DigitalTransformationPage"),
+);
+const SecurityPage = React.lazy(() => import("./pages/SecurityPage"));
+const FintechPage = React.lazy(() => import("./pages/FintechPage"));
+const ConsultingProvidersPage = React.lazy(
+  () => import("./pages/ConsultingProvidersPage"),
+);
+const EventsPage = React.lazy(() => import("./pages/EventsPage"));
+const BlogArchive = React.lazy(() => import("./pages/BlogArchive"));
+const BlogPage = React.lazy(() => import("./pages/BlogPage"));
 import { Shield, RefreshCw } from "lucide-react";
 import { Navigate, Route, Routes, useLocation, useMatch, useNavigate } from "react-router-dom";
 import { ROUTES, getBlogDetailPath } from "./routes/routes";
@@ -203,6 +221,12 @@ const IndustryCard: React.FC<IndustryCardProps> = ({
   </div>
 );
 
+const PageLoader: React.FC = () => (
+  <div className="min-h-[50vh] flex items-center justify-center text-sm text-gray-500">
+    Loading...
+  </div>
+);
+
 type View =
   | "home"
   | "case-studies"
@@ -362,7 +386,8 @@ const App: React.FC = () => {
   };
 
   const renderRoutes = () => (
-    <Routes>
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
       <Route
         path={ROUTES.about}
         element={
@@ -1035,8 +1060,9 @@ const App: React.FC = () => {
           </>
         }
       />
-      <Route path="*" element={<Navigate to={ROUTES.home} replace />} />
-    </Routes>
+        <Route path="*" element={<Navigate to={ROUTES.home} replace />} />
+      </Routes>
+    </Suspense>
   );
 
   return (
