@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MindManthanLogoFooter = () => (
-  <div className="flex items-center gap-4 group cursor-pointer">
+  <div className="flex items-center gap-4 group cursor-pointer flex-wrap">
     <div className="relative w-16 h-16 flex items-center justify-center">
       {/* Animated Orbiting Ring Layers */}
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
@@ -17,7 +17,7 @@ const MindManthanLogoFooter = () => (
           strokeLinecap="round"
           className="opacity-40 animate-[spin_20s_linear_infinite]"
         />
-        
+
         {/* Decorative Teal Ring */}
         <circle
           cx="50"
@@ -51,7 +51,7 @@ const MindManthanLogoFooter = () => (
     </div>
 
     <div className="flex flex-col leading-tight">
-      <span className="text-[#001fcc] text-2xl font-black tracking-tight uppercase">
+      <span className="text-[#001fcc] text-2xl font-black tracking-tight uppercase break-words">
         Mind Manthan
       </span>
       <div className="flex items-center gap-2">
@@ -73,19 +73,19 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPortfolioClick, onContactClick }) => {
   return (
-    <footer className="bg-[#f4f7ff] py-24">
+    <footer className="bg-[#f4f7ff] py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-16">
-          <div className="col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-16">
+          <div className="md:col-span-2">
             <div className="mb-8">
               <MindManthanLogoFooter />
             </div>
-            <p className="text-gray-500 max-w-md leading-relaxed text-lg">
+            <p className="text-gray-500 max-w-md leading-relaxed text-base md:text-lg">
               We are a team of passionate developers and strategists committed to transforming businesses through innovative digital solutions and strategic software engineering.
             </p>
           </div>
           <div>
-            <h4 className="font-black text-[#010417] text-lg uppercase tracking-widest mb-8">Explore</h4>
+            <h4 className="font-black text-[#010417] text-base md:text-lg uppercase tracking-widest mb-6 md:mb-8">Explore</h4>
             <ul className="space-y-4 text-gray-500 font-medium">
               <li><button onClick={onAboutUsClick} className="hover:text-[#001fcc] transition-colors cursor-pointer bg-none border-none p-0 text-left">About Us</button></li>
               <li><button onClick={onServicesClick} className="hover:text-[#001fcc] transition-colors cursor-pointer bg-none border-none p-0 text-left">Services</button></li>
@@ -94,18 +94,18 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
             </ul>
           </div>
           <div>
-            <h4 className="font-black text-[#010417] text-lg uppercase tracking-widest mb-8">Contact</h4>
-            <ul className="space-y-4 text-gray-500 font-medium">
-              <li>info@mindmanthansoftwaresolutions.com</li>
-              <li>+91 70115 02461</li>
-              <li>A90, A Block, Sector 4, Noida, Uttar Pradesh 201301</li>
+            <h4 className="font-black text-[#010417] text-base md:text-lg uppercase tracking-widest mb-6 md:mb-8">Contact</h4>
+            <ul className="space-y-4 text-gray-500 font-medium break-words">
+              <li className="break-words">info@mindmanthansoftwaresolutions.com</li>
+              <li className="break-words">+91 70115 02461</li>
+              <li className="break-words">A90, A Block, Sector 4, Noida, Uttar Pradesh 201301</li>
               <li className="text-[#001fcc] font-bold underline cursor-pointer">Schedule a Call</li>
             </ul>
           </div>
         </div>
-        <div className="mt-24 pt-10 border-t border-blue-100 flex flex-col md:flex-row justify-between items-center gap-6 text-gray-400 text-sm font-medium">
-          <p>© 2024 Mind Manthan Software Solutions. All Rights Reserved.</p>
-          <div className="flex gap-10">
+        <div className="mt-16 md:mt-24 pt-8 md:pt-10 border-t border-blue-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-gray-400 text-sm font-medium">
+          <p className="break-words">&copy; 2024 Mind Manthan Software Solutions. All Rights Reserved.</p>
+          <div className="flex flex-wrap gap-6">
             <a href="#" className="hover:text-[#001fcc]">Privacy Policy</a>
             <a href="#" className="hover:text-[#001fcc]">Terms of Service</a>
             <a href="#" className="hover:text-[#001fcc]">Sitemap</a>
