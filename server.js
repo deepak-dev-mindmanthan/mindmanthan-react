@@ -34,6 +34,11 @@ async function createServer() {
   app.use(async (req, res, next) => {
     const url = req.originalUrl;
 
+    // Skip requests for static assets (files with extensions) to avoid FOUC and unnecessary SSR
+    if (url.includes('.') && !url.endsWith('.html')) {
+      return next();
+    }
+
     try {
       let template, render;
       if (!isProd) {

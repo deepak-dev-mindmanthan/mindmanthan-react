@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SEO from './components/SEO';
 import { getSEO } from './seoConfig';
-import './index.css';
 import StatsBanner from './components/StatsBanner';
 import LatestInsights from './components/LatestInsights';
 import ContactSection from './components/ContactSection';
