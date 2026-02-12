@@ -13,7 +13,7 @@ import {
   Zap,
   CheckCircle2
 } from 'lucide-react';
-import { Service, Stat, Testimonial, NavLink } from './types';
+import { Service, Stat, Testimonial, NavLink } from '../types/appTypes';
 
 // Matching the requested navbar links
 export const NAV_LINKS = [

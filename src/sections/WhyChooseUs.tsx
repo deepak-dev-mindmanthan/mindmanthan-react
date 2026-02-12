@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
-import { STATS } from '../constants';
+import { STATS } from '../config/constants';
 
 const WhyChooseUs: React.FC = () => {
   const features = [

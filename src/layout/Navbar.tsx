@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { NAV_LINKS } from '../constants';
-import SolutionsMegaMenu from './SolutionsMegaMenu';
-import CompanyMegaMenu from './CompanyMegaMenu';
-import ResourcesDropdown from './ResourcesDropdown';
-import HomeDropdown from './HomeDropdown';
+import { NAV_LINKS } from '../config/constants';
+import SolutionsMegaMenu from '../components/nav/SolutionsMegaMenu';
+import CompanyMegaMenu from '../components/nav/CompanyMegaMenu';
+import ResourcesDropdown from '../components/nav/ResourcesDropdown';
+import HomeDropdown from '../components/nav/HomeDropdown';
 
 interface NavbarProps {
   onLogoClick?: () => void;

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { SERVICES, ICON_MAP } from '../constants';
+import { SERVICES, ICON_MAP } from '../config/constants';
 
 const Services: React.FC = () => {
   return (

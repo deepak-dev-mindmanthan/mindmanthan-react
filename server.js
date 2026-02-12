@@ -47,7 +47,7 @@ async function createServer() {
           'utf-8'
         );
         template = await vite.transformIndexHtml(url, template);
-        render = (await vite.ssrLoadModule('/entry-server.tsx')).render;
+        render = (await vite.ssrLoadModule('/src/entry-server.tsx')).render;
       } else {
         console.log(`[SSR] Serving "${url}" using build files from /dist`);
         template = await fs.readFile(

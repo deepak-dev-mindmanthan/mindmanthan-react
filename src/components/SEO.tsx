@@ -1,6 +1,6 @@
   import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { PageSEO, DEFAULT_SEO } from '../seoConfig';
+import { PageSEO, DEFAULT_SEO } from '../config/seoConfig';
 
 interface SEOProps {
   seo?: PageSEO;

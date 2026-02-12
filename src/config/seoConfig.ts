@@ -1,5 +1,5 @@
 import { SITE_CONFIG, SITE_LOGO, SITE_OG_IMAGE, SITE_URL } from "./siteConfig";
-import { ROUTES, getBlogDetailPath } from "./routes";
+import { ROUTES, getBlogDetailPath } from "../routes/routes";
 
 export interface PageSEO {
   title: string;
