@@ -3,12 +3,22 @@
 @tailwind utilities;
 
 @layer base {
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
   body {
     font-family: 'Jost', sans-serif;
     @apply bg-white text-gray-900 m-0 p-0;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Jost', sans-serif;
+  }
+  main {
+    width: 100%;
   }
 }
 
