@@ -1,3 +1,5 @@
+import { SITE_CONFIG, SITE_LOGO, SITE_OG_IMAGE, SITE_URL } from "./siteConfig";
+
 export interface PageSEO {
   title: string;
   description: string;
@@ -16,10 +18,8 @@ export interface PageSEO {
   schemaType?: 'Organization' | 'ProfessionalService' | 'Article' | 'WebPage';
 }
 
-const SITE_NAME = "Mind Manthan";
-const SITE_URL = "https://mindmanthan.com";
-const SITE_LOGO = `${SITE_URL}/assets/images/mindmanthan.webp`;
-const DEFAULT_OG_IMAGE = SITE_LOGO;
+const SITE_NAME = SITE_CONFIG.siteName;
+const DEFAULT_OG_IMAGE = SITE_OG_IMAGE;
 
 const VIEW_PATHS: Record<string, string> = {
   home: "/",
@@ -55,8 +55,7 @@ const getCanonicalUrl = (view: string, id?: number) => {
 
 export const DEFAULT_SEO: PageSEO = {
   title: "Mind Manthan - Software Solutions",
-  description:
-    "Mind Manthan delivers custom software development, mobile and web apps, and digital transformation services for growing businesses.",
+  description: SITE_CONFIG.siteDescription,
   keywords:
     "software development, mobile app development, web development, custom software, digital transformation, cybersecurity, fintech",
   ogImage: DEFAULT_OG_IMAGE,
@@ -275,7 +274,15 @@ export const getSchema = (view: string, id?: number) => {
     "@type": "Organization",
     "name": SITE_NAME,
     "url": SITE_URL,
-    "logo": SITE_LOGO
+    "logo": SITE_LOGO,
+    "sameAs": [
+      SITE_CONFIG.facebookPage,
+      SITE_CONFIG.instagramPage,
+      SITE_CONFIG.linkedinPage,
+      SITE_CONFIG.youtubeChannel,
+      SITE_CONFIG.githubOrg,
+      ...(SITE_CONFIG.additionalProfiles || [])
+    ].filter(Boolean)
   };
 
   const pagePath = VIEW_PATHS[view] || "/";

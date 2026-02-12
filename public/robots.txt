@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mindmanthan.com/sitemap.xml
+Sitemap: https://mindmanthansoftwaresolutions.com/sitemap.xml
