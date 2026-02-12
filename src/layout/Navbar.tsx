@@ -123,6 +123,7 @@ const Navbar: React.FC<NavbarProps> = ({
   const [isHidden, setIsHidden] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileOpenSection, setMobileOpenSection] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -155,6 +156,14 @@ const Navbar: React.FC<NavbarProps> = ({
   const hoverColor = isLight ? 'hover:text-[#001fcc]' : 'hover:text-teal-400';
   const ctaBg = isLight ? 'bg-[#001fcc] text-white' : 'bg-white text-black';
   const closeDropdown = () => setActiveDropdown(null);
+  const toggleMobileSection = (label: string) => {
+    setMobileOpenSection((prev) => (prev === label ? null : label));
+  };
+  const handleMobileAction = (action?: () => void) => {
+    if (action) action();
+    setIsMobileMenuOpen(false);
+    setMobileOpenSection(null);
+  };
 
   return (
     <>
@@ -287,38 +296,213 @@ const Navbar: React.FC<NavbarProps> = ({
       </nav>
 
       <div 
-        className={`fixed inset-0 z-[95] transition-all duration-500 ease-in-out lg:hidden ${
+        className={`fixed inset-0 z-[95] lg:hidden transition-all duration-500 ease-in-out ${
           isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <div className="absolute inset-0 bg-[#010417] backdrop-blur-xl"></div>
-        <div className="relative h-full flex flex-col items-center justify-center p-8 overflow-y-auto">
-          <div className="flex flex-col items-center space-y-8 py-20">
-            {NAV_LINKS.map((link) => (
-              <div key={link.label} className="text-center">
-                <a 
-                  key={link.label} 
-                  href={link.path} 
-                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors"
-                  onClick={(e) => {
-                    if (link.label === 'Home' && onLogoClick) {
-                      e.preventDefault();
-                      onLogoClick();
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                      setIsMobileMenuOpen(false);
-                    } else if (link.label === 'Portfolio' && onPortfolioClick) {
-                      e.preventDefault();
-                      onPortfolioClick();
-                      setIsMobileMenuOpen(false);
-                    } else if (!link.hasDropdown) {
-                      setIsMobileMenuOpen(false);
-                    }
-                  }}
-                >
-                  {link.label}
-                </a>
-              </div>
-            ))}
+        <div className={`absolute inset-0 bg-[#010417] backdrop-blur-xl transition-transform duration-500 ease-in-out ${
+          isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
+        }`}></div>
+        <div className={`relative h-full overflow-y-auto transition-transform duration-500 ease-in-out ${
+          isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
+        }`}>
+          <div className="pt-28 pb-16 px-8 flex flex-col items-center space-y-8">
+            {NAV_LINKS.map((link) => {
+              if (!link.hasDropdown) {
+                return (
+                  <div key={link.label} className="text-center">
+                    <button
+                      className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (link.label === 'Portfolio') {
+                          handleMobileAction(onPortfolioClick);
+                        } else if (link.label === 'Home') {
+                          handleMobileAction(onLogoClick);
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else {
+                          setIsMobileMenuOpen(false);
+                        }
+                      }}
+                    >
+                      {link.label}
+                    </button>
+                  </div>
+                );
+              }
+
+              if (link.label === 'Home') {
+                return (
+                  <div key={link.label} className="w-full text-center">
+                    <button
+                      className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors inline-flex items-center gap-3"
+                      onClick={() => toggleMobileSection('Home')}
+                    >
+                      {link.label}
+                      <ChevronDown
+                        size={20}
+                        className={`transition-transform ${mobileOpenSection === 'Home' ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                    <div
+                      className={`mt-4 flex flex-col items-center gap-4 overflow-hidden transition-all duration-300 ${
+                        mobileOpenSection === 'Home' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                      }`}
+                    >
+                        <button
+                          onClick={() => handleMobileAction(onServicesClick)}
+                          className="text-blue-200 text-lg font-semibold hover:text-white transition-colors"
+                        >
+                          IT Services
+                        </button>
+                        <button
+                          onClick={() => handleMobileAction(onAndroidDevelopmentClick)}
+                          className="text-blue-200 text-lg font-semibold hover:text-white transition-colors"
+                        >
+                          App Development
+                        </button>
+                    </div>
+                  </div>
+                );
+              }
+
+              if (link.label === 'Solutions') {
+                return (
+                  <div key={link.label} className="w-full text-center">
+                    <button
+                      className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors inline-flex items-center gap-3"
+                      onClick={() => toggleMobileSection('Solutions')}
+                    >
+                      {link.label}
+                      <ChevronDown
+                        size={20}
+                        className={`transition-transform ${mobileOpenSection === 'Solutions' ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                    <div
+                      className={`mt-4 flex flex-col items-center gap-4 overflow-hidden transition-all duration-300 ${
+                        mobileOpenSection === 'Solutions' ? 'max-h-[1200px] opacity-100' : 'max-h-0 opacity-0'
+                      }`}
+                    >
+                        <button
+                          onClick={() => handleMobileAction(onServicesClick)}
+                          className="text-blue-100 text-lg font-semibold hover:text-white transition-colors"
+                        >
+                          All Services
+                        </button>
+                        <button onClick={() => handleMobileAction(onSoftwareClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          Custom Software Development
+                        </button>
+                        <button onClick={() => handleMobileAction(onMobileAppClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          Mobile App Development
+                        </button>
+                        <button onClick={() => handleMobileAction(onStaffAugmentationClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          Staff Augmentation
+                        </button>
+                        <button onClick={() => handleMobileAction(onWebAppClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          Web App Development
+                        </button>
+                        <button onClick={() => handleMobileAction(onBlockchainClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          Blockchain
+                        </button>
+                        <button onClick={() => handleMobileAction(onIOSDevelopmentClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          iOS Development
+                        </button>
+                        <button onClick={() => handleMobileAction(onAndroidDevelopmentClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          Android Development
+                        </button>
+                        <button onClick={() => handleMobileAction(onDigitalTransformationClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          Digital Transformation
+                        </button>
+                        <button onClick={() => handleMobileAction(onSecurityClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          Security
+                        </button>
+                        <button onClick={() => handleMobileAction(onFintechClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          Fintech
+                        </button>
+                        <button onClick={() => handleMobileAction(onConsultingClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          Consulting
+                        </button>
+                        <div className="mt-2 text-sm uppercase tracking-[0.25em] text-white/50">
+                          Case Studies
+                        </div>
+                        <button onClick={() => handleMobileAction(onInsuranceCaseStudyClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          Insurance Platform
+                        </button>
+                        <button onClick={() => handleMobileAction(onCoffeeCaseStudyClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          Coffee Brand
+                        </button>
+                        <button onClick={() => handleMobileAction(onLondonTravelCaseStudyClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          London Travel
+                        </button>
+                    </div>
+                  </div>
+                );
+              }
+
+              if (link.label === 'Company') {
+                return (
+                  <div key={link.label} className="w-full text-center">
+                    <button
+                      className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors inline-flex items-center gap-3"
+                      onClick={() => toggleMobileSection('Company')}
+                    >
+                      {link.label}
+                      <ChevronDown
+                        size={20}
+                        className={`transition-transform ${mobileOpenSection === 'Company' ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                    <div
+                      className={`mt-4 flex flex-col items-center gap-4 overflow-hidden transition-all duration-300 ${
+                        mobileOpenSection === 'Company' ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+                      }`}
+                    >
+                        <button onClick={() => handleMobileAction(onAboutUsClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          About Us
+                        </button>
+                        <button onClick={() => handleMobileAction(onServicesClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          Why Us
+                        </button>
+                    </div>
+                  </div>
+                );
+              }
+
+              if (link.label === 'Resources') {
+                return (
+                  <div key={link.label} className="w-full text-center">
+                    <button
+                      className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors inline-flex items-center gap-3"
+                      onClick={() => toggleMobileSection('Resources')}
+                    >
+                      {link.label}
+                      <ChevronDown
+                        size={20}
+                        className={`transition-transform ${mobileOpenSection === 'Resources' ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                    <div
+                      className={`mt-4 flex flex-col items-center gap-4 overflow-hidden transition-all duration-300 ${
+                        mobileOpenSection === 'Resources' ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+                      }`}
+                    >
+                        <button onClick={() => handleMobileAction(onGetInTouchClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          Schedule a Consultation
+                        </button>
+                        <button onClick={() => handleMobileAction(onEventsClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          Events
+                        </button>
+                        <button onClick={() => handleMobileAction(onFaqClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                          FAQ
+                        </button>
+                    </div>
+                  </div>
+                );
+              }
+
+              return null;
+            })}
             <button onClick={onGetInTouchClick} className="mt-8 bg-blue-600 text-white px-12 py-4 rounded-xl font-semibold text-lg hover:bg-blue-700 transition-colors">
               Get in touch
             </button>
