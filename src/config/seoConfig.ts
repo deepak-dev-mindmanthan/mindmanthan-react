@@ -258,6 +258,15 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     ogUrl: getCanonicalUrl("blog-archive"),
     schemaType: 'WebPage'
   },
+  'not-found': {
+    ...DEFAULT_SEO,
+    title: "Page Not Found | Mind Manthan",
+    description: "The page you are looking for could not be found.",
+    canonical: getCanonicalUrl("home"),
+    ogUrl: getCanonicalUrl("home"),
+    robots: "noindex, nofollow",
+    schemaType: 'WebPage'
+  },
 };
 
 export const BLOGS: Record<number, any> = {

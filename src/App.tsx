@@ -251,7 +251,8 @@ type View =
   | "contact"
   | "events"
   | "blog-detail"
-  | "blog-archive";
+  | "blog-archive"
+  | "not-found";
 
 const App: React.FC = () => {
   const [zoomScale, setZoomScale] = useState(1.2);
@@ -293,7 +294,7 @@ const App: React.FC = () => {
       [ROUTES.events]: "events",
       [ROUTES.blog]: "blog-archive",
     };
-    return map[path] || "home";
+    return map[path] || "not-found";
   }, [blogMatch, location.pathname]);
 
   const partners = [
@@ -1060,7 +1061,24 @@ const App: React.FC = () => {
           </>
         }
       />
-        <Route path="*" element={<Navigate to={ROUTES.home} replace />} />
+        <Route
+          path="*"
+          element={
+            <div className="min-h-[60vh] flex flex-col items-center justify-center px-6 text-center">
+              <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-4">404</p>
+              <h1 className="text-3xl md:text-4xl font-black text-[#1a1b1f] mb-4">Page Not Found</h1>
+              <p className="text-gray-500 max-w-lg mb-8">
+                The page you are looking for doesn't exist. You can go back to the homepage.
+              </p>
+              <button
+                onClick={() => navigate(ROUTES.home)}
+                className="bg-[#e8edff] text-[#001fcc] px-6 py-3 rounded-md font-bold text-[15px] hover:bg-[#d9e2ff] transition-all"
+              >
+                Back to Home
+              </button>
+            </div>
+          }
+        />
       </Routes>
     </Suspense>
   );
