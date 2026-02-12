@@ -19,7 +19,7 @@ async function createServer() {
     });
     app.use(vite.middlewares);
   } else {
-    console.log('Running in PRODUCTION mode (utilizing dist folder)');
+    console.log('Running in PRODUCTION mode');
     const compression = (await import('compression')).default;
     const serveStatic = (await import('serve-static')).default;
     
