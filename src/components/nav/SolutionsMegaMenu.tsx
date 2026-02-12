@@ -31,6 +31,8 @@ interface SolutionsMegaMenuProps {
   onCoffeeCaseStudyClick?: () => void;
   onLondonTravelCaseStudyClick?: () => void;
   onPortfolioClick?: () => void;
+  isOpen?: boolean;
+  onItemClick?: () => void;
 }
 
 const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({ 
@@ -48,7 +50,9 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
   onInsuranceCaseStudyClick,
   onCoffeeCaseStudyClick,
   onLondonTravelCaseStudyClick,
-  onPortfolioClick
+  onPortfolioClick,
+  isOpen = false,
+  onItemClick
 }) => {
   const solutions = [
     { label: 'Custom Software Development', path: '#', isSoftware: true },
@@ -90,7 +94,12 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
   ];
 
   return (
-    <div className="absolute top-full left-1/2 -translate-x-1/2 w-[98vw] max-w-[1540px] pt-2 opacity-0 invisible translate-y-4 group-hover/nav:opacity-100 group-hover/nav:visible group-hover/nav:translate-y-0 transition-all duration-300 z-[100]">
+    <div
+      className={`absolute top-full left-1/2 -translate-x-1/2 w-[98vw] max-w-[1540px] pt-2 transition-all duration-300 z-[100] ${
+        isOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-4"
+      }`}
+      onClick={onItemClick}
+    >
       <div className="bg-[#e8edff] shadow-lg border-t border-gray-100 flex flex-col lg:flex-row min-h-0">
         
         <div className="flex-[0.8] p-8 lg:p-10">
@@ -108,6 +117,7 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                     else if (item.isBlockchain && onBlockchainClick) { e.preventDefault(); onBlockchainClick(); }
                     else if (item.isIOS && onIOSDevelopmentClick) { e.preventDefault(); onIOSDevelopmentClick(); }
                     else if (item.isAndroid && onAndroidDevelopmentClick) { e.preventDefault(); onAndroidDevelopmentClick(); }
+                    if (onItemClick) onItemClick();
                   }}
                   className="text-[15px] font-bold text-gray-700 hover:text-[#001fcc] transition-colors leading-tight block"
                 >
@@ -129,6 +139,7 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                    if (item.isDating && onSecurityClick) onSecurityClick(); // Map to existing prop
                    if (item.isFintech && onFintechClick) onFintechClick();
                    if (item.isConsulting && onConsultingClick) onConsultingClick();
+                   if (onItemClick) onItemClick();
                 }}
                 className="bg-white p-5 border border-blue-100 hover:shadow-md transition-all hover:border-[#001fcc] group/card cursor-pointer flex flex-col items-start gap-2 h-full min-h-[110px]"
               >
@@ -165,6 +176,7 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                     e.preventDefault();
                     onLondonTravelCaseStudyClick();
                   }
+                  if (onItemClick) onItemClick();
                 }}
               >
                 <p className="text-[14px] font-bold text-gray-800 leading-relaxed mb-4 group-hover/cs:text-[#001fcc] transition-colors">
@@ -180,6 +192,7 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
               onClick={(e) => {
                 e.preventDefault();
                 if (onPortfolioClick) onPortfolioClick();
+                if (onItemClick) onItemClick();
               }}
               className="text-[#001fcc] font-bold text-[18px] border-b-[2.5px] border-[#e8edff] hover:border-[#001fcc] pb-0.5 transition-all duration-300"
             >

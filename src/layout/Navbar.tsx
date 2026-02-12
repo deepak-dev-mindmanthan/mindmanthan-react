@@ -122,6 +122,7 @@ const Navbar: React.FC<NavbarProps> = ({
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -153,6 +154,7 @@ const Navbar: React.FC<NavbarProps> = ({
   const linkColor = isLight ? 'text-[#1a1b1f]' : 'text-white';
   const hoverColor = isLight ? 'hover:text-[#001fcc]' : 'hover:text-teal-400';
   const ctaBg = isLight ? 'bg-[#001fcc] text-white' : 'bg-white text-black';
+  const closeDropdown = () => setActiveDropdown(null);
 
   return (
     <>
@@ -169,9 +171,11 @@ const Navbar: React.FC<NavbarProps> = ({
 
             <div className="hidden lg:flex items-center space-x-12">
               {NAV_LINKS.map((link) => (
-                <div 
-                  key={link.label} 
+                <div
+                  key={link.label}
                   className={`${(link.label === 'Solutions' || link.label === 'Company') ? '' : 'relative'} group/nav`}
+                  onMouseEnter={() => link.hasDropdown && setActiveDropdown(link.label)}
+                  onMouseLeave={() => link.hasDropdown && setActiveDropdown(null)}
                 >
                   <a 
                     href={link.path}
@@ -180,9 +184,13 @@ const Navbar: React.FC<NavbarProps> = ({
                         e.preventDefault();
                         onLogoClick();
                         window.scrollTo({ top: 0, behavior: 'smooth' });
+                        closeDropdown();
                       } else if (link.label === 'Portfolio' && onPortfolioClick) {
                         e.preventDefault();
                         onPortfolioClick();
+                        closeDropdown();
+                      } else if (!link.hasDropdown) {
+                        closeDropdown();
                       }
                     }}
                     className={`text-[15px] font-medium transition-all flex items-center gap-1 py-4 group ${linkColor} ${hoverColor}`}
@@ -196,7 +204,9 @@ const Navbar: React.FC<NavbarProps> = ({
                   {link.hasDropdown && (
                     <>
                       {link.label === 'Solutions' ? (
-                        <SolutionsMegaMenu 
+                        <SolutionsMegaMenu
+                          isOpen={activeDropdown === 'Solutions'}
+                          onItemClick={closeDropdown}
                           onSoftwareClick={onSoftwareClick} 
                           onMobileAppClick={onMobileAppClick}
                           onStaffAugmentationClick={onStaffAugmentationClick}
@@ -214,11 +224,26 @@ const Navbar: React.FC<NavbarProps> = ({
                           onPortfolioClick={onPortfolioClick}
                         />
                       ) : link.label === 'Company' ? (
-                        <CompanyMegaMenu onAboutUsClick={onAboutUsClick} />
+                        <CompanyMegaMenu
+                          isOpen={activeDropdown === 'Company'}
+                          onItemClick={closeDropdown}
+                          onAboutUsClick={onAboutUsClick}
+                        />
                       ) : link.label === 'Resources' ? (
-                        <ResourcesDropdown onScheduleClick={onContactClick || onGetInTouchClick} onFaqClick={onFaqClick || onGetInTouchClick} onEventsClick={onEventsClick || onGetInTouchClick} />
+                        <ResourcesDropdown
+                          isOpen={activeDropdown === 'Resources'}
+                          onItemClick={closeDropdown}
+                          onScheduleClick={onContactClick || onGetInTouchClick}
+                          onFaqClick={onFaqClick || onGetInTouchClick}
+                          onEventsClick={onEventsClick || onGetInTouchClick}
+                        />
                       ) : link.label === 'Home' ? (
-                        <HomeDropdown onServicesClick={onServicesClick} onAndroidClick={onAndroidDevelopmentClick} />
+                        <HomeDropdown
+                          isOpen={activeDropdown === 'Home'}
+                          onItemClick={closeDropdown}
+                          onServicesClick={onServicesClick}
+                          onAndroidClick={onAndroidDevelopmentClick}
+                        />
                       ) : null}
                     </>
                   )}

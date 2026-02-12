@@ -2,9 +2,15 @@ import React from 'react';
 
 interface CompanyMegaMenuProps {
   onAboutUsClick?: () => void;
+  isOpen?: boolean;
+  onItemClick?: () => void;
 }
 
-const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({ onAboutUsClick }) => {
+const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({
+  onAboutUsClick,
+  isOpen = false,
+  onItemClick,
+}) => {
   const companyLinks = [
     { label: 'About us', path: '#', onClick: onAboutUsClick },
     { label: 'Why US', path: '#' },
@@ -15,7 +21,12 @@ const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({ onAboutUsClick }) => 
   ];
 
   return (
-    <div className="absolute top-full left-1/2 -translate-x-1/2 w-[98vw] max-w-[1540px] pt-2 opacity-0 invisible translate-y-4 group-hover/nav:opacity-100 group-hover/nav:visible group-hover/nav:translate-y-0 transition-all duration-300 z-[100]">
+    <div
+      className={`absolute top-full left-1/2 -translate-x-1/2 w-[98vw] max-w-[1540px] pt-2 transition-all duration-300 z-[100] ${
+        isOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-4"
+      }`}
+      onClick={onItemClick}
+    >
       <div className="bg-[#e8edff] shadow-none border-t border-gray-100 overflow-hidden flex flex-col lg:flex-row min-h-0">
         
         {/* Left Headline Column */}
@@ -37,6 +48,7 @@ const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({ onAboutUsClick }) => 
                     if (link.onClick) {
                       link.onClick();
                     }
+                    if (onItemClick) onItemClick();
                   }}
                   className="text-[15px] font-bold text-[#1a1b1f] hover:text-[#001fcc] transition-colors leading-tight cursor-pointer"
                 >
