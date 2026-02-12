@@ -19,7 +19,7 @@ const FAQSection: React.FC = () => {
 
           <div>
             <h3 className="text-xl font-semibold">Do you work with startups?</h3>
-            <p className="text-gray-600 mt-2">Yes — we partner with startups and enterprises to deliver scalable software products.</p>
+            <p className="text-gray-600 mt-2">Yes - we partner with startups and enterprises to deliver scalable software products.</p>
           </div>
         </div>
       </div>
