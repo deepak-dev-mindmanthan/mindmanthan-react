@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import SEO from "./components/SEO";
@@ -36,6 +36,8 @@ import BlogArchive from "./components/BlogArchive";
 import EventsPage from "./components/EventsPage";
 import FAQSection from "./components/FAQSection";
 import { Shield, RefreshCw } from "lucide-react";
+import { Navigate, Route, Routes, useLocation, useMatch, useNavigate } from "react-router";
+import { ROUTES, getBlogDetailPath } from "./routes";
 
 // Custom Blueprint Icons to match the screenshot exactly
 const StaffIcon = () => (
@@ -227,71 +229,48 @@ type View =
   | "blog-detail"
   | "blog-archive";
 
-const PATH_TO_VIEW: Record<string, View> = {
-  "/": "home",
-  "/about-us": "about-us",
-  "/why-us": "why-us",
-  "/services": "services",
-  "/portfolio": "portfolio",
-  "/contact": "contact",
-  "/case-studies": "case-studies",
-  "/custom-software": "custom-software",
-  "/mobile-app": "mobile-app",
-  "/staff-augmentation": "staff-augmentation",
-  "/web-app": "web-app",
-  "/blockchain": "blockchain",
-  "/ios-development": "ios-development",
-  "/android-development": "android-development",
-  "/digital-transformation": "digital-transformation",
-  "/security": "security",
-  "/fintech": "fintech",
-  "/consulting": "consulting",
-  "/events": "events",
-  "/blog": "blog-archive",
-};
-
-const VIEW_TO_PATH: Record<View, string> = Object.entries(PATH_TO_VIEW).reduce(
-  (acc, [path, view]) => {
-    acc[view] = path;
-    return acc;
-  },
-  {} as Record<View, string>,
-);
-
-interface AppProps {
-  initialPath?: string;
-}
-
-const App: React.FC<AppProps> = ({ initialPath }) => {
+const App: React.FC = () => {
   const [zoomScale, setZoomScale] = useState(1.2);
-  const [selectedBlogId, setSelectedBlogId] = useState<number>(1);
-  const [currentView, setCurrentView] = useState<View>(() => {
-    if (initialPath) return PATH_TO_VIEW[initialPath] || "home";
-    if (typeof window !== "undefined") {
-      return PATH_TO_VIEW[window.location.pathname] || "home";
-    }
-    return "home";
-  });
   const techSectionRef = useRef<HTMLElement>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const blogMatch = useMatch("/blog/:id");
+  const blogId = useMemo(() => {
+    const rawId = blogMatch?.params?.id;
+    const parsed = rawId ? Number(rawId) : undefined;
+    return Number.isFinite(parsed) ? parsed : undefined;
+  }, [blogMatch?.params?.id]);
 
-  // Sync URL with state
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const path = VIEW_TO_PATH[currentView];
-      if (path && window.location.pathname !== path) {
-        window.history.pushState({}, "", path);
-      }
-    }
-  }, [currentView]);
-
-  // Handle browser back/forward
-  useEffect(() => {
-    const handlePopState = () => {
-      setCurrentView(PATH_TO_VIEW[window.location.pathname] || "home");
+  const currentView: View = useMemo(() => {
+    if (blogMatch) return "blog-detail";
+    const path = location.pathname;
+    const map: Record<string, View> = {
+      [ROUTES.home]: "home",
+      [ROUTES.about]: "about-us",
+      [ROUTES.whyUs]: "why-us",
+      [ROUTES.services]: "services",
+      [ROUTES.portfolio]: "portfolio",
+      [ROUTES.contact]: "contact",
+      [ROUTES.caseStudies]: "case-studies",
+      [ROUTES.insuranceCaseStudy]: "insurance-case-study",
+      [ROUTES.coffeeCaseStudy]: "coffee-case-study",
+      [ROUTES.londonTravelCaseStudy]: "london-travel-case-study",
+      [ROUTES.customSoftware]: "custom-software",
+      [ROUTES.mobileApp]: "mobile-app",
+      [ROUTES.staffAugmentation]: "staff-augmentation",
+      [ROUTES.webApp]: "web-app",
+      [ROUTES.blockchain]: "blockchain",
+      [ROUTES.iosDevelopment]: "ios-development",
+      [ROUTES.androidDevelopment]: "android-development",
+      [ROUTES.digitalTransformation]: "digital-transformation",
+      [ROUTES.security]: "security",
+      [ROUTES.fintech]: "fintech",
+      [ROUTES.consulting]: "consulting",
+      [ROUTES.events]: "events",
+      [ROUTES.blog]: "blog-archive",
     };
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
-  }, []);
+    return map[path] || "home";
+  }, [blogMatch, location.pathname]);
 
   const partners = [
     {
@@ -327,150 +306,191 @@ const App: React.FC<AppProps> = ({ initialPath }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [currentView]);
+  }, [location.pathname]);
 
-  const commonNavProps = {
-    onLogoClick: () => setCurrentView("home"),
-    onSoftwareClick: () => setCurrentView("custom-software"),
-    onMobileAppClick: () => setCurrentView("mobile-app"),
-    onStaffAugmentationClick: () => setCurrentView("staff-augmentation"),
-    onWebAppClick: () => setCurrentView("web-app"),
-    onBlockchainClick: () => setCurrentView("blockchain"),
-    onIOSDevelopmentClick: () => setCurrentView("ios-development"),
-    onAndroidDevelopmentClick: () => setCurrentView("android-development"),
-    onDigitalTransformationClick: () =>
-      setCurrentView("digital-transformation"),
-    onSecurityClick: () => setCurrentView("security"),
-    onFintechClick: () => setCurrentView("fintech"),
-    onConsultingClick: () => setCurrentView("consulting"),
-    onInsuranceCaseStudyClick: () => setCurrentView("insurance-case-study"),
-    onCoffeeCaseStudyClick: () => setCurrentView("coffee-case-study"),
-    onLondonTravelCaseStudyClick: () =>
-      setCurrentView("london-travel-case-study"),
-    onPortfolioClick: () => setCurrentView("portfolio"),
-    onAboutUsClick: () => setCurrentView("about-us"),
-    onServicesClick: () => setCurrentView("services"),
-    onContactClick: () => setCurrentView("contact"),
-    onViewAllClick: () => setCurrentView("blog-archive"),
-    onEventsClick: () => setCurrentView("events"),
-    onFaqClick: () => {
-      const faqEl = document.querySelector("[data-faq-section]");
-      if (faqEl && currentView === "home") {
-        faqEl.scrollIntoView({ behavior: "smooth" });
-        return;
-      }
-      setCurrentView("home");
-      setTimeout(() => {
-        const faqEl2 = document.querySelector("[data-faq-section]");
-        if (faqEl2) faqEl2.scrollIntoView({ behavior: "smooth" });
-      }, 300);
-    },
-    onGetInTouchClick: () => {
-      const consultationForm = document.querySelector(
-        "[data-consultation-form]",
-      );
-      const contactForm = document.querySelector("[data-contact-form]");
-      const targetForm = consultationForm || contactForm;
-      if (targetForm) {
-        targetForm.scrollIntoView({ behavior: "smooth" });
-      } else {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    },
-    isLight: currentView !== "home",
-    isHomePage: currentView === "home",
+  useEffect(() => {
+    const state = location.state as { scrollTo?: string } | null;
+    if (state?.scrollTo) {
+      const selector = state.scrollTo;
+      setTimeout(() => scrollToSelector(selector), 50);
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location.pathname, location.state, navigate]);
+
+  const scrollToSelector = (selector: string) => {
+    const element = document.querySelector(selector);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
-  const renderContent = () => {
-    switch (currentView) {
-      case "about-us":
-        return (
+  const navigateHomeAndScroll = (selector: string) => {
+    if (location.pathname === ROUTES.home) {
+      scrollToSelector(selector);
+      return;
+    }
+    navigate("/", { state: { scrollTo: selector } });
+  };
+
+  const commonNavProps = {
+    onLogoClick: () => navigate(ROUTES.home),
+    onSoftwareClick: () => navigate(ROUTES.customSoftware),
+    onMobileAppClick: () => navigate(ROUTES.mobileApp),
+    onStaffAugmentationClick: () => navigate(ROUTES.staffAugmentation),
+    onWebAppClick: () => navigate(ROUTES.webApp),
+    onBlockchainClick: () => navigate(ROUTES.blockchain),
+    onIOSDevelopmentClick: () => navigate(ROUTES.iosDevelopment),
+    onAndroidDevelopmentClick: () => navigate(ROUTES.androidDevelopment),
+    onDigitalTransformationClick: () => navigate(ROUTES.digitalTransformation),
+    onSecurityClick: () => navigate(ROUTES.security),
+    onFintechClick: () => navigate(ROUTES.fintech),
+    onConsultingClick: () => navigate(ROUTES.consulting),
+    onInsuranceCaseStudyClick: () => navigate(ROUTES.insuranceCaseStudy),
+    onCoffeeCaseStudyClick: () => navigate(ROUTES.coffeeCaseStudy),
+    onLondonTravelCaseStudyClick: () => navigate(ROUTES.londonTravelCaseStudy),
+    onPortfolioClick: () => navigate(ROUTES.portfolio),
+    onAboutUsClick: () => navigate(ROUTES.about),
+    onServicesClick: () => navigate(ROUTES.services),
+    onContactClick: () => navigate(ROUTES.contact),
+    onViewAllClick: () => navigate(ROUTES.blog),
+    onEventsClick: () => navigate(ROUTES.events),
+    onFaqClick: () => navigateHomeAndScroll("[data-faq-section]"),
+    onGetInTouchClick: () =>
+      navigateHomeAndScroll("[data-consultation-form], [data-contact-form]"),
+    isLight: location.pathname !== ROUTES.home,
+    isHomePage: location.pathname === ROUTES.home,
+  };
+
+  const renderRoutes = () => (
+    <Routes>
+      <Route
+        path={ROUTES.about}
+        element={
           <>
-            <AboutUsPage onLearnMoreClick={() => setCurrentView("why-us")} />
+            <AboutUsPage onLearnMoreClick={() => navigate(ROUTES.whyUs)} />
             <CoreValues />
           </>
-        );
-      case "why-us":
-        return (
-          <WhyUsPage onExploreServices={() => setCurrentView("services")} />
-        );
-      case "services":
-        return (
+        }
+      />
+      <Route
+        path={ROUTES.whyUs}
+        element={
+          <WhyUsPage onExploreServices={() => navigate(ROUTES.services)} />
+        }
+      />
+      <Route
+        path={ROUTES.services}
+        element={
           <ServicesPage onNavigateHome={commonNavProps.onGetInTouchClick} />
-        );
-      case "portfolio":
-        return <PortfolioPage onBackHome={() => setCurrentView("home")} />;
-      case "contact":
-        return <ContactPage onBackHome={() => setCurrentView("home")} />;
-      case "case-studies":
-        return <CaseStudies onBackHome={() => setCurrentView("home")} />;
-      case "custom-software":
-        return <CustomSoftwarePage onBackHome={() => setCurrentView("home")} />;
-      case "mobile-app":
-        return <MobileAppPage onBackHome={() => setCurrentView("home")} />;
-      case "staff-augmentation":
-        return (
-          <StaffAugmentationPage onBackHome={() => setCurrentView("home")} />
-        );
-      case "web-app":
-        return <WebAppPage onBackHome={() => setCurrentView("home")} />;
-      case "blockchain":
-        return <BlockchainPage onBackHome={() => setCurrentView("home")} />;
-      case "ios-development":
-        return <IOSDevelopmentPage onBackHome={() => setCurrentView("home")} />;
-      case "android-development":
-        return (
-          <AndroidDevelopmentPage onBackHome={() => setCurrentView("home")} />
-        );
-      case "digital-transformation":
-        return (
-          <DigitalTransformationPage
-            onBackHome={() => setCurrentView("home")}
-          />
-        );
-      case "security":
-        return <SecurityPage onBackHome={() => setCurrentView("home")} />;
-      case "fintech":
-        return <FintechPage onBackHome={() => setCurrentView("home")} />;
-      case "consulting":
-        return (
-          <ConsultingProvidersPage onBackHome={() => setCurrentView("home")} />
-        );
-      case "insurance-case-study":
-        return (
-          <InsuranceCaseStudyPage onBackHome={() => setCurrentView("home")} />
-        );
-      case "coffee-case-study":
-        return (
-          <CoffeeCaseStudyPage onBackHome={() => setCurrentView("home")} />
-        );
-      case "london-travel-case-study":
-        return (
-          <LondonTravelCaseStudyPage
-            onBackHome={() => setCurrentView("home")}
-          />
-        );
-      case "events":
-        return <EventsPage onContactClick={commonNavProps.onContactClick} />;
-      case "blog-archive":
-        return (
-          <BlogArchive
-            onReadMoreClick={(id) => {
-              setSelectedBlogId(id);
-              setCurrentView("blog-detail");
-            }}
-          />
-        );
-      case "blog-detail":
-        return (
-          <BlogPage
-            blogId={selectedBlogId}
-            onBackToHome={() => setCurrentView("home")}
-          />
-        );
-      case "home":
-      default:
-        return (
+        }
+      />
+      <Route
+        path={ROUTES.portfolio}
+        element={<PortfolioPage onBackHome={() => navigate(ROUTES.home)} />}
+      />
+      <Route
+        path={ROUTES.contact}
+        element={<ContactPage onBackHome={() => navigate(ROUTES.home)} />}
+      />
+      <Route
+        path={ROUTES.caseStudies}
+        element={<CaseStudies onBackHome={() => navigate(ROUTES.home)} />}
+      />
+      <Route
+        path={ROUTES.insuranceCaseStudy}
+        element={
+          <InsuranceCaseStudyPage onBackHome={() => navigate(ROUTES.home)} />
+        }
+      />
+      <Route
+        path={ROUTES.coffeeCaseStudy}
+        element={<CoffeeCaseStudyPage onBackHome={() => navigate(ROUTES.home)} />}
+      />
+      <Route
+        path={ROUTES.londonTravelCaseStudy}
+        element={
+          <LondonTravelCaseStudyPage onBackHome={() => navigate(ROUTES.home)} />
+        }
+      />
+      <Route
+        path={ROUTES.customSoftware}
+        element={<CustomSoftwarePage onBackHome={() => navigate(ROUTES.home)} />}
+      />
+      <Route
+        path={ROUTES.mobileApp}
+        element={<MobileAppPage onBackHome={() => navigate(ROUTES.home)} />}
+      />
+      <Route
+        path={ROUTES.staffAugmentation}
+        element={
+          <StaffAugmentationPage onBackHome={() => navigate(ROUTES.home)} />
+        }
+      />
+      <Route
+        path={ROUTES.webApp}
+        element={<WebAppPage onBackHome={() => navigate(ROUTES.home)} />}
+      />
+      <Route
+        path={ROUTES.blockchain}
+        element={<BlockchainPage onBackHome={() => navigate(ROUTES.home)} />}
+      />
+      <Route
+        path={ROUTES.iosDevelopment}
+        element={<IOSDevelopmentPage onBackHome={() => navigate(ROUTES.home)} />}
+      />
+      <Route
+        path={ROUTES.androidDevelopment}
+        element={
+          <AndroidDevelopmentPage onBackHome={() => navigate(ROUTES.home)} />
+        }
+      />
+      <Route
+        path={ROUTES.digitalTransformation}
+        element={
+          <DigitalTransformationPage onBackHome={() => navigate(ROUTES.home)} />
+        }
+      />
+      <Route
+        path={ROUTES.security}
+        element={<SecurityPage onBackHome={() => navigate(ROUTES.home)} />}
+      />
+      <Route
+        path={ROUTES.fintech}
+        element={<FintechPage onBackHome={() => navigate(ROUTES.home)} />}
+      />
+      <Route
+        path={ROUTES.consulting}
+        element={
+          <ConsultingProvidersPage onBackHome={() => navigate(ROUTES.home)} />
+        }
+      />
+      <Route
+        path={ROUTES.events}
+        element={<EventsPage onContactClick={commonNavProps.onContactClick} />}
+      />
+      <Route
+        path={ROUTES.blog}
+        element={
+          <BlogArchive onReadMoreClick={(id) => navigate(getBlogDetailPath(id))} />
+        }
+      />
+      <Route
+        path={ROUTES.blogDetail}
+        element={
+          blogId ? (
+            <BlogPage
+              blogId={blogId}
+              onBackHome={() => navigate(ROUTES.home)}
+              onBackToHome={() => navigate(ROUTES.blog)}
+            />
+          ) : (
+            <BlogArchive onReadMoreClick={(id) => navigate(getBlogDetailPath(id))} />
+          )
+        }
+      />
+      <Route
+        path={ROUTES.home}
+        element={
           <>
             <section id="hero-section">
               <Hero />
@@ -486,7 +506,7 @@ const App: React.FC<AppProps> = ({ initialPath }) => {
                   value.
                 </h2>
                 <button
-                  onClick={() => setCurrentView("why-us")}
+                  onClick={() => navigate(ROUTES.whyUs)}
                   className="bg-[#e8edff] text-[#001fcc] px-8 py-3 rounded-md font-bold text-[15px] hover:bg-[#d9e2ff] transition-all active:scale-95"
                 >
                   Why to choose us
@@ -579,7 +599,7 @@ const App: React.FC<AppProps> = ({ initialPath }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16">
                   <div
                     className="flex flex-col items-start group cursor-pointer"
-                    onClick={() => setCurrentView("staff-augmentation")}
+                    onClick={() => navigate(ROUTES.staffAugmentation)}
                   >
                     <StaffIcon />
                     <h3 className="text-[22px] font-bold text-[#1a1b1f] mb-4 leading-tight group-hover:text-[#001fcc] transition-colors">
@@ -592,7 +612,7 @@ const App: React.FC<AppProps> = ({ initialPath }) => {
                   </div>
                   <div
                     className="flex flex-col items-start group cursor-pointer"
-                    onClick={() => setCurrentView("mobile-app")}
+                    onClick={() => navigate(ROUTES.mobileApp)}
                   >
                     <MobileIcon />
                     <h3 className="text-[22px] font-bold text-[#1a1b1f] mb-4 leading-tight group-hover:text-[#001fcc] transition-colors">
@@ -605,7 +625,7 @@ const App: React.FC<AppProps> = ({ initialPath }) => {
                   </div>
                   <div
                     className="flex flex-col items-start group cursor-pointer"
-                    onClick={() => setCurrentView("web-app")}
+                    onClick={() => navigate(ROUTES.webApp)}
                   >
                     <WebIcon />
                     <h3 className="text-[22px] font-bold text-[#1a1b1f] mb-4 leading-tight group-hover:text-[#001fcc] transition-colors">
@@ -618,7 +638,7 @@ const App: React.FC<AppProps> = ({ initialPath }) => {
                   </div>
                   <div
                     className="flex flex-col items-start group cursor-pointer"
-                    onClick={() => setCurrentView("custom-software")}
+                    onClick={() => navigate(ROUTES.customSoftware)}
                   >
                     <SoftwareIcon />
                     <h3 className="text-[22px] font-bold text-[#1a1b1f] mb-4 leading-tight group-hover:text-[#001fcc] transition-colors">
@@ -633,7 +653,7 @@ const App: React.FC<AppProps> = ({ initialPath }) => {
 
                 <div className="mt-20">
                   <button
-                    onClick={() => setCurrentView("services")}
+                    onClick={() => navigate(ROUTES.services)}
                     className="inline-block relative text-[#001fcc] hover:text-black font-bold text-[19px] group transition-colors duration-300"
                   >
                     <span className="relative z-10">View all services</span>
@@ -836,7 +856,7 @@ const App: React.FC<AppProps> = ({ initialPath }) => {
 
                 <div className="mt-20 text-center">
                   <button
-                    onClick={() => setCurrentView("case-studies")}
+                    onClick={() => navigate(ROUTES.caseStudies)}
                     className="inline-block relative text-[#001fcc] hover:text-black font-bold text-[19px] group transition-colors duration-300"
                   >
                     <span className="relative z-10">View all Case Studies</span>
@@ -859,9 +879,9 @@ const App: React.FC<AppProps> = ({ initialPath }) => {
                           key={tab}
                           onClick={() => {
                             if (tab === "Digital Transformation")
-                              setCurrentView("digital-transformation");
-                            if (tab === "Security") setCurrentView("security");
-                            if (tab === "Fintech") setCurrentView("fintech");
+                              navigate(ROUTES.digitalTransformation);
+                            if (tab === "Security") navigate(ROUTES.security);
+                            if (tab === "Fintech") navigate(ROUTES.fintech);
                           }}
                           className="px-8 py-2.5 rounded-full border border-gray-200 text-[14px] font-bold text-gray-500 hover:border-[#001fcc] hover:text-[#001fcc] transition-all bg-white shadow-sm"
                         >
@@ -879,7 +899,7 @@ const App: React.FC<AppProps> = ({ initialPath }) => {
                     description="Building secure and scalable financial solutions that redefine how people manage their wealth and transactions."
                     bgColor="bg-[#f0f4ff]"
                     stickyTop="100px"
-                    onClick={() => setCurrentView("fintech")}
+                    onClick={() => navigate(ROUTES.fintech)}
                   >
                     <div className="relative w-full h-full flex items-center justify-center">
                       <div className="w-[300px] h-[300px] bg-[#a8ffad] rounded-full absolute -z-10 blur-3xl opacity-30 animate-pulse"></div>
@@ -906,7 +926,7 @@ const App: React.FC<AppProps> = ({ initialPath }) => {
                     description="Modernize your entire workflow. We implement digital strategies that eliminate legacy friction and drive technical efficiency."
                     bgColor="bg-[#f9f7ff]"
                     stickyTop="140px"
-                    onClick={() => setCurrentView("digital-transformation")}
+                    onClick={() => navigate(ROUTES.digitalTransformation)}
                   >
                     <div className="w-full h-full flex justify-center items-center">
                       <div className="w-[320px] h-[500px] bg-white rounded-[2rem] shadow-2xl border border-gray-100 p-8 flex flex-col relative overflow-hidden group">
@@ -971,7 +991,7 @@ const App: React.FC<AppProps> = ({ initialPath }) => {
                     description="Protecting your most valuable digital assets with proactive monitoring and multi-layered threat mitigation systems."
                     bgColor="bg-[#fff9f0]"
                     stickyTop="180px"
-                    onClick={() => setCurrentView("security")}
+                    onClick={() => navigate(ROUTES.security)}
                   >
                     <div className="w-full h-full flex justify-center items-center">
                       <div className="relative w-full max-w-[500px] h-[400px]">
@@ -1006,39 +1026,36 @@ const App: React.FC<AppProps> = ({ initialPath }) => {
             <RecognitionGrid />
             <StatsBanner onGetInTouchClick={commonNavProps.onGetInTouchClick} />
             <LatestInsights
-              onLearnMoreClick={(id) => {
-                setSelectedBlogId(id);
-                setCurrentView("blog-detail");
-              }}
-              onViewAllClick={() => setCurrentView("blog-archive")}
+              onLearnMoreClick={(id) => navigate(getBlogDetailPath(id))}
+              onViewAllClick={() => navigate(ROUTES.blog)}
             />
             <FAQSection />
             <ContactSection />
             <JourneySection />
           </>
-        );
-    }
-  };
-
-  const showCoreValues = currentView === "home";
+        }
+      />
+      <Route path="*" element={<Navigate to={ROUTES.home} replace />} />
+    </Routes>
+  );
 
   return (
     <div className="min-h-screen bg-white">
-      <SEO seo={getSEO(currentView, selectedBlogId)} />
+      <SEO seo={getSEO(currentView, blogId)} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getSchema(currentView, selectedBlogId)),
+          __html: JSON.stringify(getSchema(currentView, blogId)),
         }}
       />
 
       <Navbar {...commonNavProps} />
-      <main>{renderContent()}</main>
+      <main>{renderRoutes()}</main>
       <Footer
-        onAboutUsClick={() => setCurrentView("about-us")}
-        onServicesClick={() => setCurrentView("services")}
-        onPortfolioClick={() => setCurrentView("portfolio")}
-        onContactClick={() => setCurrentView("contact")}
+        onAboutUsClick={() => navigate(ROUTES.about)}
+        onServicesClick={() => navigate(ROUTES.services)}
+        onPortfolioClick={() => navigate(ROUTES.portfolio)}
+        onContactClick={() => navigate(ROUTES.contact)}
       />
     </div>
   );

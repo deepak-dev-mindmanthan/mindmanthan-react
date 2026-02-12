@@ -1,6 +1,7 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { HelmetProvider } from 'react-helmet-async';
+import { StaticRouter } from 'react-router';
 import App from './App';
 
 export function render(url: string) {
@@ -8,7 +9,9 @@ export function render(url: string) {
   const html = renderToString(
     <React.StrictMode>
       <HelmetProvider context={helmetContext}>
-        <App initialPath={url} />
+        <StaticRouter location={url}>
+          <App />
+        </StaticRouter>
       </HelmetProvider>
     </React.StrictMode>
   );

@@ -1,0 +1,28 @@
+export const ROUTES = {
+  home: "/",
+  about: "/about-us",
+  whyUs: "/why-us",
+  services: "/services",
+  portfolio: "/portfolio",
+  contact: "/contact",
+  caseStudies: "/case-studies",
+  insuranceCaseStudy: "/case-studies/insurance",
+  coffeeCaseStudy: "/case-studies/coffee",
+  londonTravelCaseStudy: "/case-studies/london-travel",
+  customSoftware: "/custom-software",
+  mobileApp: "/mobile-app",
+  staffAugmentation: "/staff-augmentation",
+  webApp: "/web-app",
+  blockchain: "/blockchain",
+  iosDevelopment: "/ios-development",
+  androidDevelopment: "/android-development",
+  digitalTransformation: "/digital-transformation",
+  security: "/security",
+  fintech: "/fintech",
+  consulting: "/consulting",
+  events: "/events",
+  blog: "/blog",
+  blogDetail: "/blog/:id",
+};
+
+export const getBlogDetailPath = (id: number | string) => `/blog/${id}`;

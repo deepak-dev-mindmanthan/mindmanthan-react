@@ -1,4 +1,5 @@
 import { SITE_CONFIG, SITE_LOGO, SITE_OG_IMAGE, SITE_URL } from "./siteConfig";
+import { ROUTES, getBlogDetailPath } from "./routes";
 
 export interface PageSEO {
   title: string;
@@ -22,32 +23,35 @@ const SITE_NAME = SITE_CONFIG.siteName;
 const DEFAULT_OG_IMAGE = SITE_OG_IMAGE;
 
 const VIEW_PATHS: Record<string, string> = {
-  home: "/",
-  "about-us": "/about-us",
-  "why-us": "/why-us",
-  services: "/services",
-  portfolio: "/portfolio",
-  contact: "/contact",
-  "case-studies": "/case-studies",
-  "custom-software": "/custom-software",
-  "mobile-app": "/mobile-app",
-  "staff-augmentation": "/staff-augmentation",
-  "web-app": "/web-app",
-  blockchain: "/blockchain",
-  "ios-development": "/ios-development",
-  "android-development": "/android-development",
-  "digital-transformation": "/digital-transformation",
-  security: "/security",
-  fintech: "/fintech",
-  consulting: "/consulting",
-  events: "/events",
-  "blog-archive": "/blog",
-  "blog-detail": "/blog",
+  home: ROUTES.home,
+  "about-us": ROUTES.about,
+  "why-us": ROUTES.whyUs,
+  services: ROUTES.services,
+  portfolio: ROUTES.portfolio,
+  contact: ROUTES.contact,
+  "case-studies": ROUTES.caseStudies,
+  "insurance-case-study": ROUTES.insuranceCaseStudy,
+  "coffee-case-study": ROUTES.coffeeCaseStudy,
+  "london-travel-case-study": ROUTES.londonTravelCaseStudy,
+  "custom-software": ROUTES.customSoftware,
+  "mobile-app": ROUTES.mobileApp,
+  "staff-augmentation": ROUTES.staffAugmentation,
+  "web-app": ROUTES.webApp,
+  blockchain: ROUTES.blockchain,
+  "ios-development": ROUTES.iosDevelopment,
+  "android-development": ROUTES.androidDevelopment,
+  "digital-transformation": ROUTES.digitalTransformation,
+  security: ROUTES.security,
+  fintech: ROUTES.fintech,
+  consulting: ROUTES.consulting,
+  events: ROUTES.events,
+  "blog-archive": ROUTES.blog,
+  "blog-detail": ROUTES.blog,
 };
 
 const getCanonicalUrl = (view: string, id?: number) => {
   if (view === "blog-detail" && id) {
-    return `${SITE_URL}${VIEW_PATHS["blog-detail"]}?id=${id}`;
+    return `${SITE_URL}${getBlogDetailPath(id)}`;
   }
   const path = VIEW_PATHS[view] || "/";
   return `${SITE_URL}${path}`;
@@ -124,6 +128,30 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     description: "In-depth look at how we've solved complex challenges for our clients through innovative software solutions.",
     canonical: getCanonicalUrl("case-studies"),
     ogUrl: getCanonicalUrl("case-studies"),
+    schemaType: 'WebPage'
+  },
+  'insurance-case-study': {
+    ...DEFAULT_SEO,
+    title: "Insurance Platform Case Study | Mind Manthan",
+    description: "See how we delivered a secure, scalable insurance platform with improved onboarding and claims workflows.",
+    canonical: getCanonicalUrl("insurance-case-study"),
+    ogUrl: getCanonicalUrl("insurance-case-study"),
+    schemaType: 'WebPage'
+  },
+  'coffee-case-study': {
+    ...DEFAULT_SEO,
+    title: "Coffee Brand Case Study | Mind Manthan",
+    description: "Discover how we built a modern customer experience and data-driven operations for a coffee brand.",
+    canonical: getCanonicalUrl("coffee-case-study"),
+    ogUrl: getCanonicalUrl("coffee-case-study"),
+    schemaType: 'WebPage'
+  },
+  'london-travel-case-study': {
+    ...DEFAULT_SEO,
+    title: "London Travel Case Study | Mind Manthan",
+    description: "Explore how we designed a travel platform that boosted conversions and streamlined booking.",
+    canonical: getCanonicalUrl("london-travel-case-study"),
+    ogUrl: getCanonicalUrl("london-travel-case-study"),
     schemaType: 'WebPage'
   },
   'custom-software': {
