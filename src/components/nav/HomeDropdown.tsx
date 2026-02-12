@@ -20,14 +20,14 @@ const HomeDropdown: React.FC<HomeDropdownProps> = ({
       }`}
       onClick={onItemClick}
     >
-      <div className="bg-[#1a1b1f] rounded-lg shadow-2xl overflow-hidden py-10 px-10 flex flex-col gap-10">
+      <div className="bg-[#f2f4ff] rounded-lg shadow-2xl overflow-hidden py-8 px-8 flex flex-col gap-6 border border-blue-100">
         <button
           onClick={(e) => {
             e.preventDefault();
             onServicesClick && onServicesClick();
             if (onItemClick) onItemClick();
           }}
-          className="text-[17px] font-black text-white hover:text-teal-400 transition-colors leading-tight tracking-widest text-left"
+          className="text-[15px] font-bold text-[#1a1b1f] hover:text-[#001fcc] transition-colors leading-tight tracking-widest text-left"
         >
           IT SERVICES
         </button>
@@ -38,7 +38,7 @@ const HomeDropdown: React.FC<HomeDropdownProps> = ({
             onAndroidClick && onAndroidClick();
             if (onItemClick) onItemClick();
           }}
-          className="text-[17px] font-black text-white hover:text-teal-400 transition-colors leading-tight tracking-widest text-left"
+          className="text-[15px] font-bold text-[#1a1b1f] hover:text-[#001fcc] transition-colors leading-tight tracking-widest text-left"
         >
           APP DEVELOPMENT
         </button>
