@@ -283,7 +283,19 @@ const Navbar: React.FC<NavbarProps> = ({
               </button>
             </div>
 
-            <div className="lg:hidden flex items-center">
+            <div className="lg:hidden flex items-center gap-3">
+              <button
+                onClick={() => {
+                  if (!isHomePage && onContactClick) {
+                    onContactClick();
+                  } else if (onGetInTouchClick) {
+                    onGetInTouchClick();
+                  }
+                }}
+                className="px-3 py-2 rounded-md text-[12px] font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+              >
+                Get in touch
+              </button>
               <button 
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className={`p-2 relative z-[70] ${isLight && !isMobileMenuOpen ? 'text-[#1a1b1f]' : 'text-white'}`}
@@ -306,13 +318,16 @@ const Navbar: React.FC<NavbarProps> = ({
         <div className={`relative h-full overflow-y-auto transition-transform duration-500 ease-in-out ${
           isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
         }`}>
-          <div className="pt-28 pb-16 px-8 flex flex-col items-center space-y-8">
+          <div className="pt-24 pb-16 px-6 flex flex-col items-start space-y-6">
+            <div className="w-full flex items-center justify-start pb-4">
+              {/* spacer for header alignment */}
+            </div>
             {NAV_LINKS.map((link) => {
               if (!link.hasDropdown) {
                 return (
-                  <div key={link.label} className="text-center">
+                  <div key={link.label} className="w-full text-left">
                     <button
-                      className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors"
+                      className="w-full text-left text-white text-2xl font-semibold hover:text-blue-400 transition-colors py-2"
                       onClick={(e) => {
                         e.preventDefault();
                         if (link.label === 'Portfolio') {
@@ -333,9 +348,9 @@ const Navbar: React.FC<NavbarProps> = ({
 
               if (link.label === 'Home') {
                 return (
-                  <div key={link.label} className="w-full text-center">
+                  <div key={link.label} className="w-full text-left">
                     <button
-                      className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors inline-flex items-center gap-3"
+                      className="w-full text-left text-white text-2xl font-semibold hover:text-blue-400 transition-colors inline-flex items-center gap-3 py-2"
                       onClick={() => toggleMobileSection('Home')}
                     >
                       {link.label}
@@ -345,19 +360,19 @@ const Navbar: React.FC<NavbarProps> = ({
                       />
                     </button>
                     <div
-                      className={`mt-4 flex flex-col items-center gap-4 overflow-hidden transition-all duration-300 ${
+                      className={`mt-3 flex flex-col items-start gap-3 overflow-hidden transition-all duration-300 ${
                         mobileOpenSection === 'Home' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                       }`}
                     >
                         <button
                           onClick={() => handleMobileAction(onServicesClick)}
-                          className="text-blue-200 text-lg font-semibold hover:text-white transition-colors"
+                          className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1"
                         >
                           IT Services
                         </button>
                         <button
                           onClick={() => handleMobileAction(onAndroidDevelopmentClick)}
-                          className="text-blue-200 text-lg font-semibold hover:text-white transition-colors"
+                          className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1"
                         >
                           App Development
                         </button>
@@ -368,9 +383,9 @@ const Navbar: React.FC<NavbarProps> = ({
 
               if (link.label === 'Solutions') {
                 return (
-                  <div key={link.label} className="w-full text-center">
+                  <div key={link.label} className="w-full text-left">
                     <button
-                      className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors inline-flex items-center gap-3"
+                      className="w-full text-left text-white text-2xl font-semibold hover:text-blue-400 transition-colors inline-flex items-center gap-3 py-2"
                       onClick={() => toggleMobileSection('Solutions')}
                     >
                       {link.label}
@@ -380,59 +395,59 @@ const Navbar: React.FC<NavbarProps> = ({
                       />
                     </button>
                     <div
-                      className={`mt-4 flex flex-col items-center gap-4 overflow-hidden transition-all duration-300 ${
+                      className={`mt-3 flex flex-col items-start gap-3 overflow-hidden transition-all duration-300 ${
                         mobileOpenSection === 'Solutions' ? 'max-h-[1200px] opacity-100' : 'max-h-0 opacity-0'
                       }`}
                     >
                         <button
                           onClick={() => handleMobileAction(onServicesClick)}
-                          className="text-blue-100 text-lg font-semibold hover:text-white transition-colors"
+                          className="w-full text-left text-blue-100 text-base font-semibold hover:text-white transition-colors py-1"
                         >
                           All Services
                         </button>
-                        <button onClick={() => handleMobileAction(onSoftwareClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onSoftwareClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           Custom Software Development
                         </button>
-                        <button onClick={() => handleMobileAction(onMobileAppClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onMobileAppClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           Mobile App Development
                         </button>
-                        <button onClick={() => handleMobileAction(onStaffAugmentationClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onStaffAugmentationClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           Staff Augmentation
                         </button>
-                        <button onClick={() => handleMobileAction(onWebAppClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onWebAppClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           Web App Development
                         </button>
-                        <button onClick={() => handleMobileAction(onBlockchainClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onBlockchainClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           Blockchain
                         </button>
-                        <button onClick={() => handleMobileAction(onIOSDevelopmentClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onIOSDevelopmentClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           iOS Development
                         </button>
-                        <button onClick={() => handleMobileAction(onAndroidDevelopmentClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onAndroidDevelopmentClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           Android Development
                         </button>
-                        <button onClick={() => handleMobileAction(onDigitalTransformationClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onDigitalTransformationClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           Digital Transformation
                         </button>
-                        <button onClick={() => handleMobileAction(onSecurityClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onSecurityClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           Security
                         </button>
-                        <button onClick={() => handleMobileAction(onFintechClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onFintechClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           Fintech
                         </button>
-                        <button onClick={() => handleMobileAction(onConsultingClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onConsultingClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           Consulting
                         </button>
-                        <div className="mt-2 text-sm uppercase tracking-[0.25em] text-white/50">
+                        <div className="mt-2 text-xs uppercase tracking-[0.25em] text-white/50">
                           Case Studies
                         </div>
-                        <button onClick={() => handleMobileAction(onInsuranceCaseStudyClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onInsuranceCaseStudyClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           Insurance Platform
                         </button>
-                        <button onClick={() => handleMobileAction(onCoffeeCaseStudyClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onCoffeeCaseStudyClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           Coffee Brand
                         </button>
-                        <button onClick={() => handleMobileAction(onLondonTravelCaseStudyClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onLondonTravelCaseStudyClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           London Travel
                         </button>
                     </div>
@@ -442,9 +457,9 @@ const Navbar: React.FC<NavbarProps> = ({
 
               if (link.label === 'Company') {
                 return (
-                  <div key={link.label} className="w-full text-center">
+                  <div key={link.label} className="w-full text-left">
                     <button
-                      className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors inline-flex items-center gap-3"
+                      className="w-full text-left text-white text-2xl font-semibold hover:text-blue-400 transition-colors inline-flex items-center gap-3 py-2"
                       onClick={() => toggleMobileSection('Company')}
                     >
                       {link.label}
@@ -454,14 +469,14 @@ const Navbar: React.FC<NavbarProps> = ({
                       />
                     </button>
                     <div
-                      className={`mt-4 flex flex-col items-center gap-4 overflow-hidden transition-all duration-300 ${
+                      className={`mt-3 flex flex-col items-start gap-3 overflow-hidden transition-all duration-300 ${
                         mobileOpenSection === 'Company' ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
                       }`}
                     >
-                        <button onClick={() => handleMobileAction(onAboutUsClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onAboutUsClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           About Us
                         </button>
-                        <button onClick={() => handleMobileAction(onServicesClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onServicesClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           Why Us
                         </button>
                     </div>
@@ -471,9 +486,9 @@ const Navbar: React.FC<NavbarProps> = ({
 
               if (link.label === 'Resources') {
                 return (
-                  <div key={link.label} className="w-full text-center">
+                  <div key={link.label} className="w-full text-left">
                     <button
-                      className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors inline-flex items-center gap-3"
+                      className="w-full text-left text-white text-2xl font-semibold hover:text-blue-400 transition-colors inline-flex items-center gap-3 py-2"
                       onClick={() => toggleMobileSection('Resources')}
                     >
                       {link.label}
@@ -483,17 +498,17 @@ const Navbar: React.FC<NavbarProps> = ({
                       />
                     </button>
                     <div
-                      className={`mt-4 flex flex-col items-center gap-4 overflow-hidden transition-all duration-300 ${
+                      className={`mt-3 flex flex-col items-start gap-3 overflow-hidden transition-all duration-300 ${
                         mobileOpenSection === 'Resources' ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
                       }`}
                     >
-                        <button onClick={() => handleMobileAction(onGetInTouchClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onGetInTouchClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           Schedule a Consultation
                         </button>
-                        <button onClick={() => handleMobileAction(onEventsClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onEventsClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           Events
                         </button>
-                        <button onClick={() => handleMobileAction(onFaqClick)} className="text-blue-200 text-lg font-semibold hover:text-white transition-colors">
+                        <button onClick={() => handleMobileAction(onFaqClick)} className="w-full text-left text-blue-200 text-base font-semibold hover:text-white transition-colors py-1">
                           FAQ
                         </button>
                     </div>
@@ -503,9 +518,6 @@ const Navbar: React.FC<NavbarProps> = ({
 
               return null;
             })}
-            <button onClick={onGetInTouchClick} className="mt-8 bg-blue-600 text-white px-12 py-4 rounded-xl font-semibold text-lg hover:bg-blue-700 transition-colors">
-              Get in touch
-            </button>
           </div>
         </div>
       </div>
