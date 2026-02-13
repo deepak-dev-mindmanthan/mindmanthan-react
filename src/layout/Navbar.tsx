@@ -23,6 +23,7 @@ interface NavbarProps {
   onCoffeeCaseStudyClick?: () => void;
   onLondonTravelCaseStudyClick?: () => void;
   onPortfolioClick?: () => void;
+  onBlogClick?: () => void;
   onAboutUsClick?: () => void;
   onWhyUsClick?: () => void;
   onServicesClick?: () => void;
@@ -111,6 +112,7 @@ const Navbar: React.FC<NavbarProps> = ({
   onCoffeeCaseStudyClick,
   onLondonTravelCaseStudyClick,
   onPortfolioClick,
+  onBlogClick,
   onAboutUsClick,
   onWhyUsClick,
   onServicesClick,
@@ -207,6 +209,10 @@ const Navbar: React.FC<NavbarProps> = ({
                       } else if (link.label === 'Portfolio' && onPortfolioClick) {
                         e.preventDefault();
                         onPortfolioClick();
+                        closeDropdown();
+                      } else if (link.label === 'Blog' && onBlogClick) {
+                        e.preventDefault();
+                        onBlogClick();
                         closeDropdown();
                       } else if (link.label === 'Solutions' && onServicesClick) {
                         e.preventDefault();
@@ -348,6 +354,8 @@ const Navbar: React.FC<NavbarProps> = ({
                         e.preventDefault();
                         if (link.label === 'Portfolio') {
                           handleMobileAction(onPortfolioClick);
+                        } else if (link.label === 'Blog') {
+                          handleMobileAction(onBlogClick);
                         } else if (link.label === 'Home') {
                           handleMobileAction(onLogoClick);
                           window.scrollTo({ top: 0, behavior: 'smooth' });

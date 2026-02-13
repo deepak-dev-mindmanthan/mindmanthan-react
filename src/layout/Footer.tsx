@@ -1,4 +1,5 @@
 import React from 'react';
+import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const MindManthanLogoFooter = () => (
   <div className="flex items-center gap-4 group cursor-pointer flex-wrap">
@@ -68,10 +69,11 @@ interface FooterProps {
   onServicesClick?: () => void;
   onAboutUsClick?: () => void;
   onPortfolioClick?: () => void;
+  onBlogClick?: () => void;
   onContactClick?: () => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPortfolioClick, onContactClick }) => {
+const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPortfolioClick, onBlogClick, onContactClick }) => {
   return (
     <footer className="bg-[#f4f7ff] py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6">
@@ -83,6 +85,44 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
             <p className="text-gray-700 max-w-md leading-relaxed text-base md:text-lg">
               We are a team of passionate developers and strategists committed to transforming businesses through innovative digital solutions and strategic software engineering.
             </p>
+            <div className="mt-8 flex items-center gap-3">
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our LinkedIn"
+                className="w-10 h-10 rounded-full border border-blue-200 bg-white text-[#001fcc] hover:bg-[#001fcc] hover:text-white transition-colors flex items-center justify-center"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href="https://x.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our X profile"
+                className="w-10 h-10 rounded-full border border-blue-200 bg-white text-[#001fcc] hover:bg-[#001fcc] hover:text-white transition-colors flex items-center justify-center"
+              >
+                <Twitter size={18} />
+              </a>
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our Facebook"
+                className="w-10 h-10 rounded-full border border-blue-200 bg-white text-[#001fcc] hover:bg-[#001fcc] hover:text-white transition-colors flex items-center justify-center"
+              >
+                <Facebook size={18} />
+              </a>
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our Instagram"
+                className="w-10 h-10 rounded-full border border-blue-200 bg-white text-[#001fcc] hover:bg-[#001fcc] hover:text-white transition-colors flex items-center justify-center"
+              >
+                <Instagram size={18} />
+              </a>
+            </div>
           </div>
           <div>
             <h4 className="font-black text-[#010417] text-base md:text-lg uppercase tracking-widest mb-6 md:mb-8">Explore</h4>
@@ -90,6 +130,7 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
               <li><button onClick={onAboutUsClick} className="hover:text-[#001fcc] transition-colors cursor-pointer bg-none border-none p-0 text-left">About Us</button></li>
               <li><button onClick={onServicesClick} className="hover:text-[#001fcc] transition-colors cursor-pointer bg-none border-none p-0 text-left">Services</button></li>
               <li><button onClick={onPortfolioClick} className="hover:text-[#001fcc] transition-colors cursor-pointer bg-none border-none p-0 text-left">Portfolio</button></li>
+              <li><button onClick={onBlogClick} className="hover:text-[#001fcc] transition-colors cursor-pointer bg-none border-none p-0 text-left">Blog</button></li>
               <li><button onClick={onContactClick} className="hover:text-[#001fcc] transition-colors cursor-pointer bg-none border-none p-0 text-left">Contact</button></li>
             </ul>
           </div>

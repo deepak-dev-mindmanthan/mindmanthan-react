@@ -22,6 +22,7 @@ export const NAV_LINKS = [
   { label: 'Company', path: '#', hasDropdown: true },
   { label: 'Resources', path: '#', hasDropdown: true },
   { label: 'Portfolio', path: '#', hasDropdown: false },
+  { label: 'Blog', path: '/blog', hasDropdown: false },
 ];
 
 export const SERVICES: Service[] = [
