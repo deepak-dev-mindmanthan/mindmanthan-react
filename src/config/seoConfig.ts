@@ -1,5 +1,6 @@
 import { SITE_CONFIG, SITE_LOGO, SITE_OG_IMAGE, SITE_URL } from "./siteConfig";
 import { ROUTES, getBlogDetailPath } from "../routes/routes";
+import { BLOG_POSTS } from "../data/blogs";
 
 export interface PageSEO {
   title: string;
@@ -276,26 +277,23 @@ interface BlogSeoItem {
   date: string;
 }
 
-export const BLOGS: Record<number, BlogSeoItem> = {
-  1: {
-    title: "Identify the best technologies for your business with Mind Manthan's new tool",
-    excerpt: "Choosing the right technology stack for your business is crucial for long-term success. Our new tool helps you identify the perfect match.",
-    author: "Sarah Johnson",
-    date: "2024-03-15"
-  },
-  2: {
-    title: 'How Chat GPT is Revolutionizing the Way We Find Information',
-    excerpt: 'ChatGPT has changed how we search for and consume information online. Discover the revolutionary impact of AI-powered conversations.',
-    author: "Michael Chen",
-    date: "2024-03-10"
-  },
-  3: {
-    title: "Clutch Recognizes Mind Manthan Among New York's Top Development for 2023",
-    excerpt: 'We are thrilled to announce that Mind Manthan has been recognized as one of New York\'s top development companies.',
-    author: "David Rodriguez",
-    date: "2024-03-05"
-  }
+const toIsoDate = (displayDate: string) => {
+  const parsed = new Date(displayDate);
+  if (Number.isNaN(parsed.getTime())) return displayDate;
+  return parsed.toISOString().slice(0, 10);
 };
+
+export const BLOGS: Record<number, BlogSeoItem> = Object.fromEntries(
+  BLOG_POSTS.map((blog) => [
+    blog.id,
+    {
+      title: blog.title,
+      excerpt: blog.excerpt,
+      author: blog.author,
+      date: toIsoDate(blog.date),
+    },
+  ]),
+) as Record<number, BlogSeoItem>;
 
 export const getSEO = (view: string, id?: number): PageSEO => {
   if (view === 'blog-detail' && id && BLOGS[id]) {

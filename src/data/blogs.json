@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Identify the best technologies for your business with Mind Manthan's new tool",
+    "category": "Product Engineering",
+    "image": "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?q=80&w=1200&auto=format&fit=crop",
+    "author": "Sarah Johnson",
+    "date": "March 15, 2024",
+    "excerpt": "Choosing the right technology stack for your business is crucial for long-term success. Our new tool helps you identify the perfect match.",
+    "content": "Choosing the right technology stack for your business is one of the most critical decisions you'll make.\n\nAt Mind Manthan, we built a practical tool to evaluate your requirements and recommend a stack that fits your team, budget, and growth plan.\n\n## Why Technology Selection Matters\n\nThe right stack improves speed, reliability, and maintainability. The wrong one creates expensive rework and technical debt.\n\n## How Our Tool Works\n\n1. Requirements analysis\n2. Technology mapping\n3. Cost-benefit comparison\n4. Implementation roadmap\n\n## Getting Started\n\nIf you are planning a new product or modernization program, our team can help you run a structured evaluation and ship with confidence."
+  },
+  {
+    "id": 2,
+    "title": "How Chat GPT is Revolutionizing the Way We Find Information",
+    "category": "AI",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop",
+    "author": "Michael Chen",
+    "date": "March 10, 2024",
+    "excerpt": "ChatGPT has changed how we search for and consume information online. Discover the revolutionary impact of AI-powered conversations.",
+    "content": "AI-assisted search is changing user behavior from link-hunting to conversational problem-solving.\n\nTeams now use chat-first workflows for research, drafting, coding, and support.\n\n## What Changed\n\nUsers can ask follow-up questions, provide context, and get guided answers in one flow.\n\n## Practical Impact\n\n- Faster discovery\n- Better context retention\n- Fewer repetitive searches\n\n## Next Step\n\nOrganizations should pair AI assistants with trusted internal knowledge to improve answer quality and speed."
+  },
+  {
+    "id": 3,
+    "title": "Clutch Recognizes Mind Manthan Among New York's Top Development for 2023",
+    "category": "Company",
+    "image": "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=1200&auto=format&fit=crop",
+    "author": "David Rodriguez",
+    "date": "March 5, 2024",
+    "excerpt": "We are thrilled to announce that Mind Manthan has been recognized as one of New York's top development companies.",
+    "content": "We are honored to be recognized by Clutch among top development companies.\n\nThis achievement reflects our team's execution quality, client focus, and delivery discipline.\n\n## What This Means\n\nRecognition validates our approach to building reliable, scalable software for growth-focused businesses.\n\n## Thank You\n\nWe thank our clients and partners for the trust they place in us on every engagement."
+  },
+  {
+    "id": 4,
+    "title": "Best Practices for Building Scalable Web Applications",
+    "category": "Development",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop",
+    "author": "Ava Thompson",
+    "date": "February 28, 2024",
+    "excerpt": "Learn essential best practices and architecture patterns to build scalable and maintainable web applications.",
+    "content": "Scalable systems are designed for change, not just for launch-day performance.\n\n## Architecture Fundamentals\n\nSeparate concerns, keep APIs predictable, and enforce strong observability from day one.\n\n## Delivery Practices\n\n- Ship incrementally\n- Automate testing\n- Monitor latency and error budgets\n\nA disciplined engineering workflow is the fastest path to sustainable scale."
+  },
+  {
+    "id": 5,
+    "title": "The Future of Cloud Computing in 2024",
+    "category": "Technology",
+    "image": "https://images.unsplash.com/photo-1633356122544-f134324ef6db?q=80&w=1200&auto=format&fit=crop",
+    "author": "Noah Patel",
+    "date": "February 20, 2024",
+    "excerpt": "Explore emerging cloud trends and how they will shape the future of enterprise software development.",
+    "content": "Cloud strategy is shifting from pure migration to optimization and governance.\n\n## Key Trends\n\nFinOps maturity, platform engineering, and secure-by-default cloud baselines are becoming standard.\n\n## Business Outcome\n\nOrganizations that standardize environments and automate policy see faster releases with lower operational risk."
+  },
+  {
+    "id": 6,
+    "title": "Building Cross-Platform Mobile Apps with React Native",
+    "category": "Mobile",
+    "image": "https://images.unsplash.com/photo-1517694712028-52b4b6f45ab1?q=80&w=1200&auto=format&fit=crop",
+    "author": "Emma Wilson",
+    "date": "February 15, 2024",
+    "excerpt": "Discover how React Native helps teams build high-performance mobile apps for both iOS and Android.",
+    "content": "React Native remains a pragmatic choice for teams that need speed without sacrificing native feel.\n\n## What Works Well\n\nShared business logic, reusable UI patterns, and strong ecosystem support.\n\n## Watchouts\n\nPlan early for performance-sensitive screens and native module requirements."
+  },
+  {
+    "id": 7,
+    "title": "Cybersecurity Best Practices for Enterprise Applications",
+    "category": "Security",
+    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop",
+    "author": "Liam Garcia",
+    "date": "February 10, 2024",
+    "excerpt": "A practical guide to implementing security best practices in enterprise applications to protect sensitive data.",
+    "content": "Security should be built into architecture and delivery, not added at the end.\n\n## Core Controls\n\nIdentity-first access, secure secrets management, and continuous vulnerability scanning.\n\n## Operational Discipline\n\n- Threat modeling\n- Incident runbooks\n- Regular dependency updates\n\nStrong fundamentals reduce breach probability and blast radius."
+  },
+  {
+    "id": 8,
+    "title": "Containerization with Docker: A Complete Guide",
+    "category": "DevOps",
+    "image": "https://images.unsplash.com/photo-1558618667-e404220d52d4?q=80&w=1200&auto=format&fit=crop",
+    "author": "Olivia Harris",
+    "date": "February 5, 2024",
+    "excerpt": "Learn how to use Docker effectively to containerize applications and streamline deployment pipelines.",
+    "content": "Containers help teams standardize runtime environments across development, staging, and production.\n\n## Good Defaults\n\nUse minimal base images, pin dependencies, and adopt multi-stage builds.\n\n## CI/CD Benefit\n\nImmutable images and repeatable deployment steps reduce release variance and rollback risk."
+  },
+  {
+    "id": 9,
+    "title": "Optimizing Database Performance: Indexing Strategies",
+    "category": "Database",
+    "image": "https://images.unsplash.com/photo-1560949519-19d2b4be14eb?q=80&w=1200&auto=format&fit=crop",
+    "author": "James Lee",
+    "date": "January 30, 2024",
+    "excerpt": "Master practical indexing techniques to improve query performance and optimize database operations.",
+    "content": "Indexing is one of the highest-leverage performance optimizations in data-intensive systems.\n\n## Practical Strategy\n\nStart with query profiling, index for real workloads, and remove redundant indexes.\n\n## Common Pitfall\n\nOver-indexing can hurt write throughput and increase storage costs, so measure before and after."
+  }
+]

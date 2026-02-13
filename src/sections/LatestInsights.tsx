@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Twitter, Linkedin } from 'lucide-react';
+import { BLOG_POSTS } from '../data/blogs';
 
 interface InsightCardProps {
   category: string;
@@ -71,29 +72,7 @@ const InsightCard: React.FC<InsightCardProps> = ({ id, category, title, image, e
 );
 
 const LatestInsights: React.FC<{ onLearnMoreClick?: (id: number) => void; onViewAllClick?: () => void }> = ({ onLearnMoreClick, onViewAllClick }) => {
-  const insights = [
-    {
-      id: 1,
-      category: 'Product Engineering',
-      title: "Identify the best technologies for your business with Mind Manthan's new tool",
-      excerpt: 'Choosing the right technology stack is crucial for your business success. Our new tool helps identify the perfect match for your needs.',
-      image: 'https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?q=80&w=800&auto=format&fit=crop',
-    },
-    {
-      id: 2,
-      category: 'AI',
-      title: 'How Chat GPT is Revolutionizing the Way We Find Information',
-      excerpt: 'ChatGPT has transformed how we search for information. Discover the revolutionary impact of AI-powered conversations on digital landscape.',
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop',
-    },
-    {
-      id: 3,
-      category: 'Company',
-      title: "Clutch Recognizes Mind Manthan Among New York's Top Development for 2023",
-      excerpt: 'We are thrilled to announce that Mind Manthan has been recognized as one of New York\'s leading development companies.',
-      image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=800&auto=format&fit=crop',
-    }
-  ];
+  const insights = BLOG_POSTS.slice(0, 3);
 
   return (
     <section className="bg-white py-24 px-6">
