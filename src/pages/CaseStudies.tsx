@@ -11,12 +11,12 @@ interface Project {
 }
 
 const PROJECTS: Project[] = [
-  { id: '1', title: 'Scuola', category: 'Mobile App', image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop', bgColor: '#e0e7ff' },
-  { id: '2', title: 'Jolie.', category: 'Software', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop', bgColor: '#fdf6e3' },
-  { id: '3', title: 'Skole', category: 'Web App', image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=800&auto=format&fit=crop', bgColor: '#1a1b1f' },
-  { id: '4', title: 'Fintech Pro', category: 'Mobile App', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop', bgColor: '#ecfdf5' },
-  { id: '5', title: 'HealthTrack', category: 'Software', image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop', bgColor: '#fff1f2' },
-  { id: '6', title: 'CloudSync', category: 'Cloud', image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop', bgColor: '#f0f9ff' },
+  { id: '1', title: 'Scuola', category: 'Mobile App', image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=90&w=1600&auto=format&fit=crop', bgColor: '#e0e7ff' },
+  { id: '2', title: 'Jolie.', category: 'Software', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=90&w=1600&auto=format&fit=crop', bgColor: '#fdf6e3' },
+  { id: '3', title: 'Skole', category: 'Web App', image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=90&w=1600&auto=format&fit=crop', bgColor: '#1a1b1f' },
+  { id: '4', title: 'Fintech Pro', category: 'Mobile App', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=90&w=1600&auto=format&fit=crop', bgColor: '#ecfdf5' },
+  { id: '5', title: 'HealthTrack', category: 'Software', image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=90&w=1600&auto=format&fit=crop', bgColor: '#fff1f2' },
+  { id: '6', title: 'CloudSync', category: 'Cloud', image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=90&w=1600&auto=format&fit=crop', bgColor: '#f0f9ff' },
 ];
 
 const CATEGORIES = ['All', 'Mobile App', 'Web App', 'Software', 'Cloud'];
@@ -96,7 +96,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ onBackHome, onNavigateHome })
                 <img loading="lazy" decoding="async" 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover mix-blend-multiply opacity-70 group-hover:scale-105 transition-transform duration-1000"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                 />
                 
                 {/* Modern Hover Overlay */}
