@@ -70,7 +70,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
           </div>
 
           <div className="rounded-lg overflow-hidden shadow-lg">
-            <img
+            <img loading="lazy" decoding="async"
               src={service1}
               alt="Team working in office"
               className="w-full h-auto object-cover"
@@ -80,7 +80,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
           {/* Description Section */}
           <div className="mt-16 mb-12">
             <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12 leading-relaxed">
-              Tecnologia is your trusted partner for IT management, data security, and cloud technology with one goal in mind: to transform the way your business works in order to save you time and money.
+              Mind manthan is your trusted partner for IT management, data security, and cloud technology with one goal in mind: to transform the way your business works in order to save you time and money.
             </p>
 
             <h2 className="text-3xl lg:text-4xl font-black text-[#1a1b1f] mb-12 leading-tight max-w-2xl">
@@ -90,7 +90,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
             <div className="grid md:grid-cols-2 gap-12 max-w-4xl">
               <div>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  When we say comprehensive, we mean comprehensive. Tecnologia has the experience and expertise to provide an excellent experience across spheres, for truly holistic IT.
+                  When we say comprehensive, we mean comprehensive. Mind manthan has the experience and expertise to provide an excellent experience across spheres, for truly holistic IT.
                 </p>
               </div>
               <div>
@@ -120,9 +120,9 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
                   <p className="text-gray-600 text-base leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  <a href="#" className="text-[#001fcc] font-bold hover:text-[#0012a8] transition-colors text-sm">
+                  <button type="button" className="text-[#001fcc] font-bold hover:text-[#0012a8] transition-colors text-sm">
                     Learn more
-                  </a>
+                  </button>
                 </div>
               );
             })}
@@ -136,10 +136,10 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-5xl lg:text-6xl font-black text-[#1a1b1f] mb-6">
-                Why choose services from Tecnologia?
+                Why choose services from Mind manthan?
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-xl">
-                Tecnologia services provide businesses with an edge over the competition with a variety of benefits. Opting for outsourced IT services improves the efficiency of business and builds trust with customers and clients. Our services can be tailored to meet specific needs to match your goals.
+                Mind manthan services provide businesses with an edge over the competition with a variety of benefits. Opting for outsourced IT services improves the efficiency of business and builds trust with customers and clients. Our services can be tailored to meet specific needs to match your goals.
               </p>
               <button
                 onClick={onNavigateHome}
@@ -151,7 +151,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
 
             <div>
               <div className="rounded-lg overflow-hidden shadow-lg">
-                <img
+                <img loading="lazy" decoding="async"
                   src={service1}
                   alt="Team working in office"
                   className="w-full h-auto object-cover rounded-lg"
@@ -271,32 +271,32 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">First Name</label>
-                    <input type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
+                    <input aria-label="Form field" type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
                   </div>
                   <div>
                     <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Last Name</label>
-                    <input type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
+                    <input aria-label="Form field" type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Company / Organization</label>
-                  <input type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
+                  <input aria-label="Form field" type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
                 </div>
 
                 <div>
                   <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Company Email</label>
-                  <input type="email" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
+                  <input aria-label="Form field" type="email" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
                 </div>
 
                 <div>
                   <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Phone</label>
-                  <input type="tel" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
+                  <input aria-label="Form field" type="tel" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
                 </div>
 
                 <div>
                   <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">How Can We Help You?</label>
-                  <select className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all appearance-none cursor-pointer">
+                  <select aria-label="Form selection" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all appearance-none cursor-pointer">
                     <option>Select Option</option>
                     <option>Software Development</option>
                     <option>Mobile App Development</option>
@@ -307,7 +307,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
 
                 <div>
                   <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Message</label>
-                  <textarea rows={4} placeholder="To better assist you, please describe how we can help..." className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all resize-none"></textarea>
+                  <textarea aria-label="Form message" rows={4} placeholder="To better assist you, please describe how we can help..." className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all resize-none"></textarea>
                 </div>
 
                 <button type="submit" className="w-full py-4 bg-[#001fcc] text-white font-black text-base uppercase tracking-widest rounded-lg hover:bg-[#0017a8] active:scale-95 transition-all">
@@ -341,3 +341,5 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
 };
 
 export default ServicesPage;
+
+

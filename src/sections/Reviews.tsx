@@ -19,10 +19,12 @@ const Reviews: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-12">
           {/* Profile */}
           <div className="flex items-center gap-5">
-            <img 
+            <img loading="lazy" decoding="async"
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" 
               alt="Kevin Parks" 
               className="w-16 h-16 rounded-full object-cover shadow-sm"
+              width={64}
+              height={64}
             />
             <div>
               <h4 className="text-[17px] font-bold text-[#1a1b1f]">Kevin Parks</h4>
@@ -33,17 +35,17 @@ const Reviews: React.FC = () => {
           {/* Controls */}
           <div className="flex items-center gap-10">
             <div className="flex gap-4">
-              <button className="w-12 h-12 rounded-full bg-[#f1f5f9] flex items-center justify-center text-gray-400 hover:bg-[#e2e8f0] hover:text-[#1a1b1f] transition-all">
+              <button type="button" aria-label="Previous review" className="w-12 h-12 rounded-full bg-[#f1f5f9] flex items-center justify-center text-gray-400 hover:bg-[#e2e8f0] hover:text-[#1a1b1f] transition-all">
                 <ArrowLeft size={20} strokeWidth={2.5} />
               </button>
-              <button className="w-12 h-12 rounded-full bg-[#f1f5f9] flex items-center justify-center text-gray-400 hover:bg-[#e2e8f0] hover:text-[#1a1b1f] transition-all">
+              <button type="button" aria-label="Next review" className="w-12 h-12 rounded-full bg-[#f1f5f9] flex items-center justify-center text-gray-400 hover:bg-[#e2e8f0] hover:text-[#1a1b1f] transition-all">
                 <ArrowRight size={20} strokeWidth={2.5} />
               </button>
             </div>
             
-            <a href="#" className="text-[#001fcc] font-bold text-[14px] hover:underline tracking-tight">
+            <button type="button" className="text-[#001fcc] font-bold text-[14px] hover:underline tracking-tight">
               View all reviews
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -52,3 +54,5 @@ const Reviews: React.FC = () => {
 };
 
 export default Reviews;
+
+

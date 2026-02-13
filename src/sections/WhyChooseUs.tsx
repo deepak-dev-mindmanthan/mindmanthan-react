@@ -18,15 +18,15 @@ const WhyChooseUs: React.FC = () => {
           <div className="order-2 lg:order-1 relative">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <img src="https://picsum.photos/seed/tech1/400/500" alt="Tech" className="rounded-2xl shadow-lg w-full h-64 object-cover" />
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/tech1/400/500" alt="Tech" className="rounded-2xl shadow-lg w-full h-64 object-cover" />
                 <div className="bg-teal-500 p-8 rounded-2xl text-white">
                   <div className="text-4xl font-bold mb-2">15+</div>
                   <div className="text-sm font-medium uppercase tracking-wider">Years of Excellence</div>
                 </div>
               </div>
               <div className="space-y-4 pt-12">
-                <img src="https://picsum.photos/seed/tech2/400/500" alt="Tech" className="rounded-2xl shadow-lg w-full h-80 object-cover" />
-                <img src="https://picsum.photos/seed/tech3/400/500" alt="Tech" className="rounded-2xl shadow-lg w-full h-48 object-cover" />
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/tech2/400/500" alt="Tech" className="rounded-2xl shadow-lg w-full h-80 object-cover" />
+                <img loading="lazy" decoding="async" src="https://picsum.photos/seed/tech3/400/500" alt="Tech" className="rounded-2xl shadow-lg w-full h-48 object-cover" />
               </div>
             </div>
           </div>
@@ -69,3 +69,5 @@ const WhyChooseUs: React.FC = () => {
 };
 
 export default WhyChooseUs;
+
+

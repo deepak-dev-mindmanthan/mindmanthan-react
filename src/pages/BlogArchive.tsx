@@ -115,7 +115,7 @@ const BlogArchive: React.FC<BlogArchiveProps> = ({ onReadMoreClick }) => {
           {/* Search Bar */}
           <div className="relative max-w-2xl">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-            <input
+            <input aria-label="Form field"
               type="text"
               placeholder="Search blogs..."
               value={searchTerm}
@@ -146,10 +146,12 @@ const BlogArchive: React.FC<BlogArchiveProps> = ({ onReadMoreClick }) => {
                   >
                     {/* Image Section */}
                     <div className="relative h-40 overflow-hidden bg-gray-100">
-                      <img
+                      <img loading="lazy" decoding="async"
                         src={blog.image}
                         alt={blog.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        width={800}
+                        height={450}
                       />
                       {/* Category Badge */}
                       <div className="absolute top-4 left-4">
@@ -188,15 +190,15 @@ const BlogArchive: React.FC<BlogArchiveProps> = ({ onReadMoreClick }) => {
 
                         {/* Social Share Icons */}
                         <div className="flex items-center gap-2">
-                          <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors">
+                          <button type="button" aria-label="Share on Facebook" className="text-gray-400 hover:text-blue-600 transition-colors">
                             <Facebook size={14} />
-                          </a>
-                          <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+                          </button>
+                          <button type="button" aria-label="Share on Twitter" className="text-gray-400 hover:text-blue-400 transition-colors">
                             <Twitter size={14} />
-                          </a>
-                          <a href="#" className="text-gray-400 hover:text-blue-700 transition-colors">
+                          </button>
+                          <button type="button" aria-label="Share on LinkedIn" className="text-gray-400 hover:text-blue-700 transition-colors">
                             <Linkedin size={14} />
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -212,3 +214,5 @@ const BlogArchive: React.FC<BlogArchiveProps> = ({ onReadMoreClick }) => {
 };
 
 export default BlogArchive;
+
+

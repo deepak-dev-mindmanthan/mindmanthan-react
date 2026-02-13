@@ -35,8 +35,8 @@ const ResourcesDropdown: React.FC<ResourcesDropdownProps> = ({
               key={link.label}
               onClick={(e) => {
                 e.preventDefault();
-                onScheduleClick && onScheduleClick();
-                if (onItemClick) onItemClick();
+                onScheduleClick?.();
+                onItemClick?.();
               }}
               className="text-[15px] font-bold text-[#1a1b1f] hover:text-[#001fcc] transition-colors leading-tight tracking-widest uppercase text-left"
             >
@@ -47,8 +47,8 @@ const ResourcesDropdown: React.FC<ResourcesDropdownProps> = ({
               key={link.label}
               onClick={(e) => {
                 e.preventDefault();
-                onFaqClick && onFaqClick();
-                if (onItemClick) onItemClick();
+                onFaqClick?.();
+                onItemClick?.();
               }}
               className="text-[15px] font-bold text-[#1a1b1f] hover:text-[#001fcc] transition-colors leading-tight tracking-widest uppercase text-left"
             >
@@ -59,21 +59,21 @@ const ResourcesDropdown: React.FC<ResourcesDropdownProps> = ({
               key={link.label}
               onClick={(e) => {
                 e.preventDefault();
-                onEventsClick && onEventsClick();
-                if (onItemClick) onItemClick();
+                onEventsClick?.();
+                onItemClick?.();
               }}
               className="text-[15px] font-bold text-[#1a1b1f] hover:text-[#001fcc] transition-colors leading-tight tracking-widest uppercase text-left"
             >
               {link.label}
             </button>
           ) : (
-            <a
+            <button
+              type="button"
               key={link.label}
-              href="#"
-              className="text-[15px] font-bold text-[#1a1b1f] hover:text-[#001fcc] transition-colors leading-tight tracking-widest uppercase"
+              className="text-[15px] font-bold text-[#1a1b1f] hover:text-[#001fcc] transition-colors leading-tight tracking-widest uppercase text-left"
             >
               {link.label}
-            </a>
+            </button>
           )
         ))}
       </div>
@@ -82,3 +82,4 @@ const ResourcesDropdown: React.FC<ResourcesDropdownProps> = ({
 };
 
 export default ResourcesDropdown;
+

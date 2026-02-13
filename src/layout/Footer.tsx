@@ -56,7 +56,7 @@ const MindManthanLogoFooter = () => (
       </span>
       <div className="flex items-center gap-2">
         <div className="h-[1px] w-5 bg-gradient-to-r from-[#2dd4bf] to-transparent"></div>
-        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em]">
+        <span className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.4em]">
           Software Solutions
         </span>
       </div>
@@ -80,13 +80,13 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
             <div className="mb-8">
               <MindManthanLogoFooter />
             </div>
-            <p className="text-gray-500 max-w-md leading-relaxed text-base md:text-lg">
+            <p className="text-gray-700 max-w-md leading-relaxed text-base md:text-lg">
               We are a team of passionate developers and strategists committed to transforming businesses through innovative digital solutions and strategic software engineering.
             </p>
           </div>
           <div>
             <h4 className="font-black text-[#010417] text-base md:text-lg uppercase tracking-widest mb-6 md:mb-8">Explore</h4>
-            <ul className="space-y-4 text-gray-500 font-medium">
+            <ul className="space-y-4 text-gray-700 font-medium">
               <li><button onClick={onAboutUsClick} className="hover:text-[#001fcc] transition-colors cursor-pointer bg-none border-none p-0 text-left">About Us</button></li>
               <li><button onClick={onServicesClick} className="hover:text-[#001fcc] transition-colors cursor-pointer bg-none border-none p-0 text-left">Services</button></li>
               <li><button onClick={onPortfolioClick} className="hover:text-[#001fcc] transition-colors cursor-pointer bg-none border-none p-0 text-left">Portfolio</button></li>
@@ -95,7 +95,7 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
           </div>
           <div>
             <h4 className="font-black text-[#010417] text-base md:text-lg uppercase tracking-widest mb-6 md:mb-8">Contact</h4>
-            <ul className="space-y-4 text-gray-500 font-medium break-words">
+            <ul className="space-y-4 text-gray-700 font-medium break-words">
               <li className="break-words">info@mindmanthansoftwaresolutions.com</li>
               <li className="break-words">+91 70115 02461</li>
               <li className="break-words">A90, A Block, Sector 4, Noida, Uttar Pradesh 201301</li>
@@ -110,7 +110,7 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
             </ul>
           </div>
         </div>
-        <div className="mt-16 md:mt-24 pt-8 md:pt-10 border-t border-blue-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-gray-400 text-sm font-medium">
+        <div className="mt-16 md:mt-24 pt-8 md:pt-10 border-t border-blue-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-gray-600 text-sm font-medium">
           <p className="break-words">&copy; 2024 Mind Manthan Software Solutions. All Rights Reserved.</p>
           <div className="flex flex-wrap gap-6">
             <a href="/contact" className="hover:text-[#001fcc]">Privacy Policy</a>
@@ -124,3 +124,4 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
 };
 
 export default Footer;
+

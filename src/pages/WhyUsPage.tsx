@@ -46,7 +46,7 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
       <div className="py-20 lg:py-32 bg-white -mt-16">
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
           <div className="mb-12">
-            <img 
+            <img loading="lazy" decoding="async" 
               src={le1} 
               alt="Team collaboration" 
               className="w-full h-auto rounded-lg shadow-lg mb-12 object-cover"
@@ -151,7 +151,7 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
               </div>
 
               <div>
-                <img
+                <img loading="lazy" decoding="async"
                   src={le2}
                   alt="Team collaboration"
                   className="w-full h-auto rounded-lg shadow-lg object-cover"
@@ -270,33 +270,33 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
               <form className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">First Name</label>
-                    <input type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
+                    <label htmlFor="whyus-first-name" className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">First Name</label>
+                    <input aria-label="Form field" id="whyus-first-name" type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
                   </div>
                   <div>
-                    <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Last Name</label>
-                    <input type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
+                    <label htmlFor="whyus-last-name" className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Last Name</label>
+                    <input aria-label="Form field" id="whyus-last-name" type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Company / Organization</label>
-                  <input type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
+                  <label htmlFor="whyus-company" className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Company / Organization</label>
+                  <input aria-label="Form field" id="whyus-company" type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
                 </div>
 
                 <div>
-                  <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Company Email</label>
-                  <input type="email" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
+                  <label htmlFor="whyus-email" className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Company Email</label>
+                  <input aria-label="Form field" id="whyus-email" type="email" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
                 </div>
 
                 <div>
-                  <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Phone</label>
-                  <input type="tel" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
+                  <label htmlFor="whyus-phone" className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Phone</label>
+                  <input aria-label="Form field" id="whyus-phone" type="tel" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
                 </div>
 
                 <div>
-                  <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">How Can We Help You?</label>
-                  <select className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all appearance-none cursor-pointer">
+                  <label htmlFor="whyus-service" className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">How Can We Help You?</label>
+                  <select aria-label="Form selection" id="whyus-service" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all appearance-none cursor-pointer">
                     <option>Select Option</option>
                     <option>Software Development</option>
                     <option>Mobile App Development</option>
@@ -306,8 +306,8 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
                 </div>
 
                 <div>
-                  <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Message</label>
-                  <textarea rows={4} placeholder="To better assist you, please describe how we can help..." className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all resize-none"></textarea>
+                  <label htmlFor="whyus-message" className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Message</label>
+                  <textarea aria-label="Form message" id="whyus-message" rows={4} placeholder="To better assist you, please describe how we can help..." className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all resize-none"></textarea>
                 </div>
 
                 <button type="submit" className="w-full py-4 bg-[#001fcc] text-white font-black text-base uppercase tracking-widest rounded-lg hover:bg-[#0017a8] active:scale-95 transition-all">
@@ -339,12 +339,13 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
             >
               Schedule a Free Consultation
             </button>
-            <a 
-              href="#" 
+            <button
+              type="button"
+              onClick={scrollToContactForm}
               className="border-2 border-white text-white font-bold px-8 py-3 rounded-lg hover:bg-white hover:text-[#1a1b1f] transition-colors"
             >
               Contact Us
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -353,3 +354,5 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
 };
 
 export default WhyUsPage;
+
+

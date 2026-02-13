@@ -16,12 +16,12 @@ const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({
   onItemClick,
 }) => {
   const companyLinks = [
-    { label: 'About us', path: '#', onClick: onAboutUsClick },
-    { label: 'Why Us', path: '#', onClick: onWhyUsClick },
-    { label: 'Our Team', path: '#', onClick: onAboutUsClick },
-    { label: 'Partners & Certifications', path: '#', onClick: onAboutUsClick },
-    { label: 'Careers', path: '#', onClick: onContactClick, badge: 'WE ARE HIRING' },
-    { label: 'Reviews & Awards', path: '#', onClick: onAboutUsClick },
+    { label: 'About us', onClick: onAboutUsClick },
+    { label: 'Why Us', onClick: onWhyUsClick },
+    { label: 'Our Team', onClick: onAboutUsClick },
+    { label: 'Partners & Certifications', onClick: onAboutUsClick },
+    { label: 'Careers', onClick: onContactClick, badge: 'WE ARE HIRING' },
+    { label: 'Reviews & Awards', onClick: onAboutUsClick },
   ];
 
   return (
@@ -45,19 +45,18 @@ const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({
           <ul className="space-y-4">
             {companyLinks.map((link) => (
               <li key={link.label} className="flex items-center gap-4">
-                <a 
-                  href={link.path} 
-                  onClick={(e) => {
-                    e.preventDefault();
+                <button
+                  type="button"
+                  onClick={() => {
                     if (link.onClick) {
                       link.onClick();
                     }
                     if (onItemClick) onItemClick();
                   }}
-                  className="text-[15px] font-bold text-[#1a1b1f] hover:text-[#001fcc] transition-colors leading-tight cursor-pointer"
+                  className="text-[15px] font-bold text-[#1a1b1f] hover:text-[#001fcc] transition-colors leading-tight cursor-pointer bg-transparent border-none p-0 text-left"
                 >
                   {link.label}
-                </a>
+                </button>
                 {link.badge && (
                   <span className="bg-[#001fcc] text-white text-[9px] font-black px-2 py-1 rounded uppercase tracking-wider">
                     {link.badge}
@@ -72,7 +71,7 @@ const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({
         <div className="flex-[0.8] bg-white p-10 lg:p-12 relative overflow-hidden flex flex-col justify-start">
           <div className="relative z-10 max-w-xs">
             <p className="text-[20px] font-bold text-[#1a1b1f] leading-snug mb-8">
-              Tecnologia has been recognized as a Leader in the 2022 Gartner®
+              Mind manthan has been recognized as a Leader in the 2022 Gartner®
             </p>
             <button
               onClick={() => {
@@ -121,3 +120,4 @@ const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({
 };
 
 export default CompanyMegaMenu;
+

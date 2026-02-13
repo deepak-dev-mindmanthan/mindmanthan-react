@@ -208,7 +208,7 @@ const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackH
 
           <div className="flex-1 w-full min-h-[450px] flex relative">
             <div className="w-full rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100 border border-gray-100">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="https://images.unsplash.com/photo-1521931961826-fe48677230a5?auto=format&fit=crop&q=80&w=1200" 
                 alt="Android Development Showcase"
                 className="w-full h-full object-cover"
@@ -339,13 +339,13 @@ const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackH
 
           <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-10">
             <div className="flex gap-4">
-              <button 
+              <button type="button" aria-label="Previous testimonial" 
                 onClick={prevTestimonial}
                 className="w-14 h-14 rounded-full bg-[#f1f5f9] flex items-center justify-center text-gray-400 hover:bg-[#e2e8f0] hover:text-[#1a1b1f] transition-all active:scale-90"
               >
                 <ArrowLeft size={24} strokeWidth={2.5} />
               </button>
-              <button 
+              <button type="button" aria-label="Next testimonial" 
                 onClick={nextTestimonial}
                 className="w-14 h-14 rounded-full bg-[#f1f5f9] flex items-center justify-center text-gray-400 hover:bg-[#e2e8f0] hover:text-[#1a1b1f] transition-all active:scale-90"
               >
@@ -404,22 +404,22 @@ const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackH
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-2">First name</label>
-                  <input type="text" className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
+                  <input aria-label="Form field" type="text" className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
                 </div>
                 <div>
                   <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-2">Last name</label>
-                  <input type="text" className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
+                  <input aria-label="Form field" type="text" className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
                 </div>
               </div>
 
               <div>
                 <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-2">Company email</label>
-                <input type="email" className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
+                <input aria-label="Form field" type="email" className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
               </div>
 
               <div>
                 <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-2">Service Required</label>
-                <select className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all appearance-none cursor-pointer">
+                <select aria-label="Form selection" className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all appearance-none cursor-pointer">
                   <option>Android Phone App</option>
                   <option>Android Tablet App</option>
                   <option>Wear OS Application</option>
@@ -430,7 +430,7 @@ const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackH
 
               <div>
                 <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-2">Describe Your Vision</label>
-                <textarea rows={4} placeholder="What should your Android app do?" className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all resize-none"></textarea>
+                <textarea aria-label="Form message" rows={4} placeholder="What should your Android app do?" className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all resize-none"></textarea>
               </div>
 
               <button type="submit" className="w-full py-5 bg-[#001fcc] text-white font-black text-lg uppercase tracking-widest rounded-xl hover:bg-[#0017a8] active:scale-95 transition-all shadow-xl shadow-blue-500/20">
@@ -445,3 +445,5 @@ const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackH
 };
 
 export default AndroidDevelopmentPage;
+
+

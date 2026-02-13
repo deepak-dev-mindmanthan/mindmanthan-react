@@ -39,3 +39,4 @@ const CoreValues: React.FC = () => {
 };
 
 export default CoreValues;
+

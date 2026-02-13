@@ -14,10 +14,12 @@ const InsightCard: React.FC<InsightCardProps> = ({ id, category, title, image, e
   <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 group cursor-pointer flex flex-col h-full border border-gray-100">
     {/* Image Section */}
     <div className="relative h-40 overflow-hidden bg-gray-100">
-      <img 
+      <img loading="lazy" decoding="async"
         src={image} 
         alt={title}
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        width={800}
+        height={450}
       />
       {/* Category Badge */}
       <div className="absolute top-4 left-4">
@@ -53,15 +55,15 @@ const InsightCard: React.FC<InsightCardProps> = ({ id, category, title, image, e
 
         {/* Social Share Icons */}
         <div className="flex items-center gap-2">
-          <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors">
+          <button type="button" aria-label="Share on Facebook" className="text-gray-400 hover:text-blue-600 transition-colors">
             <Facebook size={14} />
-          </a>
-          <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+          </button>
+          <button type="button" aria-label="Share on Twitter" className="text-gray-400 hover:text-blue-400 transition-colors">
             <Twitter size={14} />
-          </a>
-          <a href="#" className="text-gray-400 hover:text-blue-700 transition-colors">
+          </button>
+          <button type="button" aria-label="Share on LinkedIn" className="text-gray-400 hover:text-blue-700 transition-colors">
             <Linkedin size={14} />
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -119,3 +121,5 @@ const LatestInsights: React.FC<{ onLearnMoreClick?: (id: number) => void; onView
 };
 
 export default LatestInsights;
+
+

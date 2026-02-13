@@ -55,13 +55,13 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
   onItemClick
 }) => {
   const solutions = [
-    { label: 'Custom Software Development', path: '#', isSoftware: true },
-    { label: 'Mobile App Development', path: '#', isMobile: true },
-    { label: 'Staff Augmentation', path: '#', isStaffAug: true },
-    { label: 'Web App Development', path: '#', isWebApp: true },
-    { label: 'Blockchain', path: '#', isBlockchain: true },
-    { label: 'IOS Development', path: '#', isIOS: true },
-    { label: 'Android Development', path: '#', isAndroid: true }
+    { label: 'Custom Software Development', isSoftware: true },
+    { label: 'Mobile App Development', isMobile: true },
+    { label: 'Staff Augmentation', isStaffAug: true },
+    { label: 'Web App Development', isWebApp: true },
+    { label: 'Blockchain', isBlockchain: true },
+    { label: 'IOS Development', isIOS: true },
+    { label: 'Android Development', isAndroid: true }
   ];
 
   const industries = [
@@ -107,22 +107,22 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
           <ul className="space-y-2.5">
             {solutions.map((item) => (
               <li key={item.label}>
-                <a 
-                  href={item.path} 
-                  onClick={(e) => {
-                    if (item.isSoftware && onSoftwareClick) { e.preventDefault(); onSoftwareClick(); }
-                    else if (item.isMobile && onMobileAppClick) { e.preventDefault(); onMobileAppClick(); }
-                    else if (item.isStaffAug && onStaffAugmentationClick) { e.preventDefault(); onStaffAugmentationClick(); }
-                    else if (item.isWebApp && onWebAppClick) { e.preventDefault(); onWebAppClick(); }
-                    else if (item.isBlockchain && onBlockchainClick) { e.preventDefault(); onBlockchainClick(); }
-                    else if (item.isIOS && onIOSDevelopmentClick) { e.preventDefault(); onIOSDevelopmentClick(); }
-                    else if (item.isAndroid && onAndroidDevelopmentClick) { e.preventDefault(); onAndroidDevelopmentClick(); }
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (item.isSoftware && onSoftwareClick) onSoftwareClick();
+                    else if (item.isMobile && onMobileAppClick) onMobileAppClick();
+                    else if (item.isStaffAug && onStaffAugmentationClick) onStaffAugmentationClick();
+                    else if (item.isWebApp && onWebAppClick) onWebAppClick();
+                    else if (item.isBlockchain && onBlockchainClick) onBlockchainClick();
+                    else if (item.isIOS && onIOSDevelopmentClick) onIOSDevelopmentClick();
+                    else if (item.isAndroid && onAndroidDevelopmentClick) onAndroidDevelopmentClick();
                     if (onItemClick) onItemClick();
                   }}
-                  className="text-[15px] font-bold text-gray-700 hover:text-[#001fcc] transition-colors leading-tight block"
+                  className="text-[15px] font-bold text-gray-700 hover:text-[#001fcc] transition-colors leading-tight block text-left bg-transparent border-none p-0"
                 >
                   {item.label}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
@@ -132,7 +132,8 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
           <h3 className="text-[14px] font-black text-[#010417] mb-6 tracking-widest uppercase">Industry Focus</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {industries.map((item) => (
-              <div 
+              <button
+                type="button"
                 key={item.title} 
                 onClick={() => {
                    if (item.isTelemedicine && onDigitalTransformationClick) onDigitalTransformationClick(); // Map to existing prop or add new one? Keeping existing for now to avoid errors, user can update props later if needed.
@@ -141,7 +142,7 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                    if (item.isConsulting && onConsultingClick) onConsultingClick();
                    if (onItemClick) onItemClick();
                 }}
-                className="bg-white p-5 border border-blue-100 hover:shadow-md transition-all hover:border-[#001fcc] group/card cursor-pointer flex flex-col items-start gap-2 h-full min-h-[110px]"
+                className="bg-white p-5 border border-blue-100 hover:shadow-md transition-all hover:border-[#001fcc] group/card cursor-pointer flex flex-col items-start gap-2 h-full min-h-[110px] text-left"
               >
                 <div className="mb-0.5">
                   {item.icon}
@@ -149,7 +150,7 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                 <span className="text-[15px] font-bold text-gray-800 leading-tight">
                   {item.title}
                 </span>
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -162,18 +163,16 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
           <h3 className="text-[14px] font-black text-[#010417] mb-6 tracking-widest uppercase">Featured Case Studies</h3>
           <div className="space-y-5">
             {caseStudies.map((item, idx) => (
-              <div 
+              <button
+                type="button"
                 key={idx} 
-                className="group/cs cursor-pointer"
-                onClick={(e) => {
+                className="group/cs cursor-pointer text-left bg-transparent border-none p-0"
+                onClick={() => {
                   if (item.isInsurance && onInsuranceCaseStudyClick) {
-                    e.preventDefault();
                     onInsuranceCaseStudyClick();
                   } else if (item.isCoffee && onCoffeeCaseStudyClick) {
-                    e.preventDefault();
                     onCoffeeCaseStudyClick();
                   } else if (item.isLondon && onLondonTravelCaseStudyClick) {
-                    e.preventDefault();
                     onLondonTravelCaseStudyClick();
                   }
                   if (onItemClick) onItemClick();
@@ -183,7 +182,7 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                   {item.text}
                 </p>
                 {idx < caseStudies.length - 1 && <div className="h-[1px] w-full bg-gray-200" />}
-              </div>
+              </button>
             ))}
           </div>
 
@@ -206,3 +205,4 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
 };
 
 export default SolutionsMegaMenu;
+

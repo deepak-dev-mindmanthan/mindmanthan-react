@@ -108,7 +108,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
                     <label htmlFor="name" className="block text-sm font-bold text-[#010417] mb-2">
                       Full Name
                     </label>
-                    <input
+                    <input aria-label="Form field"
                       type="text"
                       id="name"
                       name="name"
@@ -124,7 +124,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
                     <label htmlFor="email" className="block text-sm font-bold text-[#010417] mb-2">
                       Email Address
                     </label>
-                    <input
+                    <input aria-label="Form field"
                       type="email"
                       id="email"
                       name="email"
@@ -141,7 +141,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
                   <label htmlFor="phone" className="block text-sm font-bold text-[#010417] mb-2">
                     Phone Number
                   </label>
-                  <input
+                  <input aria-label="Form field"
                     type="tel"
                     id="phone"
                     name="phone"
@@ -156,7 +156,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
                   <label htmlFor="subject" className="block text-sm font-bold text-[#010417] mb-2">
                     Subject
                   </label>
-                  <input
+                  <input aria-label="Form field"
                     type="text"
                     id="subject"
                     name="subject"
@@ -172,7 +172,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
                   <label htmlFor="message" className="block text-sm font-bold text-[#010417] mb-2">
                     Message
                   </label>
-                  <textarea
+                  <textarea aria-label="Form message"
                     id="message"
                     name="message"
                     value={formData.message}
@@ -219,3 +219,4 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
 };
 
 export default ContactPage;
+

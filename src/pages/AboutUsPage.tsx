@@ -122,22 +122,21 @@ const AboutUsPage: React.FC<{ onLearnMoreClick?: () => void }> = ({ onLearnMoreC
                     <p className="text-gray-600 text-lg leading-relaxed mb-6">
                       {item.description}
                     </p>
-                    <a
-                      href="#"
-                      onClick={(e) => {
-                        e.preventDefault();
+                    <button
+                      type="button"
+                      onClick={() => {
                         if (onLearnMoreClick) onLearnMoreClick();
                       }}
-                      className={`inline-block text-[#001fcc] font-bold hover:text-[#0017a8] transition-colors cursor-pointer ${item.imagePosition === 'right' ? 'lg:ml-auto lg:block' : ''}`}
+                      className={`inline-block text-[#001fcc] font-bold hover:text-[#0017a8] transition-colors cursor-pointer bg-transparent border-none p-0 ${item.imagePosition === 'right' ? 'lg:ml-auto lg:block' : ''}`}
                     >
                       Learn more →
-                    </a>
+                    </button>
                   </div>
 
                   {/* Image Placeholder */}
                   <div className={`${item.imagePosition === 'right' ? 'lg:order-1' : ''}`}>
                     <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-lg aspect-[4/3] flex items-center justify-center overflow-hidden shadow-lg">
-                      <img 
+                      <img loading="lazy" decoding="async" 
                         src={imageMap[item.id]}
                         alt={item.title}
                         className="w-full h-full object-cover"
@@ -160,16 +159,15 @@ const AboutUsPage: React.FC<{ onLearnMoreClick?: () => void }> = ({ onLearnMoreC
           <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mb-8">
             We understand that business can be chaotic. That's where we come in. We're focused on adding some much-needed balance to the mix. We accomplish that by forging real partnerships with our clients. When you work with us, you're working with a team who understands your pain points and your goals. We'll help you find order in the midst of the chaos.
           </p>
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
+          <button
+            type="button"
+            onClick={() => {
               if (onLearnMoreClick) onLearnMoreClick();
             }}
-            className="inline-block text-[#001fcc] font-bold hover:text-[#0017a8] transition-colors cursor-pointer"
+            className="inline-block text-[#001fcc] font-bold hover:text-[#0017a8] transition-colors cursor-pointer bg-transparent border-none p-0"
           >
             Learn more →
-          </a>
+          </button>
         </div>
       </div>
 
@@ -180,3 +178,7 @@ const AboutUsPage: React.FC<{ onLearnMoreClick?: () => void }> = ({ onLearnMoreC
 };
 
 export default AboutUsPage;
+
+
+
+

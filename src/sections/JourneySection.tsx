@@ -15,7 +15,7 @@ const JourneySection: React.FC = () => {
 
             <div className="max-w-md space-y-8">
               <div className="relative">
-                <input 
+                <input aria-label="Form field" 
                   type="text" 
                   placeholder="Don't miss out updates"
                   className="w-full px-6 py-4 bg-white border border-gray-100 rounded-lg text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-blue-100 outline-none transition-all shadow-sm"
@@ -24,7 +24,7 @@ const JourneySection: React.FC = () => {
 
               <div className="flex items-start gap-3">
                 <div className="mt-1">
-                  <input 
+                  <input aria-label="Form field" 
                     type="checkbox" 
                     id="privacy" 
                     className="w-4 h-4 rounded border-gray-300 accent-[#001fcc] cursor-pointer"
@@ -71,12 +71,12 @@ const JourneySection: React.FC = () => {
             </div>
 
             <div className="mt-12">
-              <a 
-                href="#" 
+              <button
+                type="button"
                 className="text-[#001fcc] font-black text-[14px] inline-block border-b-2 border-[#001fcc] pb-0.5 hover:text-[#010417] hover:border-[#010417] transition-all"
               >
                 View all locations
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -86,3 +86,4 @@ const JourneySection: React.FC = () => {
 };
 
 export default JourneySection;
+

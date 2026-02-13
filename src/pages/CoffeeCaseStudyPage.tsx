@@ -119,7 +119,7 @@ const CoffeeCaseStudyPage: React.FC<CoffeeCaseStudyPageProps> = ({ onBackHome })
             <div className="lg:col-span-5">
               <div className="lg:sticky lg:top-32 space-y-8">
                 <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100">
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop" 
                     alt="Barista at work"
                     className="w-full h-[400px] object-cover"
@@ -231,7 +231,7 @@ const CoffeeCaseStudyPage: React.FC<CoffeeCaseStudyPageProps> = ({ onBackHome })
              “Mind Manthan translated our roasting language into code perfectly. We finally have a system that supports our growth without compromising the quality of our craft. Our operational efficiency has reached levels we never thought possible.”
            </blockquote>
            <div className="flex flex-col items-center">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop" 
                 className="w-20 h-20 rounded-full object-cover mb-6 border-4 border-white/10"
                 alt="Roastery CEO"
@@ -253,3 +253,4 @@ const ArrowLeft = ({ className }: { className?: string }) => (
 );
 
 export default CoffeeCaseStudyPage;
+

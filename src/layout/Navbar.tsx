@@ -135,7 +135,7 @@ const Navbar: React.FC<NavbarProps> = ({
       setIsScrolled(scrollPos > heroThreshold);
       setIsHidden(scrollPos > aboutThreshold);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHomePage]);
@@ -179,9 +179,14 @@ const Navbar: React.FC<NavbarProps> = ({
       >
         <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex justify-between items-center">
-            <div onClick={onLogoClick} className="relative z-[70] flex-shrink-0">
+            <button
+              type="button"
+              onClick={onLogoClick}
+              aria-label="Go to homepage"
+              className="relative z-[70] flex-shrink-0 bg-transparent border-none p-0 text-left"
+            >
               <MindManthanLogo isLight={isLightHeader} />
-            </div>
+            </button>
 
             <div className="hidden lg:flex items-center space-x-12">
               {NAV_LINKS.map((link) => (
@@ -303,7 +308,9 @@ const Navbar: React.FC<NavbarProps> = ({
               >
                 Get in touch
               </button>
-              <button 
+              <button
+                type="button"
+                aria-label={isMobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className={`p-2 relative z-[70] ${
                   isScrolled || isLight || isMobileMenuOpen ? 'text-[#1a1b1f]' : 'text-white'
@@ -535,3 +542,5 @@ const Navbar: React.FC<NavbarProps> = ({
 };
 
 export default Navbar;
+
+

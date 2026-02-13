@@ -269,7 +269,14 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
 };
 
-export const BLOGS: Record<number, any> = {
+interface BlogSeoItem {
+  title: string;
+  excerpt: string;
+  author: string;
+  date: string;
+}
+
+export const BLOGS: Record<number, BlogSeoItem> = {
   1: {
     title: "Identify the best technologies for your business with Mind Manthan's new tool",
     excerpt: "Choosing the right technology stack for your business is crucial for long-term success. Our new tool helps you identify the perfect match.",

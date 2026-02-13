@@ -106,3 +106,4 @@ export const ICON_MAP: Record<string, React.ReactNode> = {
   zap: <Zap className="w-8 h-8" />,
   check: <CheckCircle2 className="w-8 h-8" />
 };
+

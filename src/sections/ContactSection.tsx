@@ -21,10 +21,10 @@ const ContactSection: React.FC = () => {
             </h2>
             
             <div className="space-y-4">
-              <div className="text-white text-xl md:text-2xl font-bold tracking-tight">
+              <div className="text-white text-md md:text-2xl font-bold tracking-tight">
                 Telephone: +91 70115 02461
               </div>
-              <div className="text-white text-xl md:text-2xl font-bold tracking-tight">
+              <div className="text-white text-md md:text-2xl font-bold tracking-tight">
                 Email: info@mindmanthansoftwaresolutions.com
               </div>
             </div>
@@ -65,21 +65,25 @@ const ContactSection: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input 
                   type="text" 
+                  aria-label="Your name"
                   placeholder="Your name" 
                   className="w-full px-6 py-4 rounded-lg bg-white text-gray-800 placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-300 transition-all border-none font-medium"
                 />
                 <input 
                   type="email" 
+                  aria-label="Email address"
                   placeholder="Email address" 
                   className="w-full px-6 py-4 rounded-lg bg-white text-gray-800 placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-300 transition-all border-none font-medium"
                 />
                 <input 
                   type="tel" 
+                  aria-label="Phone number"
                   placeholder="Phone number" 
                   className="w-full px-6 py-4 rounded-lg bg-white text-gray-800 placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-300 transition-all border-none font-medium"
                 />
                 <div className="relative">
                   <select 
+                    aria-label="Project budget"
                     className="w-full px-6 py-4 rounded-lg bg-white text-gray-400 outline-none focus:ring-2 focus:ring-blue-300 transition-all border-none appearance-none cursor-pointer font-medium"
                   >
                     <option value="">What is your budget?</option>
@@ -97,13 +101,14 @@ const ContactSection: React.FC = () => {
               </div>
 
               <textarea 
+                aria-label="Message"
                 placeholder="Message" 
                 rows={5}
                 className="w-full px-6 py-4 rounded-lg bg-white text-gray-800 placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-300 transition-all border-none resize-none font-medium"
               ></textarea>
 
               <div className="flex items-center gap-3">
-                <input 
+                <input aria-label="Form field" 
                   type="checkbox" 
                   id="nda" 
                   className="w-5 h-5 rounded accent-[#d9e2ff] cursor-pointer"
@@ -123,10 +128,12 @@ const ContactSection: React.FC = () => {
           </div>
 
           {/* Decorative Dots Arrow (matches reference right-side motif) */}
-          <img 
+          <img loading="lazy" decoding="async"
             src={ShapeDotsArrowRight} 
             alt="Decorative dotted arrow" 
             className="absolute right-8 top-1/2 -translate-y-1/2 w-[160px] opacity-100 pointer-events-none select-none"
+            width={160}
+            height={160}
           />
 
         </div>
@@ -138,3 +145,5 @@ const ContactSection: React.FC = () => {
 };
 
 export default ContactSection;
+
+

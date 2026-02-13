@@ -82,7 +82,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ onBackHome }) => {
               >
                 {/* Project Image */}
                 <div className="relative h-48 md:h-56 overflow-hidden bg-gray-100">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
@@ -148,3 +148,5 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ onBackHome }) => {
 };
 
 export default PortfolioPage;
+
+

@@ -24,8 +24,8 @@ const HomeDropdown: React.FC<HomeDropdownProps> = ({
         <button
           onClick={(e) => {
             e.preventDefault();
-            onServicesClick && onServicesClick();
-            if (onItemClick) onItemClick();
+            onServicesClick?.();
+            onItemClick?.();
           }}
           className="text-[15px] font-bold text-[#1a1b1f] hover:text-[#001fcc] transition-colors leading-tight tracking-widest text-left"
         >
@@ -35,8 +35,8 @@ const HomeDropdown: React.FC<HomeDropdownProps> = ({
         <button
           onClick={(e) => {
             e.preventDefault();
-            onAndroidClick && onAndroidClick();
-            if (onItemClick) onItemClick();
+            onAndroidClick?.();
+            onItemClick?.();
           }}
           className="text-[15px] font-bold text-[#1a1b1f] hover:text-[#001fcc] transition-colors leading-tight tracking-widest text-left"
         >
@@ -48,3 +48,4 @@ const HomeDropdown: React.FC<HomeDropdownProps> = ({
 };
 
 export default HomeDropdown;
+

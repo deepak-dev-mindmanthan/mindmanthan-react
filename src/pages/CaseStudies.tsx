@@ -92,7 +92,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ onBackHome, onNavigateHome })
                 className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden mb-8 transition-all duration-500 shadow-md group-hover:shadow-2xl group-hover:-translate-y-2 border border-gray-50"
                 style={{ backgroundColor: project.bgColor }}
               >
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={project.image} 
                   alt={project.title}
                   className="w-full h-full object-cover mix-blend-multiply opacity-70 group-hover:scale-105 transition-transform duration-1000"
@@ -167,28 +167,28 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ onBackHome, onNavigateHome })
             <form className="space-y-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div>
-                  <label className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">First name</label>
-                  <input type="text" className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold" placeholder="John" />
+                  <label htmlFor="case-first-name" className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">First name</label>
+                  <input aria-label="Form field" id="case-first-name" type="text" className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold" placeholder="John" />
                 </div>
                 <div>
-                  <label className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">Last name</label>
-                  <input type="text" className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold" placeholder="Doe" />
+                  <label htmlFor="case-last-name" className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">Last name</label>
+                  <input aria-label="Form field" id="case-last-name" type="text" className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold" placeholder="Doe" />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">Company</label>
-                <input type="text" className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold" placeholder="Organization name" />
+                <label htmlFor="case-company" className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">Company</label>
+                <input aria-label="Form field" id="case-company" type="text" className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold" placeholder="Organization name" />
               </div>
 
               <div>
-                <label className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">Email</label>
-                <input type="email" className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold" placeholder="john@example.com" />
+                <label htmlFor="case-email" className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">Email</label>
+                <input aria-label="Form field" id="case-email" type="email" className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold" placeholder="john@example.com" />
               </div>
 
               <div>
-                <label className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">Service Interest</label>
-                <select className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold appearance-none cursor-pointer">
+                <label htmlFor="case-service-interest" className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">Service Interest</label>
+                <select aria-label="Form selection" id="case-service-interest" className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold appearance-none cursor-pointer">
                   <option>Select Option</option>
                   <option>Cloud Infrastructure</option>
                   <option>Mobile App Development</option>
@@ -198,8 +198,8 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ onBackHome, onNavigateHome })
               </div>
 
               <div>
-                <label className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">Message</label>
-                <textarea rows={5} placeholder="Describe your technical needs..." className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold resize-none"></textarea>
+                <label htmlFor="case-message" className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">Message</label>
+                <textarea aria-label="Form message" id="case-message" rows={5} placeholder="Describe your technical needs..." className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold resize-none"></textarea>
               </div>
 
               <button type="button" onClick={onNavigateHome} className="w-full py-6 bg-[#001fcc] text-white font-black text-lg uppercase tracking-widest rounded-2xl hover:bg-[#0017a8] active:scale-95 transition-all shadow-2xl shadow-blue-500/30 cursor-pointer">
@@ -214,3 +214,5 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ onBackHome, onNavigateHome })
 };
 
 export default CaseStudies;
+
+

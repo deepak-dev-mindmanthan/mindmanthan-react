@@ -121,7 +121,7 @@ const LondonTravelCaseStudyPage: React.FC<LondonTravelCaseStudyPageProps> = ({ o
             <div className="lg:col-span-5">
               <div className="lg:sticky lg:top-32 space-y-8">
                 <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100">
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1200&auto=format&fit=crop" 
                     alt="London Cityscape at night"
                     className="w-full h-[400px] object-cover"
@@ -233,7 +233,7 @@ const LondonTravelCaseStudyPage: React.FC<LondonTravelCaseStudyPageProps> = ({ o
              “Mind Manthan's team translated urban complexity into a digital lifeline. London's public safety framework is now years ahead of where it was, thanks to their strategic AI implementation. They are truly world-class engineers.”
            </blockquote>
            <div className="flex flex-col items-center">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" 
                 className="w-20 h-20 rounded-full object-cover mb-6 border-4 border-white/10"
                 alt="Smart City Director"
@@ -255,3 +255,4 @@ const ArrowLeft = ({ className }: { className?: string }) => (
 );
 
 export default LondonTravelCaseStudyPage;
+

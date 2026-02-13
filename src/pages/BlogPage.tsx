@@ -173,7 +173,7 @@ Join us on this exciting journey and discover how Mind Manthan can help transfor
     <div className="w-full">
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] overflow-hidden">
-        <img
+        <img loading="lazy" decoding="async"
           src={blog.image}
           alt={blog.title}
           className="w-full h-full object-cover"
@@ -268,3 +268,5 @@ Join us on this exciting journey and discover how Mind Manthan can help transfor
 };
 
 export default BlogPage;
+
+

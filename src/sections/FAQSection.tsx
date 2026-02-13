@@ -28,3 +28,4 @@ const FAQSection: React.FC = () => {
 };
 
 export default FAQSection;
+

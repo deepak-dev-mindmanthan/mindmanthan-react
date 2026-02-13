@@ -14,7 +14,7 @@ const RecognitionGrid: React.FC = () => {
           {/* BLOCK 1: Organizations recognized our work */}
           <div className="bg-[#1a1b1f] rounded-[3rem] p-12 md:p-16 flex flex-col justify-between min-h-[600px] text-white">
             <div>
-              <h2 className="text-5xl md:text-6xl font-black leading-[1.05] tracking-tighter mb-16">
+              <h2 className="text-4xl md:text-6xl font-black leading-[1.05] tracking-tighter mb-16">
                 Organizations <br /> recognized our <br /> work
               </h2>
               
@@ -53,9 +53,9 @@ const RecognitionGrid: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-black text-[#1a1b1f] leading-[1.1] tracking-tighter mb-12">
                 Mind Manthan has been recognized as a Leader in the 2022 Gartner®
               </h2>
-              <a href="#" className="text-[#001fcc] font-bold text-[14px] underline underline-offset-4 hover:text-[#0017a8]">
+              <button type="button" className="text-[#001fcc] font-bold text-[14px] underline underline-offset-4 hover:text-[#0017a8]">
                 View the report
-              </a>
+              </button>
             </div>
 
             {/* EXACT Gartner Pattern Graphic from Screenshot */}
@@ -128,10 +128,12 @@ const RecognitionGrid: React.FC = () => {
 
             {/* Careers Inset Image Frame */}
             <div className="absolute right-0 bottom-0 w-[60%] h-[50%] md:w-[50%] md:h-[60%] rounded-tl-[3rem] overflow-hidden border-t-8 border-l-8 border-[#1a1b1f]">
-              <img 
+              <img loading="lazy" decoding="async"
                 src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" 
                 alt="Our Team"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                width={1200}
+                height={800}
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1522071823991-b1ae5e6a3048?q=80&w=800&auto=format&fit=crop';
                 }}
@@ -146,3 +148,5 @@ const RecognitionGrid: React.FC = () => {
 };
 
 export default RecognitionGrid;
+
+
