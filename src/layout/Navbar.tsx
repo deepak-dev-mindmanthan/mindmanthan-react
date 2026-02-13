@@ -167,9 +167,14 @@ const Navbar: React.FC<NavbarProps> = ({
     setMobileOpenSection((prev) => (prev === label ? null : label));
   };
   const handleMobileAction = (action?: () => void) => {
-    if (action) action();
     setIsMobileMenuOpen(false);
     setMobileOpenSection(null);
+    if (action) action();
+  };
+  const handleGetInTouch = () => {
+    const action =
+      !isHomePage && onContactClick ? onContactClick : onGetInTouchClick;
+    handleMobileAction(action);
   };
 
   return (
@@ -289,11 +294,7 @@ const Navbar: React.FC<NavbarProps> = ({
             <div className="hidden lg:flex items-center flex-shrink-0">
               <button
                 onClick={() => {
-                  if (!isHomePage && onContactClick) {
-                    onContactClick();
-                  } else if (onGetInTouchClick) {
-                    onGetInTouchClick();
-                  }
+                  handleGetInTouch();
                 }}
                 className="px-6 py-2.5 rounded-lg font-semibold text-[14px] text-white bg-blue-600 hover:bg-blue-700 transition-all active:scale-95 shadow-sm"
               >
@@ -304,11 +305,7 @@ const Navbar: React.FC<NavbarProps> = ({
             <div className="lg:hidden flex items-center gap-3">
               <button
                 onClick={() => {
-                  if (!isHomePage && onContactClick) {
-                    onContactClick();
-                  } else if (onGetInTouchClick) {
-                    onGetInTouchClick();
-                  }
+                  handleGetInTouch();
                 }}
                 className="px-3 py-2 rounded-md text-[12px] font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
