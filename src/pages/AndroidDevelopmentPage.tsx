@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle2, Globe, Cpu, Shield, Smartphone, Check, ArrowLeft, Star, Laptop, Zap, Layout, Code } from 'lucide-react';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 interface AndroidDevelopmentPageProps {
   onBackHome: () => void;
@@ -372,7 +373,7 @@ const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackH
               
               <div className="mb-16">
                 <span className="text-[#1a1b1f] text-xl font-bold block mb-2">Call us at:</span>
-                <a href="tel:1-800-356-8933" className="text-[#1a1b1f] text-2xl font-black hover:text-[#001fcc] transition-colors">1-800-356-8933</a>
+                <a href={`tel:${SITE_CONFIG.business.altPhoneHref}`} className="text-[#1a1b1f] text-2xl font-black hover:text-[#001fcc] transition-colors">{SITE_CONFIG.business.altPhone}</a>
               </div>
 
               <div>

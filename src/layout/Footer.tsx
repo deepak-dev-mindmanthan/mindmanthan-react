@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 const MindManthanLogoFooter = () => (
   <div className="flex items-center gap-4 group cursor-pointer flex-wrap">
@@ -87,7 +88,7 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
             </p>
             <div className="mt-8 flex items-center gap-3">
               <a
-                href="https://www.linkedin.com"
+                href={SITE_CONFIG.linkedinPage}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit our LinkedIn"
@@ -96,7 +97,7 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
                 <Linkedin size={18} />
               </a>
               <a
-                href="https://x.com"
+                href={SITE_CONFIG.xPage}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit our X profile"
@@ -105,7 +106,7 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
                 <Twitter size={18} />
               </a>
               <a
-                href="https://www.facebook.com"
+                href={SITE_CONFIG.facebookPage}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit our Facebook"
@@ -114,7 +115,7 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
                 <Facebook size={18} />
               </a>
               <a
-                href="https://www.instagram.com"
+                href={SITE_CONFIG.instagramPage}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit our Instagram"
@@ -137,9 +138,9 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
           <div>
             <h4 className="font-black text-[#010417] text-base md:text-lg uppercase tracking-widest mb-6 md:mb-8">Contact</h4>
             <ul className="space-y-4 text-gray-700 font-medium break-words">
-              <li className="break-words">info@mindmanthansoftwaresolutions.com</li>
-              <li className="break-words">+91 70115 02461</li>
-              <li className="break-words">A90, A Block, Sector 4, Noida, Uttar Pradesh 201301</li>
+              <li className="break-words">{SITE_CONFIG.business.email}</li>
+              <li className="break-words">{SITE_CONFIG.business.phone}</li>
+              <li className="break-words">{SITE_CONFIG.business.addressLine}</li>
               <li>
                 <button
                   onClick={onContactClick}

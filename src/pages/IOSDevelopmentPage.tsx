@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle2, Globe, Cpu, Shield, Smartphone, Check, ArrowLeft, Star, Laptop, Zap, Apple, Layout, Code } from 'lucide-react';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 interface IOSDevelopmentPageProps {
   onBackHome: () => void;
@@ -372,7 +373,7 @@ const IOSDevelopmentPage: React.FC<IOSDevelopmentPageProps> = ({ onBackHome }) =
               
               <div className="mb-16">
                 <span className="text-[#1a1b1f] text-xl font-bold block mb-2">Call us at:</span>
-                <a href="tel:+917011502461" className="text-[#1a1b1f] text-2xl font-black hover:text-[#001fcc] transition-colors">+91 70115 02461</a>
+                <a href={`tel:${SITE_CONFIG.business.phoneHref}`} className="text-[#1a1b1f] text-2xl font-black hover:text-[#001fcc] transition-colors">{SITE_CONFIG.business.phone}</a>
               </div>
 
               <div>

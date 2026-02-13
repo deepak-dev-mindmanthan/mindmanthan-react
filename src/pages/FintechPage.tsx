@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle2, Shield, CreditCard, Wallet, Banknote, Check, ArrowLeft, Star, Zap, Layout, Code, Landmark, Lock, RefreshCw, BarChart3 } from 'lucide-react';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 interface FintechPageProps {
   onBackHome: () => void;
@@ -345,7 +346,7 @@ const FintechPage: React.FC<FintechPageProps> = ({ onBackHome }) => {
               
               <div className="mb-16">
                 <span className="text-[#1a1b1f] text-xl font-bold block mb-2">Call us at:</span>
-                <a href="tel:+917011502461" className="text-[#1a1b1f] text-2xl font-black hover:text-[#001fcc] transition-colors">+91 70115 02461</a>
+                <a href={`tel:${SITE_CONFIG.business.phoneHref}`} className="text-[#1a1b1f] text-2xl font-black hover:text-[#001fcc] transition-colors">{SITE_CONFIG.business.phone}</a>
               </div>
 
               <div>

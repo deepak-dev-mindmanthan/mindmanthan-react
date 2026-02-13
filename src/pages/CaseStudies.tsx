@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CheckCircle2, Search } from 'lucide-react';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 interface Project {
   id: string;
@@ -137,7 +138,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ onBackHome, onNavigateHome })
               
               <div className="mb-20">
                 <span className="text-[#1a1b1f] text-[12px] font-black uppercase tracking-[0.3em] block mb-4 opacity-40">Direct Line</span>
-                <a href="tel:1-800-356-8933" className="text-[#1a1b1f] text-4xl font-black hover:text-[#001fcc] transition-colors tracking-tighter">1-800-356-8933</a>
+                <a href={`tel:${SITE_CONFIG.business.altPhoneHref}`} className="text-[#1a1b1f] text-4xl font-black hover:text-[#001fcc] transition-colors tracking-tighter">{SITE_CONFIG.business.altPhone}</a>
               </div>
 
               <div>

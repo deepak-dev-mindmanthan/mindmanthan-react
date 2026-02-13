@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 interface ContactPageProps {
   onBackHome?: () => void;
@@ -38,19 +39,19 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'info@mindmanthansoftwaresolutions.com',
-      link: 'mailto:info@mindmanthansoftwaresolutions.com'
+      value: SITE_CONFIG.business.email,
+      link: SITE_CONFIG.business.emailHref
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+91 70115 02461',
-      link: 'tel:+917011502461'
+      value: SITE_CONFIG.business.phone,
+      link: `tel:${SITE_CONFIG.business.phoneHref}`
     },
     {
       icon: MapPin,
       title: 'Address',
-      value: 'A90, A Block, Sector 4, Noida, Uttar Pradesh 201301',
+      value: SITE_CONFIG.business.addressLine,
       link: '#'
     }
   ];

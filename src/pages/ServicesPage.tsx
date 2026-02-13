@@ -1,6 +1,7 @@
 import React from 'react';
 import { CheckCircle2, Network, Users, Shield, Code, Smartphone, Cloud } from 'lucide-react';
 import service1 from '../assets/images/service1.png';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 interface ServicesPageProps {
   onNavigateHome?: () => void;
@@ -218,7 +219,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
               <div>
                 <div className="mb-8">
                   <div className="text-sm font-bold text-gray-600 mb-2">Call us at:</div>
-                  <div className="text-3xl font-black text-[#1a1b1f]">+91 70115 02461</div>
+                  <div className="text-3xl font-black text-[#1a1b1f]">{SITE_CONFIG.business.phone}</div>
                 </div>
 
                 <div>

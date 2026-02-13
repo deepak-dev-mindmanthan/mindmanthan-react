@@ -323,6 +323,7 @@ export const getSchema = (view: string, id?: number) => {
       SITE_CONFIG.facebookPage,
       SITE_CONFIG.instagramPage,
       SITE_CONFIG.linkedinPage,
+      SITE_CONFIG.xPage,
       SITE_CONFIG.youtubeChannel,
       SITE_CONFIG.githubOrg,
       ...(SITE_CONFIG.additionalProfiles || [])

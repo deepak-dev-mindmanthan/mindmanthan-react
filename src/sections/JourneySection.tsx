@@ -1,7 +1,10 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 const JourneySection: React.FC = () => {
+  const { newYork, boston } = SITE_CONFIG.offices;
+
   return (
     <section className="bg-[#f9faff] py-24 px-6">
       <div className="max-w-7xl mx-auto">
@@ -47,25 +50,25 @@ const JourneySection: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 lg:gap-16">
               {/* New York */}
               <div>
-                <h3 className="text-2xl font-black text-[#010417] mb-4">New York</h3>
+                <h3 className="text-2xl font-black text-[#010417] mb-4">{newYork.title}</h3>
                 <div className="text-gray-500 font-medium text-[15px] leading-relaxed mb-6">
-                  Seventh Ave, 20th Floor <br />
-                  New York, NY 10018
+                  {newYork.lines[0]} <br />
+                  {newYork.lines[1]}
                 </div>
                 <div className="text-gray-500 font-medium text-[15px]">
-                  T: +91 70115 02461
+                  T: {newYork.phone}
                 </div>
               </div>
 
               {/* Boston */}
               <div>
-                <h3 className="text-2xl font-black text-[#010417] mb-4">Boston</h3>
+                <h3 className="text-2xl font-black text-[#010417] mb-4">{boston.title}</h3>
                 <div className="text-gray-500 font-medium text-[15px] leading-relaxed mb-6">
-                  45 Myrtle Street, 02114 <br />
-                  Boston, MA
+                  {boston.lines[0]} <br />
+                  {boston.lines[1]}
                 </div>
                 <div className="text-gray-500 font-medium text-[15px]">
-                  T: 1-900-322-8422
+                  T: {boston.phone}
                 </div>
               </div>
             </div>

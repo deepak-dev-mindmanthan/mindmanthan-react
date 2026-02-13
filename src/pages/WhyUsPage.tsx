@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import le1 from '../assets/images/le1.png';
 import le2 from '../assets/images/le2.png';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 interface WhyUsPageProps {
   onNavigateHome?: () => void;
@@ -218,7 +219,7 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
               <div>
                 <div className="mb-8">
                   <div className="text-sm font-bold text-gray-600 mb-2">Call us at:</div>
-                  <div className="text-3xl font-black text-[#1a1b1f]">+91 70115 02461</div>
+                  <div className="text-3xl font-black text-[#1a1b1f]">{SITE_CONFIG.business.phone}</div>
                 </div>
 
                 <div>
@@ -327,10 +328,10 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
             We're happy to answer any questions you may have and help you determine which of our services best fit your needs.
           </p>
           <a 
-            href="tel:+917011502461" 
+            href={`tel:${SITE_CONFIG.business.phoneHref}`} 
             className="inline-block text-lg font-bold text-[#2dd4bf] hover:text-cyan-300 transition-colors mb-8"
           >
-            Call us at: +91 70115 02461
+            Call us at: {SITE_CONFIG.business.phone}
           </a>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 

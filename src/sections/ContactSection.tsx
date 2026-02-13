@@ -1,6 +1,7 @@
 import React from 'react';
 import ShapeDotsArrowRight from '../assets/images/Shape-dots-arrow-right.svg';
 import { Mail, Phone } from 'lucide-react';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 const ContactSection: React.FC = () => {
   return (
@@ -23,18 +24,18 @@ const ContactSection: React.FC = () => {
             
             <div className="space-y-3">
               <a
-                href="tel:+917011502461"
+                href={`tel:${SITE_CONFIG.business.phoneHref}`}
                 className="flex items-center gap-3 text-white text-base md:text-2xl font-bold tracking-tight break-words hover:opacity-90 transition-opacity"
               >
                 <Phone size={20} />
-                <span>+91 70115 02461</span>
+                <span>{SITE_CONFIG.business.phone}</span>
               </a>
               <a
-                href="mailto:info@mindmanthansoftwaresolutions.com"
+                href={SITE_CONFIG.business.emailHref}
                 className="flex items-center gap-3 text-white text-base md:text-2xl font-bold tracking-tight break-all hover:opacity-90 transition-opacity"
               >
                 <Mail size={20} />
-                <span>info@mindmanthansoftwaresolutions.com</span>
+                <span>{SITE_CONFIG.business.email}</span>
               </a>
             </div>
 

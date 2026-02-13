@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 // Added missing 'Users' import from lucide-react
 import { ArrowRight, CheckCircle2, Globe, Shield, Zap, Check, ArrowLeft, Star, Code, Layout, Cpu, Database, Link as LinkIcon, Lock, Users } from 'lucide-react';
+import { SITE_CONFIG } from '../config/siteConfig';
 
 interface BlockchainPageProps {
   onBackHome: () => void;
@@ -405,7 +406,7 @@ const BlockchainPage: React.FC<BlockchainPageProps> = ({ onBackHome }) => {
               
               <div className="mb-16">
                 <span className="text-[#1a1b1f] text-xl font-bold block mb-2">Call us at:</span>
-                <a href="tel:1-800-356-8933" className="text-[#1a1b1f] text-2xl font-black hover:text-[#001fcc] transition-colors">1-800-356-8933</a>
+                <a href={`tel:${SITE_CONFIG.business.altPhoneHref}`} className="text-[#1a1b1f] text-2xl font-black hover:text-[#001fcc] transition-colors">{SITE_CONFIG.business.altPhone}</a>
               </div>
 
               <div>
