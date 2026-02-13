@@ -1,5 +1,6 @@
 import React from 'react';
 import ShapeDotsArrowRight from '../assets/images/Shape-dots-arrow-right.svg';
+import { Mail, Phone } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ const ContactSection: React.FC = () => {
           {/* Background Pattern Removed as requested */}
 
           {/* Left Side: Info */}
-          <div className="relative z-10 flex-[0.9] min-w-[320px]">
+          <div className="relative z-10 flex-[0.9] min-w-0 w-full">
             <h2 className="text-[40px] md:text-[48px] lg:text-[52px] font-black text-white leading-[1.1] tracking-tight mb-10">
               Got a project? <br /> Let’s talk
               <span className="inline-block align-middle ml-2">
@@ -20,13 +21,21 @@ const ContactSection: React.FC = () => {
               </span>
             </h2>
             
-            <div className="space-y-4">
-              <div className="text-white text-md md:text-2xl font-bold tracking-tight">
-                Telephone: +91 70115 02461
-              </div>
-              <div className="text-white text-md md:text-2xl font-bold tracking-tight">
-                Email: info@mindmanthansoftwaresolutions.com
-              </div>
+            <div className="space-y-3">
+              <a
+                href="tel:+917011502461"
+                className="flex items-center gap-3 text-white text-base md:text-2xl font-bold tracking-tight break-words hover:opacity-90 transition-opacity"
+              >
+                <Phone size={20} />
+                <span>+91 70115 02461</span>
+              </a>
+              <a
+                href="mailto:info@mindmanthansoftwaresolutions.com"
+                className="flex items-center gap-3 text-white text-base md:text-2xl font-bold tracking-tight break-all hover:opacity-90 transition-opacity"
+              >
+                <Mail size={20} />
+                <span>info@mindmanthansoftwaresolutions.com</span>
+              </a>
             </div>
 
             {/* Decorative diamond grid on left, subtle like reference */}
@@ -145,5 +154,4 @@ const ContactSection: React.FC = () => {
 };
 
 export default ContactSection;
-
 
