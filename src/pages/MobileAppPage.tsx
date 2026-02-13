@@ -258,7 +258,7 @@ const MobileAppPage: React.FC<MobileAppPageProps> = ({ onBackHome }) => {
           <div className="flex-1 w-full flex">
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-full h-full min-h-[500px] lg:min-h-[600px] bg-gray-100">
               <img 
-                src="https://images.unsplash.com/photo-1521931961826-fe48677230a5?q=80&w=1200&auto=format&fit=crop" 
+                src="https://images.unsplash.com/photo-1595675024853-0f3ec9098ac7?q=80&w=1200&auto=format&fit=crop" 
                 alt="Smartphone Interface Design"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"

@@ -44,7 +44,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ onBackHome }) => {
       title: 'Social Media Analytics Tool',
       description: 'Comprehensive social media management and analytics platform with influencer tracking and ROI measurement.',
       tags: ['Vue.js', 'Express', 'PostgreSQL', 'Redis'],
-      image: 'https://images.unsplash.com/photo-1460925895917-adf4e565191c?auto=format&fit=crop&q=80&w=1000',
+      image: 'https://plus.unsplash.com/premium_photo-1770256804428-382248f4d085?auto=format&fit=crop&q=80&w=1000',
       link: '#'
     },
     {
