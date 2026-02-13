@@ -929,18 +929,76 @@ const App: React.FC = () => {
                       <span className="hidden md:block absolute top-0 right-0 text-[14px] font-bold uppercase tracking-widest text-white/70">
                         Showcase
                       </span>
-                      <div className="flex gap-4 md:gap-8 translate-y-12 md:translate-y-24 group-hover:translate-y-8 md:group-hover:translate-y-20 transition-transform duration-700">
-                        {[1, 2, 3].map((i) => (
+                      <div className="flex gap-2 md:gap-6 translate-y-12 md:translate-y-24 group-hover:translate-y-8 md:group-hover:translate-y-20 transition-transform duration-700">
+                        {[
+                          {
+                            key: "courses",
+                            title: "Course Hub",
+                            chip: "12 Lessons",
+                            bars: ["85%", "60%", "40%"],
+                          },
+                          {
+                            key: "live",
+                            title: "Live Class",
+                            chip: "Now Streaming",
+                            bars: ["70%", "50%", "30%"],
+                          },
+                          {
+                            key: "progress",
+                            title: "Progress",
+                            chip: "82% Complete",
+                            bars: ["90%", "65%", "45%"],
+                          },
+                        ].map((panel, idx) => (
                           <div
-                            key={i}
-                            className="w-[140px] h-[280px] md:w-[200px] md:h-[400px] bg-[#2a2b2f] rounded-[2rem] border-[6px] border-[#3a3b3f] relative overflow-hidden shadow-2xl"
+                            key={panel.key}
+                            className="w-[92px] h-[220px] md:w-[170px] md:h-[360px] bg-[#1f2538] rounded-[1.4rem] md:rounded-[2rem] border-[4px] md:border-[6px] border-[#334a7a] relative overflow-hidden shadow-2xl p-2.5 md:p-4 flex flex-col"
                           >
-                            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-transparent"></div>
-                            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-white/20 rounded-full"></div>
+                            <div className="absolute inset-0 bg-gradient-to-br from-[#60a5fa]/25 to-[#001fcc]/10" />
+                            <div className="relative z-10 flex items-center justify-between mb-3">
+                              <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] text-white/60">
+                                {panel.title}
+                              </span>
+                              <span className="w-2 h-2 rounded-full bg-[#93c5fd] animate-pulse" />
+                            </div>
+
+                            <div className="relative z-10 rounded-xl bg-white/8 border border-blue-200/20 p-2 md:p-3 mb-3">
+                              <div className="text-[7px] md:text-[9px] text-blue-100 font-bold uppercase tracking-[0.2em] mb-2">
+                                {panel.chip}
+                              </div>
+                              <div className="h-10 md:h-16 rounded-lg bg-gradient-to-r from-[#001fcc]/80 to-[#2dd4bf]/60 mb-2" />
+                              <div className="flex gap-1 md:gap-2">
+                                {[0, 1, 2].map((dot) => (
+                                  <span
+                                    key={dot}
+                                    className={`h-1.5 md:h-2 rounded-full ${
+                                      dot === idx
+                                        ? "w-5 md:w-7 bg-[#e8edff]"
+                                        : "w-2 md:w-3 bg-blue-200/40"
+                                    }`}
+                                  />
+                                ))}
+                              </div>
+                            </div>
+
+                            <div className="relative z-10 space-y-2 mt-auto">
+                              {panel.bars.map((bar, barIdx) => (
+                                <div key={`${panel.key}-${barIdx}`} className="space-y-1">
+                                  <div className="h-1.5 md:h-2 w-full bg-blue-900/40 rounded-full overflow-hidden">
+                                    <div
+                                      className="h-full bg-gradient-to-r from-[#93c5fd] to-[#2dd4bf] rounded-full"
+                                      style={{ width: bar }}
+                                    />
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+
+                            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-blue-100/30 rounded-full" />
                           </div>
                         ))}
                       </div>
-                      <div className="absolute right-0 bottom-0 md:bottom-[-20px] w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                      <div className="absolute right-0 bottom-0 md:bottom-[-20px] w-16 h-16 rounded-full border border-white/10 text-white flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
                         <svg
                           width="32"
                           height="32"
