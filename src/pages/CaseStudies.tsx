@@ -127,8 +127,8 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ onBackHome, onNavigateHome })
           
           <div className="flex-1 flex flex-col">
             <div className="bg-[#1a1b1f] p-16 md:p-24">
-              <h2 className="text-5xl md:text-7xl font-black text-white leading-[0.95] tracking-tighter">
-                Partner with Us <br /> for Comprehensive <br /> IT Solutions
+              <h2 className="text-3xl sm:text-5xl md:text-7xl font-black text-white leading-[1.05] sm:leading-[0.95] tracking-tighter break-words">
+                Partner with Us <br className="hidden sm:block" /> for Comprehensive <br className="hidden sm:block" /> IT Solutions
               </h2>
             </div>
             <div className="bg-[#e8edff] flex-1 p-16 md:p-24">

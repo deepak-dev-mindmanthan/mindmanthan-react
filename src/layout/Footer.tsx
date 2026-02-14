@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
 
 const MindManthanLogoFooter = () => (
@@ -138,9 +138,18 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
           <div>
             <h4 className="font-black text-[#010417] text-base md:text-lg uppercase tracking-widest mb-6 md:mb-8">Contact</h4>
             <ul className="space-y-4 text-gray-700 font-medium break-words">
-              <li className="break-words">{SITE_CONFIG.business.email}</li>
-              <li className="break-words">{SITE_CONFIG.business.phone}</li>
-              <li className="break-words">{SITE_CONFIG.business.addressLine}</li>
+              <li className="break-words flex items-start gap-3">
+                <Mail size={18} className="text-[#001fcc] mt-0.5 shrink-0" />
+                <span>{SITE_CONFIG.business.email}</span>
+              </li>
+              <li className="break-words flex items-start gap-3">
+                <Phone size={18} className="text-[#001fcc] mt-0.5 shrink-0" />
+                <span>{SITE_CONFIG.business.phone}</span>
+              </li>
+              <li className="break-words flex items-start gap-3">
+                <MapPin size={18} className="text-[#001fcc] mt-0.5 shrink-0" />
+                <span>{SITE_CONFIG.business.addressLine}</span>
+              </li>
               <li>
                 <button
                   onClick={onContactClick}
