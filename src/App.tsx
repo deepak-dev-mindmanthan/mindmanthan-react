@@ -189,7 +189,7 @@ interface IndustryCardProps {
   tag: string;
   bgColor: string;
   children: React.ReactNode;
-  stickyTop?: string;
+  stackIndex?: number;
   onClick?: () => void;
 }
 
@@ -199,12 +199,25 @@ const IndustryCard: React.FC<IndustryCardProps> = ({
   tag,
   bgColor,
   children,
-  stickyTop = "100px",
+  stackIndex = 0,
   onClick,
-}) => (
-  <div
-    className={`sticky w-full mb-12 ${onClick ? "cursor-pointer" : ""}`}
-    style={{ top: stickyTop }}
+}) => {
+  const topClass =
+    "top-[16px] md:top-[24px]";
+
+  const offsetClass =
+    stackIndex === 0
+      ? "translate-y-0"
+      : stackIndex === 1
+        ? "translate-y-[40px] md:translate-y-[72px]"
+        : "translate-y-[80px] md:translate-y-[144px]";
+
+  const zClass =
+    stackIndex === 0 ? "z-10" : stackIndex === 1 ? "z-20" : "z-30";
+
+  return (
+    <div
+      className={`sticky w-full mb-0 ${topClass} ${offsetClass} ${zClass} ${onClick ? "cursor-pointer" : ""}`}
     onClick={onClick}
     role={onClick ? "button" : undefined}
     tabIndex={onClick ? 0 : undefined}
@@ -218,27 +231,28 @@ const IndustryCard: React.FC<IndustryCardProps> = ({
           }
         : undefined
     }
-  >
-    <div
-      className={`w-full rounded-[3rem] min-h-[500px] md:min-h-[600px] shadow-2xl overflow-hidden flex flex-col md:flex-row items-center p-8 md:p-16 border border-white/10 transition-transform duration-500 hover:scale-[1.01] ${bgColor}`}
     >
-      <div className="flex-1 text-left">
-        <span className="inline-block px-4 py-1.5 bg-white/60 rounded-md text-[#1a1b1f] text-[11px] font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
-          {tag}
-        </span>
-        <h3 className="text-4xl md:text-6xl font-black text-[#1a1b1f] mb-8 tracking-tighter">
-          {title}
-        </h3>
-        <p className="text-lg md:text-xl text-gray-700 max-w-lg leading-relaxed font-medium">
-          {description}
-        </p>
-      </div>
-      <div className="flex-1 w-full h-full flex justify-center items-center mt-12 md:mt-0 relative">
-        {children}
+      <div
+        className={`w-full rounded-[3rem] min-h-[500px] md:min-h-[600px] shadow-2xl overflow-hidden flex flex-col md:flex-row items-center p-8 md:p-16 border border-white/10 transition-transform duration-500 hover:scale-[1.01] ${bgColor}`}
+      >
+        <div className="flex-1 text-left">
+          <span className="inline-block px-4 py-1.5 bg-white/60 rounded-md text-[#1a1b1f] text-[11px] font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
+            {tag}
+          </span>
+          <h3 className="text-4xl md:text-6xl font-black text-[#1a1b1f] mb-8 tracking-tighter">
+            {title}
+          </h3>
+          <p className="text-lg md:text-xl text-gray-700 max-w-lg leading-relaxed font-medium">
+            {description}
+          </p>
+        </div>
+        <div className="flex-1 w-full h-full flex justify-center items-center mt-12 md:mt-0 relative">
+          {children}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const PageLoader: React.FC = () => (
   <div className="min-h-[50vh] flex items-center justify-center text-sm text-gray-500">
@@ -1055,13 +1069,13 @@ const App: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="relative mt-20">
+                  <div className="relative mt-20 pb-24 md:pb-32">
                     <IndustryCard
                       tag="INDUSTRIES WE SERVE"
                       title="Fintech"
                       description="Building secure and scalable financial solutions that redefine how people manage their wealth and transactions."
                       bgColor="bg-[#f0f4ff]"
-                      stickyTop="100px"
+                      stackIndex={0}
                       onClick={() => navigate(ROUTES.fintech)}
                     >
                       <div className="relative w-full h-full flex items-center justify-center">
@@ -1088,7 +1102,7 @@ const App: React.FC = () => {
                       title="Digital Transformation"
                       description="Modernize your entire workflow. We implement digital strategies that eliminate legacy friction and drive technical efficiency."
                       bgColor="bg-[#f9f7ff]"
-                      stickyTop="140px"
+                      stackIndex={1}
                       onClick={() => navigate(ROUTES.digitalTransformation)}
                     >
                       <div className="w-full h-full flex justify-center items-center">
@@ -1155,7 +1169,7 @@ const App: React.FC = () => {
                       title="Security"
                       description="Protecting your most valuable digital assets with proactive monitoring and multi-layered threat mitigation systems."
                       bgColor="bg-[#fff9f0]"
-                      stickyTop="180px"
+                      stackIndex={2}
                       onClick={() => navigate(ROUTES.security)}
                     >
                       <div className="w-full h-full flex justify-center items-center">
