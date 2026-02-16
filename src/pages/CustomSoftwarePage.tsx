@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle2, Globe, Cpu, Shield, Smartphone, Check, Plus, ArrowLeft, Star } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
+import CommonContactForm from '../components/CommonContactForm';
 
 interface CustomSoftwarePageProps {
   onBackHome: () => void;
@@ -452,65 +453,24 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
             </div>
           </div>
 
-          <div className="flex-1 bg-white p-12 md:p-16" data-consultation-form>
-            <div className="text-center mb-10">
-              <h3 className="text-[#1a1b1f] text-3xl font-black mb-2">Schedule a Free Consultation</h3>
-              <button onClick={onNavigateHome} className="w-full bg-[#001fcc] text-white font-bold py-4 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer mt-6">Get Started</button>
-              <div className="flex justify-center">
-                <svg width="40" height="20" viewBox="0 0 40 20" fill="none">
-                  <path d="M5 5C15 5 25 15 35 15" stroke="#1a1b1f" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M30 10L35 15L30 20" stroke="#1a1b1f" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              </div>
-            </div>
-
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-2">First name</label>
-                  <input aria-label="Form field" type="text" className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
-                </div>
-                <div>
-                  <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-2">Last name</label>
-                  <input aria-label="Form field" type="text" className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-2">Company / Organization</label>
-                <input aria-label="Form field" type="text" className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
-              </div>
-
-              <div>
-                <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-2">Company email</label>
-                <input aria-label="Form field" type="email" className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
-              </div>
-
-              <div>
-                <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-2">Phone</label>
-                <input aria-label="Form field" type="tel" className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
-              </div>
-
-              <div>
-                <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-2">How Can We Help You?</label>
-                <select aria-label="Form selection" className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all appearance-none cursor-pointer">
-                  <option>Select Option</option>
-                  <option>NFT Development</option>
-                  <option>Mobile App Development</option>
-                  <option>Web App Development</option>
-                  <option>Software Development</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-2">Message</label>
-                <textarea aria-label="Form message" rows={4} placeholder="To better assist you, please describe how we can help..." className="w-full px-5 py-4 bg-white border border-gray-200 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all resize-none"></textarea>
-              </div>
-
-              <button type="submit" className="w-full py-5 bg-[#001fcc] text-white font-black text-lg uppercase tracking-widest rounded-xl hover:bg-[#0017a8] active:scale-95 transition-all shadow-xl shadow-blue-500/20">
-                Send Request
-              </button>
-            </form>
+          <div className="flex-1 bg-white">
+            <CommonContactForm 
+              formType="custom_software_development"
+              title="Schedule a Free Consultation"
+              subtitle=""
+              buttonText="Send Request"
+              showFirstLastName={true}
+              showServiceInterest={true}
+              showCompanyName={true}
+              selectLabel="How Can We Help You?"
+              selectName="serviceInterest"
+              selectOptions={[
+                "NFT Development",
+                "Mobile App Development",
+                "Web App Development",
+                "Software Development"
+              ]}
+            />
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CheckCircle2, Search } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
+import CommonContactForm from '../components/CommonContactForm';
 
 interface Project {
   id: string;
@@ -157,56 +158,16 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ onBackHome, onNavigateHome })
             </div>
           </div>
 
-          <div className="flex-1 bg-white p-16 md:p-24" data-consultation-form>
-            <div className="text-center mb-16">
-              <h3 className="text-[#1a1b1f] text-4xl font-black mb-4 tracking-tighter">Schedule a Free Consultation</h3>
-              <div className="flex justify-center">
-                <div className="w-16 h-1 bg-[#001fcc] rounded-full"></div>
-              </div>
-            </div>
-
-            <form className="space-y-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <div>
-                  <label htmlFor="case-first-name" className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">First name</label>
-                  <input aria-label="Form field" id="case-first-name" type="text" className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold" placeholder="John" />
-                </div>
-                <div>
-                  <label htmlFor="case-last-name" className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">Last name</label>
-                  <input aria-label="Form field" id="case-last-name" type="text" className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold" placeholder="Doe" />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="case-company" className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">Company</label>
-                <input aria-label="Form field" id="case-company" type="text" className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold" placeholder="Organization name" />
-              </div>
-
-              <div>
-                <label htmlFor="case-email" className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">Email</label>
-                <input aria-label="Form field" id="case-email" type="email" className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold" placeholder="john@example.com" />
-              </div>
-
-              <div>
-                <label htmlFor="case-service-interest" className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">Service Interest</label>
-                <select aria-label="Form selection" id="case-service-interest" className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold appearance-none cursor-pointer">
-                  <option>Select Option</option>
-                  <option>Cloud Infrastructure</option>
-                  <option>Mobile App Development</option>
-                  <option>Web Platform Engineering</option>
-                  <option>Security Audit</option>
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="case-message" className="block text-[11px] font-black text-gray-400 uppercase tracking-widest mb-3">Message</label>
-                <textarea aria-label="Form message" id="case-message" rows={5} placeholder="Describe your technical needs..." className="w-full px-6 py-5 bg-[#f8fafc] border-none rounded-xl focus:ring-2 focus:ring-[#001fcc] outline-none transition-all font-bold resize-none"></textarea>
-              </div>
-
-              <button type="button" onClick={onNavigateHome} className="w-full py-6 bg-[#001fcc] text-white font-black text-lg uppercase tracking-widest rounded-2xl hover:bg-[#0017a8] active:scale-95 transition-all shadow-2xl shadow-blue-500/30 cursor-pointer">
-                Send Request
-              </button>
-            </form>
+          <div className="flex-1 bg-white" data-consultation-form>
+            <CommonContactForm 
+              formType="case_studies_consultation"
+              title="Schedule a Free Consultation"
+              subtitle=""
+              buttonText="Send Request"
+              showFirstLastName={true}
+              showServiceInterest={true}
+              showCompanyName={true}
+            />
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ import React from 'react';
 import { CheckCircle2, Network, Users, Shield, Code, Smartphone, Cloud } from 'lucide-react';
 import service1 from '../assets/images/service1.png';
 import { SITE_CONFIG } from '../config/siteConfig';
+import CommonContactForm from '../components/CommonContactForm';
 
 interface ServicesPageProps {
   onNavigateHome?: () => void;
@@ -267,54 +268,24 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
             </div>
 
             {/* Right Side - Form */}
-            <div className="bg-white p-12 lg:p-16">
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">First Name</label>
-                    <input aria-label="Form field" type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
-                  </div>
-                  <div>
-                    <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Last Name</label>
-                    <input aria-label="Form field" type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Company / Organization</label>
-                  <input aria-label="Form field" type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
-                </div>
-
-                <div>
-                  <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Company Email</label>
-                  <input aria-label="Form field" type="email" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
-                </div>
-
-                <div>
-                  <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Phone</label>
-                  <input aria-label="Form field" type="tel" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
-                </div>
-
-                <div>
-                  <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">How Can We Help You?</label>
-                  <select aria-label="Form selection" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all appearance-none cursor-pointer">
-                    <option>Select Option</option>
-                    <option>Software Development</option>
-                    <option>Mobile App Development</option>
-                    <option>Web App Development</option>
-                    <option>Consulting</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Message</label>
-                  <textarea aria-label="Form message" rows={4} placeholder="To better assist you, please describe how we can help..." className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all resize-none"></textarea>
-                </div>
-
-                <button type="submit" className="w-full py-4 bg-[#001fcc] text-white font-black text-base uppercase tracking-widest rounded-lg hover:bg-[#0017a8] active:scale-95 transition-all">
-                  Send Request
-                </button>
-              </form>
+            <div className="bg-white">
+              <CommonContactForm 
+                formType="services_page"
+                title=""
+                subtitle=""
+                buttonText="Send Request"
+                showFirstLastName={true}
+                showServiceInterest={true}
+                showCompanyName={true}
+                selectLabel="How Can We Help You?"
+                selectName="serviceInterest"
+                selectOptions={[
+                  "Software Development",
+                  "Mobile App Development",
+                  "Web App Development",
+                  "Consulting"
+                ]}
+              />
             </div>
           </div>
         </div>

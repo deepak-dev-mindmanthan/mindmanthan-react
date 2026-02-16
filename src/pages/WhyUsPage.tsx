@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
 import le1 from '../assets/images/le1.png';
 import le2 from '../assets/images/le2.png';
 import { SITE_CONFIG } from '../config/siteConfig';
+import CommonContactForm from '../components/CommonContactForm';
 
 interface WhyUsPageProps {
   onNavigateHome?: () => void;
@@ -267,54 +267,24 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
             </div>
 
             {/* Right Side - Form */}
-            <div className="bg-white p-12 lg:p-16">
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="whyus-first-name" className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">First Name</label>
-                    <input aria-label="Form field" id="whyus-first-name" type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
-                  </div>
-                  <div>
-                    <label htmlFor="whyus-last-name" className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Last Name</label>
-                    <input aria-label="Form field" id="whyus-last-name" type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="whyus-company" className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Company / Organization</label>
-                  <input aria-label="Form field" id="whyus-company" type="text" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
-                </div>
-
-                <div>
-                  <label htmlFor="whyus-email" className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Company Email</label>
-                  <input aria-label="Form field" id="whyus-email" type="email" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
-                </div>
-
-                <div>
-                  <label htmlFor="whyus-phone" className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Phone</label>
-                  <input aria-label="Form field" id="whyus-phone" type="tel" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all" />
-                </div>
-
-                <div>
-                  <label htmlFor="whyus-service" className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">How Can We Help You?</label>
-                  <select aria-label="Form selection" id="whyus-service" className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all appearance-none cursor-pointer">
-                    <option>Select Option</option>
-                    <option>Software Development</option>
-                    <option>Mobile App Development</option>
-                    <option>Web App Development</option>
-                    <option>Consulting</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="whyus-message" className="block text-[13px] font-bold text-gray-600 uppercase tracking-widest mb-3">Message</label>
-                  <textarea aria-label="Form message" id="whyus-message" rows={4} placeholder="To better assist you, please describe how we can help..." className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg focus:border-[#001fcc] focus:ring-1 focus:ring-[#001fcc] outline-none transition-all resize-none"></textarea>
-                </div>
-
-                <button type="submit" className="w-full py-4 bg-[#001fcc] text-white font-black text-base uppercase tracking-widest rounded-lg hover:bg-[#0017a8] active:scale-95 transition-all">
-                  Send Request
-                </button>
-              </form>
+            <div className="bg-white">
+              <CommonContactForm 
+                formType="why_us_page"
+                title=""
+                subtitle=""
+                buttonText="Send Request"
+                showFirstLastName={true}
+                showServiceInterest={true}
+                showCompanyName={true}
+                selectLabel="How Can We Help You?"
+                selectName="serviceInterest"
+                selectOptions={[
+                  "Software Development",
+                  "Mobile App Development",
+                  "Web App Development",
+                  "Consulting"
+                ]}
+              />
             </div>
           </div>
         </div>

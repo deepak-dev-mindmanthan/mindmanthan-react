@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
+import { submitContactForm } from '../services/apiService';
 
 interface ContactPageProps {
   onBackHome?: () => void;
@@ -15,24 +16,107 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
     message: ''
   });
 
+  const [status, setStatus] = useState<{
+    type: 'idle' | 'loading' | 'success' | 'error';
+    message: string;
+  }>({ type: 'idle', message: '' });
+
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    
+    // Clear field error when user starts typing
+    if (fieldErrors[name]) {
+      setFieldErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
+
+    // Phone number specific validation
+    if (name === 'phone') {
+      const sanitizedValue = value.replace(/[^0-9+\-() ]/g, '');
+      setFormData((prev) => ({
+        ...prev,
+        [name]: sanitizedValue
+      }));
+      return;
+    }
+
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = () => {
+    const errors: Record<string, string> = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
+
+    if (!formData.name.trim()) errors.name = 'Full name is required';
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+    } else if (!emailRegex.test(formData.email)) {
+      errors.email = 'Please enter a valid email address';
+    }
+    if (formData.phone && !phoneRegex.test(formData.phone)) {
+      errors.phone = 'Please enter a valid phone number';
+    }
+    if (!formData.subject.trim()) errors.subject = 'Subject is required';
+    if (!formData.message.trim()) {
+      errors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      errors.message = 'Message must be at least 10 characters long';
+    }
+
+    setFieldErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
+    
+    if (!validateForm()) {
+      setStatus({ type: 'error', message: 'Please correct the highlighted errors.' });
+      return;
+    }
+
+    setStatus({ type: 'loading', message: 'Sending your message...' });
+    
+    try {
+      await submitContactForm({
+        ...formData,
+        formType: 'contact_page'
+      });
+      
+      setStatus({ 
+        type: 'success', 
+        message: 'Thank you! Your message has been sent successfully.' 
+      });
+      
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+      setFieldErrors({});
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setStatus({ type: 'idle', message: '' });
+      }, 5000);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Something went wrong. Please try again later.';
+      setStatus({ 
+        type: 'error', 
+        message: errorMessage
+      });
+    }
   };
 
   const contactInfo = [
@@ -116,9 +200,9 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Your name"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001fcc] focus:border-transparent transition"
-                      required
+                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001fcc] focus:border-transparent transition ${fieldErrors.name ? 'border-red-500' : 'border-gray-300'}`}
                     />
+                    {fieldErrors.name && <p className="text-red-500 text-xs mt-1 font-bold">{fieldErrors.name}</p>}
                   </div>
 
                   <div>
@@ -132,9 +216,9 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="your@email.com"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001fcc] focus:border-transparent transition"
-                      required
+                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001fcc] focus:border-transparent transition ${fieldErrors.email ? 'border-red-500' : 'border-gray-300'}`}
                     />
+                    {fieldErrors.email && <p className="text-red-500 text-xs mt-1 font-bold">{fieldErrors.email}</p>}
                   </div>
                 </div>
 
@@ -149,8 +233,9 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="+91 XXXXX XXXXX"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001fcc] focus:border-transparent transition"
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001fcc] focus:border-transparent transition ${fieldErrors.phone ? 'border-red-500' : 'border-gray-300'}`}
                   />
+                  {fieldErrors.phone && <p className="text-red-500 text-xs mt-1 font-bold">{fieldErrors.phone}</p>}
                 </div>
 
                 <div>
@@ -164,9 +249,9 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     placeholder="What is this about?"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001fcc] focus:border-transparent transition"
-                    required
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001fcc] focus:border-transparent transition ${fieldErrors.subject ? 'border-red-500' : 'border-gray-300'}`}
                   />
+                  {fieldErrors.subject && <p className="text-red-500 text-xs mt-1 font-bold">{fieldErrors.subject}</p>}
                 </div>
 
                 <div>
@@ -180,17 +265,42 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
                     onChange={handleInputChange}
                     placeholder="Tell us about your project..."
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001fcc] focus:border-transparent transition resize-none"
-                    required
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001fcc] focus:border-transparent transition resize-none ${fieldErrors.message ? 'border-red-500' : 'border-gray-300'}`}
                   />
+                  {fieldErrors.message && <p className="text-red-500 text-xs mt-1 font-bold">{fieldErrors.message}</p>}
                 </div>
+
+                {status.type !== 'idle' && (
+                  <div className={`p-4 rounded-lg flex items-center gap-3 ${
+                    status.type === 'success' ? 'bg-green-50 text-green-700 border border-green-200' :
+                    status.type === 'error' ? 'bg-red-50 text-red-700 border border-red-200' :
+                    'bg-blue-50 text-blue-700 border border-blue-200'
+                  }`}>
+                    {status.type === 'success' && <CheckCircle2 size={20} />}
+                    {status.type === 'error' && <AlertCircle size={20} />}
+                    {status.type === 'loading' && <Loader2 size={20} className="animate-spin" />}
+                    <p className="text-sm font-medium">{status.message}</p>
+                  </div>
+                )}
 
                 <button
                   type="submit"
-                  className="w-full bg-[#001fcc] text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#0015a8] transition-all active:scale-95 flex items-center justify-center gap-2"
+                  disabled={status.type === 'loading'}
+                  className={`w-full text-white px-8 py-4 rounded-lg font-bold text-lg transition-all active:scale-95 flex items-center justify-center gap-2 ${
+                    status.type === 'loading' ? 'bg-blue-400 cursor-not-allowed' : 'bg-[#001fcc] hover:bg-[#0015a8]'
+                  }`}
                 >
-                  <Send size={20} />
-                  Send Message
+                  {status.type === 'loading' ? (
+                    <>
+                      <Loader2 size={20} className="animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={20} />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </form>
             </div>

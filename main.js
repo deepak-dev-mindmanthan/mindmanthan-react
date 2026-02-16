@@ -2,13 +2,23 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import express from 'express';
+import cors from 'cors';
 import { createServer as createViteServer } from 'vite';
+import router from './server/routes/route.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isProd = process.env.NODE_ENV === 'production';
 
 async function createServer() {
   const app = express();
+  
+  // Middleware
+  app.use(cors());
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
+
+  // API Routes
+  app.use('/api', router);
 
   let vite;
   if (!isProd) {

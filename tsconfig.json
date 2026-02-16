@@ -25,7 +25,7 @@
     "vite.config.ts",
     "tailwind.config.js",
     "postcss.config.js",
-    "server.js"
+    "main.js"
   ],
   "exclude": ["node_modules"]
 }
