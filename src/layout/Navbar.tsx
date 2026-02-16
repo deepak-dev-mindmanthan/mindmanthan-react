@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { NAV_LINKS } from '../config/constants';
 import SolutionsMegaMenu from '../components/nav/SolutionsMegaMenu';
@@ -125,6 +125,7 @@ const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
+  const lastScrollY = useRef(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileOpenSection, setMobileOpenSection] = useState<string | null>(null);
@@ -135,12 +136,30 @@ const Navbar: React.FC<NavbarProps> = ({
       const heroThreshold = isHomePage ? window.innerHeight * 0.8 : 500;
       const aboutThreshold = heroThreshold + 700;
       setIsScrolled(scrollPos > heroThreshold);
-      setIsHidden(scrollPos > aboutThreshold);
+
+      if (isMobileMenuOpen) {
+        setIsHidden(false);
+        lastScrollY.current = scrollPos;
+        return;
+      }
+
+      const minScrollDelta = 8;
+      const showAtTopOffset = 80;
+
+      if (scrollPos <= showAtTopOffset || scrollPos <= aboutThreshold) {
+        setIsHidden(false);
+      } else if (scrollPos > lastScrollY.current + minScrollDelta) {
+        setIsHidden(true);
+      } else if (scrollPos < lastScrollY.current - minScrollDelta) {
+        setIsHidden(false);
+      }
+
+      lastScrollY.current = scrollPos;
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isHomePage]);
+  }, [isHomePage, isMobileMenuOpen]);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
