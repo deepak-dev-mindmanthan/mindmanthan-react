@@ -876,7 +876,7 @@ const App: React.FC = () => {
                     </div>
 
                     <div className="bg-[#fdf6e3] rounded-[3rem] p-8 flex flex-col justify-between h-[520px] md:h-[560px] lg:h-[600px] relative overflow-hidden group">
-                      <div>
+                      <div className="relative z-10">
                         <div className="flex justify-between items-start mb-12">
                           <span className="text-[24px] font-medium text-[#1a1b1f]">
                             02.
@@ -885,14 +885,14 @@ const App: React.FC = () => {
                             Showcase
                           </span>
                         </div>
-                        <h3 className="text-6xl font-black text-[#1a1b1f] mb-8 tracking-tighter">
+                        <h3 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#1a1b1f] mb-8 tracking-tighter">
                           IoT Labs
                         </h3>
-                        <p className="text-[24px] font-bold text-[#1a1b1f] leading-[1.2] max-w-xs">
+                        <p className="text-[18px] sm:text-[20px] md:text-[24px] font-bold text-[#1a1b1f] leading-[1.2] max-w-[220px] sm:max-w-xs">
                           Secure device telemetry and real-time monitoring dashboard
                         </p>
                       </div>
-                      <div className="absolute right-8 bottom-16 w-[300px] h-[240px] group-hover:scale-105 transition-transform duration-700">
+                      <div className="absolute right-3 sm:right-8 bottom-6 sm:bottom-16 w-[170px] h-[140px] sm:w-[230px] sm:h-[180px] md:w-[300px] md:h-[240px] opacity-100 pointer-events-none z-0 group-hover:scale-105 transition-transform duration-700">
                         <svg
                           viewBox="0 0 300 240"
                           className="w-full h-full overflow-visible"
