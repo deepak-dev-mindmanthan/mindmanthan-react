@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, User, ArrowLeft } from 'lucide-react';
 import { getBlogById } from '../data/blogs';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 
 interface BlogPageProps {
   blogId?: number;
@@ -104,7 +105,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogId = 1, onBackHome, onBackToHom
             <div className="bg-[#f4f7ff] p-8 rounded-2xl">
               <h3 className="text-xl font-bold text-[#010417] mb-2">About the Author</h3>
               <p className="text-gray-700">
-                {blog.author} is an experienced software development expert at Mind Manthan with a passion for sharing insights about technology and business innovation.
+                {blog.author} is an experienced software development expert at {CONTENT_CONFIG.company.shortName} with a passion for sharing insights about technology and business innovation.
               </p>
             </div>
           </div>
@@ -116,7 +117,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ blogId = 1, onBackHome, onBackToHom
               Get in touch with our team and discuss how we can help with your next project.
             </p>
             <button className="bg-white text-[#001fcc] px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-all">
-              Contact Us
+              {CONTENT_CONFIG.cta.contactUs}
             </button>
           </div>
         </div>

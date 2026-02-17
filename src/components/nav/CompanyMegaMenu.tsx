@@ -1,4 +1,5 @@
 import React from 'react';
+import { CONTENT_CONFIG } from '../../config/contentConfig';
 
 interface CompanyMegaMenuProps {
   onAboutUsClick?: () => void;
@@ -71,7 +72,7 @@ const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({
         <div className="flex-[0.8] bg-white p-10 lg:p-12 relative overflow-hidden flex flex-col justify-start">
           <div className="relative z-10 max-w-xs">
             <p className="text-[20px] font-bold text-[#1a1b1f] leading-snug mb-8">
-              Mind Manthan is trusted for secure and scalable software delivery across app, web, and IoT projects.
+              {CONTENT_CONFIG.company.shortName} is trusted for secure and scalable software delivery across app, web, and IoT projects.
             </p>
             <button
               onClick={() => {

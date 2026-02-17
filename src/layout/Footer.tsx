@@ -1,6 +1,7 @@
 import React from 'react';
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
+import { CONTENT_CONFIG, getCopyrightYears } from '../config/contentConfig';
 
 const MindManthanLogoFooter = () => (
   <div className="flex items-center gap-4 group cursor-pointer flex-wrap">
@@ -54,7 +55,7 @@ const MindManthanLogoFooter = () => (
 
     <div className="flex flex-col leading-tight">
       <span className="text-[#001fcc] text-2xl font-black tracking-tight uppercase break-words">
-        Mind Manthan
+        {CONTENT_CONFIG.company.shortName}
       </span>
       <div className="flex items-center gap-2">
         <div className="h-[1px] w-5 bg-gradient-to-r from-[#2dd4bf] to-transparent"></div>
@@ -162,7 +163,7 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
           </div>
         </div>
         <div className="mt-16 md:mt-24 pt-8 md:pt-10 border-t border-blue-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-gray-600 text-sm font-medium">
-          <p className="break-words">&copy; 2024 Mind Manthan Software Solutions. All Rights Reserved.</p>
+          <p className="break-words">&copy; {getCopyrightYears()} {CONTENT_CONFIG.company.legalName}. All Rights Reserved.</p>
           <div className="flex flex-wrap gap-6">
             <a href="/contact" className="hover:text-[#001fcc]">Privacy Policy</a>
             <a href="/contact" className="hover:text-[#001fcc]">Terms of Service</a>

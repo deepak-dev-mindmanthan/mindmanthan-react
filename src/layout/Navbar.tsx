@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { NAV_LINKS } from '../config/constants';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 import SolutionsMegaMenu from '../components/nav/SolutionsMegaMenu';
 import CompanyMegaMenu from '../components/nav/CompanyMegaMenu';
 import ResourcesDropdown from '../components/nav/ResourcesDropdown';
@@ -88,7 +89,7 @@ const MindManthanLogo = ({ isLight = false }: { isLight?: boolean }) => {
 
       <div className="flex flex-col leading-tight">
         <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${textColor} group-hover:text-blue-600`}>
-          Mind Manthan
+          {CONTENT_CONFIG.company.shortName}
         </span>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { SITE_CONFIG, SITE_LOGO, SITE_OG_IMAGE, SITE_URL } from "./siteConfig";
 import { ROUTES, getBlogDetailPath } from "../routes/routes";
 import { BLOG_POSTS } from "../data/blogs";
+import { CONTENT_CONFIG } from "./contentConfig";
 
 export interface PageSEO {
   title: string;
@@ -22,6 +23,8 @@ export interface PageSEO {
 
 const SITE_NAME = SITE_CONFIG.siteName;
 const DEFAULT_OG_IMAGE = SITE_OG_IMAGE;
+const BRAND_SUFFIX = `| ${SITE_NAME}`;
+const withBrand = (title: string) => `${title} ${BRAND_SUFFIX}`;
 
 const VIEW_PATHS: Record<string, string> = {
   home: ROUTES.home,
@@ -62,7 +65,7 @@ const getCanonicalUrl = (view: string, id?: number) => {
 };
 
 export const DEFAULT_SEO: PageSEO = {
-  title: "Mind Manthan - Software Solutions",
+  title: `${SITE_NAME} - Software Solutions`,
   description: SITE_CONFIG.siteDescription,
   keywords:
     "software development, mobile app development, web development, custom software, mobile apps, website development, iot, cloud devops, security, api integration",
@@ -79,32 +82,32 @@ export const DEFAULT_SEO: PageSEO = {
 export const SEO_CONFIG: Record<string, PageSEO> = {
   home: {
     ...DEFAULT_SEO,
-    title: "Mind Manthan - Innovative Software Solutions & Digital Transformation",
+    title: `${SITE_NAME} - Innovative Software Solutions & Digital Transformation`,
     description:
-      "Mind Manthan builds custom software, mobile apps, and digital platforms that help teams move faster and scale with confidence.",
+      `${SITE_NAME} builds custom software, mobile apps, and digital platforms that help teams move faster and scale with confidence.`,
     canonical: getCanonicalUrl("home"),
     ogUrl: getCanonicalUrl("home"),
     schemaType: 'ProfessionalService'
   },
   'about-us': {
     ...DEFAULT_SEO,
-    title: "About Us | Mind Manthan",
-    description: "Learn more about Mind Manthan, our mission, values, and the expert team behind our award-winning software solutions.",
+    title: withBrand("About Us"),
+    description: `Learn more about ${SITE_NAME}, our mission, values, and the expert team behind our award-winning software solutions.`,
     canonical: getCanonicalUrl("about-us"),
     ogUrl: getCanonicalUrl("about-us"),
     schemaType: 'WebPage'
   },
   'why-us': {
     ...DEFAULT_SEO,
-    title: "Why Choose Us | Mind Manthan",
-    description: "Discover why businesses trust Mind Manthan for their digital transformation and software development needs.",
+    title: withBrand("Why Choose Us"),
+    description: `Discover why businesses trust ${SITE_NAME} for their digital transformation and software development needs.`,
     canonical: getCanonicalUrl("why-us"),
     ogUrl: getCanonicalUrl("why-us"),
     schemaType: 'WebPage'
   },
   services: {
     ...DEFAULT_SEO,
-    title: "Our Services | Mind Manthan",
+    title: withBrand("Our Services"),
     description: "Explore our comprehensive range of software development services, from custom software to cloud solutions.",
     canonical: getCanonicalUrl("services"),
     ogUrl: getCanonicalUrl("services"),
@@ -112,7 +115,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   portfolio: {
     ...DEFAULT_SEO,
-    title: "Portfolio | Mind Manthan",
+    title: withBrand("Portfolio"),
     description: "View our latest projects and see how we've helped businesses achieve their digital goals.",
     canonical: getCanonicalUrl("portfolio"),
     ogUrl: getCanonicalUrl("portfolio"),
@@ -120,7 +123,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   contact: {
     ...DEFAULT_SEO,
-    title: "Contact Us | Mind Manthan",
+    title: withBrand("Contact Us"),
     description: "Get in touch with us to discuss your next project. We're here to help you build your digital future.",
     canonical: getCanonicalUrl("contact"),
     ogUrl: getCanonicalUrl("contact"),
@@ -128,7 +131,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'case-studies': {
     ...DEFAULT_SEO,
-    title: "Case Studies | Mind Manthan",
+    title: withBrand("Case Studies"),
     description: "In-depth look at how we've solved complex challenges for our clients through innovative software solutions.",
     canonical: getCanonicalUrl("case-studies"),
     ogUrl: getCanonicalUrl("case-studies"),
@@ -136,7 +139,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'insurance-case-study': {
     ...DEFAULT_SEO,
-    title: "Insurance Workflow Platform Case Study | Mind Manthan",
+    title: withBrand("Insurance Workflow Platform Case Study"),
     description: "See how we delivered a secure, scalable insurance platform with improved onboarding and claims workflows.",
     canonical: getCanonicalUrl("insurance-case-study"),
     ogUrl: getCanonicalUrl("insurance-case-study"),
@@ -144,7 +147,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'coffee-case-study': {
     ...DEFAULT_SEO,
-    title: "Coffee Supply Chain Platform Case Study | Mind Manthan",
+    title: withBrand("Coffee Supply Chain Platform Case Study"),
     description: "Discover how we built an integrated coffee supply chain platform with IoT telemetry and operations automation.",
     canonical: getCanonicalUrl("coffee-case-study"),
     ogUrl: getCanonicalUrl("coffee-case-study"),
@@ -152,7 +155,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'london-travel-case-study': {
     ...DEFAULT_SEO,
-    title: "Travel App Platform Case Study | Mind Manthan",
+    title: withBrand("Travel App Platform Case Study"),
     description: "Explore how we designed a travel platform that boosted conversions and streamlined booking.",
     canonical: getCanonicalUrl("london-travel-case-study"),
     ogUrl: getCanonicalUrl("london-travel-case-study"),
@@ -160,7 +163,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'iot-asset-case-study': {
     ...DEFAULT_SEO,
-    title: "IoT Asset Monitoring Case Study | Mind Manthan",
+    title: withBrand("IoT Asset Monitoring Case Study"),
     description: "Read how we implemented real-time asset monitoring, alerts, and analytics using secure IoT architecture.",
     canonical: getCanonicalUrl("iot-asset-case-study"),
     ogUrl: getCanonicalUrl("iot-asset-case-study"),
@@ -168,7 +171,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'cloud-devops-case-study': {
     ...DEFAULT_SEO,
-    title: "Cloud DevOps Modernization Case Study | Mind Manthan",
+    title: withBrand("Cloud DevOps Modernization Case Study"),
     description: "See how we modernized cloud infrastructure with CI/CD, observability, and deployment automation.",
     canonical: getCanonicalUrl("cloud-devops-case-study"),
     ogUrl: getCanonicalUrl("cloud-devops-case-study"),
@@ -176,7 +179,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'api-integration-case-study': {
     ...DEFAULT_SEO,
-    title: "API Integration Hub Case Study | Mind Manthan",
+    title: withBrand("API Integration Hub Case Study"),
     description: "Learn how we built a secure API integration layer for payments, notifications, and partner systems.",
     canonical: getCanonicalUrl("api-integration-case-study"),
     ogUrl: getCanonicalUrl("api-integration-case-study"),
@@ -184,7 +187,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'custom-software': {
     ...DEFAULT_SEO,
-    title: "Custom Software Development | Mind Manthan",
+    title: withBrand("Custom Software Development"),
     description: "Bespoke software solutions tailored to your unique business needs and goals.",
     canonical: getCanonicalUrl("custom-software"),
     ogUrl: getCanonicalUrl("custom-software"),
@@ -192,7 +195,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'mobile-app': {
     ...DEFAULT_SEO,
-    title: "Mobile App Development | Mind Manthan",
+    title: withBrand("Mobile App Development"),
     description: "High-quality mobile applications for iOS and Android, built with the latest technologies.",
     canonical: getCanonicalUrl("mobile-app"),
     ogUrl: getCanonicalUrl("mobile-app"),
@@ -200,7 +203,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'api-integration-support': {
     ...DEFAULT_SEO,
-    title: "API Integration & Support | Mind Manthan",
+    title: withBrand("API Integration & Support"),
     description: "Secure API integration, custom API development, monitoring, optimization, and technical support services.",
     canonical: getCanonicalUrl("api-integration-support"),
     ogUrl: getCanonicalUrl("api-integration-support"),
@@ -208,7 +211,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'web-app': {
     ...DEFAULT_SEO,
-    title: "Web App Development | Mind Manthan",
+    title: withBrand("Web App Development"),
     description: "Scalable and performant web applications for modern businesses.",
     canonical: getCanonicalUrl("web-app"),
     ogUrl: getCanonicalUrl("web-app"),
@@ -216,7 +219,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   "iot-solutions": {
     ...DEFAULT_SEO,
-    title: "IoT Solutions | Mind Manthan",
+    title: withBrand("IoT Solutions"),
     description: "Scalable IoT solutions with secure connectivity, real-time data processing, and operational dashboards.",
     canonical: getCanonicalUrl("iot-solutions"),
     ogUrl: getCanonicalUrl("iot-solutions"),
@@ -224,7 +227,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'ios-development': {
     ...DEFAULT_SEO,
-    title: "iOS Development | Mind Manthan",
+    title: withBrand("iOS Development"),
     description: "Expert iOS app development services for iPhone and iPad.",
     canonical: getCanonicalUrl("ios-development"),
     ogUrl: getCanonicalUrl("ios-development"),
@@ -232,7 +235,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'android-development': {
     ...DEFAULT_SEO,
-    title: "Android Development | Mind Manthan",
+    title: withBrand("Android Development"),
     description: "Professional Android app development services for a wide range of devices.",
     canonical: getCanonicalUrl("android-development"),
     ogUrl: getCanonicalUrl("android-development"),
@@ -240,7 +243,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'digital-transformation': {
     ...DEFAULT_SEO,
-    title: "Digital Transformation | Mind Manthan",
+    title: withBrand("Digital Transformation"),
     description: "Modernize your business with our comprehensive digital transformation strategies.",
     canonical: getCanonicalUrl("digital-transformation"),
     ogUrl: getCanonicalUrl("digital-transformation"),
@@ -248,7 +251,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   security: {
     ...DEFAULT_SEO,
-    title: "Security Solutions | Mind Manthan",
+    title: withBrand("Security Solutions"),
     description: "Protect your digital assets with our advanced security and threat mitigation services.",
     canonical: getCanonicalUrl("security"),
     ogUrl: getCanonicalUrl("security"),
@@ -256,7 +259,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   "cloud-devops": {
     ...DEFAULT_SEO,
-    title: "Cloud and DevOps Services | Mind Manthan",
+    title: withBrand("Cloud and DevOps Services"),
     description: "Cloud migration, CI/CD setup, containerization, and monitoring services for reliable software delivery.",
     canonical: getCanonicalUrl("cloud-devops"),
     ogUrl: getCanonicalUrl("cloud-devops"),
@@ -264,7 +267,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   consulting: {
     ...DEFAULT_SEO,
-    title: "SEO & Growth Services | Mind Manthan",
+    title: withBrand("SEO & Growth Services"),
     description: "Technical SEO, on-page and off-page optimization, growth strategy, audits, and performance-focused digital consulting.",
     canonical: getCanonicalUrl("consulting"),
     ogUrl: getCanonicalUrl("consulting"),
@@ -272,15 +275,15 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   events: {
     ...DEFAULT_SEO,
-    title: "Events | Mind Manthan",
-    description: "Stay up to date with the latest events and news from Mind Manthan.",
+    title: withBrand("Events"),
+    description: `Stay up to date with the latest events and news from ${SITE_NAME}.`,
     canonical: getCanonicalUrl("events"),
     ogUrl: getCanonicalUrl("events"),
     schemaType: 'WebPage'
   },
   'blog-archive': {
     ...DEFAULT_SEO,
-    title: "Blog | Mind Manthan",
+    title: withBrand("Blog"),
     description: "Insights, news, and trends from the world of software development and digital transformation.",
     canonical: getCanonicalUrl("blog-archive"),
     ogUrl: getCanonicalUrl("blog-archive"),
@@ -288,7 +291,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'not-found': {
     ...DEFAULT_SEO,
-    title: "Page Not Found | Mind Manthan",
+    title: withBrand("Page Not Found"),
     description: "The page you are looking for could not be found.",
     canonical: getCanonicalUrl("home"),
     ogUrl: getCanonicalUrl("home"),
@@ -326,7 +329,7 @@ export const getSEO = (view: string, id?: number): PageSEO => {
   if (view === 'blog-detail' && id && BLOGS[id]) {
     return {
       ...DEFAULT_SEO,
-      title: `${BLOGS[id].title} | Mind Manthan Blog`,
+      title: `${BLOGS[id].title} | ${CONTENT_CONFIG.company.blogTitle}`,
       description: BLOGS[id].excerpt,
       canonical: getCanonicalUrl("blog-detail", id),
       ogUrl: getCanonicalUrl("blog-detail", id),
@@ -371,7 +374,7 @@ export const getSchema = (view: string, id?: number) => {
     breadcrumbItems.push({
       "@type": "ListItem",
       "position": 2,
-      "name": pageSeo.title.replace(" | Mind Manthan", ""),
+      "name": pageSeo.title.replace(` ${BRAND_SUFFIX}`, ""),
       "item": pageUrl
     });
   }
@@ -479,7 +482,7 @@ export const getSchema = (view: string, id?: number) => {
       "@type": "Service",
       "name": seo.title,
       "description": seo.description,
-      "serviceType": seo.title.replace(" | Mind Manthan", ""),
+      "serviceType": seo.title.replace(` ${BRAND_SUFFIX}`, ""),
       "provider": baseOrganization,
       "url": pageUrl
       }
