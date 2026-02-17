@@ -34,6 +34,9 @@ const VIEW_PATHS: Record<string, string> = {
   "insurance-case-study": ROUTES.insuranceCaseStudy,
   "coffee-case-study": ROUTES.coffeeCaseStudy,
   "london-travel-case-study": ROUTES.londonTravelCaseStudy,
+  "iot-asset-case-study": ROUTES.iotAssetCaseStudy,
+  "cloud-devops-case-study": ROUTES.cloudDevopsCaseStudy,
+  "api-integration-case-study": ROUTES.apiIntegrationCaseStudy,
   "custom-software": ROUTES.customSoftware,
   "mobile-app": ROUTES.mobileApp,
   "api-integration-support": ROUTES.apiIntegrationSupport,
@@ -141,8 +144,8 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'coffee-case-study': {
     ...DEFAULT_SEO,
-    title: "IoT Operations Platform Case Study | Mind Manthan",
-    description: "Discover how we built a modern customer experience and data-driven operations for a coffee brand.",
+    title: "Coffee Supply Chain Platform Case Study | Mind Manthan",
+    description: "Discover how we built an integrated coffee supply chain platform with IoT telemetry and operations automation.",
     canonical: getCanonicalUrl("coffee-case-study"),
     ogUrl: getCanonicalUrl("coffee-case-study"),
     schemaType: 'WebPage'
@@ -153,6 +156,30 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     description: "Explore how we designed a travel platform that boosted conversions and streamlined booking.",
     canonical: getCanonicalUrl("london-travel-case-study"),
     ogUrl: getCanonicalUrl("london-travel-case-study"),
+    schemaType: 'WebPage'
+  },
+  'iot-asset-case-study': {
+    ...DEFAULT_SEO,
+    title: "IoT Asset Monitoring Case Study | Mind Manthan",
+    description: "Read how we implemented real-time asset monitoring, alerts, and analytics using secure IoT architecture.",
+    canonical: getCanonicalUrl("iot-asset-case-study"),
+    ogUrl: getCanonicalUrl("iot-asset-case-study"),
+    schemaType: 'WebPage'
+  },
+  'cloud-devops-case-study': {
+    ...DEFAULT_SEO,
+    title: "Cloud DevOps Modernization Case Study | Mind Manthan",
+    description: "See how we modernized cloud infrastructure with CI/CD, observability, and deployment automation.",
+    canonical: getCanonicalUrl("cloud-devops-case-study"),
+    ogUrl: getCanonicalUrl("cloud-devops-case-study"),
+    schemaType: 'WebPage'
+  },
+  'api-integration-case-study': {
+    ...DEFAULT_SEO,
+    title: "API Integration Hub Case Study | Mind Manthan",
+    description: "Learn how we built a secure API integration layer for payments, notifications, and partner systems.",
+    canonical: getCanonicalUrl("api-integration-case-study"),
+    ogUrl: getCanonicalUrl("api-integration-case-study"),
     schemaType: 'WebPage'
   },
   'custom-software': {

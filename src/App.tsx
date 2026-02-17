@@ -27,6 +27,15 @@ const CoffeeCaseStudyPage = React.lazy(
 const LondonTravelCaseStudyPage = React.lazy(
   () => import("./pages/LondonTravelCaseStudyPage"),
 );
+const IotAssetCaseStudyPage = React.lazy(
+  () => import("./pages/IotAssetCaseStudyPage"),
+);
+const CloudDevopsCaseStudyPage = React.lazy(
+  () => import("./pages/CloudDevopsCaseStudyPage"),
+);
+const ApiIntegrationCaseStudyPage = React.lazy(
+  () => import("./pages/ApiIntegrationCaseStudyPage"),
+);
 const CustomSoftwarePage = React.lazy(
   () => import("./pages/CustomSoftwarePage"),
 );
@@ -275,6 +284,9 @@ type View =
   | "insurance-case-study"
   | "coffee-case-study"
   | "london-travel-case-study"
+  | "iot-asset-case-study"
+  | "cloud-devops-case-study"
+  | "api-integration-case-study"
   | "about-us"
   | "why-us"
   | "services"
@@ -311,6 +323,9 @@ const App: React.FC = () => {
       [ROUTES.insuranceCaseStudy]: "insurance-case-study",
       [ROUTES.coffeeCaseStudy]: "coffee-case-study",
       [ROUTES.londonTravelCaseStudy]: "london-travel-case-study",
+      [ROUTES.iotAssetCaseStudy]: "iot-asset-case-study",
+      [ROUTES.cloudDevopsCaseStudy]: "cloud-devops-case-study",
+      [ROUTES.apiIntegrationCaseStudy]: "api-integration-case-study",
       [ROUTES.customSoftware]: "custom-software",
       [ROUTES.mobileApp]: "mobile-app",
       [ROUTES.apiIntegrationSupport]: "api-integration-support",
@@ -454,7 +469,9 @@ const App: React.FC = () => {
         />
         <Route
           path={ROUTES.caseStudies}
-          element={<CaseStudies onBackHome={() => navigate(ROUTES.home)} />}
+          element={
+            <CaseStudies onNavigateHome={commonNavProps.onGetInTouchClick} />
+          }
         />
         <Route
           path={ROUTES.insuranceCaseStudy}
@@ -472,6 +489,28 @@ const App: React.FC = () => {
           path={ROUTES.londonTravelCaseStudy}
           element={
             <LondonTravelCaseStudyPage
+              onBackHome={() => navigate(ROUTES.home)}
+            />
+          }
+        />
+        <Route
+          path={ROUTES.iotAssetCaseStudy}
+          element={
+            <IotAssetCaseStudyPage onBackHome={() => navigate(ROUTES.home)} />
+          }
+        />
+        <Route
+          path={ROUTES.cloudDevopsCaseStudy}
+          element={
+            <CloudDevopsCaseStudyPage
+              onBackHome={() => navigate(ROUTES.home)}
+            />
+          }
+        />
+        <Route
+          path={ROUTES.apiIntegrationCaseStudy}
+          element={
+            <ApiIntegrationCaseStudyPage
               onBackHome={() => navigate(ROUTES.home)}
             />
           }
