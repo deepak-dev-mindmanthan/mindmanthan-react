@@ -10,7 +10,7 @@ const Reviews: React.FC = () => {
           Client Feedback
         </span>
 
-        <blockquote className="text-3xl md:text-5xl lg:text-[48px] font-bold text-[#1a1b1f] leading-[1.2] mb-16 max-w-5xl tracking-tight">
+        <blockquote className="text-xl md:text-4xl lg:text-[42px] font-medium md:font-semibold text-[#1a1b1f] leading-[1.3] md:leading-[1.25] mb-16 max-w-5xl tracking-tight">
           "{CONTENT_CONFIG.company.shortName} delivered our website, mobile app, and API integrations as one connected platform. The rollout
           was smooth, performance improved immediately, and their support team remains highly responsive."
         </blockquote>
@@ -51,4 +51,3 @@ const Reviews: React.FC = () => {
 };
 
 export default Reviews;
-
