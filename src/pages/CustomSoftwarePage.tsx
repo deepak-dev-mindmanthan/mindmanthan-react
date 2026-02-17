@@ -169,7 +169,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
             </div>
 
             {/* Main Heading */}
-            <h2 className="text-5xl md:text-[88px] font-black text-white leading-[1] tracking-tighter mb-10">
+            <h2 className="text-5xl md:text-6xl lg:text-[88px] font-black text-white leading-[1] tracking-tighter mb-10">
               Custom Software <br /> Development
             </h2>
 
@@ -190,7 +190,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
       <section className="bg-white py-32 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-stretch">
           <div className="flex-[1.2]">
-            <h2 className="text-4xl md:text-[54px] font-black text-[#1a1b1f] leading-[1.05] tracking-tight mb-8">
+            <h2 className="text-4xl md:text-5xl lg:text-[54px] font-black text-[#1a1b1f] leading-[1.05] tracking-tight mb-8">
               Benefits of custom software <br /> delivered by {CONTENT_CONFIG.company.shortName}
             </h2>
             <p className="text-gray-500 text-[18px] leading-relaxed mb-8 font-medium max-w-2xl">
@@ -250,7 +250,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
       <section className="bg-white py-32 px-6 lg:px-12 border-t border-gray-50">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-stretch">
           <div className="flex-[1.2]">
-            <h2 className="text-4xl md:text-[54px] font-black text-[#1a1b1f] leading-[1.05] tracking-tight mb-8">
+            <h2 className="text-4xl md:text-5xl lg:text-[54px] font-black text-[#1a1b1f] leading-[1.05] tracking-tight mb-8">
               Product Engineering <br /> & Expert Consultation
             </h2>
             <p className="text-gray-500 text-[18px] leading-relaxed mb-12 font-medium max-w-2xl">
@@ -332,7 +332,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-20 items-start">
             <div className="flex-1 lg:sticky lg:top-40">
-              <h2 className="text-4xl md:text-[54px] font-black text-[#1a1b1f] leading-[1.1] tracking-tighter mb-10">
+              <h2 className="text-4xl md:text-5xl lg:text-[54px] font-black text-[#1a1b1f] leading-[1.1] tracking-tighter mb-10">
                 Cutting-edge tools <br /> that drive performance
               </h2>
               
@@ -355,7 +355,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
       {/* Testimonial Slider */}
       <section className="bg-white py-32 px-6 border-t border-gray-100">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-[44px] font-black text-[#1a1b1f] leading-[1.1] tracking-tighter mb-12">
+          <h2 className="text-4xl md:text-5xl lg:text-[44px] font-black text-[#1a1b1f] leading-[1.1] tracking-tighter mb-12">
             What clients say about our custom software delivery
           </h2>
 
@@ -423,7 +423,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
 
       {/* Final CTA Section */}
       <section className="bg-white px-6 pb-32 pt-16">
-        <div className="max-w-7xl mx-auto rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row min-h-[800px]">
+        <div className="max-w-7xl mx-auto rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row min-h-[640px] lg:min-h-[800px]">
           <div className="flex-1 flex flex-col">
             <div className="bg-[#1a1b1f] p-12 md:p-16">
               <h2 className="text-4xl md:text-5xl lg:text-[64px] font-black text-white leading-[1.05] tracking-tighter">
@@ -513,6 +513,10 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
 };
 
 export default CustomSoftwarePage;
+
+
+
+
 
 
 

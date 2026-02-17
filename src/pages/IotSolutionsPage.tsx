@@ -79,3 +79,7 @@ const IotSolutionsPage: React.FC<IotSolutionsPageProps> = ({ onBackHome }) => {
 export default IotSolutionsPage;
 
 
+
+
+
+

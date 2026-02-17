@@ -64,3 +64,7 @@ const CoffeeCaseStudyPage: React.FC<CoffeeCaseStudyPageProps> = ({ onBackHome })
 
 export default CoffeeCaseStudyPage;
 
+
+
+
+

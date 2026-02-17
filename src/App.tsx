@@ -240,16 +240,16 @@ const IndustryCard: React.FC<IndustryCardProps> = ({
     }
     >
       <div
-        className={`w-full rounded-[3rem] min-h-[500px] md:min-h-[600px] shadow-2xl overflow-hidden flex flex-col md:flex-row items-center p-8 md:p-16 border border-white/10 transition-transform duration-500 hover:scale-[1.01] ${bgColor}`}
+        className={`w-full rounded-[3rem] min-h-[500px] md:min-h-[540px] lg:min-h-[600px] shadow-2xl overflow-hidden flex flex-col lg:flex-row items-center p-8 md:p-12 lg:p-16 border border-white/10 transition-transform duration-500 hover:scale-[1.01] ${bgColor}`}
       >
         <div className="flex-1 text-left">
           <span className="inline-block px-4 py-1.5 bg-white/60 rounded-md text-[#1a1b1f] text-[11px] font-bold uppercase tracking-[0.2em] mb-6 shadow-sm">
             {tag}
           </span>
-          <h3 className="text-4xl md:text-6xl font-black text-[#1a1b1f] mb-8 tracking-tighter">
+          <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1a1b1f] mb-8 tracking-tighter">
             {title}
           </h3>
-          <p className="text-lg md:text-xl text-gray-700 max-w-lg leading-relaxed font-medium">
+          <p className="text-lg md:text-[19px] lg:text-xl text-gray-700 max-w-lg leading-relaxed font-medium">
             {description}
           </p>
         </div>
@@ -688,9 +688,9 @@ const App: React.FC = () => {
 
               <section className="py-8 md:py-12 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
+                  <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 gap-8">
                     <div className="max-w-3xl">
-                      <h2 className="text-4xl md:text-[64px] font-bold text-[#1a1b1f] leading-[1.1] tracking-tight">
+                      <h2 className="text-4xl md:text-5xl lg:text-[64px] font-bold text-[#1a1b1f] leading-[1.1] tracking-tight">
                         We provide clients <br /> with award-winning services
                       </h2>
                     </div>
@@ -822,13 +822,13 @@ const App: React.FC = () => {
                     <span className="inline-block px-4 py-1.5 bg-[#f1f5f9] rounded-md text-[#64748b] text-[11px] font-bold uppercase tracking-[0.2em] mb-6">
                       Selected Projects
                     </span>
-                    <h2 className="text-4xl md:text-[64px] font-bold text-[#1a1b1f] leading-[1.1] tracking-tight">
+                    <h2 className="text-4xl md:text-5xl lg:text-[64px] font-bold text-[#1a1b1f] leading-[1.1] tracking-tight">
                       Solutions we engineered <br /> for real business operations
                     </h2>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                    <div className="bg-[#e0e7ff] rounded-[3rem] p-6 md:p-8 flex flex-col justify-between h-[520px] md:h-[600px] relative overflow-hidden group">
+                    <div className="bg-[#e0e7ff] rounded-[3rem] p-6 md:p-8 flex flex-col justify-between h-[500px] md:h-[540px] lg:h-[600px] relative overflow-hidden group">
                       <div>
                         <div className="flex justify-between items-start mb-12">
                           <span className="text-[24px] font-medium text-[#1a1b1f]">
@@ -875,7 +875,7 @@ const App: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="bg-[#fdf6e3] rounded-[3rem] p-8 flex flex-col justify-between h-[600px] relative overflow-hidden group">
+                    <div className="bg-[#fdf6e3] rounded-[3rem] p-8 flex flex-col justify-between h-[520px] md:h-[560px] lg:h-[600px] relative overflow-hidden group">
                       <div>
                         <div className="flex justify-between items-start mb-12">
                           <span className="text-[24px] font-medium text-[#1a1b1f]">
@@ -947,7 +947,7 @@ const App: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="bg-[#1a1b1f] rounded-[3rem] p-12 md:p-20 flex flex-col md:flex-row justify-between min-h-[500px] relative overflow-hidden group">
+                  <div className="bg-[#1a1b1f] rounded-[3rem] p-10 md:p-12 lg:p-20 flex flex-col lg:flex-row justify-between min-h-[500px] relative overflow-hidden group">
                     <div className="flex flex-col justify-between max-w-md mb-12 md:mb-0">
                       <div>
                         <div className="flex justify-between items-start mb-16">
@@ -962,11 +962,11 @@ const App: React.FC = () => {
                               S
                             </div>
                           </div>
-                          <h3 className="text-6xl font-black text-white tracking-tighter">
+                          <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter">
                             TravelOps
                           </h3>
                         </div>
-                        <p className="text-[32px] font-bold text-white leading-[1.1]">
+                        <p className="text-[24px] md:text-[28px] lg:text-[32px] font-bold text-white leading-[1.1]">
                           Unified booking and operations platform
                         </p>
                       </div>
@@ -1083,7 +1083,7 @@ const App: React.FC = () => {
               <section className="bg-white py-8 md:py-12 px-6">
                 <div className="max-w-7xl mx-auto">
                   <div className="text-center mb-16">
-                    <h2 className="text-5xl md:text-[64px] font-black text-[#1a1b1f] mb-12 tracking-tighter">
+                    <h2 className="text-5xl md:text-5xl lg:text-[64px] font-black text-[#1a1b1f] mb-12 tracking-tighter">
                       Solutions we deliver
                     </h2>
                     <div className="flex flex-wrap justify-center gap-4">

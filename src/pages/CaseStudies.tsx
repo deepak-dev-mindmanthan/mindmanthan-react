@@ -156,3 +156,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ onNavigateHome }) => {
 
 export default CaseStudies;
 
+
+
+
+
