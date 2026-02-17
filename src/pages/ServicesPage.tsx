@@ -1,6 +1,8 @@
 import React from 'react';
-import { Code, Globe, Smartphone, Shield, Cloud, Workflow, Database, Search, Palette, ShoppingCart, Link2, Wrench } from 'lucide-react';
+import { Code, Globe, Smartphone, Shield, Cloud, Workflow, Database, Search, Palette, ShoppingCart, Link2, Wrench, CheckCircle2 } from 'lucide-react';
 import CommonContactForm from '../components/CommonContactForm';
+import serviceBannerImage from '../assets/images/service1.png';
+import serviceWhyChooseImage from '../assets/images/service2.png';
 
 interface ServicesPageProps {
   onNavigateHome?: () => void;
@@ -34,6 +36,20 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
         </div>
       </section>
 
+      <section className="pb-16 lg:pb-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6 lg:px-12">
+          <div className="overflow-hidden rounded-xl shadow-lg border border-gray-100">
+            <img
+              src={serviceBannerImage}
+              alt="Mind Manthan services banner showing software, web, mobile, and IoT delivery"
+              className="w-full h-[260px] sm:h-[340px] lg:h-[440px] object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 lg:py-24 bg-gradient-to-br from-[#e8f0ff] to-[#f0f6ff]">
         <div className="max-w-6xl mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -47,6 +63,54 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 lg:py-28 bg-white border-t border-gray-100">
+        <div className="max-w-6xl mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="text-sm uppercase tracking-widest text-gray-500 mb-4 font-medium">Why Choose Our Services</div>
+              <h2 className="text-4xl lg:text-5xl font-black text-[#1a1b1f] mb-6 leading-tight">
+                Why businesses choose Mind Manthan for IT execution
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                We combine product thinking, engineering discipline, and domain-aligned execution to build reliable systems for Indian and global businesses.
+              </p>
+
+              <div className="space-y-4 mb-10">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-[#001fcc] mt-0.5 shrink-0" />
+                  <p className="text-gray-700">Architecture-first delivery for scalable web, app, IoT, and enterprise systems.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-[#001fcc] mt-0.5 shrink-0" />
+                  <p className="text-gray-700">Transparent process with milestone-based planning, sprint reviews, and measurable outcomes.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-[#001fcc] mt-0.5 shrink-0" />
+                  <p className="text-gray-700">Long-term support with maintenance, optimization, security updates, and change management.</p>
+                </div>
+              </div>
+
+              <button
+                onClick={onNavigateHome}
+                className="inline-block bg-[#001fcc] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#0012a8] transition-colors"
+              >
+                Talk to Services Team
+              </button>
+            </div>
+
+            <div className="order-1 lg:order-2">
+              <img
+                src={serviceWhyChooseImage}
+                alt="Team planning and delivery workshop for digital transformation services"
+                className="w-full h-auto rounded-xl shadow-lg object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           </div>
         </div>
       </section>

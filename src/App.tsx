@@ -573,7 +573,7 @@ const App: React.FC = () => {
               </section>
               <section
                 id="about-section"
-                className="pt-32 pb-48 px-6 bg-white relative z-10"
+                className="pt-20 md:pt-32 pb-20 md:pb-48 px-6 bg-white relative z-10"
               >
                 <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
                   <h2 className="text-3xl md:text-5xl lg:text-[52px] font-bold text-[#1a1b1f] leading-[1.1] mb-10 tracking-tight max-w-5xl">
@@ -591,12 +591,12 @@ const App: React.FC = () => {
 
               <section
                 id="partners-section"
-                className="pb-32 bg-white overflow-hidden border-b border-gray-100"
+                className="py-10 md:py-0 md:pb-32 bg-white overflow-hidden border-b border-gray-100"
               >
                 <div className="relative flex items-center">
                   <div className="animate-marquee flex items-center">
                     {[...Array(3)].map((_, i) => (
-                      <div key={i} className="flex items-center gap-24 px-12">
+                      <div key={i} className="flex items-center gap-12 md:gap-24 px-6 md:px-12">
                         {partners.map((partner, idx) => (
                           <div
                             key={`${i}-${idx}`}
@@ -604,7 +604,7 @@ const App: React.FC = () => {
                           >
                             {partner.type === "text" ? (
                               <span
-                                className={`partner-text text-5xl text-gray-800 whitespace-nowrap ${partner.className || ""}`}
+                                className={`partner-text text-3xl sm:text-4xl md:text-5xl text-gray-800 whitespace-nowrap ${partner.className || ""}`}
                               >
                                 {partner.name}
                               </span>
