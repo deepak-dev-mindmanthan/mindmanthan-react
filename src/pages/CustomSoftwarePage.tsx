@@ -465,7 +465,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
               selectLabel="How Can We Help You?"
               selectName="serviceInterest"
               selectOptions={[
-                "NFT Development",
+                "IoT & Automation Solutions",
                 "Mobile App Development",
                 "Web App Development",
                 "Software Development"
@@ -512,5 +512,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
 };
 
 export default CustomSoftwarePage;
+
+
 
 

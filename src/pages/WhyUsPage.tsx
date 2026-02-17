@@ -22,10 +22,10 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
   };
 
   const stats = [
-    { year: '2010', label: 'Founded' },
+    { year: '10+', label: 'Years of delivery' },
     { year: '500+', label: 'Clients Trust Us' },
     { year: '1,000+', label: 'Projects Completed' },
-    { year: 'Leader', label: 'Industry Recognition' },
+    { year: 'Service excellence', label: 'Industry Recognition' },
   ];
 
   return (
@@ -35,10 +35,10 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
         <div className="max-w-4xl mx-auto">
           <div className="text-sm uppercase tracking-widest text-gray-500 mb-8 font-medium">WHY US</div>
           <h1 className="text-5xl lg:text-6xl font-black leading-tight mb-6 text-[#1a1b1f]">
-            We're the most trusted software partners in the industry
+            A delivery partner for business-critical IT systems
           </h1>
           <p className="text-xl text-gray-600">
-            Everyone has a story. Here is ours.
+            Built for software, mobile, web, IoT, and automation execution.
           </p>
         </div>
       </div>
@@ -53,7 +53,7 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
               className="w-full h-auto rounded-lg shadow-lg mb-12 object-cover"
             />
             <p className="text-lg text-gray-600 leading-relaxed max-w-3xl">
-              With an unwavering passion to help your people succeed, years of technical experience backed by our custom solutions, process and unparalleled customer service, we deliver every time.
+              With an unwavering passion to help your Engineering Team succeed, years of technical experience backed by our custom solutions, Delivery Process and unparalleled customer service, we deliver every time.
             </p>
           </div>
         </div>
@@ -86,42 +86,42 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
       <div className="py-20 lg:py-32 bg-white border-t border-gray-200">
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-3 gap-12">
-            {/* People Card */}
+            {/* Engineering Team Card */}
             <div className="text-center">
               <div className="mb-8 flex justify-center">
                 <svg className="w-16 h-16 text-[#001fcc]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4.354a4 4 0 110 5.292M15 12H9m6 0a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-black text-[#1a1b1f] mb-4">People</h3>
+              <h3 className="text-2xl font-black text-[#1a1b1f] mb-4">Engineering Team</h3>
               <p className="text-gray-600 leading-relaxed">
                 You deserve the best. We have the best. Simply put, we care — even single one of us, from the account managers to the technicians. We hire, train and have the highest skilled team focused on putting your needs first.
               </p>
             </div>
 
-            {/* Purpose Card */}
+            {/* Execution Discipline Card */}
             <div className="text-center">
               <div className="mb-8 flex justify-center">
                 <svg className="w-16 h-16 text-[#001fcc]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-black text-[#1a1b1f] mb-4">Purpose</h3>
+              <h3 className="text-2xl font-black text-[#1a1b1f] mb-4">Execution Discipline</h3>
               <p className="text-gray-600 leading-relaxed">
-                Your security and peace of mind drive us to be better everyday. Simplifying the complex, saving you money and staying ahead of rapidly changing technology are why we wake up each morning. We're geeks with a cause.
+                Your security and peace of mind drive us to be better everyday. Simplifying the complex, saving you money and staying ahead of rapidly changing technology are why we wake up each morning. We're engineers focused on outcomes.
               </p>
             </div>
 
-            {/* Process Card */}
+            {/* Delivery Process Card */}
             <div className="text-center">
               <div className="mb-8 flex justify-center">
                 <svg className="w-16 h-16 text-[#001fcc]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 14h8M6 10h12M4 6h16" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-black text-[#1a1b1f] mb-4">Process</h3>
+              <h3 className="text-2xl font-black text-[#1a1b1f] mb-4">Delivery Process</h3>
               <p className="text-gray-600 leading-relaxed">
-                It's not just what we do, but how we do it. Our time tested delivery methods, communication process and premium software and hardware tools ensure consistent results and customer satisfaction again and again.
+                It's not just what we do, but how we do it. Our time tested delivery methods, communication Delivery Process and premium software and hardware tools ensure consistent results and customer satisfaction again and again.
               </p>
             </div>
           </div>
@@ -325,5 +325,7 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
 };
 
 export default WhyUsPage;
+
+
 
 

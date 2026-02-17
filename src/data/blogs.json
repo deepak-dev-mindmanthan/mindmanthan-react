@@ -1,92 +1,93 @@
 [
   {
     "id": 1,
-    "title": "Identify the best technologies for your business with Mind Manthan's new tool",
-    "category": "Product Engineering",
-    "image": "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?q=80&w=1200&auto=format&fit=crop",
-    "author": "Sarah Johnson",
-    "date": "March 15, 2024",
-    "excerpt": "Choosing the right technology stack for your business is crucial for long-term success. Our new tool helps you identify the perfect match.",
-    "content": "Choosing the right technology stack for your business is one of the most critical decisions you'll make.\n\nAt Mind Manthan, we built a practical tool to evaluate your requirements and recommend a stack that fits your team, budget, and growth plan.\n\n## Why Technology Selection Matters\n\nThe right stack improves speed, reliability, and maintainability. The wrong one creates expensive rework and technical debt.\n\n## How Our Tool Works\n\n1. Requirements analysis\n2. Technology mapping\n3. Cost-benefit comparison\n4. Implementation roadmap\n\n## Getting Started\n\nIf you are planning a new product or modernization program, our team can help you run a structured evaluation and ship with confidence."
+    "title": "How to Plan a Custom Software Project Without Rework",
+    "category": "Custom Software",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop",
+    "author": "Mind Manthan Editorial",
+    "date": "January 15, 2026",
+    "excerpt": "A practical framework to define scope, workflows, integrations, and rollout phases before development starts.",
+    "content": "Successful custom software starts with process mapping, not code. We run discovery workshops, convert workflows to system modules, and align milestones with measurable outcomes.\n\nThe result is faster delivery, fewer change requests, and predictable cost control."
   },
   {
     "id": 2,
-    "title": "How Chat GPT is Revolutionizing the Way We Find Information",
-    "category": "AI",
-    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop",
-    "author": "Michael Chen",
-    "date": "March 10, 2024",
-    "excerpt": "ChatGPT has changed how we search for and consume information online. Discover the revolutionary impact of AI-powered conversations.",
-    "content": "AI-assisted search is changing user behavior from link-hunting to conversational problem-solving.\n\nTeams now use chat-first workflows for research, drafting, coding, and support.\n\n## What Changed\n\nUsers can ask follow-up questions, provide context, and get guided answers in one flow.\n\n## Practical Impact\n\n- Faster discovery\n- Better context retention\n- Fewer repetitive searches\n\n## Next Step\n\nOrganizations should pair AI assistants with trusted internal knowledge to improve answer quality and speed."
+    "title": "Modern Website Architecture for Performance and SEO",
+    "category": "Web Development",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
+    "author": "Mind Manthan Editorial",
+    "date": "January 8, 2026",
+    "excerpt": "Build websites that load fast, rank better, and convert visitors with technical SEO-first engineering.",
+    "content": "Websites that perform well combine fast rendering, strong information architecture, and technical SEO hygiene.\n\nOur teams implement structured metadata, Core Web Vitals optimization, and scalable CMS workflows to support long-term growth."
   },
   {
     "id": 3,
-    "title": "Clutch Recognizes Mind Manthan Among New York's Top Development for 2023",
-    "category": "Company",
-    "image": "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=1200&auto=format&fit=crop",
-    "author": "David Rodriguez",
-    "date": "March 5, 2024",
-    "excerpt": "We are thrilled to announce that Mind Manthan has been recognized as one of New York's top development companies.",
-    "content": "We are honored to be recognized by Clutch among top development companies.\n\nThis achievement reflects our team's execution quality, client focus, and delivery discipline.\n\n## What This Means\n\nRecognition validates our approach to building reliable, scalable software for growth-focused businesses.\n\n## Thank You\n\nWe thank our clients and partners for the trust they place in us on every engagement."
+    "title": "Mobile App Delivery Blueprint for Android, iOS, and Hybrid",
+    "category": "Mobile Apps",
+    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200&auto=format&fit=crop",
+    "author": "Mind Manthan Editorial",
+    "date": "December 30, 2025",
+    "excerpt": "How to choose native vs hybrid architecture and ship enterprise-grade mobile apps confidently.",
+    "content": "Choosing the right mobile architecture depends on release speed, performance requirements, and integration complexity.\n\nWe design release pipelines for Android, iOS, and hybrid apps with automated quality checks and robust production monitoring."
   },
   {
     "id": 4,
-    "title": "Best Practices for Building Scalable Web Applications",
-    "category": "Development",
-    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop",
-    "author": "Ava Thompson",
-    "date": "February 28, 2024",
-    "excerpt": "Learn essential best practices and architecture patterns to build scalable and maintainable web applications.",
-    "content": "Scalable systems are designed for change, not just for launch-day performance.\n\n## Architecture Fundamentals\n\nSeparate concerns, keep APIs predictable, and enforce strong observability from day one.\n\n## Delivery Practices\n\n- Ship incrementally\n- Automate testing\n- Monitor latency and error budgets\n\nA disciplined engineering workflow is the fastest path to sustainable scale."
+    "title": "IoT Solutions for Real-Time Operations Monitoring",
+    "category": "IoT",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1200&auto=format&fit=crop",
+    "author": "Mind Manthan Editorial",
+    "date": "December 19, 2025",
+    "excerpt": "From sensors to dashboards: how IoT data pipelines improve uptime, quality, and operational visibility.",
+    "content": "IoT success requires secure edge-to-cloud architecture, dependable ingestion, and role-based visibility.\n\nWe build connected systems with device management, alerting, and analytics dashboards that support quick decisions in real time."
   },
   {
     "id": 5,
-    "title": "The Future of Cloud Computing in 2024",
-    "category": "Technology",
-    "image": "https://plus.unsplash.com/premium_photo-1733306493254-52b143296396?q=80&w=1200&auto=format&fit=crop",
-    "author": "Noah Patel",
-    "date": "February 20, 2024",
-    "excerpt": "Explore emerging cloud trends and how they will shape the future of enterprise software development.",
-    "content": "Cloud strategy is shifting from pure migration to optimization and governance.\n\n## Key Trends\n\nFinOps maturity, platform engineering, and secure-by-default cloud baselines are becoming standard.\n\n## Business Outcome\n\nOrganizations that standardize environments and automate policy see faster releases with lower operational risk."
+    "title": "HRMS and ERP Modernization: A Step-by-Step Approach",
+    "category": "ERP/HRMS",
+    "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop",
+    "author": "Mind Manthan Editorial",
+    "date": "December 10, 2025",
+    "excerpt": "Upgrade HR and business systems with zero-disruption migration and better process control.",
+    "content": "Modern HRMS and ERP platforms reduce manual workload and create a single source of truth.\n\nOur migration model includes data mapping, phased rollout, user training, and post-launch support to ensure adoption."
   },
   {
     "id": 6,
-    "title": "Building Cross-Platform Mobile Apps with React Native",
-    "category": "Mobile",
-    "image": "https://images.unsplash.com/photo-1542641728-6ca359b085f4?q=80&w=1200&auto=format&fit=crop",
-    "author": "Emma Wilson",
-    "date": "February 15, 2024",
-    "excerpt": "Discover how React Native helps teams build high-performance mobile apps for both iOS and Android.",
-    "content": "React Native remains a pragmatic choice for teams that need speed without sacrificing native feel.\n\n## What Works Well\n\nShared business logic, reusable UI patterns, and strong ecosystem support.\n\n## Watchouts\n\nPlan early for performance-sensitive screens and native module requirements."
+    "title": "Data Security by Design for Business Applications",
+    "category": "Security",
+    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop",
+    "author": "Mind Manthan Editorial",
+    "date": "November 28, 2025",
+    "excerpt": "Implement role-based access, encryption, and secure deployment patterns from day one.",
+    "content": "Security should be engineered into architecture, CI/CD, and operations.\n\nWe implement access controls, encrypted storage, audit-ready logs, and hardened deployment pipelines to reduce operational risk."
   },
   {
     "id": 7,
-    "title": "Cybersecurity Best Practices for Enterprise Applications",
-    "category": "Security",
-    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop",
-    "author": "Liam Garcia",
-    "date": "February 10, 2024",
-    "excerpt": "A practical guide to implementing security best practices in enterprise applications to protect sensitive data.",
-    "content": "Security should be built into architecture and delivery, not added at the end.\n\n## Core Controls\n\nIdentity-first access, secure secrets management, and continuous vulnerability scanning.\n\n## Operational Discipline\n\n- Threat modeling\n- Incident runbooks\n- Regular dependency updates\n\nStrong fundamentals reduce breach probability and blast radius."
+    "title": "Workflow Automation That Removes Operational Bottlenecks",
+    "category": "Automation",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop",
+    "author": "Mind Manthan Editorial",
+    "date": "November 20, 2025",
+    "excerpt": "Automate approvals, communication, and reporting to improve turnaround and transparency.",
+    "content": "Automation works best when mapped to clear ownership and measurable KPIs.\n\nWe develop custom dashboards, reporting tools, and business process orchestration that cuts cycle time and manual errors."
   },
   {
     "id": 8,
-    "title": "Containerization with Docker: A Complete Guide",
-    "category": "DevOps",
-    "image": "https://images.unsplash.com/photo-1637778352878-f0b46d574a04?q=80&w=1200&auto=format&fit=crop",
-    "author": "Olivia Harris",
-    "date": "February 5, 2024",
-    "excerpt": "Learn how to use Docker effectively to containerize applications and streamline deployment pipelines.",
-    "content": "Containers help teams standardize runtime environments across development, staging, and production.\n\n## Good Defaults\n\nUse minimal base images, pin dependencies, and adopt multi-stage builds.\n\n## CI/CD Benefit\n\nImmutable images and repeatable deployment steps reduce release variance and rollback risk."
+    "title": "Cloud and DevOps Foundations for Reliable Releases",
+    "category": "Cloud & DevOps",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
+    "author": "Mind Manthan Editorial",
+    "date": "November 12, 2025",
+    "excerpt": "A practical guide to CI/CD, containerization, monitoring, and infrastructure optimization.",
+    "content": "Release reliability comes from automation and observability.\n\nOur DevOps setup includes CI/CD pipelines, Docker-based deployment, centralized logging, and proactive system health monitoring."
   },
   {
     "id": 9,
-    "title": "Optimizing Database Performance: Indexing Strategies",
-    "category": "Database",
-    "image": "https://images.unsplash.com/photo-1741958193874-6ef299f6b053?q=80&w=1200&auto=format&fit=crop",
-    "author": "James Lee",
-    "date": "January 30, 2024",
-    "excerpt": "Master practical indexing techniques to improve query performance and optimize database operations.",
-    "content": "Indexing is one of the highest-leverage performance optimizations in data-intensive systems.\n\n## Practical Strategy\n\nStart with query profiling, index for real workloads, and remove redundant indexes.\n\n## Common Pitfall\n\nOver-indexing can hurt write throughput and increase storage costs, so measure before and after."
+    "title": "API Integration and Long-Term Technical Support Strategy",
+    "category": "API & Support",
+    "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=1200&auto=format&fit=crop",
+    "author": "Mind Manthan Editorial",
+    "date": "November 4, 2025",
+    "excerpt": "Connect third-party systems and maintain business-critical platforms with structured support models.",
+    "content": "API integration should be stable, secure, and measurable with clear fallback handling.\n\nWe provide custom API development, third-party integrations, performance optimization, and long-term maintenance contracts."
   }
 ]
+

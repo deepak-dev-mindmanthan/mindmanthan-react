@@ -31,11 +31,9 @@ const CustomSoftwarePage = React.lazy(
   () => import("./pages/CustomSoftwarePage"),
 );
 const MobileAppPage = React.lazy(() => import("./pages/MobileAppPage"));
-const StaffAugmentationPage = React.lazy(
-  () => import("./pages/StaffAugmentationPage"),
-);
+const ApiIntegrationSupportPage = React.lazy(() => import("./pages/ApiIntegrationSupportPage"));
 const WebAppPage = React.lazy(() => import("./pages/WebAppPage"));
-const BlockchainPage = React.lazy(() => import("./pages/BlockchainPage"));
+const IotSolutionsPage = React.lazy(() => import("./pages/IotSolutionsPage"));
 const IOSDevelopmentPage = React.lazy(
   () => import("./pages/IOSDevelopmentPage"),
 );
@@ -46,7 +44,7 @@ const DigitalTransformationPage = React.lazy(
   () => import("./pages/DigitalTransformationPage"),
 );
 const SecurityPage = React.lazy(() => import("./pages/SecurityPage"));
-const FintechPage = React.lazy(() => import("./pages/FintechPage"));
+const CloudDevopsPage = React.lazy(() => import("./pages/CloudDevopsPage"));
 const ConsultingProvidersPage = React.lazy(
   () => import("./pages/ConsultingProvidersPage"),
 );
@@ -265,14 +263,14 @@ type View =
   | "case-studies"
   | "custom-software"
   | "mobile-app"
-  | "staff-augmentation"
+  | "api-integration-support"
   | "web-app"
-  | "blockchain"
+  | "iot-solutions"
   | "ios-development"
   | "android-development"
   | "digital-transformation"
   | "security"
-  | "fintech"
+  | "cloud-devops"
   | "consulting"
   | "insurance-case-study"
   | "coffee-case-study"
@@ -315,14 +313,14 @@ const App: React.FC = () => {
       [ROUTES.londonTravelCaseStudy]: "london-travel-case-study",
       [ROUTES.customSoftware]: "custom-software",
       [ROUTES.mobileApp]: "mobile-app",
-      [ROUTES.staffAugmentation]: "staff-augmentation",
+      [ROUTES.apiIntegrationSupport]: "api-integration-support",
       [ROUTES.webApp]: "web-app",
-      [ROUTES.blockchain]: "blockchain",
+      [ROUTES.iotSolutions]: "iot-solutions",
       [ROUTES.iosDevelopment]: "ios-development",
       [ROUTES.androidDevelopment]: "android-development",
       [ROUTES.digitalTransformation]: "digital-transformation",
       [ROUTES.security]: "security",
-      [ROUTES.fintech]: "fintech",
+      [ROUTES.cloudDevops]: "cloud-devops",
       [ROUTES.consulting]: "consulting",
       [ROUTES.events]: "events",
       [ROUTES.blog]: "blog-archive",
@@ -332,15 +330,15 @@ const App: React.FC = () => {
 
   const partners = [
     {
-      name: "Microsoft",
+      name: "AWS",
       type: "text",
       className: "lowercase",
       src:""
     },
-    { name: "scuola", type: "text", className: "lowercase" },
-    { name: "sodexo", type: "text", className: "lowercase" },
+    { name: "ManufactureX", type: "text", className: "lowercase" },
+    { name: "RetailOps", type: "text", className: "lowercase" },
     { name: "DHL", type: "text", className: "uppercase italic" },
-    { name: "JOLIE.", type: "text", className: "uppercase" },
+    { name: "IoT Labs", type: "text", className: "uppercase" },
   ];
 
   useEffect(() => {
@@ -395,14 +393,14 @@ const App: React.FC = () => {
     onLogoClick: () => navigate(ROUTES.home),
     onSoftwareClick: () => navigate(ROUTES.customSoftware),
     onMobileAppClick: () => navigate(ROUTES.mobileApp),
-    onStaffAugmentationClick: () => navigate(ROUTES.staffAugmentation),
+    onApiIntegrationSupportClick: () => navigate(ROUTES.apiIntegrationSupport),
     onWebAppClick: () => navigate(ROUTES.webApp),
-    onBlockchainClick: () => navigate(ROUTES.blockchain),
+    onIotSolutionsClick: () => navigate(ROUTES.iotSolutions),
     onIOSDevelopmentClick: () => navigate(ROUTES.iosDevelopment),
     onAndroidDevelopmentClick: () => navigate(ROUTES.androidDevelopment),
     onDigitalTransformationClick: () => navigate(ROUTES.digitalTransformation),
     onSecurityClick: () => navigate(ROUTES.security),
-    onFintechClick: () => navigate(ROUTES.fintech),
+    onCloudDevopsClick: () => navigate(ROUTES.cloudDevops),
     onConsultingClick: () => navigate(ROUTES.consulting),
     onInsuranceCaseStudyClick: () => navigate(ROUTES.insuranceCaseStudy),
     onCoffeeCaseStudyClick: () => navigate(ROUTES.coffeeCaseStudy),
@@ -489,9 +487,9 @@ const App: React.FC = () => {
           element={<MobileAppPage onBackHome={() => navigate(ROUTES.home)} />}
         />
         <Route
-          path={ROUTES.staffAugmentation}
+          path={ROUTES.apiIntegrationSupport}
           element={
-            <StaffAugmentationPage onBackHome={() => navigate(ROUTES.home)} />
+            <ApiIntegrationSupportPage onBackHome={() => navigate(ROUTES.home)} />
           }
         />
         <Route
@@ -499,8 +497,8 @@ const App: React.FC = () => {
           element={<WebAppPage onBackHome={() => navigate(ROUTES.home)} />}
         />
         <Route
-          path={ROUTES.blockchain}
-          element={<BlockchainPage onBackHome={() => navigate(ROUTES.home)} />}
+          path={ROUTES.iotSolutions}
+          element={<IotSolutionsPage onBackHome={() => navigate(ROUTES.home)} />}
         />
         <Route
           path={ROUTES.iosDevelopment}
@@ -527,8 +525,8 @@ const App: React.FC = () => {
           element={<SecurityPage onBackHome={() => navigate(ROUTES.home)} />}
         />
         <Route
-          path={ROUTES.fintech}
-          element={<FintechPage onBackHome={() => navigate(ROUTES.home)} />}
+          path={ROUTES.cloudDevops}
+          element={<CloudDevopsPage onBackHome={() => navigate(ROUTES.home)} />}
         />
         <Route
           path={ROUTES.consulting}
@@ -579,15 +577,14 @@ const App: React.FC = () => {
               >
                 <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
                   <h2 className="text-3xl md:text-5xl lg:text-[52px] font-bold text-[#1a1b1f] leading-[1.1] mb-10 tracking-tight max-w-5xl">
-                    Experienced teams and a agile framework, we prioritise the
-                    commercial goals of the client to deliver the highest
-                    business value.
+                    We build business-focused software platforms with clear
+                    execution, secure architecture, and measurable outcomes.
                   </h2>
                   <button
                     onClick={() => navigate(ROUTES.whyUs)}
                     className="bg-[#e8edff] text-[#001fcc] px-8 py-3 rounded-md font-bold text-[15px] hover:bg-[#d9e2ff] transition-all active:scale-95"
                   >
-                    Why to choose us
+                    Why choose us
                   </button>
                 </div>
               </section>
@@ -607,7 +604,7 @@ const App: React.FC = () => {
                           >
                             {partner.type === "text" ? (
                               <span
-                                className={`partner-text text-5xl text-gray-800 ${partner.className || ""}`}
+                                className={`partner-text text-5xl text-gray-800 whitespace-nowrap ${partner.className || ""}`}
                               >
                                 {partner.name}
                               </span>
@@ -684,23 +681,23 @@ const App: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16">
                     <div
                       className="flex flex-col items-start group cursor-pointer"
-                      onClick={() => navigate(ROUTES.staffAugmentation)}
+                      onClick={() => navigate(ROUTES.apiIntegrationSupport)}
                       role="button"
                       tabIndex={0}
                       onKeyDown={(event) => {
                         if (event.key === "Enter" || event.key === " ") {
                           event.preventDefault();
-                          navigate(ROUTES.staffAugmentation);
+                          navigate(ROUTES.apiIntegrationSupport);
                         }
                       }}
                     >
                       <StaffIcon />
                       <h3 className="text-[22px] font-bold text-[#1a1b1f] mb-4 leading-tight group-hover:text-[#001fcc] transition-colors">
-                        Staff Augmentation
+                        API Integration & Support
                       </h3>
                       <p className="text-gray-600 text-[15px] leading-relaxed">
-                        Instantly scale your internal team with top-tier, vetted
-                        tech talent for your specific roadmap.
+                        Connect your software with payment, messaging, CRM, and
+                        internal systems through secure and reliable APIs.
                       </p>
                     </div>
                     <div
@@ -787,12 +784,12 @@ const App: React.FC = () => {
                       Selected Projects
                     </span>
                     <h2 className="text-4xl md:text-[64px] font-bold text-[#1a1b1f] leading-[1.1] tracking-tight">
-                      Apps we built been trending <br /> on the App Store
+                      Solutions we engineered <br /> for real business operations
                     </h2>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                    <div className="bg-[#e0e7ff] rounded-[3rem] p-8 flex flex-col justify-between h-[600px] relative overflow-hidden group">
+                    <div className="bg-[#e0e7ff] rounded-[3rem] p-6 md:p-8 flex flex-col justify-between h-[520px] md:h-[600px] relative overflow-hidden group">
                       <div>
                         <div className="flex justify-between items-start mb-12">
                           <span className="text-[24px] font-medium text-[#1a1b1f]">
@@ -802,27 +799,20 @@ const App: React.FC = () => {
                             Showcase
                           </span>
                         </div>
-                        <h3 className="text-6xl font-black text-[#1a1b1f] mb-8 tracking-tighter">
-                          scuoLa
+                        <h3 className="text-4xl md:text-6xl font-black text-[#1a1b1f] mb-6 md:mb-8 tracking-tighter">
+                          ManufactureX
                         </h3>
-                        <p className="text-[24px] font-bold text-[#1a1b1f] leading-[1.2] max-w-xs">
-                          Convenience, savings and rewards at your fingertips
+                        <p className="text-[18px] md:text-[24px] font-bold text-[#1a1b1f] leading-[1.25] max-w-[220px] md:max-w-xs">
+                          Industrial workflow automation and production visibility platform
                         </p>
                       </div>
-                      <div className="absolute right-0 bottom-0 w-[320px] h-[320px] opacity-100 group-hover:translate-x-4 transition-transform duration-700">
+                      <div className="absolute right-2 md:right-0 bottom-3 md:bottom-0 w-[170px] h-[170px] sm:w-[190px] sm:h-[190px] md:w-[320px] md:h-[320px] opacity-80 md:opacity-100 pointer-events-none group-hover:translate-x-1 md:group-hover:translate-x-4 transition-transform duration-700">
                         <svg viewBox="0 0 200 200" className="w-full h-full">
-                          <path
-                            d="M40 160 Q40 100 60 80 L65 40 Q65 30 70 30 Q75 30 75 40 L70 80 Q90 100 90 160"
-                            fill="#f97316"
-                          />
-                          <path
-                            d="M100 160 Q100 80 120 70 L115 40 Q115 30 125 30 Q135 30 135 40 L130 70 Q150 80 150 160"
-                            fill="#1a1b1f"
-                          />
-                          <path
-                            d="M160 160 Q160 90 175 80 L180 50 Q180 40 185 40 Q190 40 190 50 L185 80 Q200 90 200 160"
-                            fill="#fbbf24"
-                          />
+                          <rect x="20" y="80" width="70" height="90" rx="14" fill="#1a1b1f" />
+                          <rect x="98" y="40" width="82" height="130" rx="16" fill="#3b82f6" />
+                          <circle cx="55" cy="120" r="18" fill="#f59e0b" />
+                          <circle cx="55" cy="120" r="8" fill="#fff" />
+                          <path d="M30 155 H82 M108 150 H170 M108 132 H160 M108 114 H148" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
                         </svg>
                       </div>
                       <div className="flex justify-between items-end relative z-10">
@@ -857,31 +847,39 @@ const App: React.FC = () => {
                           </span>
                         </div>
                         <h3 className="text-6xl font-black text-[#1a1b1f] mb-8 tracking-tighter">
-                          JOLIE.
+                          IoT Labs
                         </h3>
                         <p className="text-[24px] font-bold text-[#1a1b1f] leading-[1.2] max-w-xs">
-                          Private trust management and trading platform
+                          Secure device telemetry and real-time monitoring dashboard
                         </p>
                       </div>
-                      <div className="absolute right-12 bottom-24 w-[280px] h-[200px] group-hover:scale-105 transition-transform duration-700">
+                      <div className="absolute right-8 bottom-16 w-[300px] h-[240px] group-hover:scale-105 transition-transform duration-700">
                         <svg
-                          viewBox="0 0 200 150"
+                          viewBox="0 0 300 240"
                           className="w-full h-full overflow-visible"
                         >
                           <path
-                            d="M0 150 L20 120 L40 140 L60 110 L80 130 L100 100 L120 115 L140 80 L160 100 L180 40 L200 20"
-                            fill="none"
-                            stroke="#22c55e"
-                            strokeWidth="4"
+                            d="M78 104 C78 86 92 72 110 72 C114 56 128 44 146 44 C166 44 182 58 184 78 C202 80 216 94 216 112 C216 132 200 146 180 146 H108 C90 146 78 132 78 114 Z"
+                            fill="#2563eb"
+                            opacity="0.95"
                           />
+                          <rect x="118" y="88" width="58" height="58" rx="8" fill="#111827" />
+                          <rect x="130" y="100" width="34" height="34" rx="4" fill="#0ea5e9" />
+                          <path d="M145 100 V88 M153 100 V88 M161 100 V88 M145 146 V158 M153 146 V158 M161 146 V158" stroke="#111827" strokeWidth="3" strokeLinecap="round" />
+                          <path d="M118 115 H106 M118 123 H106 M176 115 H188 M176 123 H188" stroke="#111827" strokeWidth="3" strokeLinecap="round" />
+
+                          <circle cx="50" cy="58" r="12" fill="#1f2937" />
+                          <circle cx="248" cy="58" r="12" fill="#1f2937" />
+                          <circle cx="50" cy="188" r="12" fill="#1f2937" />
+                          <circle cx="248" cy="188" r="12" fill="#1f2937" />
+                          <circle cx="50" cy="58" r="4" fill="#22c55e" />
+                          <circle cx="248" cy="58" r="4" fill="#22c55e" />
+                          <circle cx="50" cy="188" r="4" fill="#22c55e" />
+                          <circle cx="248" cy="188" r="4" fill="#22c55e" />
+
+                          <path d="M62 58 L110 88 M236 58 L184 88 M62 188 L118 146 M236 188 L176 146" fill="none" stroke="#2563eb" strokeWidth="3.5" strokeLinecap="round" />
                           <path
-                            d="M200 20 L185 20 M200 20 L200 35"
-                            fill="none"
-                            stroke="#22c55e"
-                            strokeWidth="4"
-                          />
-                          <path
-                            d="M0 150 H200 M0 120 H200 M0 90 H200 M0 60 H200 M0 30 H200"
+                            d="M0 220 H300 M0 180 H300 M0 140 H300 M0 100 H300 M0 60 H300 M0 20 H300"
                             stroke="#000"
                             strokeWidth="0.5"
                             strokeOpacity="0.1"
@@ -926,11 +924,11 @@ const App: React.FC = () => {
                             </div>
                           </div>
                           <h3 className="text-6xl font-black text-white tracking-tighter">
-                            Skole
+                            TravelOps
                           </h3>
                         </div>
                         <p className="text-[32px] font-bold text-white leading-[1.1]">
-                          Online platform for distance learning
+                          Unified booking and operations platform
                         </p>
                       </div>
                       <div className="mt-auto">
@@ -943,30 +941,30 @@ const App: React.FC = () => {
                       <span className="hidden md:block absolute top-0 right-0 text-[14px] font-bold uppercase tracking-widest text-white/70">
                         Showcase
                       </span>
-                      <div className="flex gap-2 md:gap-6 translate-y-12 md:translate-y-24 group-hover:translate-y-8 md:group-hover:translate-y-20 transition-transform duration-700">
+                      <div className="grid grid-cols-3 gap-2 md:gap-5 translate-y-10 md:translate-y-14 group-hover:translate-y-6 md:group-hover:translate-y-10 transition-transform duration-700 w-full max-w-[560px]">
                         {[
                           {
-                            key: "courses",
-                            title: "Course Hub",
-                            chip: "12 Lessons",
+                            key: "routes",
+                            title: "Route Board",
+                            chip: "12 Active",
                             bars: ["85%", "60%", "40%"],
                           },
                           {
-                            key: "live",
-                            title: "Live Class",
-                            chip: "Now Streaming",
+                            key: "bookings",
+                            title: "Bookings",
+                            chip: "Live Queue",
                             bars: ["70%", "50%", "30%"],
                           },
                           {
-                            key: "progress",
-                            title: "Progress",
-                            chip: "82% Complete",
+                            key: "fleet",
+                            title: "Fleet Status",
+                            chip: "SLA 99.9%",
                             bars: ["90%", "65%", "45%"],
                           },
                         ].map((panel, idx) => (
                           <div
                             key={panel.key}
-                            className="w-[92px] h-[220px] md:w-[170px] md:h-[360px] bg-[#1f2538] rounded-[1.4rem] md:rounded-[2rem] border-[4px] md:border-[6px] border-[#334a7a] relative overflow-hidden shadow-2xl p-2.5 md:p-4 flex flex-col"
+                            className="h-[200px] md:h-[250px] bg-[#1f2538] rounded-[1.2rem] md:rounded-[1.5rem] border-2 border-[#334a7a] relative overflow-hidden shadow-2xl p-3 md:p-4 flex flex-col"
                           >
                             <div className="absolute inset-0 bg-gradient-to-br from-[#60a5fa]/25 to-[#001fcc]/10" />
                             <div className="relative z-10 flex items-center justify-between mb-3">
@@ -980,7 +978,7 @@ const App: React.FC = () => {
                               <div className="text-[7px] md:text-[9px] text-blue-100 font-bold uppercase tracking-[0.2em] mb-2">
                                 {panel.chip}
                               </div>
-                              <div className="h-10 md:h-16 rounded-lg bg-gradient-to-r from-[#001fcc]/80 to-[#2dd4bf]/60 mb-2" />
+                              <div className="h-8 md:h-10 rounded-lg bg-gradient-to-r from-[#001fcc]/80 to-[#2dd4bf]/60 mb-2" />
                               <div className="flex gap-1 md:gap-2">
                                 {[0, 1, 2].map((dot) => (
                                   <span
@@ -1035,7 +1033,7 @@ const App: React.FC = () => {
                       className="inline-block relative text-[#001fcc] hover:text-black font-bold text-[19px] group transition-colors duration-300"
                     >
                       <span className="relative z-10">
-                        View all Case Studies
+                        View All IT Case Studies
                       </span>
                       <span className="absolute -bottom-1 left-0 w-full h-[6px] bg-[#e8edff] group-hover:bg-black group-hover:h-[6px] -z-0 transition-all duration-300"></span>
                     </button>
@@ -1047,18 +1045,18 @@ const App: React.FC = () => {
                 <div className="max-w-7xl mx-auto">
                   <div className="text-center mb-16">
                     <h2 className="text-5xl md:text-[64px] font-black text-[#1a1b1f] mb-12 tracking-tighter">
-                      Industries we've excelled in
+                      Solutions we deliver
                     </h2>
                     <div className="flex flex-wrap justify-center gap-4">
-                      {["Digital Transformation", "Security", "Fintech"].map(
+                      {["Workflow Automation", "Security", "Cloud & DevOps"].map(
                         (tab) => (
                           <button
                             key={tab}
                             onClick={() => {
-                              if (tab === "Digital Transformation")
+                              if (tab === "Workflow Automation")
                                 navigate(ROUTES.digitalTransformation);
                               if (tab === "Security") navigate(ROUTES.security);
-                              if (tab === "Fintech") navigate(ROUTES.fintech);
+                              if (tab === "Cloud & DevOps") navigate(ROUTES.cloudDevops);
                             }}
                             className="px-8 py-2.5 rounded-full border border-gray-200 text-[14px] font-bold text-gray-500 hover:border-[#001fcc] hover:text-[#001fcc] transition-all bg-white shadow-sm"
                           >
@@ -1072,23 +1070,24 @@ const App: React.FC = () => {
                   <div className="relative mt-20 pb-24 md:pb-32">
                     <IndustryCard
                       tag="INDUSTRIES WE SERVE"
-                      title="Fintech"
-                      description="Building secure and scalable financial solutions that redefine how people manage their wealth and transactions."
+                      title="Cloud & DevOps"
+                      description="Cloud migration, CI/CD pipelines, container orchestration, and monitoring for stable and scalable software delivery."
                       bgColor="bg-[#f0f4ff]"
                       stackIndex={0}
-                      onClick={() => navigate(ROUTES.fintech)}
+                      onClick={() => navigate(ROUTES.cloudDevops)}
                     >
                       <div className="relative w-full h-full flex items-center justify-center">
-                        <div className="w-[300px] h-[300px] bg-[#a8ffad] rounded-full absolute -z-10 blur-3xl opacity-30 animate-pulse"></div>
-                        <div className="w-[350px] h-[350px] bg-[#a8ffad] rounded-full flex items-center justify-center relative shadow-inner overflow-hidden">
+                        <div className="w-[300px] h-[300px] bg-[#93c5fd] rounded-full absolute -z-10 blur-3xl opacity-30 animate-pulse"></div>
+                        <div className="w-[350px] h-[350px] bg-[#dbeafe] rounded-full flex items-center justify-center relative shadow-inner overflow-hidden">
                           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                             <div className="flex flex-col gap-4 animate-bounce duration-1000">
-                              {[1, 2, 3, 4, 5].map((i) => (
+                              {[1, 2, 3].map((i) => (
                                 <div
                                   key={i}
-                                  className="w-12 h-12 bg-yellow-400 rounded-full border-4 border-yellow-600 flex items-center justify-center text-yellow-800 font-bold shadow-lg transform rotate-12 -ml-8"
+                                  className="w-40 h-10 bg-white rounded-xl border-2 border-blue-300 flex items-center justify-between px-4 text-blue-800 font-bold shadow-lg"
                                 >
-                                  $
+                                  <span className="text-xs uppercase tracking-widest">Node {i}</span>
+                                  <span className="w-2 h-2 rounded-full bg-green-500" />
                                 </div>
                               ))}
                             </div>
@@ -1099,7 +1098,7 @@ const App: React.FC = () => {
 
                     <IndustryCard
                       tag="INDUSTRIES WE SERVE"
-                      title="Digital Transformation"
+                      title="Workflow Automation"
                       description="Modernize your entire workflow. We implement digital strategies that eliminate legacy friction and drive technical efficiency."
                       bgColor="bg-[#f9f7ff]"
                       stackIndex={1}
@@ -1127,7 +1126,7 @@ const App: React.FC = () => {
                             </div>
                           </div>
                           <h4 className="text-4xl font-black text-[#1a1b1f] mb-6">
-                            pipeline
+                            automation
                           </h4>
                           <div className="flex gap-4 mb-8">
                             <div className="flex-1 p-4 bg-gray-50 rounded-xl border border-gray-100">
@@ -1166,7 +1165,7 @@ const App: React.FC = () => {
 
                     <IndustryCard
                       tag="INDUSTRIES WE SERVE"
-                      title="Security"
+                      title="Data Security"
                       description="Protecting your most valuable digital assets with proactive monitoring and multi-layered threat mitigation systems."
                       bgColor="bg-[#fff9f0]"
                       stackIndex={2}
@@ -1181,7 +1180,7 @@ const App: React.FC = () => {
                               strokeWidth={1}
                             />
                             <div className="text-[#1a1b1f] font-black text-xl tracking-tighter uppercase">
-                              Vault Secured
+                              Security Hardened
                             </div>
                           </div>
                           <div className="absolute right-0 bottom-0 w-[240px] h-[350px] bg-[#1a1b1f] rounded-[2rem] shadow-2xl border border-4 border-[#1a1b1f] p-4 transform rotate(6deg) z-0 overflow-hidden flex flex-col items-center justify-center">
@@ -1267,3 +1266,8 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+
+
+
+

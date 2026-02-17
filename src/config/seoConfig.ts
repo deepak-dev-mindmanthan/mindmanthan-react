@@ -36,14 +36,14 @@ const VIEW_PATHS: Record<string, string> = {
   "london-travel-case-study": ROUTES.londonTravelCaseStudy,
   "custom-software": ROUTES.customSoftware,
   "mobile-app": ROUTES.mobileApp,
-  "staff-augmentation": ROUTES.staffAugmentation,
+  "api-integration-support": ROUTES.apiIntegrationSupport,
   "web-app": ROUTES.webApp,
-  blockchain: ROUTES.blockchain,
+  "iot-solutions": ROUTES.iotSolutions,
   "ios-development": ROUTES.iosDevelopment,
   "android-development": ROUTES.androidDevelopment,
   "digital-transformation": ROUTES.digitalTransformation,
   security: ROUTES.security,
-  fintech: ROUTES.fintech,
+  "cloud-devops": ROUTES.cloudDevops,
   consulting: ROUTES.consulting,
   events: ROUTES.events,
   "blog-archive": ROUTES.blog,
@@ -62,7 +62,7 @@ export const DEFAULT_SEO: PageSEO = {
   title: "Mind Manthan - Software Solutions",
   description: SITE_CONFIG.siteDescription,
   keywords:
-    "software development, mobile app development, web development, custom software, digital transformation, cybersecurity, fintech",
+    "software development, mobile app development, web development, custom software, mobile apps, website development, iot, cloud devops, security, api integration",
   ogImage: DEFAULT_OG_IMAGE,
   ogType: "website",
   canonical: `${SITE_URL}/`,
@@ -133,7 +133,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'insurance-case-study': {
     ...DEFAULT_SEO,
-    title: "Insurance Platform Case Study | Mind Manthan",
+    title: "Insurance Workflow Platform Case Study | Mind Manthan",
     description: "See how we delivered a secure, scalable insurance platform with improved onboarding and claims workflows.",
     canonical: getCanonicalUrl("insurance-case-study"),
     ogUrl: getCanonicalUrl("insurance-case-study"),
@@ -141,7 +141,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'coffee-case-study': {
     ...DEFAULT_SEO,
-    title: "Coffee Brand Case Study | Mind Manthan",
+    title: "IoT Operations Platform Case Study | Mind Manthan",
     description: "Discover how we built a modern customer experience and data-driven operations for a coffee brand.",
     canonical: getCanonicalUrl("coffee-case-study"),
     ogUrl: getCanonicalUrl("coffee-case-study"),
@@ -149,7 +149,7 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
   },
   'london-travel-case-study': {
     ...DEFAULT_SEO,
-    title: "London Travel Case Study | Mind Manthan",
+    title: "Travel App Platform Case Study | Mind Manthan",
     description: "Explore how we designed a travel platform that boosted conversions and streamlined booking.",
     canonical: getCanonicalUrl("london-travel-case-study"),
     ogUrl: getCanonicalUrl("london-travel-case-study"),
@@ -171,12 +171,12 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     ogUrl: getCanonicalUrl("mobile-app"),
     schemaType: 'ProfessionalService'
   },
-  'staff-augmentation': {
+  'api-integration-support': {
     ...DEFAULT_SEO,
-    title: "Staff Augmentation | Mind Manthan",
-    description: "Scale your tech team quickly with our vetted developers and engineers.",
-    canonical: getCanonicalUrl("staff-augmentation"),
-    ogUrl: getCanonicalUrl("staff-augmentation"),
+    title: "API Integration & Support | Mind Manthan",
+    description: "Secure API integration, custom API development, monitoring, optimization, and technical support services.",
+    canonical: getCanonicalUrl("api-integration-support"),
+    ogUrl: getCanonicalUrl("api-integration-support"),
     schemaType: 'ProfessionalService'
   },
   'web-app': {
@@ -187,12 +187,12 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     ogUrl: getCanonicalUrl("web-app"),
     schemaType: 'ProfessionalService'
   },
-  blockchain: {
+  "iot-solutions": {
     ...DEFAULT_SEO,
-    title: "Blockchain Development | Mind Manthan",
-    description: "Innovative blockchain solutions for secure and transparent business operations.",
-    canonical: getCanonicalUrl("blockchain"),
-    ogUrl: getCanonicalUrl("blockchain"),
+    title: "IoT Solutions | Mind Manthan",
+    description: "Scalable IoT solutions with secure connectivity, real-time data processing, and operational dashboards.",
+    canonical: getCanonicalUrl("iot-solutions"),
+    ogUrl: getCanonicalUrl("iot-solutions"),
     schemaType: 'ProfessionalService'
   },
   'ios-development': {
@@ -227,18 +227,18 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     ogUrl: getCanonicalUrl("security"),
     schemaType: 'ProfessionalService'
   },
-  fintech: {
+  "cloud-devops": {
     ...DEFAULT_SEO,
-    title: "Fintech Solutions | Mind Manthan",
-    description: "Innovative financial technology solutions for the modern era.",
-    canonical: getCanonicalUrl("fintech"),
-    ogUrl: getCanonicalUrl("fintech"),
+    title: "Cloud and DevOps Services | Mind Manthan",
+    description: "Cloud migration, CI/CD setup, containerization, and monitoring services for reliable software delivery.",
+    canonical: getCanonicalUrl("cloud-devops"),
+    ogUrl: getCanonicalUrl("cloud-devops"),
     schemaType: 'ProfessionalService'
   },
   consulting: {
     ...DEFAULT_SEO,
-    title: "IT Consulting | Mind Manthan",
-    description: "Expert IT consulting services to help you navigate the complex digital landscape.",
+    title: "SEO & Growth Services | Mind Manthan",
+    description: "Technical SEO, on-page and off-page optimization, growth strategy, audits, and performance-focused digital consulting.",
     canonical: getCanonicalUrl("consulting"),
     ogUrl: getCanonicalUrl("consulting"),
     schemaType: 'ProfessionalService'
@@ -461,3 +461,5 @@ export const getSchema = (view: string, id?: number) => {
 
   return [baseOrganization, webPageSchema, breadcrumbSchema];
 };
+
+

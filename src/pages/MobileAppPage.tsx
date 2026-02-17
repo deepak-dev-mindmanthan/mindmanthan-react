@@ -483,3 +483,4 @@ const MobileAppPage: React.FC<MobileAppPageProps> = ({ onBackHome }) => {
 
 export default MobileAppPage;
 
+

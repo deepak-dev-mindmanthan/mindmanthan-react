@@ -26,20 +26,20 @@ const AboutUsPage: React.FC<{ onLearnMoreClick?: () => void }> = ({ onLearnMoreC
   const timelineItems: TimelineItem[] = [
     {
       id: 1,
-      title: 'The Beginning',
+      title: 'How We Started',
       description: 'Mind Manthan was founded with a vision to revolutionize how businesses approach software development. Starting from humble beginnings, we\'ve grown to become a trusted partner for companies seeking innovative, scalable, and transformative technology solutions.',
       imagePosition: 'left',
     },
     {
       id: 2,
-      title: 'Mission',
-      description: 'At Mind Manthan, our mission is to bring together the personal service of local expertise with the power of a global network. We believe that\'s simpler than it sounds. Our teams offer high-touch development services that clients love from highly experienced members.',
+      title: 'Our Mission',
+      description: 'At Mind Manthan, our Our Mission is to bring together the personal service of local expertise with the power of a global network. We believe that\'s simpler than it sounds. Our teams offer high-touch development services that clients love from highly experienced members.',
       imagePosition: 'right',
     },
     {
       id: 3,
-      title: 'We are global',
-      description: 'Our global network allows us to offer best-in-class services like dedicated development teams, specialized consulting, 24/7 support, and more. We understand that business can be chaotic. That\'s where we come in. We\'re focused on adding much-needed balance to the mix.',
+      title: 'Delivery Model',
+      description: 'Our global network allows us to offer best-in-class services like dedicated development teams, specialized consulting, 24/7 support, and more. We understand that business can be complex. That\'s where we come in. We\'re focused on adding much-needed balance to the mix.',
       imagePosition: 'left',
     },
   ];
@@ -80,10 +80,10 @@ const AboutUsPage: React.FC<{ onLearnMoreClick?: () => void }> = ({ onLearnMoreC
         <div className="max-w-4xl mx-auto">
           <div className="text-sm uppercase tracking-widest text-gray-500 mb-8 font-medium">ABOUT</div>
           <h1 className="text-5xl lg:text-6xl font-black leading-tight mb-6 text-[#1a1b1f]">
-            We're dedicated to delivering excellence
+            We build software systems that scale
           </h1>
           <p className="text-xl text-gray-600">
-            Everyone has a story. Here is ours.
+            Apps, websites, IoT, and enterprise software engineered for growth.
           </p>
         </div>
         </div>
@@ -152,12 +152,12 @@ const AboutUsPage: React.FC<{ onLearnMoreClick?: () => void }> = ({ onLearnMoreC
       </div>
 
 
-      {/* Why Us Section */}
+      {/* WHY MIND MANTHAN Section */}
       <div className="py-20 lg:py-32 bg-white">
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
-          <div className="text-sm uppercase tracking-widest text-gray-500 mb-8">WHY US</div>
+          <div className="text-sm uppercase tracking-widest text-gray-500 mb-8">WHY MIND MANTHAN</div>
           <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mb-8">
-            We understand that business can be chaotic. That's where we come in. We're focused on adding some much-needed balance to the mix. We accomplish that by forging real partnerships with our clients. When you work with us, you're working with a team who understands your pain points and your goals. We'll help you find order in the midst of the chaos.
+            We understand that business can be complex. That's where we come in. We're focused on adding some much-needed balance to the mix. We accomplish that by forging real partnerships with our clients. When you work with us, you're working with a team who understands your pain points and your goals. We'll help you find order in the midst of the chaos.
           </p>
           <button
             type="button"
@@ -178,6 +178,8 @@ const AboutUsPage: React.FC<{ onLearnMoreClick?: () => void }> = ({ onLearnMoreC
 };
 
 export default AboutUsPage;
+
+
 
 
 

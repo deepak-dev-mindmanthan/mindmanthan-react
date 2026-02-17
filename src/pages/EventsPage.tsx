@@ -46,3 +46,4 @@ const EventsPage: React.FC<{ onContactClick?: () => void }> = ({ onContactClick 
 
 export default EventsPage;
 
+

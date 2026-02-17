@@ -54,7 +54,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
   const validateForm = () => {
     const errors: Record<string, string> = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
+    const phoneRegex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s./0-9]*$/;
 
     if (!formData.name.trim()) errors.name = 'Full name is required';
     if (!formData.email.trim()) {
@@ -330,4 +330,6 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
 };
 
 export default ContactPage;
+
+
 

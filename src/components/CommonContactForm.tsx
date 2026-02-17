@@ -84,7 +84,7 @@ const CommonContactForm: React.FC<CommonContactFormProps> = ({
 
   const validateForm = () => {
     const errors: Record<string, string> = {};
-    const phoneRegex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
+    const phoneRegex = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s./0-9]*$/;
 
     if (formData.phone && !phoneRegex.test(formData.phone)) {
       errors.phone = 'Please enter a valid phone number (digits and common symbols only).';
@@ -249,3 +249,5 @@ const CommonContactForm: React.FC<CommonContactFormProps> = ({
 };
 
 export default CommonContactForm;
+
+

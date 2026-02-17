@@ -79,7 +79,7 @@ const LatestInsights: React.FC<{ onLearnMoreClick?: (id: number) => void; onView
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 flex justify-between items-center">
           <h2 className="text-5xl md:text-6xl font-black text-[#010417] leading-[1.1] tracking-tighter">
-            Latest Insight
+            Latest Insights
           </h2>
           <button
             onClick={onViewAllClick}
@@ -100,5 +100,7 @@ const LatestInsights: React.FC<{ onLearnMoreClick?: (id: number) => void; onView
 };
 
 export default LatestInsights;
+
+
 
 

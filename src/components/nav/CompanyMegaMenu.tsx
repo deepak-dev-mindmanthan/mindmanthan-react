@@ -71,7 +71,7 @@ const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({
         <div className="flex-[0.8] bg-white p-10 lg:p-12 relative overflow-hidden flex flex-col justify-start">
           <div className="relative z-10 max-w-xs">
             <p className="text-[20px] font-bold text-[#1a1b1f] leading-snug mb-8">
-              Mind manthan has been recognized as a Leader in the 2022 Gartner®
+              Mind Manthan is trusted for secure and scalable software delivery across app, web, and IoT projects.
             </p>
             <button
               onClick={() => {
@@ -80,7 +80,7 @@ const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({
               }}
               className="text-[#001fcc] font-bold text-[14px] underline underline-offset-4 hover:text-[#0017a8] transition-colors text-left"
             >
-              View the report
+              Talk to our team
             </button>
           </div>
 
@@ -120,4 +120,6 @@ const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({
 };
 
 export default CompanyMegaMenu;
+
+
 

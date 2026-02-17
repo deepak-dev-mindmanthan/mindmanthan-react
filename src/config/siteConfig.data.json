@@ -1,76 +1,178 @@
 {
-  "domain": "mindmanthansoftwaresolutions.com",
-  "protocol": "https",
-  "siteName": "Mind Manthan",
-  "siteDescription": "Mind Manthan delivers custom software development, mobile and web apps, and digital transformation services for growing businesses.",
-  "logoPath": "/assets/images/mindmanthan.webp",
-  "defaultOgImagePath": "/assets/images/mindmanthan.webp",
-  "twitterHandle": "",
-  "facebookPage": "https://www.facebook.com",
-  "instagramPage": "https://www.instagram.com",
-  "linkedinPage": "https://www.linkedin.com",
-  "youtubeChannel": "",
-  "githubOrg": "",
-  "xPage": "https://x.com",
-  "additionalProfiles": [],
-  "business": {
-    "type": "Software Company",
-    "phone": "+91 70115 02461",
-    "phoneHref": "+917011502461",
-    "altPhone": "1-800-356-8933",
-    "altPhoneHref": "1-800-356-8933",
-    "secondaryPhone": "1-900-322-8422",
-    "secondaryPhoneHref": "1-900-322-8422",
-    "email": "info@mindmanthansoftwaresolutions.com",
-    "emailHref": "mailto:info@mindmanthansoftwaresolutions.com",
-    "addressLine": "A90, A Block, Sector 4, Noida, Uttar Pradesh 201301",
-    "address": {
-      "street": "A90, A Block, Sector 4",
-      "city": "Noida",
-      "state": "Uttar Pradesh",
-      "postalCode": "201301",
-      "country": "India"
-    },
-    "serviceAreas": [],
-    "hours": ""
-  },
-  "offices": {
-    "newYork": {
-      "title": "New York",
-      "lines": ["Seventh Ave, 20th Floor", "New York, NY 10018"],
-      "phone": "+91 70115 02461"
-    },
-    "boston": {
-      "title": "Boston",
-      "lines": ["45 Myrtle Street, 02114", "Boston, MA"],
-      "phone": "1-900-322-8422"
-    }
-  },
-  "seo": {
-    "sitemap": [
-      { "path": "/", "changefreq": "weekly", "priority": "1.0" },
-      { "path": "/about-us", "changefreq": "monthly", "priority": "0.8" },
-      { "path": "/why-us", "changefreq": "monthly", "priority": "0.8" },
-      { "path": "/services", "changefreq": "monthly", "priority": "0.9" },
-      { "path": "/portfolio", "changefreq": "monthly", "priority": "0.8" },
-      { "path": "/contact", "changefreq": "monthly", "priority": "0.7" },
-      { "path": "/case-studies", "changefreq": "monthly", "priority": "0.8" },
-      { "path": "/case-studies/insurance", "changefreq": "monthly", "priority": "0.7" },
-      { "path": "/case-studies/coffee", "changefreq": "monthly", "priority": "0.7" },
-      { "path": "/case-studies/london-travel", "changefreq": "monthly", "priority": "0.7" },
-      { "path": "/custom-software", "changefreq": "monthly", "priority": "0.8" },
-      { "path": "/mobile-app", "changefreq": "monthly", "priority": "0.8" },
-      { "path": "/staff-augmentation", "changefreq": "monthly", "priority": "0.7" },
-      { "path": "/web-app", "changefreq": "monthly", "priority": "0.7" },
-      { "path": "/blockchain", "changefreq": "monthly", "priority": "0.7" },
-      { "path": "/ios-development", "changefreq": "monthly", "priority": "0.7" },
-      { "path": "/android-development", "changefreq": "monthly", "priority": "0.7" },
-      { "path": "/digital-transformation", "changefreq": "monthly", "priority": "0.7" },
-      { "path": "/security", "changefreq": "monthly", "priority": "0.7" },
-      { "path": "/fintech", "changefreq": "monthly", "priority": "0.7" },
-      { "path": "/consulting", "changefreq": "monthly", "priority": "0.7" },
-      { "path": "/events", "changefreq": "monthly", "priority": "0.6" },
-      { "path": "/blog", "changefreq": "weekly", "priority": "0.8" }
-    ]
-  }
+    "domain":  "mindmanthansoftwaresolutions.com",
+    "protocol":  "https",
+    "siteName":  "Mind Manthan",
+    "siteDescription":  "Mind Manthan Software Solutions provides custom software, mobile apps, websites, IoT systems, automation, security, cloud and support services.",
+    "logoPath":  "/assets/images/mindmanthan.webp",
+    "defaultOgImagePath":  "/assets/images/mindmanthan.webp",
+    "twitterHandle":  "",
+    "facebookPage":  "https://www.facebook.com",
+    "instagramPage":  "https://www.instagram.com",
+    "linkedinPage":  "https://www.linkedin.com",
+    "youtubeChannel":  "",
+    "githubOrg":  "",
+    "xPage":  "https://x.com",
+    "additionalProfiles":  [
+
+                           ],
+    "business":  {
+                     "type":  "Software Company",
+                     "phone":  "+91 70115 02461",
+                     "phoneHref":  "+917011502461",
+                     "altPhone":  "+91 70115 02461",
+                     "altPhoneHref":  "+917011502461",
+                     "secondaryPhone":  "+91 70115 02461",
+                     "secondaryPhoneHref":  "+917011502461",
+                     "email":  "info@mindmanthansoftwaresolutions.com",
+                     "emailHref":  "mailto:info@mindmanthansoftwaresolutions.com",
+                     "addressLine":  "A90, A Block, Sector 4, Noida, Uttar Pradesh 201301",
+                     "address":  {
+                                     "street":  "A90, A Block, Sector 4",
+                                     "city":  "Noida",
+                                     "state":  "Uttar Pradesh",
+                                     "postalCode":  "201301",
+                                     "country":  "India"
+                                 },
+                     "serviceAreas":  [
+
+                                      ],
+                     "hours":  ""
+                 },
+    "offices":  {
+                    "newYork":  {
+                                    "title":  "Noida HQ",
+                                    "lines":  [
+                                                  "A90, A Block, Sector 4",
+                                                  "Noida, Uttar Pradesh 201301"
+                                              ],
+                                    "phone":  "+91 70115 02461"
+                                },
+                    "boston":  {
+                                   "title":  "Delivery Center",
+                                   "lines":  [
+                                                 "Remote + Onsite Collaboration",
+                                                 "India and Global Projects"
+                                             ],
+                                   "phone":  "+91 70115 02461"
+                               }
+                },
+    "seo":  {
+                "sitemap":  [
+                                {
+                                    "path":  "/",
+                                    "changefreq":  "weekly",
+                                    "priority":  "1.0"
+                                },
+                                {
+                                    "path":  "/about-us",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.8"
+                                },
+                                {
+                                    "path":  "/why-us",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.8"
+                                },
+                                {
+                                    "path":  "/services",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.9"
+                                },
+                                {
+                                    "path":  "/portfolio",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.8"
+                                },
+                                {
+                                    "path":  "/contact",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
+                                    "path":  "/case-studies",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.8"
+                                },
+                                {
+                                    "path":  "/case-studies/insurance",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
+                                    "path":  "/case-studies/coffee",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
+                                    "path":  "/case-studies/london-travel",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
+                                    "path":  "/custom-software",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.8"
+                                },
+                                {
+                                    "path":  "/mobile-app",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.8"
+                                },
+                                {
+                                    "path":  "/api-integration-support",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
+                                    "path":  "/web-app",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
+                                    "path":  "/iot-solutions",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
+                                    "path":  "/ios-development",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
+                                    "path":  "/android-development",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
+                                    "path":  "/digital-transformation",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
+                                    "path":  "/security",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
+                                    "path":  "/cloud-devops",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
+                                    "path":  "/consulting",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
+                                    "path":  "/events",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.6"
+                                },
+                                {
+                                    "path":  "/blog",
+                                    "changefreq":  "weekly",
+                                    "priority":  "0.8"
+                                }
+                            ]
+            }
 }

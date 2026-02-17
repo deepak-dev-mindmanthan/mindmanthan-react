@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, RefreshCw, Cpu, TrendingUp, Database, Smartphone } from 'lucide-react';
+import { Cpu, Search, Code2, Smartphone } from 'lucide-react';
 
 const TargetIcon = () => (
   <div className="relative w-24 h-24 flex items-center justify-center bg-white rounded-full shadow-lg border border-gray-100">
@@ -8,9 +8,6 @@ const TargetIcon = () => (
       <circle cx="50" cy="50" r="30" stroke="#1e293b" strokeWidth="1" />
       <circle cx="50" cy="50" r="20" stroke="#1e293b" strokeWidth="1" />
       <circle cx="50" cy="50" r="8" fill="#001fcc" />
-      <path d="M85 15 L55 45" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" />
-      <path d="M52 48 L62 48 L62 38" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M82 12 L90 20" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" />
     </svg>
   </div>
 );
@@ -18,14 +15,14 @@ const TargetIcon = () => (
 interface SolutionsMegaMenuProps {
   onSoftwareClick?: () => void;
   onMobileAppClick?: () => void;
-  onStaffAugmentationClick?: () => void;
+  onApiIntegrationSupportClick?: () => void;
   onWebAppClick?: () => void;
-  onBlockchainClick?: () => void;
+  onIotSolutionsClick?: () => void;
   onIOSDevelopmentClick?: () => void;
   onAndroidDevelopmentClick?: () => void;
   onDigitalTransformationClick?: () => void;
   onSecurityClick?: () => void;
-  onFintechClick?: () => void;
+  onCloudDevopsClick?: () => void;
   onConsultingClick?: () => void;
   onInsuranceCaseStudyClick?: () => void;
   onCoffeeCaseStudyClick?: () => void;
@@ -35,17 +32,17 @@ interface SolutionsMegaMenuProps {
   onItemClick?: () => void;
 }
 
-const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({ 
-  onSoftwareClick, 
+const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
+  onSoftwareClick,
   onMobileAppClick,
-  onStaffAugmentationClick,
+  onApiIntegrationSupportClick,
   onWebAppClick,
-  onBlockchainClick,
+  onIotSolutionsClick,
   onIOSDevelopmentClick,
   onAndroidDevelopmentClick,
   onDigitalTransformationClick,
   onSecurityClick,
-  onFintechClick,
+  onCloudDevopsClick,
   onConsultingClick,
   onInsuranceCaseStudyClick,
   onCoffeeCaseStudyClick,
@@ -55,54 +52,41 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
   onItemClick
 }) => {
   const solutions = [
-    { label: 'Custom Software Development', isSoftware: true },
-    { label: 'Mobile App Development', isMobile: true },
-    { label: 'Staff Augmentation', isStaffAug: true },
-    { label: 'Web App Development', isWebApp: true },
-    { label: 'Blockchain', isBlockchain: true },
-    { label: 'IOS Development', isIOS: true },
-    { label: 'Android Development', isAndroid: true }
+    { label: 'Custom Software Development', action: onSoftwareClick },
+    { label: 'Mobile App Development', action: onMobileAppClick },
+    { label: 'Website & Web App Development', action: onWebAppClick },
+    { label: 'IoT Solutions', action: onIotSolutionsClick },
+    { label: 'Workflow Automation', action: onDigitalTransformationClick },
+    { label: 'Security & Infrastructure', action: onSecurityClick },
+    { label: 'Cloud & DevOps Services', action: onCloudDevopsClick },
+    { label: 'API Integration & Support', action: onApiIntegrationSupportClick },
+    { label: 'Maintenance & Technical Support', action: onConsultingClick },
+    { label: 'iOS App Development', action: onIOSDevelopmentClick },
+    { label: 'Android App Development', action: onAndroidDevelopmentClick }
   ];
 
   const industries = [
-    {
-      title: 'CRM & ERP Development',
-      icon: <Database size={24} className="text-[#001fcc]" />,
-      isTelemedicine: true
-    },
-    {
-      title: 'IOS & Android Apps',
-      icon: <Smartphone size={24} className="text-[#001fcc]" />,
-      isDating: true
-    },
-    {
-      title: 'AI & IOT Solutions',
-      icon: <Cpu size={24} className="text-[#001fcc]" />,
-      isFintech: true
-    },
-    {
-      title: 'SEO & Digital Marketing',
-      icon: <TrendingUp size={24} className="text-[#001fcc]" />,
-      isConsulting: true
-    }
+    { title: 'Custom Software (HRMS & ERP)', icon: <Code2 size={24} className="text-[#001fcc]" />, action: onSoftwareClick },
+    { title: 'Apps & Mobility Platforms', icon: <Smartphone size={24} className="text-[#001fcc]" />, action: onMobileAppClick },
+    { title: 'AI + IoT Solutions', icon: <Cpu size={24} className="text-[#001fcc]" />, action: onIotSolutionsClick },
+    { title: 'SEO & Growth Services', icon: <Search size={24} className="text-[#001fcc]" />, action: onConsultingClick }
   ];
 
   const caseStudies = [
-    { text: 'Major Insurance Provider Saves $750k per Month With Big Data Migration', isInsurance: true, isCoffee: false, isLondon: false },
-    { text: 'Maximizing Efficiency with Proper Technology Implementation – Coffee Success Story', isInsurance: false, isCoffee: true, isLondon: false },
-    { text: 'Strategic Move to an AI-supported application for Public Safety Travel App in London', isInsurance: false, isCoffee: false, isLondon: true }
+    { text: 'Insurance workflow and claims modernization platform', action: onInsuranceCaseStudyClick },
+    { text: 'IoT operations dashboard for multi-site business', action: onCoffeeCaseStudyClick },
+    { text: 'Unified website and mobile app platform for travel operations', action: onLondonTravelCaseStudyClick }
   ];
 
   return (
     <div
       className={`absolute top-full left-1/2 -translate-x-1/2 w-[98vw] max-w-[1540px] pt-2 transition-all duration-300 z-[100] ${
-        isOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-4"
+        isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-4'
       }`}
       onClick={onItemClick}
     >
       <div className="bg-[#e8edff] shadow-lg border-t border-gray-100 flex flex-col lg:flex-row min-h-0">
-        
-        <div className="flex-[0.8] p-8 lg:p-10">
+        <div className="flex-[0.9] p-8 lg:p-10">
           <h3 className="text-[14px] font-black text-[#010417] mb-6 tracking-widest uppercase">Solutions</h3>
           <ul className="space-y-2.5">
             {solutions.map((item) => (
@@ -110,14 +94,8 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                 <button
                   type="button"
                   onClick={() => {
-                    if (item.isSoftware && onSoftwareClick) onSoftwareClick();
-                    else if (item.isMobile && onMobileAppClick) onMobileAppClick();
-                    else if (item.isStaffAug && onStaffAugmentationClick) onStaffAugmentationClick();
-                    else if (item.isWebApp && onWebAppClick) onWebAppClick();
-                    else if (item.isBlockchain && onBlockchainClick) onBlockchainClick();
-                    else if (item.isIOS && onIOSDevelopmentClick) onIOSDevelopmentClick();
-                    else if (item.isAndroid && onAndroidDevelopmentClick) onAndroidDevelopmentClick();
-                    if (onItemClick) onItemClick();
+                    item.action?.();
+                    onItemClick?.();
                   }}
                   className="text-[15px] font-bold text-gray-700 hover:text-[#001fcc] transition-colors leading-tight block text-left bg-transparent border-none p-0"
                 >
@@ -128,28 +106,21 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
           </ul>
         </div>
 
-        <div className="flex-[1.4] p-8 lg:p-10 bg-[#e0e7ff]/30">
-          <h3 className="text-[14px] font-black text-[#010417] mb-6 tracking-widest uppercase">Industry Focus</h3>
+        <div className="flex-[1.3] p-8 lg:p-10 bg-[#e0e7ff]/30">
+          <h3 className="text-[14px] font-black text-[#010417] mb-6 tracking-widest uppercase">Service Focus</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {industries.map((item) => (
               <button
                 type="button"
-                key={item.title} 
+                key={item.title}
                 onClick={() => {
-                   if (item.isTelemedicine && onDigitalTransformationClick) onDigitalTransformationClick(); // Map to existing prop or add new one? Keeping existing for now to avoid errors, user can update props later if needed.
-                   if (item.isDating && onSecurityClick) onSecurityClick(); // Map to existing prop
-                   if (item.isFintech && onFintechClick) onFintechClick();
-                   if (item.isConsulting && onConsultingClick) onConsultingClick();
-                   if (onItemClick) onItemClick();
+                  item.action?.();
+                  onItemClick?.();
                 }}
-                className="bg-white p-5 border border-blue-100 hover:shadow-md transition-all hover:border-[#001fcc] group/card cursor-pointer flex flex-col items-start gap-2 h-full min-h-[110px] text-left"
+                className="bg-white p-5 border border-blue-100 hover:shadow-md transition-all hover:border-[#001fcc] cursor-pointer flex flex-col items-start gap-2 h-full min-h-[110px] text-left"
               >
-                <div className="mb-0.5">
-                  {item.icon}
-                </div>
-                <span className="text-[15px] font-bold text-gray-800 leading-tight">
-                  {item.title}
-                </span>
+                {item.icon}
+                <span className="text-[15px] font-bold text-gray-800 leading-tight">{item.title}</span>
               </button>
             ))}
           </div>
@@ -165,17 +136,11 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
             {caseStudies.map((item, idx) => (
               <button
                 type="button"
-                key={idx} 
+                key={idx}
                 className="group/cs cursor-pointer text-left bg-transparent border-none p-0"
                 onClick={() => {
-                  if (item.isInsurance && onInsuranceCaseStudyClick) {
-                    onInsuranceCaseStudyClick();
-                  } else if (item.isCoffee && onCoffeeCaseStudyClick) {
-                    onCoffeeCaseStudyClick();
-                  } else if (item.isLondon && onLondonTravelCaseStudyClick) {
-                    onLondonTravelCaseStudyClick();
-                  }
-                  if (onItemClick) onItemClick();
+                  item.action?.();
+                  onItemClick?.();
                 }}
               >
                 <p className="text-[14px] font-bold text-gray-800 leading-relaxed mb-4 group-hover/cs:text-[#001fcc] transition-colors">
@@ -187,11 +152,11 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
           </div>
 
           <div className="mt-6">
-            <button 
+            <button
               onClick={(e) => {
                 e.preventDefault();
-                if (onPortfolioClick) onPortfolioClick();
-                if (onItemClick) onItemClick();
+                onPortfolioClick?.();
+                onItemClick?.();
               }}
               className="text-[#001fcc] font-bold text-[18px] border-b-[2.5px] border-[#e8edff] hover:border-[#001fcc] pb-0.5 transition-all duration-300"
             >

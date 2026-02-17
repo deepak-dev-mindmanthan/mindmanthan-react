@@ -176,3 +176,4 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
 
 export default Footer;
 
+

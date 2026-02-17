@@ -10,14 +10,14 @@ interface NavbarProps {
   onLogoClick?: () => void;
   onSoftwareClick?: () => void;
   onMobileAppClick?: () => void;
-  onStaffAugmentationClick?: () => void;
+  onApiIntegrationSupportClick?: () => void;
   onWebAppClick?: () => void;
-  onBlockchainClick?: () => void;
+  onIotSolutionsClick?: () => void;
   onIOSDevelopmentClick?: () => void;
   onAndroidDevelopmentClick?: () => void;
   onDigitalTransformationClick?: () => void;
   onSecurityClick?: () => void;
-  onFintechClick?: () => void;
+  onCloudDevopsClick?: () => void;
   onConsultingClick?: () => void;
   onInsuranceCaseStudyClick?: () => void;
   onCoffeeCaseStudyClick?: () => void;
@@ -99,14 +99,14 @@ const Navbar: React.FC<NavbarProps> = ({
   onLogoClick, 
   onSoftwareClick, 
   onMobileAppClick,
-  onStaffAugmentationClick,
+  onApiIntegrationSupportClick,
   onWebAppClick,
-  onBlockchainClick,
+  onIotSolutionsClick,
   onIOSDevelopmentClick,
   onAndroidDevelopmentClick,
   onDigitalTransformationClick,
   onSecurityClick,
-  onFintechClick,
+  onCloudDevopsClick,
   onConsultingClick,
   onInsuranceCaseStudyClick,
   onCoffeeCaseStudyClick,
@@ -266,14 +266,14 @@ const Navbar: React.FC<NavbarProps> = ({
                           onItemClick={closeDropdown}
                           onSoftwareClick={onSoftwareClick} 
                           onMobileAppClick={onMobileAppClick}
-                          onStaffAugmentationClick={onStaffAugmentationClick}
+                          onApiIntegrationSupportClick={onApiIntegrationSupportClick}
                           onWebAppClick={onWebAppClick}
-                          onBlockchainClick={onBlockchainClick}
+                          onIotSolutionsClick={onIotSolutionsClick}
                           onIOSDevelopmentClick={onIOSDevelopmentClick}
                           onAndroidDevelopmentClick={onAndroidDevelopmentClick}
                           onDigitalTransformationClick={onDigitalTransformationClick}
                           onSecurityClick={onSecurityClick}
-                          onFintechClick={onFintechClick}
+                          onCloudDevopsClick={onCloudDevopsClick}
                           onConsultingClick={onConsultingClick}
                           onInsuranceCaseStudyClick={onInsuranceCaseStudyClick}
                           onCoffeeCaseStudyClick={onCoffeeCaseStudyClick}
@@ -451,14 +451,14 @@ const Navbar: React.FC<NavbarProps> = ({
                         <button onClick={() => handleMobileAction(onMobileAppClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
                           Mobile App Development
                         </button>
-                        <button onClick={() => handleMobileAction(onStaffAugmentationClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
-                          Staff Augmentation
+                        <button onClick={() => handleMobileAction(onApiIntegrationSupportClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
+                          API Integration & Support
                         </button>
                         <button onClick={() => handleMobileAction(onWebAppClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
                           Web App Development
                         </button>
-                        <button onClick={() => handleMobileAction(onBlockchainClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
-                          Blockchain
+                        <button onClick={() => handleMobileAction(onIotSolutionsClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
+                          IoT Solutions
                         </button>
                         <button onClick={() => handleMobileAction(onIOSDevelopmentClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
                           iOS Development
@@ -472,8 +472,8 @@ const Navbar: React.FC<NavbarProps> = ({
                         <button onClick={() => handleMobileAction(onSecurityClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
                           Security
                         </button>
-                        <button onClick={() => handleMobileAction(onFintechClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
-                          Fintech
+                        <button onClick={() => handleMobileAction(onCloudDevopsClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
+                          Cloud & DevOps
                         </button>
                         <button onClick={() => handleMobileAction(onConsultingClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
                           Consulting
@@ -482,13 +482,13 @@ const Navbar: React.FC<NavbarProps> = ({
                           Case Studies
                         </div>
                         <button onClick={() => handleMobileAction(onInsuranceCaseStudyClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
-                          Insurance Platform
+                          Insurance Workflow Platform
                         </button>
                         <button onClick={() => handleMobileAction(onCoffeeCaseStudyClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
-                          Coffee Brand
+                          IoT Operations Platform
                         </button>
                         <button onClick={() => handleMobileAction(onLondonTravelCaseStudyClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
-                          London Travel
+                          Travel App Platform
                         </button>
                     </div>
                   </div>
@@ -566,5 +566,8 @@ const Navbar: React.FC<NavbarProps> = ({
 };
 
 export default Navbar;
+
+
+
 
 

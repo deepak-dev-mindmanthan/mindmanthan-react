@@ -18,3 +18,4 @@ export const BLOGS_BY_ID: Record<number, BlogPost> = Object.fromEntries(
 ) as Record<number, BlogPost>;
 
 export const getBlogById = (id: number) => BLOGS_BY_ID[id];
+

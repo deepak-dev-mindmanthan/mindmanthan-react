@@ -5,7 +5,7 @@ const StatsBanner: React.FC<{ onGetInTouchClick?: () => void }> = ({ onGetInTouc
     { value: '10', label: 'Years', sublabel: 'in business' },
     { value: '7+', label: 'Years', sublabel: 'in app development' },
     { value: '10+', label: 'Startups', sublabel: 'unicorns built' },
-    { value: '#1', label: 'Development', sublabel: 'company in USA' },
+    { value: '#1', label: 'Development', sublabel: 'company in India' },
   ];
 
   return (
@@ -50,3 +50,5 @@ const StatsBanner: React.FC<{ onGetInTouchClick?: () => void }> = ({ onGetInTouc
 };
 
 export default StatsBanner;
+
+

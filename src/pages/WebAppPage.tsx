@@ -116,7 +116,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Banner Section - Exactly like Staff Augmentation */}
+      {/* Hero Banner Section - Exactly like API Integration & Support */}
       <section className="relative min-h-[500px] flex items-center overflow-hidden bg-gradient-to-r from-[#00055c] via-[#000d8c] to-[#0019ff] py-32 px-6 lg:px-12">
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[50%] h-full opacity-40 pointer-events-none">
           <svg width="100%" height="100%" viewBox="0 0 400 400" preserveAspectRatio="none">
@@ -161,7 +161,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
         </div>
       </section>
 
-      {/* Benefits Section - Identical Structure to Staff Augmentation */}
+      {/* Benefits Section - Identical Structure to API Integration & Support */}
       <section className="bg-white py-32 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-stretch">
           <div className="flex-[1.2]">
@@ -222,7 +222,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
         </div>
       </section>
 
-      {/* Process Section - Identical Structure to Staff Augmentation */}
+      {/* Process Section - Identical Structure to API Integration & Support */}
       <section className="bg-white py-32 px-6 lg:px-12 border-t border-gray-50">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-stretch">
           <div className="flex-[1.2]">
@@ -269,7 +269,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
         </div>
       </section>
 
-      {/* Expertise Capabilities - Identical Structure to Staff Augmentation */}
+      {/* Expertise Capabilities - Identical Structure to API Integration & Support */}
       <section className="py-32 bg-[#f8faff] px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
@@ -303,7 +303,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
         </div>
       </section>
 
-      {/* Roles/Capabilities Section - Identical Structure to Staff Augmentation */}
+      {/* Roles/Capabilities Section - Identical Structure to API Integration & Support */}
       <section className="py-32 bg-white px-6 border-t border-gray-100 overflow-visible">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-20 items-start">
@@ -327,7 +327,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
         </div>
       </section>
 
-      {/* Testimonials - Identical Structure to Staff Augmentation */}
+      {/* Testimonials - Identical Structure to API Integration & Support */}
       <section className="bg-white py-32 px-6 border-t border-gray-100">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl md:text-[44px] font-black text-[#1a1b1f] leading-[1.1] tracking-tighter mb-12">
@@ -390,7 +390,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
         </div>
       </section>
 
-      {/* Unified Contact Form - Identical Structure to Staff Augmentation */}
+      {/* Unified Contact Form - Identical Structure to API Integration & Support */}
       <section className="bg-white px-6 pb-32 pt-16">
         <div className="max-w-7xl mx-auto rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row min-h-[800px]">
           <div className="flex-1 flex flex-col">
@@ -434,7 +434,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
         </div>
       </section>
 
-      {/* Trust & Stats Section - Identical Structure to Staff Augmentation */}
+      {/* Trust & Stats Section - Identical Structure to API Integration & Support */}
       <section className="py-24 bg-white px-6 border-y border-gray-100">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="lg:max-w-xl">
@@ -471,5 +471,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
 };
 
 export default WebAppPage;
+
+
 
 

@@ -11,14 +11,14 @@ export const ROUTES = {
   londonTravelCaseStudy: "/case-studies/london-travel",
   customSoftware: "/custom-software",
   mobileApp: "/mobile-app",
-  staffAugmentation: "/staff-augmentation",
+  apiIntegrationSupport: "/api-integration-support",
   webApp: "/web-app",
-  blockchain: "/blockchain",
+  iotSolutions: "/iot-solutions",
   iosDevelopment: "/ios-development",
   androidDevelopment: "/android-development",
   digitalTransformation: "/digital-transformation",
   security: "/security",
-  fintech: "/fintech",
+  cloudDevops: "/cloud-devops",
   consulting: "/consulting",
   events: "/events",
   blog: "/blog",
@@ -26,3 +26,4 @@ export const ROUTES = {
 };
 
 export const getBlogDetailPath = (id: number | string) => `/blog/${id}`;
+

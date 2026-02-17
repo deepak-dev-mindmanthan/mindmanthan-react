@@ -8,18 +8,27 @@ const FAQSection: React.FC = () => {
 
         <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-semibold">How can I schedule a consultation?</h3>
-            <p className="text-gray-600 mt-2">Use the "Schedule a Consultation" link in the Resources menu or fill the contact form on our Contact page.</p>
-          </div>
-
-          <div>
             <h3 className="text-xl font-semibold">What services do you provide?</h3>
-            <p className="text-gray-600 mt-2">We provide custom software development, mobile and web apps, cloud solutions, and managed IT services.</p>
+            <p className="text-gray-600 mt-2">
+              We provide custom software development, website development, mobile app development, IoT solutions,
+              HRMS/ERP systems, data security, cloud and DevOps, API integration, SEO, and long-term support.
+            </p>
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold">Do you work with startups?</h3>
-            <p className="text-gray-600 mt-2">Yes - we partner with startups and enterprises to deliver scalable software products.</p>
+            <h3 className="text-xl font-semibold">Do you build both web and mobile apps?</h3>
+            <p className="text-gray-600 mt-2">
+              Yes. We deliver corporate websites, web applications, Android apps, iOS apps, and hybrid mobile apps,
+              including deployment and maintenance.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold">Can you modernize our existing systems?</h3>
+            <p className="text-gray-600 mt-2">
+              Yes. We modernize legacy systems, automate workflows, secure infrastructure, and integrate APIs while
+              minimizing business disruption.
+            </p>
           </div>
         </div>
       </div>
