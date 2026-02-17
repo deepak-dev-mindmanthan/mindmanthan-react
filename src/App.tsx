@@ -583,7 +583,7 @@ const App: React.FC = () => {
           path={ROUTES.blog}
           element={
             <BlogArchive
-              onReadMoreClick={(id) => navigate(getBlogDetailPath(id))}
+              onReadMoreClick={(id: number) => navigate(getBlogDetailPath(id))}
             />
           }
         />
@@ -598,7 +598,7 @@ const App: React.FC = () => {
               />
             ) : (
               <BlogArchive
-                onReadMoreClick={(id) => navigate(getBlogDetailPath(id))}
+                onReadMoreClick={(id: number) => navigate(getBlogDetailPath(id))}
               />
             )
           }
