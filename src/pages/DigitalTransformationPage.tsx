@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle2, Globe, Cpu, Shield, Smartphone, Check, ArrowLeft, Star, Laptop, Zap, RefreshCw, Layers, Database, Code } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 import CommonContactForm from '../components/CommonContactForm';
 
 interface DigitalTransformationPageProps {
@@ -58,7 +59,7 @@ const DigitalTransformationPage: React.FC<DigitalTransformationPageProps> = ({ o
       name: 'Henry Ford II',
       role: 'Operations Manager',
       company: 'Logistics Pro',
-      text: "Mind Manthan didn't just build us a software; they transformed how we think about our supply chain. We've eliminated 80% of our manual entry errors since implementation. A true digital evolution for our legacy systems.",
+      text: `${CONTENT_CONFIG.company.shortName} didn't just build us software; they transformed how we think about our supply chain. We've eliminated 80% of our manual entry errors since implementation. A true digital evolution for our legacy systems.`,
       logo: (
         <div className="w-16 h-16 bg-[#001fcc] rounded-md flex items-center justify-center shadow-md">
           <RefreshCw className="text-white" size={32} />

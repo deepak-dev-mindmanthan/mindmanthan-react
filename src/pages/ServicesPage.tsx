@@ -3,6 +3,7 @@ import { Code, Globe, Smartphone, Shield, Cloud, Workflow, Database, Search, Pal
 import CommonContactForm from '../components/CommonContactForm';
 import serviceBannerImage from '../assets/images/service1.png';
 import serviceWhyChooseImage from '../assets/images/service2.png';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 
 interface ServicesPageProps {
   onNavigateHome?: () => void;
@@ -31,7 +32,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
           <div className="text-sm uppercase tracking-widest text-gray-500 mb-4 font-medium">Solutions</div>
           <h1 className="text-5xl lg:text-6xl font-black text-[#1a1b1f] mb-6 leading-tight">IT Services for Apps, Websites, and IoT</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Mind Manthan Software Solutions delivers secure, scalable, and system-driven digital services aligned to your business workflows.
+            {CONTENT_CONFIG.company.legalName} delivers secure, scalable, and system-driven digital services aligned to your business workflows.
           </p>
         </div>
       </section>
@@ -41,7 +42,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
           <div className="overflow-hidden rounded-xl shadow-lg border border-gray-100">
             <img
               src={serviceBannerImage}
-              alt="Mind Manthan services banner showing software, web, mobile, and IoT delivery"
+              alt={`${CONTENT_CONFIG.company.shortName} services banner showing software, web, mobile, and IoT delivery`}
               className="w-full h-[260px] sm:h-[340px] lg:h-[440px] object-cover"
               loading="lazy"
               decoding="async"
@@ -73,7 +74,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
             <div className="order-2 lg:order-1">
               <div className="text-sm uppercase tracking-widest text-gray-500 mb-4 font-medium">Why Choose Our Services</div>
               <h2 className="text-4xl lg:text-5xl font-black text-[#1a1b1f] mb-6 leading-tight">
-                Why businesses choose Mind Manthan for IT execution
+                Why businesses choose {CONTENT_CONFIG.company.shortName} for IT execution
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
                 We combine product thinking, engineering discipline, and domain-aligned execution to build reliable systems for Indian and global businesses.
@@ -119,7 +120,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-lg overflow-hidden shadow-lg">
             <div className="bg-gradient-to-br from-[#e8f0ff] to-[#f0f6ff] p-12 lg:p-16">
-              <h2 className="text-4xl font-black text-[#1a1b1f] mb-8">Schedule a Free Consultation</h2>
+              <h2 className="text-4xl font-black text-[#1a1b1f] mb-8">{CONTENT_CONFIG.cta.scheduleConsultation}</h2>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                 Tell us your requirement and we will propose the right roadmap for software, app, web, IoT,
                 security, automation, or DevOps implementation.
@@ -128,7 +129,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
                 onClick={onNavigateHome}
                 className="inline-block bg-[#001fcc] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#0012a8] transition-colors"
               >
-                Get in touch
+                {CONTENT_CONFIG.cta.getInTouch}
               </button>
             </div>
             <div className="bg-white">

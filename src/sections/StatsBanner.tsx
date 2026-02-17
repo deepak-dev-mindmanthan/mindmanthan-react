@@ -1,11 +1,12 @@
 import React from 'react';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 
 const StatsBanner: React.FC<{ onGetInTouchClick?: () => void }> = ({ onGetInTouchClick }) => {
   const stats = [
     { value: '10', label: 'Years', sublabel: 'in business' },
     { value: '7+', label: 'Years', sublabel: 'in app development' },
-    { value: '10+', label: 'Startups', sublabel: 'unicorns built' },
-    { value: '#1', label: 'Development', sublabel: 'company in India' },
+    { value: '100+', label: 'Products', sublabel: 'delivered' },
+    { value: '24/7', label: 'Support', sublabel: 'availability' },
   ];
 
   return (
@@ -39,7 +40,7 @@ const StatsBanner: React.FC<{ onGetInTouchClick?: () => void }> = ({ onGetInTouc
 
             <div className="flex-shrink-0">
               <button onClick={onGetInTouchClick} className="bg-[#001fcc] text-white px-10 py-4 rounded-lg font-bold text-[15px] hover:bg-[#0017a8] transition-all active:scale-95 shadow-lg shadow-blue-500/20">
-                Get in touch
+                {CONTENT_CONFIG.cta.getInTouch}
               </button>
             </div>
           </div>

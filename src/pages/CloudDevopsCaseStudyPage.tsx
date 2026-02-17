@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 
 interface CloudDevopsCaseStudyPageProps {
   onBackHome: () => void;
@@ -21,7 +22,7 @@ const CloudDevopsCaseStudyPage: React.FC<CloudDevopsCaseStudyPageProps> = ({ onB
             for Enterprise Delivery
           </h1>
           <p className="text-gray-500 max-w-3xl text-lg">
-            Mind Manthan migrated legacy deployments to cloud-native pipelines with release automation and production-grade monitoring.
+            {CONTENT_CONFIG.company.shortName} migrated legacy deployments to cloud-native pipelines with release automation and production-grade monitoring.
           </p>
         </div>
       </section>

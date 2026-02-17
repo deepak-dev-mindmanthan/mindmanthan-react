@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle2, Shield, Lock, ShieldAlert, Check, ArrowLeft, Star, Zap, Layout, Code, Server, Eye, HardDrive, UserCheck } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 import CommonContactForm from '../components/CommonContactForm';
 
 interface SecurityPageProps {
@@ -52,7 +53,7 @@ const SecurityPage: React.FC<SecurityPageProps> = ({ onBackHome }) => {
       name: 'Marcus Bell',
       role: 'CISO',
       company: 'DataGuard Solutions',
-      text: "Mind Manthan didn't just patch our vulnerabilities; they completely re-engineered our security posture. Their multi-layered approach to threat mitigation has made us the most secure entity in our sector. A true partner in cybersecurity.",
+      text: `${CONTENT_CONFIG.company.shortName} didn't just patch our vulnerabilities; they completely re-engineered our security posture. Their multi-layered approach to threat mitigation has made us the most secure entity in our sector. A true partner in cybersecurity.`,
       logo: (
         <div className="w-16 h-16 bg-[#1a1b1f] rounded-md flex items-center justify-center shadow-md">
           <ShieldAlert className="text-white" size={32} />

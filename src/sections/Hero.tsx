@@ -1,5 +1,6 @@
 import React from 'react';
 import heroBg from '../assets/images/mindmanthan.webp';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 
 const Hero: React.FC = () => {
   return (
@@ -23,7 +24,7 @@ const Hero: React.FC = () => {
             and IoT platforms.
           </h1>
           <p className="text-lg md:text-xl lg:text-[22px] text-white/90 font-normal leading-relaxed max-w-3xl">
-            Mind Manthan delivers custom software, web and mobile development,
+            {CONTENT_CONFIG.company.shortName} delivers custom software, web and mobile development,
             workflow automation, secure infrastructure, and long-term technical support.
           </p>
         </div>

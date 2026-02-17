@@ -435,7 +435,7 @@ export const getSchema = (view: string, id?: number) => {
             "name": "What services do you provide?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We provide custom software development, mobile and web apps, cloud solutions, and managed IT services."
+              "text": "We provide custom software development, mobile apps, web applications, IoT solutions, cloud and DevOps, security, and API integration support."
             }
           },
           {

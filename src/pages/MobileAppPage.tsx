@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle2, Globe, Cpu, Shield, Smartphone, Check, ArrowLeft, Star, Laptop, Zap, Heart } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 import CommonContactForm from '../components/CommonContactForm';
 
 interface MobileAppPageProps {
@@ -67,7 +68,7 @@ const MobileAppPage: React.FC<MobileAppPageProps> = ({ onBackHome }) => {
       name: 'Marcus Thorne',
       role: 'Product Lead',
       company: 'SocialLink App',
-      text: 'Mind Manthan built our flagship mobile application from scratch. The user engagement numbers have doubled since launch, thanks to the intuitive UI and smooth performance. Their expertise in React Native saved us months of development time.',
+      text: `${CONTENT_CONFIG.company.shortName} built our flagship mobile application from scratch. The user engagement numbers have doubled since launch, thanks to the intuitive UI and smooth performance. Their expertise in React Native saved us months of development time.`,
       logo: (
         <div className="w-16 h-16 bg-[#1a1b1f] rounded-md flex items-center justify-center shadow-md">
           <Smartphone className="text-white" size={32} />

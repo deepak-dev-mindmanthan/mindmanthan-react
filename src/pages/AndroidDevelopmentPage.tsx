@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle2, Globe, Cpu, Shield, Smartphone, Check, ArrowLeft, Star, Laptop, Zap, Layout, Code } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 import CommonContactForm from '../components/CommonContactForm';
 
 interface AndroidDevelopmentPageProps {
@@ -67,7 +68,7 @@ const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackH
       name: 'Marcus Bell',
       role: 'CEO',
       company: 'DroidStream',
-      text: 'Mind Manthan helped us launch a globally competitive Android application. Their handling of background services and real-time syncing across thousands of device types was flawless. They are the best Android engineers we have partnered with.',
+      text: `${CONTENT_CONFIG.company.shortName} helped us launch a globally competitive Android application. Their handling of background services and real-time syncing across thousands of device types was flawless. They are the best Android engineers we have partnered with.`,
       logo: (
         <div className="w-16 h-16 bg-[#3DDC84] rounded-md flex items-center justify-center shadow-md">
           <Smartphone className="text-white" size={32} />
@@ -79,7 +80,7 @@ const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackH
       name: 'Lisa Wang',
       role: 'Head of Product',
       company: 'SecurePay Android',
-      text: 'Security on Android is often an afterthought, but not with this team. They implemented deep-level encryption and biometric security that made our fintech app the most secure in its category. Excellent work.',
+      text: 'Security on Android is often an afterthought, but not with this team. They implemented deep-level encryption and biometric security that made our enterprise app one of the most secure in its category. Excellent work.',
       logo: (
         <div className="w-16 h-16 bg-[#001fcc] rounded-md flex items-center justify-center shadow-md">
           <Shield className="text-white" size={32} />

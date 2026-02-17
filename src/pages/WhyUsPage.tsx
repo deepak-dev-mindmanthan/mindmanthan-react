@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import le1 from '../assets/images/le1.png';
 import le2 from '../assets/images/le2.png';
 import { SITE_CONFIG } from '../config/siteConfig';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 import CommonContactForm from '../components/CommonContactForm';
 
 interface WhyUsPageProps {
@@ -95,7 +96,7 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
               </div>
               <h3 className="text-2xl font-black text-[#1a1b1f] mb-4">Engineering Team</h3>
               <p className="text-gray-600 leading-relaxed">
-                You deserve the best. We have the best. Simply put, we care — even single one of us, from the account managers to the technicians. We hire, train and have the highest skilled team focused on putting your needs first.
+                You deserve the best and we deliver with a skilled engineering team. From solution architects to implementation specialists, every team member is focused on your outcomes.
               </p>
             </div>
 
@@ -137,7 +138,7 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
               <div>
                 <h2 className="text-4xl lg:text-5xl font-black text-[#1a1b1f] mb-6">How we do it</h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-4">
-                  By strategically deploying and supporting technology, and ultimately by becoming your virtual CIO.
+                  By strategically planning, building, and supporting technology aligned to your business goals.
                 </p>
                 <p className="text-lg text-gray-600 leading-relaxed mb-4">
                   That stability and long-term view carry over to our services and solutions, which can scale as your business grows.
@@ -179,7 +180,7 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
                 </h2>
 
                 <div className="mt-8">
-                  <button onClick={scrollToContactForm} className="inline-block bg-white text-[#1a1b1f] font-bold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition-colors cursor-pointer">Schedule a Free Consultation</button>
+                  <button onClick={scrollToContactForm} className="inline-block bg-white text-[#1a1b1f] font-bold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition-colors cursor-pointer">{CONTENT_CONFIG.cta.scheduleConsultation}</button>
                 </div>
               </div>
 
@@ -210,7 +211,7 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
             {/* Left Side - Benefits */}
             <div className="bg-gradient-to-br from-[#e8f0ff] to-[#f0f6ff] p-12 lg:p-16 flex flex-col justify-between">
               <div>
-                <h2 className="text-4xl font-black text-[#1a1b1f] mb-8">Schedule a Free Consultation</h2>
+                <h2 className="text-4xl font-black text-[#1a1b1f] mb-8">{CONTENT_CONFIG.cta.scheduleConsultation}</h2>
                 <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                   We're happy to answer any questions you may have and help you determine which of our services best fit your needs.
                 </p>
@@ -304,18 +305,18 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
             Call us at: {SITE_CONFIG.business.phone}
           </a>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
+              <button 
               onClick={scrollToContactForm}
               className="bg-[#001fcc] text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"
             >
-              Schedule a Free Consultation
+              {CONTENT_CONFIG.cta.scheduleConsultation}
             </button>
             <button
               type="button"
               onClick={scrollToContactForm}
               className="border-2 border-white text-white font-bold px-8 py-3 rounded-lg hover:bg-white hover:text-[#1a1b1f] transition-colors"
             >
-              Contact Us
+              {CONTENT_CONFIG.cta.contactUs}
             </button>
           </div>
         </div>

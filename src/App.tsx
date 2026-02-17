@@ -612,7 +612,7 @@ const App: React.FC = () => {
               </section>
               <section
                 id="about-section"
-                className="pt-20 md:pt-32 pb-20 md:pb-48 px-6 bg-white relative z-10"
+                className="pt-20 md:pt-24 pb-20 md:pb-32 px-6 bg-white relative z-10"
               >
                 <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
                   <h2 className="text-3xl md:text-5xl lg:text-[52px] font-bold text-[#1a1b1f] leading-[1.1] mb-10 tracking-tight max-w-5xl">
@@ -669,7 +669,7 @@ const App: React.FC = () => {
               <section
                 id="technology-team"
                 ref={techSectionRef}
-                className="px-6 max-w-7xl mx-auto mb-20 mt-32"
+                className="px-6 max-w-7xl mx-auto mb-16 mt-24"
               >
                 <div className="relative rounded-[2.5rem] overflow-hidden aspect-[16/8] md:aspect-[21/9] shadow-2xl border border-gray-100 bg-gray-100">
                   <img
@@ -686,7 +686,7 @@ const App: React.FC = () => {
                 </div>
               </section>
 
-              <section className="py-24 bg-white">
+              <section className="py-8 md:py-12 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
                     <div className="max-w-3xl">
@@ -816,7 +816,7 @@ const App: React.FC = () => {
                 </div>
               </section>
 
-              <section className="py-32 bg-white">
+              <section className="py-8 md:py-12 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
                   <div className="text-center mb-20">
                     <span className="inline-block px-4 py-1.5 bg-[#f1f5f9] rounded-md text-[#64748b] text-[11px] font-bold uppercase tracking-[0.2em] mb-6">
@@ -1080,7 +1080,7 @@ const App: React.FC = () => {
                 </div>
               </section>
 
-              <section className="bg-white py-32 px-6">
+              <section className="bg-white py-8 md:py-12 px-6">
                 <div className="max-w-7xl mx-auto">
                   <div className="text-center mb-16">
                     <h2 className="text-5xl md:text-[64px] font-black text-[#1a1b1f] mb-12 tracking-tighter">

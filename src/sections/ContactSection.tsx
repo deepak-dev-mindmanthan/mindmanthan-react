@@ -112,7 +112,7 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <section data-contact-form className="bg-white py-24 px-6 overflow-hidden relative">
+    <section data-contact-form className="bg-white py-8 md:py-12 px-6 overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
         <div className="bg-[#001fcc] rounded-[2rem] p-10 md:p-16 relative overflow-hidden flex flex-col lg:flex-row gap-14 items-start">
           

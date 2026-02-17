@@ -5,6 +5,7 @@ import about1 from '../assets/images/about1.jpg';
 import about2 from '../assets/images/about2.jpg';
 import about3 from '../assets/images/about3.jpg';
 import ContactSection from '../sections/ContactSection';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 
 interface TimelineItem {
   id: number;
@@ -27,13 +28,13 @@ const AboutUsPage: React.FC<{ onLearnMoreClick?: () => void }> = ({ onLearnMoreC
     {
       id: 1,
       title: 'How We Started',
-      description: 'Mind Manthan was founded with a vision to revolutionize how businesses approach software development. Starting from humble beginnings, we\'ve grown to become a trusted partner for companies seeking innovative, scalable, and transformative technology solutions.',
+      description: `${CONTENT_CONFIG.company.shortName} was founded with a vision to revolutionize how businesses approach software development. Starting from humble beginnings, we've grown to become a trusted partner for companies seeking innovative, scalable, and transformative technology solutions.`,
       imagePosition: 'left',
     },
     {
       id: 2,
       title: 'Our Mission',
-      description: 'At Mind Manthan, our Our Mission is to bring together the personal service of local expertise with the power of a global network. We believe that\'s simpler than it sounds. Our teams offer high-touch development services that clients love from highly experienced members.',
+      description: `At ${CONTENT_CONFIG.company.shortName}, our mission is to bring together the personal service of local expertise with the power of a global network. We believe that's simpler than it sounds. Our teams offer high-touch development services backed by experienced specialists.`,
       imagePosition: 'right',
     },
     {

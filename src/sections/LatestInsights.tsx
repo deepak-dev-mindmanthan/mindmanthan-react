@@ -75,7 +75,7 @@ const LatestInsights: React.FC<{ onLearnMoreClick?: (id: number) => void; onView
   const insights = BLOG_POSTS.slice(0, 3);
 
   return (
-    <section className="bg-white py-24 px-6">
+    <section className="bg-white py-8 md:py-12 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 flex justify-between items-center">
           <h2 className="text-5xl md:text-6xl font-black text-[#010417] leading-[1.1] tracking-tighter">

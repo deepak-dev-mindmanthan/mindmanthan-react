@@ -85,7 +85,7 @@ const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({
             </button>
           </div>
 
-          {/* Geometric Pattern - Simplified version of the Gartner grid */}
+          {/* Geometric Pattern */}
           <div className="absolute right-0 bottom-[-20px] w-[200px] h-[200px] opacity-100 pointer-events-none">
             <svg viewBox="0 0 100 100" className="w-full h-full">
               <g fill="#1a1b1f">

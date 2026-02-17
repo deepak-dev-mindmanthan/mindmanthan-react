@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle2, Globe, Cpu, Shield, Smartphone, Check, Plus, ArrowLeft, Star } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 import CommonContactForm from '../components/CommonContactForm';
 
 interface CustomSoftwarePageProps {
@@ -52,7 +53,7 @@ const ToolItem: React.FC<{ title: string; index: number }> = ({ title, index }) 
           {title}
         </h4>
         <p className="text-gray-500 text-[17px] font-medium leading-relaxed max-w-xl">
-          We offer affordable IT solutions that help you reduce costs and improve your bottom line. Our managed services include round-the-clock monitoring of your key infrastructure.
+          We design and implement software systems that reduce manual effort, improve visibility, and support long-term business growth.
         </p>
       </div>
     </div>
@@ -68,7 +69,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
       name: 'Amanda Parks',
       role: 'Network Manager',
       company: 'Healthcare Organization',
-      text: 'Mind Manthan implemented such a powerful platform that we had no break in service when our employees had to work from home due to the COVID-19 pandemic. We weren’t concerned about how to shift to a remote working environment because the team facilitated a seamless transition.',
+      text: `${CONTENT_CONFIG.company.shortName} built a robust custom platform for our operations team. The transition from legacy workflows was smooth, and our teams continued working without disruption during rollout.`,
       logo: (
         <div className="w-16 h-16 bg-[#002878] rounded-md flex items-center justify-center shadow-md">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -85,7 +86,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
       name: 'John Labkins',
       role: 'Partner & CEO',
       company: 'Telecommunication Company',
-      text: 'Mind Manthan has been an outstanding partner. Their team is professional, knowledgeable and customer-service driven. Their proactive collaborative approach has been critical in helping us build an IT infrastructure that enables our success today and supports our long-term positioning strategy.',
+      text: `${CONTENT_CONFIG.company.shortName} has been an outstanding partner. Their team is professional, knowledgeable and customer-service driven. Their proactive collaborative approach has been critical in helping us build an IT infrastructure that enables our success today and supports our long-term positioning strategy.`,
       logo: (
         <div className="w-16 h-16 bg-black rounded-md flex items-center justify-center shadow-md">
           <span className="text-white text-3xl font-serif font-bold">N</span>
@@ -97,7 +98,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
       name: 'Daniel Legrante',
       role: 'CIO',
       company: 'Restaurant Product Supplier',
-      text: 'I’ve been a customer for more than a decade. Mind Manthan is an example of the way Managed Services should be done. They do their very best to make sure you succeed. If there’s an issue, they step in immediately. We will continue to be a customer for years to come.',
+      text: `I've been a customer for more than a decade. ${CONTENT_CONFIG.company.shortName} is an example of reliable delivery execution. They do their very best to make sure you succeed. If there's an issue, they step in immediately.`,
       logo: (
         <div className="w-16 h-16 bg-blue-700 rounded-md flex items-center justify-center shadow-md">
           <span className="text-white text-3xl font-black">R</span>
@@ -116,11 +117,11 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
 
   const tools = [
     "Technical Implementation",
-    "IT Helpdesk Support",
-    "Managed IT Services",
-    "IT Consulting",
-    "Network Support",
-    "Field Tech Support"
+    "Software Architecture",
+    "API Integration",
+    "Cloud Deployment",
+    "Performance Optimization",
+    "Ongoing Product Support"
   ];
 
   const benefits = [
@@ -174,12 +175,12 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
 
             {/* Subheading */}
             <p className="text-white text-xl md:text-[28px] font-medium leading-tight max-w-3xl mb-14 opacity-95">
-              Why hire an internal IT person, when you can have an entire team of IT experts for a fraction of the cost?
+              Build scalable business software with a dedicated engineering team focused on architecture, reliability, and measurable outcomes.
             </p>
 
             {/* CTA Button */}
             <button onClick={onNavigateHome} className="bg-[#e8edff] text-[#001fcc] px-10 py-4 rounded font-black text-sm uppercase tracking-widest hover:bg-white transition-all active:scale-95 shadow-2xl shadow-black/20 cursor-pointer">
-              Schedule a Free Consultation
+              {CONTENT_CONFIG.cta.scheduleConsultation}
             </button>
           </div>
         </div>
@@ -190,18 +191,18 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-stretch">
           <div className="flex-[1.2]">
             <h2 className="text-4xl md:text-[54px] font-black text-[#1a1b1f] leading-[1.05] tracking-tight mb-8">
-              Benefits of managed IT services <br /> provided by Mind Manthan
+              Benefits of custom software <br /> delivered by {CONTENT_CONFIG.company.shortName}
             </h2>
             <p className="text-gray-500 text-[18px] leading-relaxed mb-8 font-medium max-w-2xl">
-              Are you busy putting out IT fires instead of focusing on your core business? If your technology is draining resources rather than optimizing them, Mind Manthan can get you back on track. A professionally managed services provider can give you the decisive edge to:
+              If disconnected tools and manual workflows are slowing your business, custom software can bring control and speed. Our delivery model helps you:
             </p>
             
             <ul className="space-y-4 mb-16">
               {[
                 "Grow your business while our experts handle your technology.",
-                "Get more done with information technology that increases productivity and efficiency.",
-                "Eliminate budgeting surprises with a flat monthly rate for comprehensive IT coverage.",
-                "Protect your business and your data from unexpected problems and unwanted intruders."
+                "Increase productivity through workflow automation and centralized visibility.",
+                "Launch features in phases with predictable planning and controlled delivery.",
+                "Protect business data with secure architecture and access controls."
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-4">
                   <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-[11px] shrink-0"></div>
@@ -212,10 +213,10 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
               {[
-                { title: 'IT Service for You', desc: 'We know that every businesses\' needs are completely different from the next, so we offer packages for any business size or budget.' },
-                { title: 'Keeping Your Team Productive', desc: 'Our managed services include round-the-clock monitoring of your key infrastructure, computers and network servers.' },
-                { title: 'Predictable Costs 24/7', desc: 'Mind Manthan doesn\'t charge you more when your network is down or a server fails. Our flat monthly rates cover everything.' },
-                { title: 'Our Team is Ready to Help', desc: 'Part of what makes our managed services so exceptional is that we are always available, regardless of time or holiday.' }
+                { title: 'Business-Specific Systems', desc: 'We design each software module around your actual business processes, approvals, and reporting needs.' },
+                { title: 'Higher Team Productivity', desc: 'Our solutions remove repetitive tasks and help teams focus on high-value execution.' },
+                { title: 'Predictable Delivery Roadmap', desc: 'Milestone-based planning gives clarity on timeline, scope, and implementation priorities.' },
+                { title: 'Long-Term Engineering Support', desc: 'After launch, we provide optimization, enhancements, and technical support as your business evolves.' }
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col gap-4">
                   <div className="flex items-center gap-4">
@@ -245,12 +246,12 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
         </div>
       </section>
 
-      {/* Managed IT Solutions Overview */}
+      {/* Custom Software Solutions Overview */}
       <section className="bg-white py-32 px-6 lg:px-12 border-t border-gray-50">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-stretch">
           <div className="flex-[1.2]">
             <h2 className="text-4xl md:text-[54px] font-black text-[#1a1b1f] leading-[1.05] tracking-tight mb-8">
-              Proactive IT Management <br /> & Expert Consultation
+              Product Engineering <br /> & Expert Consultation
             </h2>
             <p className="text-gray-500 text-[18px] leading-relaxed mb-12 font-medium max-w-2xl">
               We don't just fix what's broken. We anticipate potential issues before they impact your workflow. Our team acts as an extension of your own, providing the technical leadership and execution required to stay competitive.
@@ -336,7 +337,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
               </h2>
               
               <p className="text-gray-500 text-[19px] leading-relaxed max-w-md font-medium">
-                If your technology is draining resources rather than optimizing them, Mind Manthan can get you back on track. We provide the tools you need to succeed.
+                If your current systems are slowing execution, we help you modernize with scalable architecture and implementation support.
               </p>
             </div>
 
@@ -355,7 +356,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
       <section className="bg-white py-32 px-6 border-t border-gray-100">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl md:text-[44px] font-black text-[#1a1b1f] leading-[1.1] tracking-tighter mb-12">
-            What clients say about our Managed IT Services
+            What clients say about our custom software delivery
           </h2>
 
           <div className="relative overflow-hidden min-h-[450px] flex flex-col items-center">
@@ -456,7 +457,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
           <div className="flex-1 bg-white">
             <CommonContactForm 
               formType="custom_software_development"
-              title="Schedule a Free Consultation"
+              title={CONTENT_CONFIG.cta.scheduleConsultation}
               subtitle=""
               buttonText="Send Request"
               showFirstLastName={true}
@@ -512,6 +513,9 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
 };
 
 export default CustomSoftwarePage;
+
+
+
 
 
 

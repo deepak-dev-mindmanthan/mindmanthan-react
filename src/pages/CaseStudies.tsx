@@ -3,6 +3,7 @@ import { Search } from 'lucide-react';
 import CommonContactForm from '../components/CommonContactForm';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../routes/routes';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 
 interface Project {
   id: string;
@@ -139,7 +140,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ onNavigateHome }) => {
           <div className="bg-white">
             <CommonContactForm
               formType="case_studies_consultation"
-              title="Schedule a Free Consultation"
+              title={CONTENT_CONFIG.cta.scheduleConsultation}
               subtitle=""
               buttonText="Send Request"
               showFirstLastName={true}

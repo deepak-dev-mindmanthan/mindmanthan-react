@@ -318,7 +318,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 }}
                 className="px-6 py-2.5 rounded-lg font-semibold text-[14px] text-white bg-blue-600 hover:bg-blue-700 transition-all active:scale-95 shadow-sm"
               >
-                Get in touch
+                {CONTENT_CONFIG.cta.getInTouch}
               </button>
             </div>
 
@@ -329,7 +329,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 }}
                 className="px-3 py-2 rounded-md text-[12px] font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
-                Get in touch
+                {CONTENT_CONFIG.cta.getInTouch}
               </button>
               <button
                 type="button"
@@ -486,7 +486,7 @@ const Navbar: React.FC<NavbarProps> = ({
                           Insurance Workflow Platform
                         </button>
                         <button onClick={() => handleMobileAction(onCoffeeCaseStudyClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
-                          IoT Operations Platform
+                          Coffee Supply Chain Platform
                         </button>
                         <button onClick={() => handleMobileAction(onLondonTravelCaseStudyClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
                           Travel App Platform
@@ -517,7 +517,7 @@ const Navbar: React.FC<NavbarProps> = ({
                         <button onClick={() => handleMobileAction(onAboutUsClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
                           About Us
                         </button>
-                        <button onClick={() => handleMobileAction(onServicesClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
+                        <button onClick={() => handleMobileAction(onWhyUsClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
                           Why Us
                         </button>
                     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 
 interface LondonTravelCaseStudyPageProps {
   onBackHome: () => void;
@@ -21,7 +22,7 @@ const LondonTravelCaseStudyPage: React.FC<LondonTravelCaseStudyPageProps> = ({ o
             for Travel Operations
           </h1>
           <p className="text-gray-500 max-w-3xl text-lg">
-            Mind Manthan delivered a full digital platform with website, mobile apps, admin panel, and API integrations.
+            {CONTENT_CONFIG.company.shortName} delivered a full digital platform with website, mobile apps, admin panel, and API integrations.
           </p>
         </div>
       </section>

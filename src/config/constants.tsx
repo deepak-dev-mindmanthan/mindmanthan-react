@@ -13,6 +13,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { Service, Stat, Testimonial } from '../types/appTypes';
+import { CONTENT_CONFIG } from './contentConfig';
 
 export const NAV_LINKS = [
   { label: 'Home', path: '#', hasDropdown: true },
@@ -80,7 +81,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Client Team',
     role: 'Operations Lead',
     company: 'Enterprise Partner',
-    text: 'Mind Manthan helped us modernize our app and website stack with secure architecture and reliable releases.',
+    text: `${CONTENT_CONFIG.company.shortName} helped us modernize our app and website stack with secure architecture and reliable releases.`,
     avatar: 'https://picsum.photos/seed/client1/100/100'
   },
   {

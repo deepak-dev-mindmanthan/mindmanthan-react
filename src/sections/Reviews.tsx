@@ -1,16 +1,17 @@
 import React from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 
 const Reviews: React.FC = () => {
   return (
-    <section className="bg-white py-32 px-6 border-t border-gray-100">
+    <section className="bg-white py-8 md:py-24 px-6 border-t border-gray-100">
       <div className="max-w-7xl mx-auto">
         <span className="inline-block px-4 py-1.5 bg-[#f1f5f9] rounded-md text-[#64748b] text-[11px] font-bold uppercase tracking-[0.2em] mb-12">
           Client Feedback
         </span>
 
         <blockquote className="text-3xl md:text-5xl lg:text-[48px] font-bold text-[#1a1b1f] leading-[1.2] mb-16 max-w-5xl tracking-tight">
-          "Mind Manthan delivered our website, mobile app, and API integrations as one connected platform. The rollout
+          "{CONTENT_CONFIG.company.shortName} delivered our website, mobile app, and API integrations as one connected platform. The rollout
           was smooth, performance improved immediately, and their support team remains highly responsive."
         </blockquote>
 

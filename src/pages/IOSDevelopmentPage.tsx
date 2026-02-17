@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle2, Globe, Cpu, Shield, Smartphone, Check, ArrowLeft, Star, Laptop, Zap, Apple, Layout, Code } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 import CommonContactForm from '../components/CommonContactForm';
 
 interface IOSDevelopmentPageProps {
@@ -67,7 +68,7 @@ const IOSDevelopmentPage: React.FC<IOSDevelopmentPageProps> = ({ onBackHome }) =
       name: 'Steven Grant',
       role: 'CEO',
       company: 'LuxLifestyle',
-      text: 'Mind Manthan helped us dominate the App Store. The iOS application they built is not just an app; it is an experience that matches our brand\'s premium feel. Their mastery of SwiftUI and Core Animation is truly exceptional.',
+      text: `${CONTENT_CONFIG.company.shortName} helped us dominate the App Store. The iOS application they built is not just an app; it is an experience that matches our brand's premium feel. Their mastery of SwiftUI and Core Animation is truly exceptional.`,
       logo: (
         <div className="w-16 h-16 bg-black rounded-md flex items-center justify-center shadow-md">
           <Apple className="text-white" size={32} fill="white" />

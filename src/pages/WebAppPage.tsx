@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle2, Globe, Monitor, Shield, Zap, Check, ArrowLeft, Star, Code, Layout, Cpu } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 import CommonContactForm from '../components/CommonContactForm';
 
 interface WebAppPageProps {
@@ -67,7 +68,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
       name: 'David Sterling',
       role: 'VP of Engineering',
       company: 'LogiLink Global',
-      text: "Our legacy system was a bottleneck for growth. Mind Manthan's web development team completely re-architected our platform. The migration was seamless, and our page performance increased by 300% within the first month.",
+      text: `Our legacy system was a bottleneck for growth. ${CONTENT_CONFIG.company.shortName}'s web development team completely re-architected our platform. The migration was seamless, and our page performance increased by 300% within the first month.`,
       logo: (
         <div className="w-16 h-16 bg-[#001fcc] rounded-md flex items-center justify-center shadow-md">
           <Monitor className="text-white" size={32} />
@@ -79,7 +80,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
       name: 'Clara Mensh',
       role: 'CTO',
       company: 'Vibe Retail',
-      text: "Finding a team that understands both high-level architecture and pixel-perfect design is rare. Mind Manthan delivered a custom SaaS solution that exceeded our expectations in every metric. Their proactive approach saved us from multiple technical hurdles.",
+      text: `Finding a team that understands both high-level architecture and pixel-perfect design is rare. ${CONTENT_CONFIG.company.shortName} delivered a custom SaaS solution that exceeded our expectations in every metric. Their proactive approach saved us from multiple technical hurdles.`,
       logo: (
         <div className="w-16 h-16 bg-black rounded-md flex items-center justify-center shadow-md">
           <Layout className="text-white" size={32} />

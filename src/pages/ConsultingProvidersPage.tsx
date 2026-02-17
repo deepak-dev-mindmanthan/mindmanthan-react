@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle2, MessageSquare, Lightbulb, TrendingUp, Search, Check, ArrowLeft, Star, Zap, Layout, Code, Compass, Target, BarChart, Users } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
+import { CONTENT_CONFIG } from '../config/contentConfig';
 import CommonContactForm from '../components/CommonContactForm';
 
 interface ConsultingProvidersPageProps {
@@ -52,7 +53,7 @@ const ConsultingProvidersPage: React.FC<ConsultingProvidersPageProps> = ({ onBac
       name: 'Robert Hales',
       role: 'Director of Strategy',
       company: 'Vanguard Systems',
-      text: "Mind Manthan's consultants didn't just give us a report; they gave us a competitive edge. Their deep dive into our technical architecture revealed inefficiencies we hadn't noticed for years. Their roadmap was clear, actionable, and highly profitable.",
+      text: `${CONTENT_CONFIG.company.shortName}'s consultants didn't just give us a report; they gave us a competitive edge. Their deep dive into our technical architecture revealed inefficiencies we hadn't noticed for years. Their roadmap was clear, actionable, and highly profitable.`,
       logo: (
         <div className="w-16 h-16 bg-[#1a1b1f] rounded-md flex items-center justify-center shadow-md">
           <TrendingUp className="text-white" size={32} />
