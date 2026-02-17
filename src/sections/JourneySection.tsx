@@ -1,4 +1,5 @@
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
 
 const JourneySection: React.FC = () => {
   return (
@@ -16,6 +17,34 @@ const JourneySection: React.FC = () => {
               Share your requirements for app development, website modernization, IoT implementation, or automation.
               Our team will provide a practical execution roadmap.
             </p>
+
+            <div className="max-w-md space-y-6">
+              <div className="relative">
+                <input
+                  aria-label="Email updates"
+                  type="email"
+                  placeholder="Don't miss out updates"
+                  className="w-full px-6 py-4 bg-white border border-gray-100 rounded-lg text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-blue-100 outline-none transition-all shadow-sm"
+                />
+              </div>
+
+              <div className="flex items-start gap-3">
+                <input
+                  aria-label="Privacy consent"
+                  type="checkbox"
+                  id="journey-privacy"
+                  className="mt-1 w-4 h-4 rounded border-gray-300 accent-[#001fcc] cursor-pointer"
+                />
+                <label htmlFor="journey-privacy" className="text-[13px] font-medium text-gray-500 leading-relaxed cursor-pointer">
+                  I agree to the Privacy Policy and give my permission to process my personal data for the purposes specified in the Privacy Policy.
+                </label>
+              </div>
+
+              <button className="bg-[#e0e7ff] text-[#001fcc] px-10 py-4 rounded-lg font-black text-[15px] inline-flex items-center gap-2 hover:bg-[#d0dbff] transition-all active:scale-95 group">
+                Send
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
           </div>
 
           <div className="flex-1">
