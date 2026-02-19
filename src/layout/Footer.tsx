@@ -1,58 +1,16 @@
 import React from 'react';
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SITE_CONFIG } from '../config/siteConfig';
 import { CONTENT_CONFIG, getCopyrightYears } from '../config/contentConfig';
 import { ROUTES } from '../routes/routes';
+import logo from '/assets/images/mindmanthan.svg';
 
 const MindManthanLogoFooter = () => (
   <div className="flex items-center gap-4 group cursor-pointer flex-wrap">
     <div className="relative w-16 h-16 flex items-center justify-center">
       {/* Animated Orbiting Ring Layers */}
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-        {/* Main Dotted Circle - Consistent with Navbar */}
-        <circle
-          cx="50"
-          cy="50"
-          r="38"
-          fill="none"
-          stroke="#001fcc"
-          strokeWidth="2.5"
-          strokeDasharray="1 8"
-          strokeLinecap="round"
-          className="opacity-40 animate-[spin_20s_linear_infinite]"
-        />
-
-        {/* Decorative Teal Ring */}
-        <circle
-          cx="50"
-          cy="50"
-          r="44"
-          fill="none"
-          stroke="#2dd4bf"
-          strokeWidth="1.5"
-          strokeDasharray="4 15"
-          className="opacity-30 animate-[spin_12s_linear_infinite_reverse]"
-        />
-      </svg>
-
-      {/* Central Tech 'M' */}
-      <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10">
-        <path
-          d="M8 30V12L20 22L32 12V30"
-          stroke="#001fcc"
-          strokeWidth="4.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle r="2.5" fill="#2dd4bf">
-          <animateMotion
-            path="M8 30V12L20 22L32 12V30"
-            dur="3s"
-            repeatCount="indefinite"
-          />
-        </circle>
-      </svg>
+      <img src={logo} alt={`${CONTENT_CONFIG.company.shortName} logo`} className="w-full h-full object-contain" />
     </div>
 
     <div className="flex flex-col leading-tight">
@@ -106,7 +64,7 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
                 aria-label="Visit our X profile"
                 className="w-10 h-10 rounded-full border border-blue-200 bg-white text-[#001fcc] hover:bg-[#001fcc] hover:text-white transition-colors flex items-center justify-center"
               >
-                <Twitter size={18} />
+                <span className="text-sm font-black leading-none">X</span>
               </a>
               <a
                 href={SITE_CONFIG.facebookPage}
