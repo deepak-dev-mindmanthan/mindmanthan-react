@@ -77,7 +77,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPortfolioClick, onBlogClick, onContactClick }) => {
   return (
-    <footer className="bg-[#f4f7ff] py-16 md:py-12 py-6">
+    <footer className="bg-[#f4f7ff] md:py-12 py-6">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-16">
           <div className="md:col-span-2">

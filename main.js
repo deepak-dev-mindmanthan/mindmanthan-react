@@ -70,8 +70,14 @@ async function createServer() {
       }
 
       const { html: appHtml, helmet } = await render(url);
+      const safeHelmet = helmet || {
+        title: { toString: () => '' },
+        meta: { toString: () => '' },
+        link: { toString: () => '' },
+        script: { toString: () => '' },
+      };
 
-      const headTags = `${helmet.title.toString()}${helmet.meta.toString()}${helmet.link.toString()}${helmet.script.toString()}`;
+      const headTags = `${safeHelmet.title.toString()}${safeHelmet.meta.toString()}${safeHelmet.link.toString()}${safeHelmet.script.toString()}`;
       
       console.log(`[SSR] Injecting head tags for ${url}: ${headTags.length} chars`);
 

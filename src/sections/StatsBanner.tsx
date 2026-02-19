@@ -3,9 +3,9 @@ import { CONTENT_CONFIG } from '../config/contentConfig';
 
 const StatsBanner: React.FC<{ onGetInTouchClick?: () => void }> = ({ onGetInTouchClick }) => {
   const stats = [
-    { value: '10', label: 'Years', sublabel: 'in business' },
-    { value: '7+', label: 'Years', sublabel: 'in app development' },
-    { value: '100+', label: 'Products', sublabel: 'delivered' },
+    { value: '7+', label: 'Years', sublabel: 'in business' },
+    { value: '5+', label: 'Years', sublabel: 'in app development' },
+    { value: '200+', label: 'Products', sublabel: 'delivered' },
     { value: '24/7', label: 'Support', sublabel: 'availability' },
   ];
 

@@ -496,7 +496,7 @@ const App: React.FC = () => {
             <CaseStudyDetailPage
               caseStudyId="insurance"
               onBackHome={() => navigate(ROUTES.home)}
-            />
+            />    
           }
         />
         <Route
@@ -1249,7 +1249,7 @@ const App: React.FC = () => {
                     >
                       <div className="w-full h-full flex justify-center items-center">
                         <div className="relative w-full max-w-[500px] h-[400px]">
-                          <div className="absolute left-0 bottom-0 w-[240px] h-[350px] bg-white rounded-[2rem] shadow-2xl border border-4 border-[#1a1b1f] p-4 transform -rotate-6 z-10 overflow-hidden flex flex-col items-center justify-center">
+                          <div className="absolute left-0 bottom-0 w-[240px] h-[350px] bg-white rounded-[2rem] shadow-2xl border md:border-4 border-[#1a1b1f] p-4 transform -rotate-6 z-10 overflow-hidden flex flex-col items-center justify-center">
                             <Shield
                               size={120}
                               className="text-[#001fcc] mb-6 animate-pulse"
@@ -1259,7 +1259,7 @@ const App: React.FC = () => {
                               Security Hardened
                             </div>
                           </div>
-                          <div className="absolute right-0 bottom-0 w-[240px] h-[350px] bg-[#1a1b1f] rounded-[2rem] shadow-2xl border border-4 border-[#1a1b1f] p-4 transform rotate(6deg) z-0 overflow-hidden flex flex-col items-center justify-center">
+                          <div className="absolute right-0 bottom-0 w-[240px] h-[350px] bg-[#1a1b1f] rounded-[2rem] shadow-2xl border md:border-4 border-[#1a1b1f] p-4 transform rotate(6deg) z-0 overflow-hidden flex flex-col items-center justify-center">
                             <div className="w-full h-full opacity-20 bg-[radial-gradient(circle_at_center,_#fff_1px,_transparent_1px)] bg-[length:20px_20px] absolute inset-0"></div>
                             <div className="relative z-10 text-white font-mono text-xs opacity-60 leading-loose">
                               01101010 11010101 <br />
