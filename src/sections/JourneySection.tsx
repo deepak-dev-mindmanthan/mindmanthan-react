@@ -1,10 +1,57 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, Loader2 } from 'lucide-react';
 import { SITE_CONFIG } from '../config/siteConfig';
+import { submitContactForm } from '../services/apiService';
 
 const JourneySection: React.FC = () => {
   const hqOffice = SITE_CONFIG.offices?.newYork;
   const deliveryOffice = SITE_CONFIG.offices?.boston;
+  const [email, setEmail] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [status, setStatus] = useState<{
+    type: 'idle' | 'loading' | 'success' | 'error';
+    message: string;
+  }>({ type: 'idle', message: '' });
+
+  const handleSubmit = async () => {
+    const trimmedEmail = email.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!trimmedEmail || !emailRegex.test(trimmedEmail)) {
+      setStatus({ type: 'error', message: 'Enter a valid email address.' });
+      return;
+    }
+
+    if (!consent) {
+      setStatus({
+        type: 'error',
+        message: 'Please accept the Privacy Policy to continue.',
+      });
+      return;
+    }
+
+    setStatus({ type: 'loading', message: 'Submitting...' });
+
+    try {
+      await submitContactForm({
+        name: 'Website Visitor',
+        email: trimmedEmail,
+        subject: 'Website updates subscription',
+        message:
+          'User requested product and company updates from the homepage journey section.',
+        formType: 'journey_updates',
+        nda: false,
+      });
+      setEmail('');
+      setConsent(false);
+      setStatus({ type: 'success', message: 'Thanks. You are subscribed for updates.' });
+    } catch {
+      setStatus({
+        type: 'error',
+        message: 'Unable to submit right now. Please try again.',
+      });
+    }
+  };
 
   return (
     <section className="bg-[#f9faff] py-8 md:py-12 px-6">
@@ -28,6 +75,8 @@ const JourneySection: React.FC = () => {
                   aria-label="Email updates"
                   type="email"
                   placeholder="Don't miss out updates"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
                   className="w-full px-6 py-4 bg-white border border-gray-100 rounded-lg text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-blue-100 outline-none transition-all shadow-sm"
                 />
               </div>
@@ -37,6 +86,8 @@ const JourneySection: React.FC = () => {
                   aria-label="Privacy consent"
                   type="checkbox"
                   id="journey-privacy"
+                  checked={consent}
+                  onChange={(event) => setConsent(event.target.checked)}
                   className="mt-1 w-4 h-4 rounded border-gray-300 accent-[#001fcc] cursor-pointer"
                 />
                 <label htmlFor="journey-privacy" className="text-[13px] font-medium text-gray-500 leading-relaxed cursor-pointer">
@@ -44,9 +95,33 @@ const JourneySection: React.FC = () => {
                 </label>
               </div>
 
-              <button className="bg-[#e0e7ff] text-[#001fcc] px-10 py-4 rounded-lg font-black text-[15px] inline-flex items-center gap-2 hover:bg-[#d0dbff] transition-all active:scale-95 group">
-                Send
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              {(status.type === 'success' || status.type === 'error') && (
+                <p
+                  className={`text-sm font-medium ${
+                    status.type === 'success' ? 'text-green-700' : 'text-red-600'
+                  }`}
+                >
+                  {status.message}
+                </p>
+              )}
+
+              <button
+                type="button"
+                disabled={status.type === 'loading'}
+                onClick={handleSubmit}
+                className="bg-[#e0e7ff] text-[#001fcc] px-10 py-4 rounded-lg font-black text-[15px] inline-flex items-center gap-2 hover:bg-[#d0dbff] transition-all active:scale-95 group disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {status.type === 'loading' ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" />
+                    Send
+                  </>
+                ) : (
+                  <>
+                    Send
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
               </button>
             </div>
           </div>
@@ -89,4 +164,3 @@ const JourneySection: React.FC = () => {
 };
 
 export default JourneySection;
-
