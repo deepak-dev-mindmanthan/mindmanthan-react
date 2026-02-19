@@ -234,7 +234,7 @@ const CloudDevopsPage: React.FC<CloudDevopsPageProps> = ({ onBackHome }) => {
           <div className="flex-1 w-full flex">
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-full h-full min-h-[500px] lg:min-h-[600px] bg-gray-100">
               <img
-                src="/assets/external/unsplash-43490279c0fa.jpg"
+                src="/assets/external/blog-post-2.jpg"
                 alt="Cloud infrastructure operations"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
@@ -285,7 +285,7 @@ const CloudDevopsPage: React.FC<CloudDevopsPageProps> = ({ onBackHome }) => {
           <div className="flex-1 w-full flex">
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-full h-full min-h-[500px] lg:min-h-[600px] bg-gray-100">
               <img
-                src="/assets/external/unsplash-ef010cbdcc31.jpg"
+                src="/assets/external/api-integration-support-page-hero.jpg"
                 alt="DevOps pipeline and cloud dashboard"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"

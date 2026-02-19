@@ -223,7 +223,7 @@ const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackH
           <div className="flex-1 w-full min-h-[450px] flex relative">
             <div className="w-full rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100 border border-gray-100">
               <img loading="lazy" decoding="async" 
-                src="/assets/external/unsplash-0f3ec9098ac7.jpg" 
+                src="/assets/external/android-development-page-hero.jpg" 
                 alt="Android Development Showcase"
                 className="w-full h-full object-cover"
               />

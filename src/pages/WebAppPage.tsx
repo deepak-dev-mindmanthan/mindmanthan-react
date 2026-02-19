@@ -231,7 +231,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
           <div className="flex-1 w-full min-h-[450px] flex relative">
             <div className="w-full rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100 border border-gray-100">
               <img loading="lazy" decoding="async" 
-                src="/assets/external/unsplash-afdab827c52f.jpg" 
+                src="/assets/external/ecommerce-page-platform.jpg" 
                 alt="Web Development Architecture"
                 className="w-full h-full object-cover"
               />
@@ -282,7 +282,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
           <div className="flex-1 w-full min-h-[450px] flex relative">
             <div className="w-full rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100 border border-gray-100">
               <img loading="lazy" decoding="async" 
-                src="/assets/external/unsplash-bebda4e38f71.jpg" 
+                src="/assets/external/case-studies-page-cover.jpg" 
                 alt="Development Dashboard Session"
                 className="w-full h-full object-cover"
               />

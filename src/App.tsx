@@ -710,7 +710,7 @@ const App: React.FC = () => {
               >
                 <div className="relative rounded-[2.5rem] overflow-hidden aspect-[16/8] md:aspect-[21/9] shadow-2xl border border-gray-100 bg-gray-100">
                   <img
-                    src="/assets/external/unsplash-8e7e53415bb0.jpg"
+                    src="/assets/external/common-app-showcase.jpg"
                     alt="Technology Team Working Together"
                     className="w-full h-full object-cover block will-change-transform transition-transform duration-300 ease-out"
                     style={{ transform: `scale(${zoomScale})` }}

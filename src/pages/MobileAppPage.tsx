@@ -230,7 +230,7 @@ const MobileAppPage: React.FC<MobileAppPageProps> = ({ onBackHome }) => {
           <div className="flex-1 w-full flex">
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-full h-full min-h-[500px] lg:min-h-[600px] bg-gray-100">
               <img 
-                src="/assets/external/unsplash-87deedd944c3.jpg" 
+                src="/assets/external/mobile-app-page-hero.jpg" 
                 alt="Mobile App Development Team"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
@@ -282,7 +282,7 @@ const MobileAppPage: React.FC<MobileAppPageProps> = ({ onBackHome }) => {
           <div className="flex-1 w-full flex">
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-full h-full min-h-[500px] lg:min-h-[600px] bg-gray-100">
               <img 
-                src="/assets/external/unsplash-0f3ec9098ac7.jpg" 
+                src="/assets/external/android-development-page-hero.jpg" 
                 alt="Smartphone Interface Design"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"

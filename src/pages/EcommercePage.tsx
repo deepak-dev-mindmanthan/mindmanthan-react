@@ -158,7 +158,7 @@ const EcommercePage: React.FC<EcommercePageProps> = ({ onBackHome }) => {
               <img
                 loading="lazy"
                 decoding="async"
-                src="/assets/external/unsplash-887f6717d7e4.jpg"
+                src="/assets/external/ecommerce-page-hero.jpg"
                 alt="E-commerce platform architecture"
                 className="w-full h-full object-cover"
               />
@@ -197,7 +197,7 @@ const EcommercePage: React.FC<EcommercePageProps> = ({ onBackHome }) => {
               <img
                 loading="lazy"
                 decoding="async"
-                src="/assets/external/unsplash-afdab827c52f.jpg"
+                src="/assets/external/ecommerce-page-platform.jpg"
                 alt="E-commerce lifecycle dashboard"
                 className="w-full h-full object-cover"
               />

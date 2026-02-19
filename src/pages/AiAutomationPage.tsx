@@ -158,7 +158,7 @@ const AiAutomationPage: React.FC<AiAutomationPageProps> = ({ onBackHome }) => {
               <img
                 loading="lazy"
                 decoding="async"
-                src="/assets/external/unsplash-21780ecad995.jpg"
+                src="/assets/external/ai-automation-page-hero.jpg"
                 alt="AI automation architecture"
                 className="w-full h-full object-cover"
               />
@@ -197,7 +197,7 @@ const AiAutomationPage: React.FC<AiAutomationPageProps> = ({ onBackHome }) => {
               <img
                 loading="lazy"
                 decoding="async"
-                src="/assets/external/unsplash-43490279c0fa.jpg"
+                src="/assets/external/blog-post-2.jpg"
                 alt="AI workflow lifecycle"
                 className="w-full h-full object-cover"
               />

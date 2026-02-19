@@ -18,15 +18,15 @@ const WhyChooseUs: React.FC = () => {
           <div className="order-2 lg:order-1 relative">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <img loading="lazy" decoding="async" src="/assets/external/picsum-tech1.jpg" alt="Tech" className="rounded-2xl shadow-lg w-full h-64 object-cover" />
+                <img loading="lazy" decoding="async" src="/assets/external/why-choose-us-image-1.jpg" alt="Tech" className="rounded-2xl shadow-lg w-full h-64 object-cover" />
                 <div className="bg-teal-500 p-8 rounded-2xl text-white">
                   <div className="text-4xl font-bold mb-2">15+</div>
                   <div className="text-sm font-medium uppercase tracking-wider">Years of Excellence</div>
                 </div>
               </div>
               <div className="space-y-4 pt-12">
-                <img loading="lazy" decoding="async" src="/assets/external/picsum-tech2.jpg" alt="Tech" className="rounded-2xl shadow-lg w-full h-80 object-cover" />
-                <img loading="lazy" decoding="async" src="/assets/external/picsum-tech3.jpg" alt="Tech" className="rounded-2xl shadow-lg w-full h-48 object-cover" />
+                <img loading="lazy" decoding="async" src="/assets/external/why-choose-us-image-2.jpg" alt="Tech" className="rounded-2xl shadow-lg w-full h-80 object-cover" />
+                <img loading="lazy" decoding="async" src="/assets/external/why-choose-us-image-3.jpg" alt="Tech" className="rounded-2xl shadow-lg w-full h-48 object-cover" />
               </div>
             </div>
           </div>

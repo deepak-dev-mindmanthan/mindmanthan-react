@@ -221,7 +221,7 @@ const DigitalTransformationPage: React.FC<DigitalTransformationPageProps> = ({ o
           <div className="flex-1 w-full min-h-[450px] flex relative">
             <div className="w-full rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100 border border-gray-100">
               <img loading="lazy" decoding="async" 
-                src="/assets/external/unsplash-47ba0277781c.jpg" 
+                src="/assets/external/digital-transformation-page-hero.jpg" 
                 alt="Digital Modernization Team"
                 className="w-full h-full object-cover"
               />
