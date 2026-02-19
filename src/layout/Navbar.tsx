@@ -305,7 +305,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => {
                   handleGetInTouch();
                 }}
-                className="px-3 py-2 rounded-md text-[12px] font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                className="max-[419px]:hidden px-3 py-2 rounded-md text-[12px] font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors"
               >
                 {CONTENT_CONFIG.cta.getInTouch}
               </button>
@@ -544,6 +544,17 @@ const Navbar: React.FC<NavbarProps> = ({
 
               return null;
             })}
+
+            <div className="w-full px-2 pt-4 max-[419px]:block min-[420px]:hidden">
+              <button
+                onClick={() => {
+                  handleGetInTouch();
+                }}
+                className="w-full text-center text-white bg-[#001fcc] hover:bg-[#0015a8] transition-colors rounded-md py-3 text-base font-semibold"
+              >
+                {CONTENT_CONFIG.cta.getInTouch}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -552,7 +563,6 @@ const Navbar: React.FC<NavbarProps> = ({
 };
 
 export default Navbar;
-
 
 
 
