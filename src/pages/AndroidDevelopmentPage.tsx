@@ -62,6 +62,13 @@ const AndroidTechItem: React.FC<{ title: string; index: number }> = ({ title, in
 const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackHome }) => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+  const scrollToConsultationForm = () => {
+    const formSection = document.querySelector('[data-consultation-form]');
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const testimonials: TestimonialData[] = [
     {
       id: 'marcus',
@@ -155,7 +162,11 @@ const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackH
               Build premium applications for the world's most popular platform. We deliver native performance for the next billion users.
             </p>
 
-            <button className="bg-[#e8edff] text-[#001fcc] px-10 py-4 rounded font-black text-sm uppercase tracking-widest hover:bg-white transition-all active:scale-95 shadow-2xl shadow-black/20">
+            <button
+              type="button"
+              onClick={scrollToConsultationForm}
+              className="bg-[#e8edff] text-[#001fcc] px-10 py-4 rounded font-black text-sm uppercase tracking-widest hover:bg-white transition-all active:scale-95 shadow-2xl shadow-black/20"
+            >
               Launch Your Android App
             </button>
           </div>
@@ -251,7 +262,11 @@ const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackH
               ))}
             </div>
 
-            <button className="mt-16 bg-[#1a1b1f] text-white px-10 py-4 rounded-xl font-black text-sm uppercase tracking-widest hover:bg-[#001fcc] transition-all shadow-xl shadow-gray-400/10">
+            <button
+              type="button"
+              onClick={scrollToConsultationForm}
+              className="mt-16 bg-[#1a1b1f] text-white px-10 py-4 rounded-xl font-black text-sm uppercase tracking-widest hover:bg-[#001fcc] transition-all shadow-xl shadow-gray-400/10"
+            >
               Start Android Roadmap
             </button>
           </div>
@@ -360,7 +375,7 @@ const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackH
       </section>
 
       {/* Unified Contact Form */}
-      <section className="bg-white px-6 pb-12 md:pb-18 lg:pb-24 pt-8 md:pt-16">
+      <section className="bg-white px-6 pb-12 md:pb-18 lg:pb-24 pt-8 md:pt-16" data-consultation-form>
         <div className="max-w-7xl mx-auto rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row min-h-[640px] lg:min-h-[800px]">
           <div className="flex-1 flex flex-col">
             <div className="bg-[#1a1b1f] p-12 md:p-16">

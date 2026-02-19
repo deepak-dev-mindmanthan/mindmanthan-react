@@ -62,6 +62,13 @@ const ToolItem: React.FC<{ title: string; index: number }> = ({ title, index }) 
 const MobileAppPage: React.FC<MobileAppPageProps> = ({ onBackHome }) => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+  const scrollToConsultationForm = () => {
+    const formSection = document.querySelector('[data-consultation-form]');
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const testimonials: TestimonialData[] = [
     {
       id: 'marcus',
@@ -155,7 +162,11 @@ const MobileAppPage: React.FC<MobileAppPageProps> = ({ onBackHome }) => {
               Launch high-performance apps that your users will love. We build for the palm of their hands.
             </p>
 
-            <button className="bg-[#e8edff] text-[#001fcc] px-10 py-4 rounded font-black text-sm uppercase tracking-widest hover:bg-white transition-all active:scale-95 shadow-2xl shadow-black/20">
+            <button
+              type="button"
+              onClick={scrollToConsultationForm}
+              className="bg-[#e8edff] text-[#001fcc] px-10 py-4 rounded font-black text-sm uppercase tracking-widest hover:bg-white transition-all active:scale-95 shadow-2xl shadow-black/20"
+            >
               Get a Mobile Strategy Call
             </button>
           </div>
@@ -394,7 +405,7 @@ const MobileAppPage: React.FC<MobileAppPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Unified Contact Form */}
-      <section className="bg-white px-6 pb-32 pt-16">
+      <section className="bg-white px-6 pb-32 pt-16" data-consultation-form>
         <div className="max-w-7xl mx-auto rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row min-h-[640px] lg:min-h-[800px]">
           <div className="flex-1 flex flex-col">
             <div className="bg-[#1a1b1f] p-12 md:p-16">

@@ -63,6 +63,13 @@ const ToolItem: React.FC<{ title: string; index: number }> = ({ title, index }) 
 const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onNavigateHome }) => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+  const scrollToSolutionsSection = () => {
+    const section = document.querySelector('[data-solutions-section]');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const testimonials: TestimonialData[] = [
     {
       id: 'amanda',
@@ -187,7 +194,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
       </section>
 
       {/* Benefits Section */}
-      <section className="bg-white py-32 px-6 lg:px-12">
+      <section className="bg-white py-12 md:py-18 lg:py-24 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-stretch">
           <div className="flex-[1.2]">
             <h2 className="text-4xl md:text-5xl lg:text-[54px] font-black text-[#1a1b1f] leading-[1.05] tracking-tight mb-8">
@@ -247,7 +254,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
       </section>
 
       {/* Custom Software Solutions Overview */}
-      <section className="bg-white py-32 px-6 lg:px-12 border-t border-gray-50">
+      <section className="bg-white py-12 md:py-18 lg:py-24 px-6 lg:px-12 border-t border-gray-50">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-stretch">
           <div className="flex-[1.2]">
             <h2 className="text-4xl md:text-5xl lg:text-[54px] font-black text-[#1a1b1f] leading-[1.05] tracking-tight mb-8">
@@ -275,7 +282,11 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
               ))}
             </div>
 
-            <button className="mt-12 bg-[#1a1b1f] text-white px-10 py-4 rounded-xl font-black text-sm uppercase tracking-widest hover:bg-[#001fcc] transition-all shadow-xl shadow-gray-400/10">
+            <button
+              type="button"
+              onClick={scrollToSolutionsSection}
+              className="mt-12 bg-[#1a1b1f] text-white px-10 py-4 rounded-xl font-black text-sm uppercase tracking-widest hover:bg-[#001fcc] transition-all shadow-xl shadow-gray-400/10"
+            >
               Explore All Solutions
             </button>
           </div>
@@ -294,7 +305,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
       </section>
 
       {/* Services Grid Section */}
-      <section className="py-32 bg-[#f8faff] px-6">
+      <section className="py-12 md:py-18 lg:py-24 bg-[#f8faff] px-6" data-solutions-section>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h3 className="text-4xl md:text-5xl font-black text-[#1a1b1f] tracking-tighter mb-6">
@@ -328,7 +339,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
       </section>
 
       {/* SECTION: Cutting-edge tools */}
-      <section className="py-32 bg-white px-6 border-t border-gray-100 overflow-visible">
+      <section className="py-12 md:py-18 lg:py-24 bg-white px-6 border-t border-gray-100 overflow-visible">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-20 items-start">
             <div className="flex-1 lg:sticky lg:top-40">
@@ -353,7 +364,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
       </section>
 
       {/* Testimonial Slider */}
-      <section className="bg-white py-32 px-6 border-t border-gray-100">
+      <section className="bg-white py-12 md:py-18 lg:py-24 px-6 border-t border-gray-100">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl lg:text-[44px] font-black text-[#1a1b1f] leading-[1.1] tracking-tighter mb-12">
             What clients say about our custom software delivery
@@ -422,7 +433,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
       </section>
 
       {/* Final CTA Section */}
-      <section className="bg-white px-6 pb-32 pt-16">
+      <section className="bg-white px-6 pb-12 md:pb-18 lg:pb-24 pt-8 md:pt-16">
         <div className="max-w-7xl mx-auto rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row min-h-[640px] lg:min-h-[800px]">
           <div className="flex-1 flex flex-col">
             <div className="bg-[#1a1b1f] p-12 md:p-16">
@@ -477,10 +488,10 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
       </section>
 
       {/* Trust & Stats Section */}
-      <section className="py-24 bg-white px-6 border-y border-gray-100">
+      <section className="py-12 md:py-18 lg:py-24 bg-white px-6 border-y border-gray-100">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="lg:max-w-xl">
-            <h3 className="text-4xl font-black text-[#1a1b1f] mb-8 tracking-tighter">
+            <h3 className="text-3xl sm:text-4xl font-black text-[#1a1b1f] mb-8 tracking-tighter">
               A Partner You Can Trust With Your Core Business Logic.
             </h3>
             <ul className="space-y-6">
@@ -498,7 +509,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
           </div>
           <div className="grid grid-cols-2 gap-8 lg:gap-16">
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-black text-[#001fcc] mb-2 tracking-tighter">15+</div>
+              <div className="text-5xl md:text-6xl font-black text-[#001fcc] mb-2 tracking-tighter">5+</div>
               <div className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">Years Experience</div>
             </div>
             <div className="text-center">
