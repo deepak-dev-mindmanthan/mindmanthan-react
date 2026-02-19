@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, Search, Code2, Smartphone } from 'lucide-react';
+import { Cpu, ShoppingCart, Bot, Code2, Smartphone, Headset } from 'lucide-react';
 
 const TargetIcon = () => (
   <div className="relative w-24 h-24 flex items-center justify-center bg-white rounded-full shadow-lg border border-gray-100">
@@ -18,6 +18,8 @@ interface SolutionsMegaMenuProps {
   onApiIntegrationSupportClick?: () => void;
   onWebAppClick?: () => void;
   onIotSolutionsClick?: () => void;
+  onAiAutomationClick?: () => void;
+  onEcommerceClick?: () => void;
   onIOSDevelopmentClick?: () => void;
   onAndroidDevelopmentClick?: () => void;
   onDigitalTransformationClick?: () => void;
@@ -38,6 +40,8 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
   onApiIntegrationSupportClick,
   onWebAppClick,
   onIotSolutionsClick,
+  onAiAutomationClick,
+  onEcommerceClick,
   onIOSDevelopmentClick,
   onAndroidDevelopmentClick,
   onDigitalTransformationClick,
@@ -55,6 +59,8 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
     { label: 'Custom Software Development', action: onSoftwareClick },
     { label: 'Mobile App Development', action: onMobileAppClick },
     { label: 'Website & Web App Development', action: onWebAppClick },
+    { label: 'E-commerce Solutions', action: onEcommerceClick },
+    { label: 'AI Automations & Integration', action: onAiAutomationClick },
     { label: 'IoT Solutions', action: onIotSolutionsClick },
     { label: 'Workflow Automation', action: onDigitalTransformationClick },
     { label: 'Security & Infrastructure', action: onSecurityClick },
@@ -68,8 +74,10 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
   const industries = [
     { title: 'Custom Software (HRMS & ERP)', icon: <Code2 size={24} className="text-[#001fcc]" />, action: onSoftwareClick },
     { title: 'Apps & Mobility Platforms', icon: <Smartphone size={24} className="text-[#001fcc]" />, action: onMobileAppClick },
+    { title: 'E-commerce Platforms', icon: <ShoppingCart size={24} className="text-[#001fcc]" />, action: onEcommerceClick },
+    { title: 'AI Automation Systems', icon: <Bot size={24} className="text-[#001fcc]" />, action: onAiAutomationClick },
     { title: 'AI + IoT Solutions', icon: <Cpu size={24} className="text-[#001fcc]" />, action: onIotSolutionsClick },
-    { title: 'SEO & Growth Services', icon: <Search size={24} className="text-[#001fcc]" />, action: onConsultingClick }
+    { title: 'Maintenance & Support', icon: <Headset size={24} className="text-[#001fcc]" />, action: onConsultingClick }
   ];
 
   const caseStudies = [

@@ -16,6 +16,8 @@ export const ROUTES = {
   mobileApp: "/mobile-app",
   apiIntegrationSupport: "/api-integration-support",
   webApp: "/web-app",
+  ecommerce: "/ecommerce",
+  aiAutomation: "/ai-automation-integration",
   iotSolutions: "/iot-solutions",
   iosDevelopment: "/ios-development",
   androidDevelopment: "/android-development",

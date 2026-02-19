@@ -44,6 +44,8 @@ const VIEW_PATHS: Record<string, string> = {
   "mobile-app": ROUTES.mobileApp,
   "api-integration-support": ROUTES.apiIntegrationSupport,
   "web-app": ROUTES.webApp,
+  ecommerce: ROUTES.ecommerce,
+  "ai-automation": ROUTES.aiAutomation,
   "iot-solutions": ROUTES.iotSolutions,
   "ios-development": ROUTES.iosDevelopment,
   "android-development": ROUTES.androidDevelopment,
@@ -215,6 +217,22 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     description: "Scalable and performant web applications for modern businesses.",
     canonical: getCanonicalUrl("web-app"),
     ogUrl: getCanonicalUrl("web-app"),
+    schemaType: 'ProfessionalService'
+  },
+  ecommerce: {
+    ...DEFAULT_SEO,
+    title: withBrand("E-commerce Solutions"),
+    description: "Custom e-commerce platforms, secure checkout, payment integration, catalog management, and conversion-focused optimization.",
+    canonical: getCanonicalUrl("ecommerce"),
+    ogUrl: getCanonicalUrl("ecommerce"),
+    schemaType: 'ProfessionalService'
+  },
+  "ai-automation": {
+    ...DEFAULT_SEO,
+    title: withBrand("AI Automations and Integration"),
+    description: "AI automations, API-based integration with OpenAI, Gemini, and Claude, workflow orchestration, and operational support.",
+    canonical: getCanonicalUrl("ai-automation"),
+    ogUrl: getCanonicalUrl("ai-automation"),
     schemaType: 'ProfessionalService'
   },
   "iot-solutions": {

@@ -42,6 +42,8 @@ const CustomSoftwarePage = React.lazy(
 const MobileAppPage = React.lazy(() => import("./pages/MobileAppPage"));
 const ApiIntegrationSupportPage = React.lazy(() => import("./pages/ApiIntegrationSupportPage"));
 const WebAppPage = React.lazy(() => import("./pages/WebAppPage"));
+const EcommercePage = React.lazy(() => import("./pages/EcommercePage"));
+const AiAutomationPage = React.lazy(() => import("./pages/AiAutomationPage"));
 const IotSolutionsPage = React.lazy(() => import("./pages/IotSolutionsPage"));
 const IOSDevelopmentPage = React.lazy(
   () => import("./pages/IOSDevelopmentPage"),
@@ -274,6 +276,8 @@ type View =
   | "mobile-app"
   | "api-integration-support"
   | "web-app"
+  | "ecommerce"
+  | "ai-automation"
   | "iot-solutions"
   | "ios-development"
   | "android-development"
@@ -330,6 +334,8 @@ const App: React.FC = () => {
       [ROUTES.mobileApp]: "mobile-app",
       [ROUTES.apiIntegrationSupport]: "api-integration-support",
       [ROUTES.webApp]: "web-app",
+      [ROUTES.ecommerce]: "ecommerce",
+      [ROUTES.aiAutomation]: "ai-automation",
       [ROUTES.iotSolutions]: "iot-solutions",
       [ROUTES.iosDevelopment]: "ios-development",
       [ROUTES.androidDevelopment]: "android-development",
@@ -410,6 +416,8 @@ const App: React.FC = () => {
     onMobileAppClick: () => navigate(ROUTES.mobileApp),
     onApiIntegrationSupportClick: () => navigate(ROUTES.apiIntegrationSupport),
     onWebAppClick: () => navigate(ROUTES.webApp),
+    onEcommerceClick: () => navigate(ROUTES.ecommerce),
+    onAiAutomationClick: () => navigate(ROUTES.aiAutomation),
     onIotSolutionsClick: () => navigate(ROUTES.iotSolutions),
     onIOSDevelopmentClick: () => navigate(ROUTES.iosDevelopment),
     onAndroidDevelopmentClick: () => navigate(ROUTES.androidDevelopment),
@@ -534,6 +542,14 @@ const App: React.FC = () => {
         <Route
           path={ROUTES.webApp}
           element={<WebAppPage onBackHome={() => navigate(ROUTES.home)} />}
+        />
+        <Route
+          path={ROUTES.ecommerce}
+          element={<EcommercePage onBackHome={() => navigate(ROUTES.home)} />}
+        />
+        <Route
+          path={ROUTES.aiAutomation}
+          element={<AiAutomationPage onBackHome={() => navigate(ROUTES.home)} />}
         />
         <Route
           path={ROUTES.iotSolutions}

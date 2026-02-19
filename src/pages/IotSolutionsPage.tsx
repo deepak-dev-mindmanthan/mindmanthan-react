@@ -17,15 +17,39 @@ const IotSolutionsPage: React.FC<IotSolutionsPageProps> = ({ onBackHome }) => {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="pt-40 pb-20 px-6 bg-gradient-to-r from-[#00055c] via-[#000d8c] to-[#0019ff] text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="inline-block px-4 py-1 bg-[#010745] rounded mb-8 border border-white/10">
-            <span className="text-[12px] font-black uppercase tracking-[0.2em]">IoT Solutions</span>
+      <section className="relative min-h-[500px] flex items-center overflow-hidden bg-gradient-to-r from-[#00055c] via-[#000d8c] to-[#0019ff] py-32 px-6 lg:px-12">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[50%] h-full opacity-40 pointer-events-none">
+          <svg width="100%" height="100%" viewBox="0 0 400 400" preserveAspectRatio="none">
+            <pattern id="dotPatternIot" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1.5" fill="white" />
+            </pattern>
+            <rect width="100%" height="100%" fill="url(#dotPatternIot)" mask="url(#fadeMaskIot)" />
+            <defs>
+              <linearGradient id="fadeGradientIot" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="black" />
+                <stop offset="100%" stopColor="white" />
+              </linearGradient>
+              <mask id="fadeMaskIot">
+                <rect width="100%" height="100%" fill="url(#fadeGradientIot)" />
+              </mask>
+            </defs>
+          </svg>
+        </div>
+
+        <div className="absolute top-0 right-[-10%] w-[60%] h-full bg-gradient-to-l from-white/5 to-transparent skew-x-[-20deg] pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto w-full relative z-10">
+          <div className="max-w-4xl">
+            <div className="inline-block px-4 py-1 bg-[#010745] rounded mb-8 border border-white/10">
+              <span className="text-[12px] font-black uppercase tracking-[0.2em] text-white">IoT Solutions</span>
+            </div>
+            <h1 className="text-5xl md:text-6xl lg:text-[88px] font-black text-white leading-[1] tracking-tighter mb-8">
+              Connected Systems <br /> and IoT Engineering
+            </h1>
+            <p className="text-xl md:text-[28px] font-medium leading-tight max-w-3xl text-white/95">
+              Build secure, scalable IoT platforms for real-time operations visibility, control, and automation.
+            </p>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black leading-[1] tracking-tighter mb-8">Connected Systems and IoT Engineering</h1>
-          <p className="text-xl max-w-3xl text-white/90">
-            Build secure, scalable IoT platforms for real-time operations visibility, control, and automation.
-          </p>
         </div>
       </section>
 

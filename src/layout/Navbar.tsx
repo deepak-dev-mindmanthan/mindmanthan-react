@@ -13,6 +13,8 @@ interface NavbarProps {
   onMobileAppClick?: () => void;
   onApiIntegrationSupportClick?: () => void;
   onWebAppClick?: () => void;
+  onAiAutomationClick?: () => void;
+  onEcommerceClick?: () => void;
   onIotSolutionsClick?: () => void;
   onIOSDevelopmentClick?: () => void;
   onAndroidDevelopmentClick?: () => void;
@@ -102,6 +104,8 @@ const Navbar: React.FC<NavbarProps> = ({
   onMobileAppClick,
   onApiIntegrationSupportClick,
   onWebAppClick,
+  onAiAutomationClick,
+  onEcommerceClick,
   onIotSolutionsClick,
   onIOSDevelopmentClick,
   onAndroidDevelopmentClick,
@@ -269,6 +273,8 @@ const Navbar: React.FC<NavbarProps> = ({
                           onMobileAppClick={onMobileAppClick}
                           onApiIntegrationSupportClick={onApiIntegrationSupportClick}
                           onWebAppClick={onWebAppClick}
+                          onAiAutomationClick={onAiAutomationClick}
+                          onEcommerceClick={onEcommerceClick}
                           onIotSolutionsClick={onIotSolutionsClick}
                           onIOSDevelopmentClick={onIOSDevelopmentClick}
                           onAndroidDevelopmentClick={onAndroidDevelopmentClick}
@@ -457,6 +463,12 @@ const Navbar: React.FC<NavbarProps> = ({
                         </button>
                         <button onClick={() => handleMobileAction(onWebAppClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
                           Web App Development
+                        </button>
+                        <button onClick={() => handleMobileAction(onEcommerceClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
+                          E-commerce Solutions
+                        </button>
+                        <button onClick={() => handleMobileAction(onAiAutomationClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
+                          AI Automations & Integration
                         </button>
                         <button onClick={() => handleMobileAction(onIotSolutionsClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
                           IoT Solutions
