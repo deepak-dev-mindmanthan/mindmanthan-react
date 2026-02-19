@@ -242,7 +242,7 @@ const IotSolutionsPage: React.FC<IotSolutionsPageProps> = ({ onBackHome }) => {
           <div className="flex-1 w-full flex">
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-full h-full min-h-[500px] lg:min-h-[600px] bg-gray-100">
               <img
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop"
+                src="/assets/external/unsplash-4636190af475.jpg"
                 alt="IoT monitoring workspace"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
@@ -294,7 +294,7 @@ const IotSolutionsPage: React.FC<IotSolutionsPageProps> = ({ onBackHome }) => {
           <div className="flex-1 w-full flex">
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-full h-full min-h-[500px] lg:min-h-[600px] bg-gray-100">
               <img
-                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"
+                src="/assets/external/unsplash-43490279c0fa.jpg"
                 alt="Connected devices dashboard"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"

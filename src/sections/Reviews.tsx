@@ -18,7 +18,7 @@ const Reviews: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-12">
           <div className="flex items-center gap-5">
             <img loading="lazy" decoding="async"
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop"
+              src="/assets/external/unsplash-0b93528c311a.jpg"
               alt="Client"
               className="w-16 h-16 rounded-full object-cover shadow-sm"
               width={64}

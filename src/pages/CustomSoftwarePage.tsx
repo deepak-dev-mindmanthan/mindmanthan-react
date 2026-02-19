@@ -260,7 +260,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
           <div className="flex-1 w-full flex">
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-full h-full min-h-[600px] lg:min-h-0">
               <img loading="lazy" decoding="async" 
-                src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1200&auto=format&fit=crop" 
+                src="/assets/external/unsplash-abab7fe55159.jpg" 
                 alt="High tech software development setup with code on screens"
                 className="absolute inset-0 w-full h-full object-cover"
               />
@@ -311,7 +311,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
           <div className="flex-1 w-full flex">
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-full h-full min-h-[600px] lg:min-h-0">
               <img loading="lazy" decoding="async" 
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1200&auto=format&fit=crop" 
+                src="/assets/external/unsplash-2afd69097998.jpg" 
                 alt="Modern Tech Office Collaboration"
                 className="absolute inset-0 w-full h-full object-cover"
               />

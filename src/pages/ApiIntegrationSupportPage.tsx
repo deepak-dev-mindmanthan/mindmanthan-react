@@ -234,7 +234,7 @@ const ApiIntegrationSupportPage: React.FC<ApiIntegrationSupportPageProps> = ({ o
           <div className="flex-1 w-full flex">
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-full h-full min-h-[500px] lg:min-h-[600px] bg-gray-100">
               <img
-                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop"
+                src="/assets/external/unsplash-ef010cbdcc31.jpg"
                 alt="API integration architecture dashboard"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
@@ -285,7 +285,7 @@ const ApiIntegrationSupportPage: React.FC<ApiIntegrationSupportPageProps> = ({ o
           <div className="flex-1 w-full flex">
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl w-full h-full min-h-[500px] lg:min-h-[600px] bg-gray-100">
               <img
-                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"
+                src="/assets/external/unsplash-43490279c0fa.jpg"
                 alt="API workflow and service orchestration"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"

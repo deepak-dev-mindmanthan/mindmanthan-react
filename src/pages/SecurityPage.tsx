@@ -202,7 +202,7 @@ const SecurityPage: React.FC<SecurityPageProps> = ({ onBackHome }) => {
           <div className="flex-1 w-full min-h-[450px] flex relative">
             <div className="w-full rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100 border border-gray-100">
               <img loading="lazy" decoding="async" 
-                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200" 
+                src="/assets/external/unsplash-4bd374c3f58b.jpg" 
                 alt="Cybersecurity Operations Room"
                 className="w-full h-full object-cover"
               />

@@ -82,14 +82,14 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Operations Lead',
     company: 'Enterprise Partner',
     text: `${CONTENT_CONFIG.company.shortName} helped us modernize our app and website stack with secure architecture and reliable releases.`,
-    avatar: 'https://picsum.photos/seed/client1/100/100'
+    avatar: '/assets/external/picsum-client1.jpg'
   },
   {
     name: 'Product Team',
     role: 'Technology Manager',
     company: 'Growth Company',
     text: 'Their delivery model is clear, structured, and highly execution-focused across design, development, and support.',
-    avatar: 'https://picsum.photos/seed/client2/100/100'
+    avatar: '/assets/external/picsum-client2.jpg'
   }
 ];
 

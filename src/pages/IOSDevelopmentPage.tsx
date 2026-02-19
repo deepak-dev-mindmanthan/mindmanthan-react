@@ -230,7 +230,7 @@ const IOSDevelopmentPage: React.FC<IOSDevelopmentPageProps> = ({ onBackHome }) =
           <div className="flex-1 w-full min-h-[450px] flex relative">
             <div className="w-full rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100 border border-gray-100">
               <img loading="lazy" decoding="async" 
-                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1200" 
+                src="/assets/external/unsplash-90a1b58e7e9c.jpg" 
                 alt="iPhone App Showcase"
                 className="w-full h-full object-cover"
               />

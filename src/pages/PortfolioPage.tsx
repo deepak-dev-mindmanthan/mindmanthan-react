@@ -19,7 +19,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ onBackHome }) => {
       description: 'Custom workflow platform for approvals, dashboards, and automated reporting across operations teams.',
       tags: ['React', 'Node.js', 'PostgreSQL', 'API'],
       impact: '38% faster internal approvals',
-      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1000',
+      image: '/assets/external/unsplash-e076c223a692.jpg',
       route: ROUTES.customSoftware
     },
     {
@@ -29,7 +29,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ onBackHome }) => {
       description: 'SEO-ready website architecture with CMS workflows, analytics integration, and optimized rendering.',
       tags: ['Web', 'SEO', 'TypeScript', 'Analytics'],
       impact: '62% growth in organic sessions',
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1000',
+      image: '/assets/external/unsplash-c5249f4df085.jpg',
       route: ROUTES.webApp
     },
     {
@@ -39,7 +39,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ onBackHome }) => {
       description: 'Mobile app ecosystem with role-based access, offline-first flows, and real-time synchronization.',
       tags: ['Android', 'iOS', 'Hybrid', 'CI/CD'],
       impact: '41% improvement in field productivity',
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1000',
+      image: '/assets/external/unsplash-90a1b58e7e9c.jpg',
       route: ROUTES.mobileApp
     },
     {
@@ -49,7 +49,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ onBackHome }) => {
       description: 'IoT platform integrating sensor telemetry, dashboards, and proactive alerting for maintenance.',
       tags: ['IoT', 'Cloud', 'Dashboards', 'Automation'],
       impact: '29% reduction in incident downtime',
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000',
+      image: '/assets/external/unsplash-4636190af475.jpg',
       route: ROUTES.iotSolutions
     },
     {
@@ -59,7 +59,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ onBackHome }) => {
       description: 'Migration to cloud-native infrastructure with CI/CD, containers, and full observability stack.',
       tags: ['AWS', 'Docker', 'Monitoring', 'Security'],
       impact: '52% faster release cycle',
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000',
+      image: '/assets/external/unsplash-43490279c0fa.jpg',
       route: ROUTES.cloudDevops
     },
     {
@@ -69,7 +69,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ onBackHome }) => {
       description: 'Integration hub for payment gateways, third-party APIs, and centralized transaction workflows.',
       tags: ['E-Commerce', 'Payments', 'API', 'Support'],
       impact: '99.95% API uptime on critical flows',
-      image: 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&q=80&w=1000',
+      image: '/assets/external/unsplash-887f6717d7e4.jpg',
       route: ROUTES.apiIntegrationSupport
     }
   ];
