@@ -6,7 +6,8 @@ import SolutionsMegaMenu from '../components/nav/SolutionsMegaMenu';
 import CompanyMegaMenu from '../components/nav/CompanyMegaMenu';
 import ResourcesDropdown from '../components/nav/ResourcesDropdown';
 import HomeDropdown from '../components/nav/HomeDropdown';
-import logo from '/assets/images/mindmanthan.svg';
+import logoDark from '/assets/images/mindmanthan.svg';
+import logoLight from '/assets/images/mindmanthan.light.svg';
 
 interface NavbarProps {
   onLogoClick?: () => void;
@@ -43,14 +44,13 @@ interface NavbarProps {
 }
 
 const MindManthanLogo = ({ isLight = false }: { isLight?: boolean }) => {
-  const primaryColor = isLight ? "#2563eb" : "#ffffff";
+  const activeLogo = isLight ? logoDark : logoLight;
   const textColor = isLight ? "text-[#2563eb]" : "text-white";
-  const subTextColor = isLight ? "text-gray-400" : "text-white/70";
 
   return (
     <div className="flex items-center gap-3 group cursor-pointer">
       <div className="relative w-12 h-12 flex items-center justify-center">
-        <img src={logo}
+        <img src={activeLogo}
           alt={`${CONTENT_CONFIG.company.shortName} logo`}
           loading="lazy" />
       </div>
@@ -552,7 +552,6 @@ const Navbar: React.FC<NavbarProps> = ({
 };
 
 export default Navbar;
-
 
 
 
