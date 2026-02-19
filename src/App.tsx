@@ -14,6 +14,9 @@ import RecognitionGrid from "./sections/RecognitionGrid";
 import FAQSection from "./sections/FAQSection";
 const AboutUsPage = React.lazy(() => import("./pages/AboutUsPage"));
 const WhyUsPage = React.lazy(() => import("./pages/WhyUsPage"));
+const TeamPage = React.lazy(() => import("./pages/TeamPage"));
+const PartnersPage = React.lazy(() => import("./pages/PartnersPage"));
+const ReviewsAwardsPage = React.lazy(() => import("./pages/ReviewsAwardsPage"));
 const ServicesPage = React.lazy(() => import("./pages/ServicesPage"));
 const PortfolioPage = React.lazy(() => import("./pages/PortfolioPage"));
 const ContactPage = React.lazy(() => import("./pages/ContactPage"));
@@ -293,6 +296,9 @@ type View =
   | "api-integration-case-study"
   | "about-us"
   | "why-us"
+  | "team"
+  | "partners"
+  | "reviews"
   | "services"
   | "portfolio"
   | "contact"
@@ -320,6 +326,9 @@ const App: React.FC = () => {
       [ROUTES.home]: "home",
       [ROUTES.about]: "about-us",
       [ROUTES.whyUs]: "why-us",
+      [ROUTES.team]: "team",
+      [ROUTES.partners]: "partners",
+      [ROUTES.reviews]: "reviews",
       [ROUTES.services]: "services",
       [ROUTES.portfolio]: "portfolio",
       [ROUTES.contact]: "contact",
@@ -432,6 +441,9 @@ const App: React.FC = () => {
     onBlogClick: () => navigate(ROUTES.blog),
     onAboutUsClick: () => navigate(ROUTES.about),
     onWhyUsClick: () => navigate(ROUTES.whyUs),
+    onTeamClick: () => navigate(ROUTES.team),
+    onPartnersClick: () => navigate(ROUTES.partners),
+    onReviewsClick: () => navigate(ROUTES.reviews),
     onServicesClick: () => navigate(ROUTES.services),
     onContactClick: () => navigate(ROUTES.contact),
     onViewAllClick: () => navigate(ROUTES.blog),
@@ -460,6 +472,18 @@ const App: React.FC = () => {
           element={
             <WhyUsPage onExploreServices={() => navigate(ROUTES.services)} />
           }
+        />
+        <Route
+          path={ROUTES.team}
+          element={<TeamPage onBackHome={() => navigate(ROUTES.home)} />}
+        />
+        <Route
+          path={ROUTES.partners}
+          element={<PartnersPage onBackHome={() => navigate(ROUTES.home)} />}
+        />
+        <Route
+          path={ROUTES.reviews}
+          element={<ReviewsAwardsPage onBackHome={() => navigate(ROUTES.home)} />}
         />
         <Route
           path={ROUTES.services}

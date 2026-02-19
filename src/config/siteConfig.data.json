@@ -74,6 +74,21 @@
                                     "priority":  "0.8"
                                 },
                                 {
+                                    "path":  "/our-team",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
+                                    "path":  "/partners-certifications",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
+                                    "path":  "/reviews-awards",
+                                    "changefreq":  "monthly",
+                                    "priority":  "0.7"
+                                },
+                                {
                                     "path":  "/services",
                                     "changefreq":  "monthly",
                                     "priority":  "0.9"

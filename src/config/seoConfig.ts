@@ -30,6 +30,9 @@ const VIEW_PATHS: Record<string, string> = {
   home: ROUTES.home,
   "about-us": ROUTES.about,
   "why-us": ROUTES.whyUs,
+  team: ROUTES.team,
+  partners: ROUTES.partners,
+  reviews: ROUTES.reviews,
   services: ROUTES.services,
   portfolio: ROUTES.portfolio,
   contact: ROUTES.contact,
@@ -105,6 +108,30 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     description: `Discover why businesses trust ${SITE_NAME} for their digital transformation and software development needs.`,
     canonical: getCanonicalUrl("why-us"),
     ogUrl: getCanonicalUrl("why-us"),
+    schemaType: 'WebPage'
+  },
+  team: {
+    ...DEFAULT_SEO,
+    title: withBrand("Our Team"),
+    description: `Meet the delivery leaders, engineers, and strategists behind ${SITE_NAME}.`,
+    canonical: getCanonicalUrl("team"),
+    ogUrl: getCanonicalUrl("team"),
+    schemaType: 'WebPage'
+  },
+  partners: {
+    ...DEFAULT_SEO,
+    title: withBrand("Partners & Certifications"),
+    description: `Technology partners, certifications, and delivery standards that power ${SITE_NAME} projects.`,
+    canonical: getCanonicalUrl("partners"),
+    ogUrl: getCanonicalUrl("partners"),
+    schemaType: 'WebPage'
+  },
+  reviews: {
+    ...DEFAULT_SEO,
+    title: withBrand("Reviews & Awards"),
+    description: `Client reviews, awards, and recognition for ${SITE_NAME} delivery excellence.`,
+    canonical: getCanonicalUrl("reviews"),
+    ogUrl: getCanonicalUrl("reviews"),
     schemaType: 'WebPage'
   },
   services: {

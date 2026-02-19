@@ -8,7 +8,7 @@ export const CONTENT_CONFIG = {
     legalName: `${SITE_CONFIG.siteName} Software Solutions`,
     blogAuthor: `${SITE_CONFIG.siteName} Editorial`,
     blogTitle: `${SITE_CONFIG.siteName} Blog`,
-    copyrightStartYear: 2024,
+    copyrightStartYear: 2022,
     copyrightEndYear: currentYear,
   },
   cta: {

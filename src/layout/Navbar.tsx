@@ -29,6 +29,9 @@ interface NavbarProps {
   onBlogClick?: () => void;
   onAboutUsClick?: () => void;
   onWhyUsClick?: () => void;
+  onTeamClick?: () => void;
+  onPartnersClick?: () => void;
+  onReviewsClick?: () => void;
   onServicesClick?: () => void;
   onContactClick?: () => void;
   onFaqClick?: () => void;
@@ -120,6 +123,9 @@ const Navbar: React.FC<NavbarProps> = ({
   onBlogClick,
   onAboutUsClick,
   onWhyUsClick,
+  onTeamClick,
+  onPartnersClick,
+  onReviewsClick,
   onServicesClick,
   onContactClick,
   onGetInTouchClick,
@@ -295,6 +301,9 @@ const Navbar: React.FC<NavbarProps> = ({
                           onWhyUsClick={onWhyUsClick}
                           onContactClick={onContactClick || onGetInTouchClick}
                           onEventsClick={onEventsClick}
+                          onTeamClick={onTeamClick}
+                          onPartnersClick={onPartnersClick}
+                          onReviewsClick={onReviewsClick}
                         />
                       ) : link.label === 'Resources' ? (
                         <ResourcesDropdown
@@ -532,6 +541,15 @@ const Navbar: React.FC<NavbarProps> = ({
                         </button>
                         <button onClick={() => handleMobileAction(onWhyUsClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
                           Why Us
+                        </button>
+                        <button onClick={() => handleMobileAction(onTeamClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
+                          Our Team
+                        </button>
+                        <button onClick={() => handleMobileAction(onPartnersClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
+                          Partners & Certifications
+                        </button>
+                        <button onClick={() => handleMobileAction(onReviewsClick)} className="w-full text-left text-[#334155] text-base font-semibold hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors rounded-md px-6 py-3">
+                          Reviews & Awards
                         </button>
                     </div>
                   </div>

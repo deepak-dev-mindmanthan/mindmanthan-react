@@ -77,7 +77,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPortfolioClick, onBlogClick, onContactClick }) => {
   return (
-    <footer className="bg-[#f4f7ff] py-16 md:py-24">
+    <footer className="bg-[#f4f7ff] py-16 md:py-12 py-6">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-16">
           <div className="md:col-span-2">
@@ -164,7 +164,7 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
         </div>
         <div className="mt-16 md:mt-24 pt-8 md:pt-10 border-t border-blue-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-gray-600 text-sm font-medium">
           <p className="break-words">&copy; {getCopyrightYears()} {CONTENT_CONFIG.company.legalName}. All Rights Reserved.</p>
-          <div className="flex flex-wrap gap-6">
+          <div className="w-full md:w-auto flex flex-wrap justify-center md:justify-end gap-6">
             <a href="/contact" className="hover:text-[#001fcc]">Privacy Policy</a>
             <a href="/contact" className="hover:text-[#001fcc]">Terms of Service</a>
             <a href="/sitemap.xml" className="hover:text-[#001fcc]">Sitemap</a>

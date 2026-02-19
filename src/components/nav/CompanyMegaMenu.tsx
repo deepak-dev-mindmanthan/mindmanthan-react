@@ -6,6 +6,9 @@ interface CompanyMegaMenuProps {
   onWhyUsClick?: () => void;
   onContactClick?: () => void;
   onEventsClick?: () => void;
+  onTeamClick?: () => void;
+  onPartnersClick?: () => void;
+  onReviewsClick?: () => void;
   isOpen?: boolean;
   onItemClick?: () => void;
 }
@@ -15,16 +18,19 @@ const CompanyMegaMenu: React.FC<CompanyMegaMenuProps> = ({
   onWhyUsClick,
   onContactClick,
   onEventsClick,
+  onTeamClick,
+  onPartnersClick,
+  onReviewsClick,
   isOpen = false,
   onItemClick,
 }) => {
   const companyLinks = [
     { label: 'About us', onClick: onAboutUsClick },
     { label: 'Why Us', onClick: onWhyUsClick },
-    { label: 'Our Team', onClick: onAboutUsClick },
-    { label: 'Partners & Certifications', onClick: onAboutUsClick },
+    { label: 'Our Team', onClick: onTeamClick },
+    { label: 'Partners & Certifications', onClick: onPartnersClick },
     { label: 'Careers', onClick: onEventsClick, badge: 'WE ARE HIRING' },
-    { label: 'Reviews & Awards', onClick: onAboutUsClick },
+    { label: 'Reviews & Awards', onClick: onReviewsClick },
   ];
 
   return (
