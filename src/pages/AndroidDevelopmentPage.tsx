@@ -390,7 +390,7 @@ const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackH
               
               <div className="mb-16">
                 <span className="text-[#1a1b1f] text-xl font-bold block mb-2">Call us at:</span>
-                <a href={`tel:${SITE_CONFIG.business.altPhoneHref}`} className="text-[#1a1b1f] text-2xl font-black hover:text-[#001fcc] transition-colors">{SITE_CONFIG.business.altPhone}</a>
+                <a href={`tel:${SITE_CONFIG.business.altPhone}`} className="text-[#1a1b1f] text-2xl font-black hover:text-[#001fcc] transition-colors">{SITE_CONFIG.business.altPhone}</a>
               </div>
 
               <div>

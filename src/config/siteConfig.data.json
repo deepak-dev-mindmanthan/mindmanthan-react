@@ -16,13 +16,9 @@
     "business": {
         "type": "Software Company",
         "phone": "+91 70115 02461",
-        "phoneHref": "+917011502461",
         "altPhone": "+91 70115 02461",
-        "altPhoneHref": "+917011502461",
         "secondaryPhone": "+91 70115 02461",
-        "secondaryPhoneHref": "+917011502461",
         "email": "info@mindmanthansoftwaresolutions.com",
-        "emailHref": "mailto:info@mindmanthansoftwaresolutions.com",
         "addressLine": "A90, A Block, Sector 4, Noida, Uttar Pradesh 201301",
         "address": {
             "street": "A90, A Block, Sector 4",

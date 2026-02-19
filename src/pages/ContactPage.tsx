@@ -124,13 +124,13 @@ const ContactPage: React.FC<ContactPageProps> = ({ onExploreServicesClick }) => 
       icon: Mail,
       title: 'Email',
       value: SITE_CONFIG.business.email,
-      link: SITE_CONFIG.business.emailHref
+      link: `mailto:${SITE_CONFIG.business.email}`
     },
     {
       icon: Phone,
       title: 'Phone',
       value: SITE_CONFIG.business.phone,
-      link: `tel:${SITE_CONFIG.business.phoneHref}`
+      link: `tel:${SITE_CONFIG.business.phone}`
     },
     {
       icon: MapPin,

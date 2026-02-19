@@ -131,14 +131,14 @@ const ContactSection: React.FC = () => {
             
             <div className="space-y-3">
               <a
-                href={`tel:${SITE_CONFIG.business.phoneHref}`}
+                href={`tel:${SITE_CONFIG.business.phone}`}
                 className="flex items-center gap-3 text-white text-base md:text-2xl font-bold tracking-tight break-words hover:opacity-90 transition-opacity"
               >
                 <Phone size={20} />
                 <span>{SITE_CONFIG.business.phone}</span>
               </a>
               <a
-                href={SITE_CONFIG.business.emailHref}
+                href={`mailto:${SITE_CONFIG.business.email}`}
                 className="flex items-center gap-3 text-white text-base md:text-2xl font-bold tracking-tight break-all hover:opacity-90 transition-opacity"
               >
                 <Mail size={20} />

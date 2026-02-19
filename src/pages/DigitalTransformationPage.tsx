@@ -388,7 +388,7 @@ const DigitalTransformationPage: React.FC<DigitalTransformationPageProps> = ({ o
               
               <div className="mb-16">
                 <span className="text-[#1a1b1f] text-xl font-bold block mb-2">Call us at:</span>
-                <a href={`tel:${SITE_CONFIG.business.phoneHref}`} className="text-[#1a1b1f] text-2xl font-black hover:text-[#001fcc] transition-colors">{SITE_CONFIG.business.phone}</a>
+                <a href={`tel:${SITE_CONFIG.business.phone}`} className="text-[#1a1b1f] text-2xl font-black hover:text-[#001fcc] transition-colors">{SITE_CONFIG.business.phone}</a>
               </div>
 
               <div>
