@@ -144,7 +144,7 @@ const IotSolutionsPage: React.FC<IotSolutionsPageProps> = ({ onBackHome }) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner Section */}
-      <section className="relative min-h-[520px] flex items-center overflow-hidden bg-gradient-to-r from-[#00055c] via-[#000d8c] to-[#0019ff] py-12 md:py-18 lg:py-24 px-6 lg:px-12">
+      <section className="relative min-h-[520px] flex items-center overflow-hidden bg-gradient-to-r from-[#00055c] via-[#000d8c] to-[#0019ff] py-32 px-6 lg:px-12">
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[50%] h-full opacity-40 pointer-events-none">
           <svg width="100%" height="100%" viewBox="0 0 400 400" preserveAspectRatio="none">
             <pattern id="dotPatternIot" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">

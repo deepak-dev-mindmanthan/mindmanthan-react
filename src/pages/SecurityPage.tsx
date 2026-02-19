@@ -47,6 +47,13 @@ const SecurityTechItem: React.FC<{ title: string; index: number }> = ({ title, i
 const SecurityPage: React.FC<SecurityPageProps> = ({ onBackHome }) => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+  const scrollToConsultationForm = () => {
+    const section = document.querySelector('[data-consultation-form]');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const testimonials = [
     {
       id: 'marcus',
@@ -134,7 +141,11 @@ const SecurityPage: React.FC<SecurityPageProps> = ({ onBackHome }) => {
               Protect your most valuable digital assets. We design multi-layered security strategies that mitigate risk and ensure global compliance.
             </p>
 
-            <button className="bg-[#e8edff] text-[#001fcc] px-10 py-4 rounded font-black text-sm uppercase tracking-widest hover:bg-white transition-all active:scale-95 shadow-2xl shadow-black/20">
+            <button
+              type="button"
+              onClick={scrollToConsultationForm}
+              className="bg-[#e8edff] text-[#001fcc] px-10 py-4 rounded font-black text-sm uppercase tracking-widest hover:bg-white transition-all active:scale-95 shadow-2xl shadow-black/20"
+            >
               Audit Your Infrastructure
             </button>
           </div>
@@ -142,7 +153,7 @@ const SecurityPage: React.FC<SecurityPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Benefits Section */}
-      <section className="bg-white py-32 px-6 lg:px-12">
+      <section className="bg-white py-12 md:py-18 lg:py-24 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-stretch">
           <div className="flex-[1.2]">
             <h2 className="text-4xl md:text-5xl lg:text-[54px] font-black text-[#1a1b1f] leading-[1.05] tracking-tight mb-8">
@@ -202,7 +213,7 @@ const SecurityPage: React.FC<SecurityPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Process Section - Centered */}
-      <section className="bg-white py-32 px-6 lg:px-12 border-t border-gray-50">
+      <section className="bg-white py-12 md:py-18 lg:py-24 px-6 lg:px-12 border-t border-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
             <h2 className="text-4xl md:text-5xl lg:text-[54px] font-black text-[#1a1b1f] leading-[1.05] tracking-tight mb-8">
@@ -238,7 +249,7 @@ const SecurityPage: React.FC<SecurityPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Capabilities Grid */}
-      <section className="py-32 bg-[#f8faff] px-6">
+      <section className="py-12 md:py-18 lg:py-24 bg-[#f8faff] px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h3 className="text-4xl md:text-5xl font-black text-[#1a1b1f] tracking-tighter mb-6">
@@ -272,7 +283,7 @@ const SecurityPage: React.FC<SecurityPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Tech List Section */}
-      <section className="py-32 bg-white px-6 border-t border-gray-100 overflow-visible">
+      <section className="py-12 md:py-18 lg:py-24 bg-white px-6 border-t border-gray-100 overflow-visible">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-20 items-start">
             <div className="flex-1 lg:sticky lg:top-40">
@@ -296,7 +307,7 @@ const SecurityPage: React.FC<SecurityPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-white py-32 px-6 border-t border-gray-100">
+      <section className="bg-white py-12 md:py-18 lg:py-24 px-6 border-t border-gray-100">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl lg:text-[44px] font-black text-[#1a1b1f] leading-[1.1] tracking-tighter mb-12">
             What our security partners say
@@ -333,7 +344,7 @@ const SecurityPage: React.FC<SecurityPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Unified Contact Form */}
-      <section className="bg-white px-6 pb-32 pt-16">
+      <section className="bg-white px-6 pb-8 md:pb-12 lg:pb-24 pt-16" data-consultation-form>
         <div className="max-w-7xl mx-auto rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row min-h-[640px] lg:min-h-[800px]">
           <div className="flex-1 flex flex-col">
             <div className="bg-[#1a1b1f] p-12 md:p-16">

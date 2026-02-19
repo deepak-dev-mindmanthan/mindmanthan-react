@@ -69,6 +69,13 @@ const MobileAppPage: React.FC<MobileAppPageProps> = ({ onBackHome }) => {
     }
   };
 
+  const scrollToPortfolioSection = () => {
+    const portfolioSection = document.querySelector('[data-portfolio-section]');
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const testimonials: TestimonialData[] = [
     {
       id: 'marcus',
@@ -263,7 +270,11 @@ const MobileAppPage: React.FC<MobileAppPageProps> = ({ onBackHome }) => {
               ))}
             </div>
 
-            <button className="mt-12 bg-[#1a1b1f] text-white px-10 py-4 rounded-xl font-black text-sm uppercase tracking-widest hover:bg-[#001fcc] transition-all shadow-xl shadow-gray-400/10">
+            <button
+              type="button"
+              onClick={scrollToPortfolioSection}
+              className="mt-12 bg-[#1a1b1f] text-white px-10 py-4 rounded-xl font-black text-sm uppercase tracking-widest hover:bg-[#001fcc] transition-all shadow-xl shadow-gray-400/10"
+            >
               View Mobile Portfolio
             </button>
           </div>
@@ -283,7 +294,7 @@ const MobileAppPage: React.FC<MobileAppPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-12 md:py-18 lg:py-24 bg-[#f8faff] px-6">
+      <section className="py-12 md:py-18 lg:py-24 bg-[#f8faff] px-6" data-portfolio-section>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h3 className="text-4xl md:text-5xl font-black text-[#1a1b1f] tracking-tighter mb-6">
@@ -461,7 +472,7 @@ const MobileAppPage: React.FC<MobileAppPageProps> = ({ onBackHome }) => {
       <section className="py-24 bg-white px-6 border-y border-gray-100">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="lg:max-w-xl">
-            <h3 className="text-4xl font-black text-[#1a1b1f] mb-8 tracking-tighter">
+            <h3 className="text-3xl sm:text-4xl font-black text-[#1a1b1f] mb-8 tracking-tighter">
               Mobile Trust Built Over Decades.
             </h3>
             <ul className="space-y-6">
