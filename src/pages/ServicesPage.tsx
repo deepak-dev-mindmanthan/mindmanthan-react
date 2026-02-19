@@ -30,7 +30,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
       <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
           <div className="text-sm uppercase tracking-widest text-gray-500 mb-4 font-medium">Solutions</div>
-          <h1 className="text-5xl lg:text-6xl font-black text-[#1a1b1f] mb-6 leading-tight">IT Services for Apps, Websites, and IoT</h1>
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-[#1a1b1f] mb-6 leading-tight">IT Services for Apps, Websites, and IoT</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {CONTENT_CONFIG.company.legalName} delivers secure, scalable, and system-driven digital services aligned to your business workflows.
           </p>
@@ -68,12 +68,12 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
         </div>
       </section>
 
-      <section className="py-20 lg:py-28 bg-white border-t border-gray-100">
+      <section className="py-12 md:py-18 lg:py-24 bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
               <div className="text-sm uppercase tracking-widest text-gray-500 mb-4 font-medium">Why Choose Our Services</div>
-              <h2 className="text-4xl lg:text-5xl font-black text-[#1a1b1f] mb-6 leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1a1b1f] mb-6 leading-tight">
                 Why businesses choose {CONTENT_CONFIG.company.shortName} for IT execution
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-8">
@@ -116,11 +116,11 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
         </div>
       </section>
 
-      <section data-consultation-form className="py-20 lg:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section data-consultation-form className="py-12 md:py-18 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6  lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-lg overflow-hidden shadow-lg">
             <div className="bg-gradient-to-br from-[#e8f0ff] to-[#f0f6ff] p-12 lg:p-16">
-              <h2 className="text-4xl font-black text-[#1a1b1f] mb-8">{CONTENT_CONFIG.cta.scheduleConsultation}</h2>
+              <h2 className="text-3xl sm:text-4xl font-black text-[#1a1b1f] mb-8">{CONTENT_CONFIG.cta.scheduleConsultation}</h2>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                 Tell us your requirement and we will propose the right roadmap for software, app, web, IoT,
                 security, automation, or DevOps implementation.
