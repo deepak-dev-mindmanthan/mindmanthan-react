@@ -1,0 +1,158 @@
+[
+  {
+    "id": "insurance",
+    "path": "/case-studies/insurance",
+    "category": "Custom Software",
+    "title": "Claims and Policy Platform Modernization",
+    "listTitle": "Insurance Claims Automation Platform",
+    "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?q=90&w=1600&auto=format&fit=crop",
+    "heroDescription": "We rebuilt legacy policy, claims, and reporting systems into a secure cloud-ready platform with automated workflows.",
+    "scopeTitle": "Key Work Delivered",
+    "scopeItems": [
+      "Custom workflow system for policy issuance and claims lifecycle",
+      "Role-based access control and encrypted data management",
+      "API integrations for payments, SMS, and customer notifications",
+      "Automated reporting dashboards for operations and compliance",
+      "Performance tuning and long-term support model"
+    ],
+    "challenge": "The client was operating with fragmented legacy tools that slowed approvals, claims processing, and reporting across teams.",
+    "solution": "We designed a centralized platform with secure role-based workflows, automated status transitions, and unified reporting.",
+    "outcome": "Claims turnaround improved, manual dependency dropped significantly, and leadership gained real-time visibility into operations.",
+    "metrics": [
+      { "label": "Claims Cycle Time Reduced", "value": "45%" },
+      { "label": "Manual Handoffs Removed", "value": "60%" },
+      { "label": "Operational Dashboards", "value": "12+" }
+    ],
+    "techStack": ["React", "Node.js", "PostgreSQL", "RBAC", "Cloud Monitoring"]
+  },
+  {
+    "id": "coffee",
+    "path": "/case-studies/coffee",
+    "category": "Web Development",
+    "title": "Coffee Supply Chain Platform",
+    "listTitle": "Coffee Supply Chain Platform",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=90&w=1600&auto=format&fit=crop",
+    "heroDescription": "We connected warehouse telemetry, order workflows, and partner coordination into one unified operational platform.",
+    "scopeTitle": "Implementation Scope",
+    "scopeItems": [
+      "Supplier, roasting unit, and distribution center workflow modules",
+      "IoT-based temperature and storage telemetry for stock quality",
+      "Real-time dispatch dashboard with SLA and delivery tracking",
+      "Automated notifications for operations teams and partners",
+      "Cloud deployment with monitoring and support-ready runbooks"
+    ],
+    "challenge": "Operations data lived in disconnected tools, causing delays in dispatch and limited visibility into inventory quality.",
+    "solution": "We built a unified operations system with telemetry pipelines, workflow automation, and SLA-based dispatch orchestration.",
+    "outcome": "Teams achieved faster dispatch coordination, stronger quality tracking, and better communication across supply chain partners.",
+    "metrics": [
+      { "label": "Dispatch SLA Improvement", "value": "38%" },
+      { "label": "Inventory Visibility Gain", "value": "2x" },
+      { "label": "Sites Connected", "value": "25+" }
+    ],
+    "techStack": ["React", "Node.js", "IoT Telemetry", "Cloud Queueing", "Realtime Alerts"]
+  },
+  {
+    "id": "london-travel",
+    "path": "/case-studies/london-travel",
+    "category": "Mobile App",
+    "title": "Unified Booking Web + Mobile Platform",
+    "listTitle": "London Travel Operations System",
+    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=90&w=1600&auto=format&fit=crop",
+    "heroDescription": "Mind Manthan delivered a full digital platform with website, mobile apps, admin panel, and API integrations.",
+    "scopeTitle": "Implementation Scope",
+    "scopeItems": [
+      "SEO-optimized corporate website and booking flows",
+      "Android and iOS applications with real-time updates",
+      "Custom admin panels for operations, support, and reporting",
+      "Payment gateway and third-party API integrations",
+      "CI/CD pipeline, observability setup, and ongoing maintenance"
+    ],
+    "challenge": "The business needed one connected experience across web, mobile, operations, and partner systems.",
+    "solution": "We implemented a single booking ecosystem with synchronized APIs, mobile apps, and operational control dashboards.",
+    "outcome": "Customer booking journeys became smoother and the operations team could manage fulfillment from one unified system.",
+    "metrics": [
+      { "label": "Booking Conversion Uplift", "value": "31%" },
+      { "label": "Support Response Time Cut", "value": "42%" },
+      { "label": "Platforms Unified", "value": "4" }
+    ],
+    "techStack": ["React", "React Native", "Node.js", "Payment APIs", "CI/CD"]
+  },
+  {
+    "id": "iot-asset-monitoring",
+    "path": "/case-studies/iot-asset-monitoring",
+    "category": "IoT",
+    "title": "Real-Time Asset Tracking and Alerts",
+    "listTitle": "IoT Asset Monitoring Dashboard",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=90&w=1600&auto=format&fit=crop",
+    "heroDescription": "We delivered an end-to-end IoT monitoring platform with sensor integrations, live dashboards, and escalation workflows.",
+    "scopeTitle": "Implementation Scope",
+    "scopeItems": [
+      "Device onboarding and secure telemetry ingestion across multiple sites",
+      "Cloud data pipeline with anomaly detection and threshold-based alerts",
+      "Ops dashboards for asset health, uptime, and failure trends",
+      "Escalation workflows with SMS and email notifications",
+      "Maintenance analytics and periodic performance optimization"
+    ],
+    "challenge": "Asset monitoring was reactive and fragmented, causing delayed maintenance and avoidable downtime.",
+    "solution": "We created a secure telemetry architecture with proactive alerts, escalation workflows, and live health dashboards.",
+    "outcome": "Operations teams moved from reactive tracking to proactive maintenance with faster incident response.",
+    "metrics": [
+      { "label": "Downtime Reduced", "value": "34%" },
+      { "label": "Alert Response Time", "value": "-52%" },
+      { "label": "Assets Monitored", "value": "10k+" }
+    ],
+    "techStack": ["MQTT", "Streaming Pipelines", "Alerting Engine", "Dashboards", "Cloud IoT"]
+  },
+  {
+    "id": "cloud-devops-modernization",
+    "path": "/case-studies/cloud-devops-modernization",
+    "category": "Cloud & DevOps",
+    "title": "Infrastructure Modernization with CI/CD",
+    "listTitle": "Cloud DevOps Modernization",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=90&w=1600&auto=format&fit=crop",
+    "heroDescription": "Mind Manthan migrated legacy deployments to cloud-native pipelines with release automation and production-grade monitoring.",
+    "scopeTitle": "Key Work Delivered",
+    "scopeItems": [
+      "Cloud migration planning, environment hardening, and infra-as-code setup",
+      "CI/CD pipelines for automated build, test, and production deployment",
+      "Containerization strategy with rollback-ready release workflows",
+      "Centralized logging, metrics dashboards, and SLA alerting",
+      "Cost optimization and uptime improvements through architecture tuning"
+    ],
+    "challenge": "Manual release processes and unstable infrastructure were slowing delivery and increasing incident risk.",
+    "solution": "We implemented IaC, CI/CD, container workflows, and observability with guardrails for reliable deployments.",
+    "outcome": "Release velocity improved while production stability and cloud cost control became predictable.",
+    "metrics": [
+      { "label": "Deployment Frequency", "value": "3x" },
+      { "label": "Change Failure Rate", "value": "-41%" },
+      { "label": "Infra Provisioning Time", "value": "-68%" }
+    ],
+    "techStack": ["Terraform", "Docker", "Kubernetes", "CI/CD", "Observability"]
+  },
+  {
+    "id": "api-integration-hub",
+    "path": "/case-studies/api-integration-hub",
+    "category": "API",
+    "title": "Multi-System API Integration Hub",
+    "listTitle": "API Integration Hub",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=90&w=1600&auto=format&fit=crop",
+    "heroDescription": "We unified fragmented third-party integrations into a secure API orchestration layer with monitoring and audit-ready logs.",
+    "scopeTitle": "Solution Highlights",
+    "scopeItems": [
+      "Custom middleware for payment, CRM, ERP, and communication APIs",
+      "Token management, rate limiting, and encrypted payload handling",
+      "Real-time retries, queueing, and fallback logic for resilience",
+      "Centralized integration dashboard with webhook traceability",
+      "Operational runbooks and support model for long-term stability"
+    ],
+    "challenge": "The integration ecosystem became hard to maintain due to inconsistent contracts and vendor-specific edge cases.",
+    "solution": "We built a standardized orchestration layer with resilient retries, monitoring, and contract governance.",
+    "outcome": "Integrations became easier to operate, incidents dropped, and onboarding of new partners accelerated.",
+    "metrics": [
+      { "label": "Integration Incident Drop", "value": "47%" },
+      { "label": "Partner Onboarding Speed", "value": "2.3x" },
+      { "label": "APIs Unified", "value": "30+" }
+    ],
+    "techStack": ["API Gateway", "OAuth2", "Queueing", "Webhook Traceability", "Runbooks"]
+  }
+]

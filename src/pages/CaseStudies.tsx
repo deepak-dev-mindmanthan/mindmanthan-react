@@ -2,26 +2,8 @@ import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 import CommonContactForm from '../components/CommonContactForm';
 import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '../routes/routes';
 import { CONTENT_CONFIG } from '../config/contentConfig';
-
-interface Project {
-  id: string;
-  title: string;
-  category: string;
-  image: string;
-  bgColor: string;
-  route?: string;
-}
-
-const PROJECTS: Project[] = [
-  { id: '1', title: 'Insurance Claims Automation Platform', category: 'Custom Software', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=90&w=1600&auto=format&fit=crop', bgColor: '#e0e7ff', route: ROUTES.insuranceCaseStudy },
-  { id: '2', title: 'Coffee Supply Chain Platform', category: 'Web Development', image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=90&w=1600&auto=format&fit=crop', bgColor: '#fdf6e3', route: ROUTES.coffeeCaseStudy },
-  { id: '3', title: 'London Travel Operations System', category: 'Mobile App', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=90&w=1600&auto=format&fit=crop', bgColor: '#1a1b1f', route: ROUTES.londonTravelCaseStudy },
-  { id: '4', title: 'IoT Asset Monitoring Dashboard', category: 'IoT', image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=90&w=1600&auto=format&fit=crop', bgColor: '#ecfdf5', route: ROUTES.iotAssetCaseStudy },
-  { id: '5', title: 'Cloud DevOps Modernization', category: 'Cloud & DevOps', image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=90&w=1600&auto=format&fit=crop', bgColor: '#fff1f2', route: ROUTES.cloudDevopsCaseStudy },
-  { id: '6', title: 'API Integration Hub', category: 'API', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=90&w=1600&auto=format&fit=crop', bgColor: '#f0f9ff', route: ROUTES.apiIntegrationCaseStudy },
-];
+import { CASE_STUDIES } from '../data/caseStudies';
 
 const CATEGORIES = ['All', 'Custom Software', 'Web Development', 'Mobile App', 'IoT', 'Cloud & DevOps', 'API'];
 
@@ -34,8 +16,8 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ onNavigateHome }) => {
   const navigate = useNavigate();
 
   const filteredProjects = activeFilter === 'All'
-    ? PROJECTS
-    : PROJECTS.filter((p) => p.category === activeFilter);
+    ? CASE_STUDIES
+    : CASE_STUDIES.filter((p) => p.category === activeFilter);
 
   return (
     <div className="min-h-screen bg-white">
@@ -79,44 +61,40 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ onNavigateHome }) => {
 
       <section className="pb-24 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, idx) => (
             <div
               key={project.id}
-              className={`group ${project.route ? 'cursor-pointer' : 'cursor-default'}`}
-              onClick={() => project.route && navigate(project.route)}
-              role={project.route ? 'button' : undefined}
-              tabIndex={project.route ? 0 : undefined}
+              className="group cursor-pointer"
+              onClick={() => navigate(project.path)}
+              role="button"
+              tabIndex={0}
               onKeyDown={
-                project.route
-                  ? (event) => {
-                      if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault();
-                        navigate(project.route as string);
-                      }
-                    }
-                  : undefined
+                (event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    navigate(project.path);
+                  }
+                }
               }
             >
               <div
                 className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden mb-8 transition-all duration-500 shadow-md group-hover:shadow-2xl group-hover:-translate-y-2 border border-gray-50"
-                style={{ backgroundColor: project.bgColor }}
+                style={{ backgroundColor: idx % 2 === 0 ? '#e8edff' : '#f8fafc' }}
               >
                 <img loading="lazy" decoding="async"
                   src={project.image}
-                  alt={project.title}
+                  alt={project.listTitle}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                 />
               </div>
 
               <div className="px-4">
                 <span className="text-[11px] font-black uppercase tracking-[0.3em] text-gray-400 block mb-3">{project.category}</span>
-                <h3 className="text-3xl font-black text-[#1a1b1f] group-hover:text-[#001fcc] transition-colors tracking-tight">{project.title}</h3>
+                <h3 className="text-3xl font-black text-[#1a1b1f] group-hover:text-[#001fcc] transition-colors tracking-tight">{project.listTitle}</h3>
                 <p className="mt-4 text-gray-500 font-medium leading-relaxed line-clamp-2">
-                  Delivered with secure architecture, measurable business outcomes, and scalable deployment.
+                  {project.heroDescription}
                 </p>
-                <p className="mt-4 text-sm font-bold text-[#001fcc]">
-                  {project.route ? 'View case study' : 'Detailed case study coming soon'}
-                </p>
+                <p className="mt-4 text-sm font-bold text-[#001fcc]">View case study</p>
               </div>
             </div>
           ))}

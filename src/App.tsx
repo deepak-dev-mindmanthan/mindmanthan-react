@@ -21,23 +21,8 @@ const ServicesPage = React.lazy(() => import("./pages/ServicesPage"));
 const PortfolioPage = React.lazy(() => import("./pages/PortfolioPage"));
 const ContactPage = React.lazy(() => import("./pages/ContactPage"));
 const CaseStudies = React.lazy(() => import("./pages/CaseStudies"));
-const InsuranceCaseStudyPage = React.lazy(
-  () => import("./pages/InsuranceCaseStudyPage"),
-);
-const CoffeeCaseStudyPage = React.lazy(
-  () => import("./pages/CoffeeCaseStudyPage"),
-);
-const LondonTravelCaseStudyPage = React.lazy(
-  () => import("./pages/LondonTravelCaseStudyPage"),
-);
-const IotAssetCaseStudyPage = React.lazy(
-  () => import("./pages/IotAssetCaseStudyPage"),
-);
-const CloudDevopsCaseStudyPage = React.lazy(
-  () => import("./pages/CloudDevopsCaseStudyPage"),
-);
-const ApiIntegrationCaseStudyPage = React.lazy(
-  () => import("./pages/ApiIntegrationCaseStudyPage"),
+const CaseStudyDetailPage = React.lazy(
+  () => import("./pages/CaseStudyDetailPage"),
 );
 const CustomSoftwarePage = React.lazy(
   () => import("./pages/CustomSoftwarePage"),
@@ -508,19 +493,26 @@ const App: React.FC = () => {
         <Route
           path={ROUTES.insuranceCaseStudy}
           element={
-            <InsuranceCaseStudyPage onBackHome={() => navigate(ROUTES.home)} />
+            <CaseStudyDetailPage
+              caseStudyId="insurance"
+              onBackHome={() => navigate(ROUTES.home)}
+            />
           }
         />
         <Route
           path={ROUTES.coffeeCaseStudy}
           element={
-            <CoffeeCaseStudyPage onBackHome={() => navigate(ROUTES.home)} />
+            <CaseStudyDetailPage
+              caseStudyId="coffee"
+              onBackHome={() => navigate(ROUTES.home)}
+            />
           }
         />
         <Route
           path={ROUTES.londonTravelCaseStudy}
           element={
-            <LondonTravelCaseStudyPage
+            <CaseStudyDetailPage
+              caseStudyId="london-travel"
               onBackHome={() => navigate(ROUTES.home)}
             />
           }
@@ -528,13 +520,17 @@ const App: React.FC = () => {
         <Route
           path={ROUTES.iotAssetCaseStudy}
           element={
-            <IotAssetCaseStudyPage onBackHome={() => navigate(ROUTES.home)} />
+            <CaseStudyDetailPage
+              caseStudyId="iot-asset-monitoring"
+              onBackHome={() => navigate(ROUTES.home)}
+            />
           }
         />
         <Route
           path={ROUTES.cloudDevopsCaseStudy}
           element={
-            <CloudDevopsCaseStudyPage
+            <CaseStudyDetailPage
+              caseStudyId="cloud-devops-modernization"
               onBackHome={() => navigate(ROUTES.home)}
             />
           }
@@ -542,7 +538,8 @@ const App: React.FC = () => {
         <Route
           path={ROUTES.apiIntegrationCaseStudy}
           element={
-            <ApiIntegrationCaseStudyPage
+            <CaseStudyDetailPage
+              caseStudyId="api-integration-hub"
               onBackHome={() => navigate(ROUTES.home)}
             />
           }
