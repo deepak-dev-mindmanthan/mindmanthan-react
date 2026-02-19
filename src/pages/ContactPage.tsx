@@ -4,10 +4,10 @@ import { SITE_CONFIG } from '../config/siteConfig';
 import { submitContactForm } from '../services/apiService';
 
 interface ContactPageProps {
-  onBackHome?: () => void;
+  onExploreServicesClick?: () => void;
 }
 
-const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
+const ContactPage: React.FC<ContactPageProps> = ({ onExploreServicesClick }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -318,7 +318,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
             Our team is ready to help you build something amazing. Let's work together to achieve your goals.
           </p>
           <button
-            onClick={onBackHome}
+            onClick={onExploreServicesClick}
             className="bg-white text-[#001fcc] px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all active:scale-95"
           >
             Explore Our Services

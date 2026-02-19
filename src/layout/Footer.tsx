@@ -1,7 +1,9 @@
 import React from 'react';
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { SITE_CONFIG } from '../config/siteConfig';
 import { CONTENT_CONFIG, getCopyrightYears } from '../config/contentConfig';
+import { ROUTES } from '../routes/routes';
 
 const MindManthanLogoFooter = () => (
   <div className="flex items-center gap-4 group cursor-pointer flex-wrap">
@@ -165,8 +167,8 @@ const Footer: React.FC<FooterProps> = ({ onServicesClick, onAboutUsClick, onPort
         <div className="mt-16 md:mt-24 pt-8 md:pt-10 border-t border-blue-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-gray-600 text-sm font-medium">
           <p className="break-words">&copy; {getCopyrightYears()} {CONTENT_CONFIG.company.legalName}. All Rights Reserved.</p>
           <div className="w-full md:w-auto flex flex-wrap justify-center md:justify-end gap-6">
-            <a href="/contact" className="hover:text-[#001fcc]">Privacy Policy</a>
-            <a href="/contact" className="hover:text-[#001fcc]">Terms of Service</a>
+            <Link to={ROUTES.privacyPolicy} className="hover:text-[#001fcc]">Privacy Policy</Link>
+            <Link to={ROUTES.termsOfService} className="hover:text-[#001fcc]">Terms of Service</Link>
             <a href="/sitemap.xml" className="hover:text-[#001fcc]">Sitemap</a>
           </div>
         </div>

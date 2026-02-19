@@ -36,6 +36,8 @@ const VIEW_PATHS: Record<string, string> = {
   services: ROUTES.services,
   portfolio: ROUTES.portfolio,
   contact: ROUTES.contact,
+  "privacy-policy": ROUTES.privacyPolicy,
+  "terms-of-service": ROUTES.termsOfService,
   "case-studies": ROUTES.caseStudies,
   "insurance-case-study": ROUTES.insuranceCaseStudy,
   "coffee-case-study": ROUTES.coffeeCaseStudy,
@@ -157,6 +159,22 @@ export const SEO_CONFIG: Record<string, PageSEO> = {
     canonical: getCanonicalUrl("contact"),
     ogUrl: getCanonicalUrl("contact"),
     schemaType: 'WebPage'
+  },
+  "privacy-policy": {
+    ...DEFAULT_SEO,
+    title: withBrand("Privacy Policy"),
+    description: `Read how ${SITE_NAME} collects, processes, and safeguards personal and business data.`,
+    canonical: getCanonicalUrl("privacy-policy"),
+    ogUrl: getCanonicalUrl("privacy-policy"),
+    schemaType: "WebPage",
+  },
+  "terms-of-service": {
+    ...DEFAULT_SEO,
+    title: withBrand("Terms of Service"),
+    description: `Review the legal terms for using ${SITE_NAME} website and service engagements.`,
+    canonical: getCanonicalUrl("terms-of-service"),
+    ogUrl: getCanonicalUrl("terms-of-service"),
+    schemaType: "WebPage",
   },
   'case-studies': {
     ...DEFAULT_SEO,

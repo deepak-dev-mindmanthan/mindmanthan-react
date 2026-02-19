@@ -6,10 +6,10 @@ import about2 from '../assets/images/about2.jpg';
 import about3 from '../assets/images/about3.jpg';
 
 interface TeamPageProps {
-  onBackHome: () => void;
+  onContactClick: () => void;
 }
 
-const TeamPage: React.FC<TeamPageProps> = ({ onBackHome }) => {
+const TeamPage: React.FC<TeamPageProps> = ({ onContactClick }) => {
   const leaders = [
     {
       name: 'Aarav Mehta',
@@ -104,10 +104,10 @@ const TeamPage: React.FC<TeamPageProps> = ({ onBackHome }) => {
             We align quickly, plan clearly, and deliver with precision.
           </p>
           <button
-            onClick={onBackHome}
+            onClick={onContactClick}
             className="bg-[#001fcc] text-white px-8 py-4 rounded-lg font-bold hover:bg-[#0015a8] transition-colors"
           >
-            Back to Home
+            Contact Us
           </button>
         </div>
       </section>

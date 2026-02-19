@@ -3,10 +3,10 @@ import { Star, Trophy, Quote } from 'lucide-react';
 import { CONTENT_CONFIG } from '../config/contentConfig';
 
 interface ReviewsAwardsPageProps {
-  onBackHome: () => void;
+  onContactClick: () => void;
 }
 
-const ReviewsAwardsPage: React.FC<ReviewsAwardsPageProps> = ({ onBackHome }) => {
+const ReviewsAwardsPage: React.FC<ReviewsAwardsPageProps> = ({ onContactClick }) => {
   const reviews = [
     {
       name: 'Rahul Mehta',
@@ -102,10 +102,10 @@ const ReviewsAwardsPage: React.FC<ReviewsAwardsPageProps> = ({ onBackHome }) => 
             We can share case studies, timelines, and references relevant to your industry.
           </p>
           <button
-            onClick={onBackHome}
+            onClick={onContactClick}
             className="bg-[#001fcc] text-white px-8 py-4 rounded-lg font-bold hover:bg-[#0015a8] transition-colors"
           >
-            Back to Home
+            Contact Us
           </button>
         </div>
       </section>

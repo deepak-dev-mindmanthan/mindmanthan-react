@@ -8,6 +8,8 @@ export const ROUTES = {
   services: "/services",
   portfolio: "/portfolio",
   contact: "/contact",
+  privacyPolicy: "/privacy-policy",
+  termsOfService: "/terms-of-service",
   caseStudies: "/case-studies",
   insuranceCaseStudy: "/case-studies/insurance",
   coffeeCaseStudy: "/case-studies/coffee",

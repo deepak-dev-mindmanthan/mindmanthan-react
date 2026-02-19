@@ -20,6 +20,8 @@ const ReviewsAwardsPage = React.lazy(() => import("./pages/ReviewsAwardsPage"));
 const ServicesPage = React.lazy(() => import("./pages/ServicesPage"));
 const PortfolioPage = React.lazy(() => import("./pages/PortfolioPage"));
 const ContactPage = React.lazy(() => import("./pages/ContactPage"));
+const PrivacyPolicyPage = React.lazy(() => import("./pages/PrivacyPolicyPage"));
+const TermsOfServicePage = React.lazy(() => import("./pages/TermsOfServicePage"));
 const CaseStudies = React.lazy(() => import("./pages/CaseStudies"));
 const CaseStudyDetailPage = React.lazy(
   () => import("./pages/CaseStudyDetailPage"),
@@ -287,6 +289,8 @@ type View =
   | "services"
   | "portfolio"
   | "contact"
+  | "privacy-policy"
+  | "terms-of-service"
   | "events"
   | "blog-detail"
   | "blog-archive"
@@ -317,6 +321,8 @@ const App: React.FC = () => {
       [ROUTES.services]: "services",
       [ROUTES.portfolio]: "portfolio",
       [ROUTES.contact]: "contact",
+      [ROUTES.privacyPolicy]: "privacy-policy",
+      [ROUTES.termsOfService]: "terms-of-service",
       [ROUTES.caseStudies]: "case-studies",
       [ROUTES.insuranceCaseStudy]: "insurance-case-study",
       [ROUTES.coffeeCaseStudy]: "coffee-case-study",
@@ -460,15 +466,15 @@ const App: React.FC = () => {
         />
         <Route
           path={ROUTES.team}
-          element={<TeamPage onBackHome={() => navigate(ROUTES.home)} />}
+          element={<TeamPage onContactClick={() => navigate(ROUTES.contact)} />}
         />
         <Route
           path={ROUTES.partners}
-          element={<PartnersPage onBackHome={() => navigate(ROUTES.home)} />}
+          element={<PartnersPage onContactClick={() => navigate(ROUTES.contact)} />}
         />
         <Route
           path={ROUTES.reviews}
-          element={<ReviewsAwardsPage onBackHome={() => navigate(ROUTES.home)} />}
+          element={<ReviewsAwardsPage onContactClick={() => navigate(ROUTES.contact)} />}
         />
         <Route
           path={ROUTES.services}
@@ -482,7 +488,19 @@ const App: React.FC = () => {
         />
         <Route
           path={ROUTES.contact}
-          element={<ContactPage onBackHome={() => navigate(ROUTES.home)} />}
+          element={
+            <ContactPage
+              onExploreServicesClick={() => navigate(ROUTES.services)}
+            />
+          }
+        />
+        <Route
+          path={ROUTES.privacyPolicy}
+          element={<PrivacyPolicyPage onContactClick={() => navigate(ROUTES.contact)} />}
+        />
+        <Route
+          path={ROUTES.termsOfService}
+          element={<TermsOfServicePage onContactClick={() => navigate(ROUTES.contact)} />}
         />
         <Route
           path={ROUTES.caseStudies}

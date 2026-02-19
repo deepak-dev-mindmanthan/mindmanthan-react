@@ -27,7 +27,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigateHome }) => {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="py-32 lg:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
           <div className="text-sm uppercase tracking-widest text-gray-500 mb-4 font-medium">Solutions</div>
           <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-[#1a1b1f] mb-6 leading-tight">IT Services for Apps, Websites, and IoT</h1>

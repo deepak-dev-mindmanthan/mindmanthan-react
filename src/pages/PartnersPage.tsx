@@ -3,10 +3,10 @@ import { Award, Cloud, ShieldCheck, Link2, Cpu } from 'lucide-react';
 import { CONTENT_CONFIG } from '../config/contentConfig';
 
 interface PartnersPageProps {
-  onBackHome: () => void;
+  onContactClick: () => void;
 }
 
-const PartnersPage: React.FC<PartnersPageProps> = ({ onBackHome }) => {
+const PartnersPage: React.FC<PartnersPageProps> = ({ onContactClick }) => {
   const partners = [
     { name: 'AWS Partner Network', icon: <Cloud size={28} /> },
     { name: 'Microsoft Azure', icon: <Cloud size={28} /> },
@@ -97,10 +97,10 @@ const PartnersPage: React.FC<PartnersPageProps> = ({ onBackHome }) => {
             We align to your technology stack, compliance requirements, and operational goals.
           </p>
           <button
-            onClick={onBackHome}
+            onClick={onContactClick}
             className="bg-[#001fcc] text-white px-8 py-4 rounded-lg font-bold hover:bg-[#0015a8] transition-colors"
           >
-            Back to Home
+            Contact Us
           </button>
         </div>
       </section>
