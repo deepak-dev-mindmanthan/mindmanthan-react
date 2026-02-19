@@ -294,6 +294,7 @@ const Navbar: React.FC<NavbarProps> = ({
                           onAboutUsClick={onAboutUsClick}
                           onWhyUsClick={onWhyUsClick}
                           onContactClick={onContactClick || onGetInTouchClick}
+                          onEventsClick={onEventsClick}
                         />
                       ) : link.label === 'Resources' ? (
                         <ResourcesDropdown

@@ -298,12 +298,6 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
           <p className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
             We're happy to answer any questions you may have and help you determine which of our services best fit your needs.
           </p>
-          <a 
-            href={`tel:${SITE_CONFIG.business.phoneHref}`} 
-            className="inline-block text-lg font-bold text-[#2dd4bf] hover:text-cyan-300 transition-colors mb-8"
-          >
-            Call us at: {SITE_CONFIG.business.phone}
-          </a>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
               onClick={scrollToContactForm}

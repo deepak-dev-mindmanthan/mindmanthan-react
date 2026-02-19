@@ -76,7 +76,7 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
     { title: 'Apps & Mobility Platforms', icon: <Smartphone size={24} className="text-[#001fcc]" />, action: onMobileAppClick },
     { title: 'E-commerce Platforms', icon: <ShoppingCart size={24} className="text-[#001fcc]" />, action: onEcommerceClick },
     { title: 'AI Automation Systems', icon: <Bot size={24} className="text-[#001fcc]" />, action: onAiAutomationClick },
-    { title: 'AI + IoT Solutions', icon: <Cpu size={24} className="text-[#001fcc]" />, action: onIotSolutionsClick },
+    { title: 'IoT Solutions', icon: <Cpu size={24} className="text-[#001fcc]" />, action: onIotSolutionsClick },
     { title: 'Maintenance & Support', icon: <Headset size={24} className="text-[#001fcc]" />, action: onConsultingClick }
   ];
 

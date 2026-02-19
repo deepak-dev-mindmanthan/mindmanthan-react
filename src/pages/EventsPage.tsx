@@ -18,9 +18,8 @@ const sampleEvents: EventItem[] = [
 const EventsPage: React.FC<{ onContactClick?: () => void }> = ({ onContactClick }) => {
   return (
     <div className="min-h-screen bg-white">
-      <div className="max-w-6xl mx-auto py-20 px-6">
+      <div className="max-w-6xl mx-auto py-24 px-6">
         <h1 className="text-4xl font-black mb-6">Events & Job Postings</h1>
-        <p className="text-gray-600 mb-10">Recent job openings and upcoming events posted by the admin. This list will be managed via the admin panel.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {sampleEvents.map((ev) => (
@@ -36,9 +35,6 @@ const EventsPage: React.FC<{ onContactClick?: () => void }> = ({ onContactClick 
           ))}
         </div>
 
-        <div className="mt-12 text-right">
-          <p className="text-gray-500">Admins can manage events and job postings from the admin panel.</p>
-        </div>
       </div>
     </div>
   );
