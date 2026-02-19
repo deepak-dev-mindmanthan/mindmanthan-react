@@ -62,7 +62,7 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
     { label: 'E-commerce Solutions', action: onEcommerceClick },
     { label: 'AI Automations & Integration', action: onAiAutomationClick },
     { label: 'IoT Solutions', action: onIotSolutionsClick },
-    { label: 'Workflow Automation', action: onDigitalTransformationClick },
+    { label: 'Digital Transformation', action: onDigitalTransformationClick },
     { label: 'Security & Infrastructure', action: onSecurityClick },
     { label: 'Cloud & DevOps Services', action: onCloudDevopsClick },
     { label: 'API Integration & Support', action: onApiIntegrationSupportClick },
