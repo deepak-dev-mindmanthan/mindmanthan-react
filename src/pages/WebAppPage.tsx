@@ -62,6 +62,20 @@ const WebTechItem: React.FC<{ title: string; index: number }> = ({ title, index 
 const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+  const scrollToConsultationForm = () => {
+    const section = document.querySelector('[data-consultation-form]');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const scrollToWebStackSection = () => {
+    const section = document.querySelector('[data-web-stack-section]');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const testimonials: TestimonialData[] = [
     {
       id: 'david',
@@ -118,7 +132,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner Section - Exactly like API Integration & Support */}
-      <section className="relative min-h-[500px] flex items-center overflow-hidden bg-gradient-to-r from-[#00055c] via-[#000d8c] to-[#0019ff] py-32 px-6 lg:px-12">
+      <section className="relative min-h-[500px] flex items-center overflow-hidden bg-gradient-to-r from-[#00055c] via-[#000d8c] to-[#0019ff] py-12 md:py-18 lg:py-24 px-6 lg:px-12">
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[50%] h-full opacity-40 pointer-events-none">
           <svg width="100%" height="100%" viewBox="0 0 400 400" preserveAspectRatio="none">
             <pattern id="dotPatternWeb" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
@@ -155,7 +169,11 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
               Build powerful, scalable web platforms designed for high traffic and complex workflows. We engineer the future of the web.
             </p>
 
-            <button className="bg-[#e8edff] text-[#001fcc] px-10 py-4 rounded font-black text-sm uppercase tracking-widest hover:bg-white transition-all active:scale-95 shadow-2xl shadow-black/20">
+            <button
+              type="button"
+              onClick={scrollToConsultationForm}
+              className="bg-[#e8edff] text-[#001fcc] px-10 py-4 rounded font-black text-sm uppercase tracking-widest hover:bg-white transition-all active:scale-95 shadow-2xl shadow-black/20"
+            >
               Start Your Development Roadmap
             </button>
           </div>
@@ -163,7 +181,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Benefits Section - Identical Structure to API Integration & Support */}
-      <section className="bg-white py-32 px-6 lg:px-12">
+      <section className="bg-white py-12 md:py-18 lg:py-24 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-stretch">
           <div className="flex-[1.2]">
             <h2 className="text-4xl md:text-5xl lg:text-[54px] font-black text-[#1a1b1f] leading-[1.05] tracking-tight mb-8">
@@ -224,7 +242,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Process Section - Identical Structure to API Integration & Support */}
-      <section className="bg-white py-32 px-6 lg:px-12 border-t border-gray-50">
+      <section className="bg-white py-12 md:py-18 lg:py-24 px-6 lg:px-12 border-t border-gray-50">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-stretch">
           <div className="flex-[1.2]">
             <h2 className="text-4xl md:text-5xl lg:text-[54px] font-black text-[#1a1b1f] leading-[1.05] tracking-tight mb-8">
@@ -252,7 +270,11 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
               ))}
             </div>
 
-            <button className="mt-12 bg-[#1a1b1f] text-white px-10 py-4 rounded-xl font-black text-sm uppercase tracking-widest hover:bg-[#001fcc] transition-all shadow-xl shadow-gray-400/10">
+            <button
+              type="button"
+              onClick={scrollToWebStackSection}
+              className="mt-12 bg-[#1a1b1f] text-white px-10 py-4 rounded-xl font-black text-sm uppercase tracking-widest hover:bg-[#001fcc] transition-all shadow-xl shadow-gray-400/10"
+            >
               See Our Web Stack
             </button>
           </div>
@@ -271,7 +293,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Expertise Capabilities - Identical Structure to API Integration & Support */}
-      <section className="py-32 bg-[#f8faff] px-6">
+      <section className="py-12 md:py-18 lg:py-24 bg-[#f8faff] px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h3 className="text-4xl md:text-5xl font-black text-[#1a1b1f] tracking-tighter mb-6">
@@ -305,7 +327,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Roles/Capabilities Section - Identical Structure to API Integration & Support */}
-      <section className="py-32 bg-white px-6 border-t border-gray-100 overflow-visible">
+      <section className="py-12 md:py-18 lg:py-24 bg-white px-6 border-t border-gray-100 overflow-visible" data-web-stack-section>
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-20 items-start">
             <div className="flex-1 lg:sticky lg:top-40">
@@ -329,7 +351,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Testimonials - Identical Structure to API Integration & Support */}
-      <section className="bg-white py-32 px-6 border-t border-gray-100">
+      <section className="bg-white py-12 md:py-18 lg:py-24 px-6 border-t border-gray-100">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl lg:text-[44px] font-black text-[#1a1b1f] leading-[1.1] tracking-tighter mb-12">
             Why industry leaders choose our code
@@ -392,7 +414,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Unified Contact Form - Identical Structure to API Integration & Support */}
-      <section className="bg-white px-6 pb-32 pt-16">
+      <section className="bg-white px-6 pb-12 md:pb-18 lg:pb-24 pt-16" data-consultation-form>
         <div className="max-w-7xl mx-auto rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row min-h-[640px] lg:min-h-[800px]">
           <div className="flex-1 flex flex-col">
             <div className="bg-[#1a1b1f] p-12 md:p-16">
@@ -436,10 +458,10 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Trust & Stats Section - Identical Structure to API Integration & Support */}
-      <section className="py-24 bg-white px-6 border-y border-gray-100">
+      <section className="py-12 md:py-18 lg:py-24 bg-white px-6 border-y border-gray-100">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="lg:max-w-xl">
-            <h3 className="text-4xl font-black text-[#1a1b1f] mb-8 tracking-tighter">
+            <h3 className="text-3xl sm:text-4xl font-black text-[#1a1b1f] mb-8 tracking-tighter">
               World-Class Web Engineering.
             </h3>
             <ul className="space-y-6">
