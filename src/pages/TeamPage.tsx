@@ -40,7 +40,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ onBackHome }) => {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative bg-white text-center py-20 lg:py-32 px-6 lg:px-12">
+      <section className="relative bg-white text-center pt-32 pb-12 md:pb-18 lg:pb-24 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
           <div className="text-sm uppercase tracking-widest text-gray-500 mb-8 font-medium">Our Team</div>
           <h1 className="text-5xl lg:text-6xl font-black leading-tight mb-6 text-[#1a1b1f]">
@@ -52,7 +52,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ onBackHome }) => {
         </div>
       </section>
 
-      <section className="py-20 lg:py-28 px-6 lg:px-12">
+      <section className="py-8 md:py-12 lg:py-18 px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {leaders.map((leader) => (
@@ -71,7 +71,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ onBackHome }) => {
         </div>
       </section>
 
-      <section className="py-20 lg:py-28 px-6 lg:px-12 bg-[#f8faff]">
+      <section className="py-12 md:py-18 lg:py-24 px-6 lg:px-12 bg-[#f8faff]">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl lg:text-5xl font-black text-[#1a1b1f] mb-6 tracking-tight">
@@ -95,7 +95,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ onBackHome }) => {
         </div>
       </section>
 
-      <section className="py-20 lg:py-28 px-6 lg:px-12">
+      <section className="py-12 md:py-18 lg:py-24 px-6 lg:px-12">
         <div className="max-w-5xl mx-auto text-center">
           <h3 className="text-4xl md:text-5xl font-black text-[#1a1b1f] mb-6 tracking-tight">
             Ready to work with a senior delivery team?

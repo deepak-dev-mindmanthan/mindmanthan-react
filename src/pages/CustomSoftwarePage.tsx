@@ -70,6 +70,13 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
     }
   };
 
+  const scrollToConsultationForm = () => {
+    const section = document.querySelector('[data-consultation-form]');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const testimonials: TestimonialData[] = [
     {
       id: 'amanda',
@@ -186,7 +193,17 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
             </p>
 
             {/* CTA Button */}
-            <button onClick={onNavigateHome} className="bg-[#e8edff] text-[#001fcc] px-10 py-4 rounded font-black text-sm uppercase tracking-widest hover:bg-white transition-all active:scale-95 shadow-2xl shadow-black/20 cursor-pointer">
+            <button
+              type="button"
+              onClick={() => {
+                if (onNavigateHome) {
+                  onNavigateHome();
+                  return;
+                }
+                scrollToConsultationForm();
+              }}
+              className="bg-[#e8edff] text-[#001fcc] px-10 py-4 rounded font-black text-sm uppercase tracking-widest hover:bg-white transition-all active:scale-95 shadow-2xl shadow-black/20 cursor-pointer"
+            >
               {CONTENT_CONFIG.cta.scheduleConsultation}
             </button>
           </div>
@@ -433,7 +450,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
       </section>
 
       {/* Final CTA Section */}
-      <section className="bg-white px-6 pb-12 md:pb-18 lg:pb-24 pt-8 md:pt-16">
+      <section className="bg-white px-6 pb-8 md:pb-12 lg:pb-24 pt-8 md:pt-16" data-consultation-form>
         <div className="max-w-7xl mx-auto rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row min-h-[640px] lg:min-h-[800px]">
           <div className="flex-1 flex flex-col">
             <div className="bg-[#1a1b1f] p-12 md:p-16">

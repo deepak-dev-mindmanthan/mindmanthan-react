@@ -77,10 +77,10 @@ const AboutUsPage: React.FC<{ onLearnMoreClick?: () => void }> = ({ onLearnMoreC
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative bg-white text-center py-20 lg:py-32 px-6 lg:px-12">
-        <div className="max-w-4xl mx-auto">
+      <div className="relative bg-white text-center pt-32 pb-18 px-6 lg:px-12">
+        <div className="max-w-4xl mx-auto mb-4">
           <div className="text-sm uppercase tracking-widest text-gray-500 mb-8 font-medium">ABOUT</div>
-          <h1 className="text-5xl lg:text-6xl font-black leading-tight mb-6 text-[#1a1b1f]">
+          <h1 className="text-4xl lg:text-6xl font-black leading-tight mb-6 text-[#1a1b1f]">
             We build software systems that scale
           </h1>
           <p className="text-xl text-gray-600">

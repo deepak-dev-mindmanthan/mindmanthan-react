@@ -143,7 +143,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
   return (
     <div className="w-full">
       {/* Header Section */}
-      <section className="py-24 px-6 bg-gradient-to-br from-[#f4f7ff] to-white">
+      <section className="pt-32 pb-12 md:pb-18 lg:pb-24 px-6 bg-gradient-to-br from-[#f4f7ff] to-white">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-[#010417] mb-6 tracking-tight">
             Get in Touch
@@ -155,7 +155,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBackHome }) => {
       </section>
 
       {/* Contact Information & Form */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-12 md:py-18 lg:py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-20">
             {contactInfo.map((info, index) => {

@@ -66,7 +66,7 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
     { label: 'Security & Infrastructure', action: onSecurityClick },
     { label: 'Cloud & DevOps Services', action: onCloudDevopsClick },
     { label: 'API Integration & Support', action: onApiIntegrationSupportClick },
-    { label: 'Maintenance & Technical Support', action: onConsultingClick },
+    { label: 'Consulting & Strategy', action: onConsultingClick },
     { label: 'iOS App Development', action: onIOSDevelopmentClick },
     { label: 'Android App Development', action: onAndroidDevelopmentClick }
   ];
@@ -77,7 +77,7 @@ const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
     { title: 'E-commerce Platforms', icon: <ShoppingCart size={24} className="text-[#001fcc]" />, action: onEcommerceClick },
     { title: 'AI Automation Systems', icon: <Bot size={24} className="text-[#001fcc]" />, action: onAiAutomationClick },
     { title: 'IoT Solutions', icon: <Cpu size={24} className="text-[#001fcc]" />, action: onIotSolutionsClick },
-    { title: 'Maintenance & Support', icon: <Headset size={24} className="text-[#001fcc]" />, action: onConsultingClick }
+    { title: 'Consulting & Strategy', icon: <Headset size={24} className="text-[#001fcc]" />, action: onConsultingClick }
   ];
 
   const caseStudies = [

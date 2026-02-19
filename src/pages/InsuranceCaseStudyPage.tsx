@@ -8,7 +8,7 @@ interface InsuranceCaseStudyPageProps {
 const InsuranceCaseStudyPage: React.FC<InsuranceCaseStudyPageProps> = ({ onBackHome }) => {
   return (
     <div className="min-h-screen bg-white">
-      <section className="bg-white pt-40 pb-20 px-6 lg:px-12 overflow-hidden">
+      <section className="bg-white pt-32 pb-12 md:pb-18 lg:pb-20 px-6 lg:px-12 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="inline-block px-3 py-1 bg-[#f1f5f9] rounded-md mb-8">
             <span className="text-[#64748b] text-[11px] font-black uppercase tracking-[0.2em]">Enterprise Software</span>
@@ -26,18 +26,8 @@ const InsuranceCaseStudyPage: React.FC<InsuranceCaseStudyPageProps> = ({ onBackH
         </div>
       </section>
 
-      <div className="border-y border-gray-100 py-6 px-6">
-        <div className="max-w-7xl mx-auto flex justify-between items-center text-[12px] font-black uppercase tracking-widest text-gray-400">
-          <button onClick={onBackHome} className="hover:text-[#001fcc] transition-colors">Home</button>
-          <div className="flex gap-4 items-center">
-            <span>Case Studies</span>
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-[#1a1b1f]">Insurance Platform</span>
-          </div>
-        </div>
-      </div>
 
-      <section className="py-24 px-6">
+      <section className="py-12 md:py-18 lg:py-24 px-6">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
           <div>
             <h2 className="text-4xl font-black text-[#1a1b1f] mb-8">Key Work Delivered</h2>

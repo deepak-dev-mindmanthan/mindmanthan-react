@@ -19,7 +19,7 @@ const BlogArchive: React.FC<BlogArchiveProps> = ({ onReadMoreClick }) => {
   return (
     <div className="w-full">
       {/* Header Section */}
-      <section className="pt-24 pb-12 px-6 bg-gradient-to-br from-[#f4f7ff] to-white">
+      <section className="pt-32 pb-12 px-6 bg-gradient-to-br from-[#f4f7ff] to-white">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-[#010417] mb-6 tracking-tight">
             Blog & Resources

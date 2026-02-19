@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import le1 from '../assets/images/le1.png';
+import le1 from '../assets/images/le3.webp';
 import le2 from '../assets/images/le2.png';
 import { SITE_CONFIG } from '../config/siteConfig';
 import { CONTENT_CONFIG } from '../config/contentConfig';
@@ -23,16 +23,16 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
   };
 
   const stats = [
-    { year: '10+', label: 'Years of delivery' },
-    { year: '500+', label: 'Clients Trust Us' },
-    { year: '1,000+', label: 'Projects Completed' },
+    { year: '5+', label: 'Years of delivery' },
+    { year: '100+', label: 'Clients Trust Us' },
+    { year: '200+', label: 'Projects Completed' },
     { year: 'Service excellence', label: 'Industry Recognition' },
   ];
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative bg-white text-center py-20 lg:py-24 px-6 lg:px-12 pb-32">
+      <div className="relative bg-white text-center pb-20 pt-32 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
           <div className="text-sm uppercase tracking-widest text-gray-500 mb-8 font-medium">WHY US</div>
           <h1 className="text-5xl lg:text-6xl font-black leading-tight mb-6 text-[#1a1b1f]">
@@ -45,7 +45,7 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
       </div>
 
       {/* Image and Text Section */}
-      <div className="py-20 lg:py-32 bg-white -mt-16">
+      <div className="py-12 md:py-18 lg:py-24 bg-white -mt-16">
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
           <div className="mb-12">
             <img loading="lazy" decoding="async" 
@@ -61,7 +61,7 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
       </div>
 
       {/* Stats Section */}
-      <div className="py-20 lg:py-32 bg-gray-50">
+      <div className="py-12 md:py-20 lg:py-24 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
           <h2 className="text-4xl lg:text-5xl font-black text-[#1a1b1f] mb-16 text-center">
             Our Impact
@@ -73,7 +73,13 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center p-8 bg-white rounded-lg shadow-sm border border-gray-100">
-                <div className="text-4xl lg:text-5xl font-black text-[#001fcc] mb-4">
+                <div
+                  className={`font-black text-[#001fcc] mb-4 ${
+                    stat.year.toLowerCase().includes('service')
+                      ? 'text-2xl lg:text-3xl leading-tight'
+                      : 'text-4xl lg:text-5xl'
+                  }`}
+                >
                   {stat.year}
                 </div>
                 <p className="text-gray-600 font-medium">{stat.label}</p>
@@ -84,7 +90,7 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
       </div>
 
       {/* Three Pillars Section */}
-      <div className="py-20 lg:py-32 bg-white border-t border-gray-200">
+      <div className="py-12 md:py-20 lg:py-24 bg-white border-t border-gray-200">
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-3 gap-12">
             {/* Engineering Team Card */}
@@ -166,7 +172,7 @@ const WhyUsPage: React.FC<WhyUsPageProps> = ({ onNavigateHome, onExploreServices
       
 
       {/* Our Impact (placed just above footer) */}
-      <div className="py-20 lg:py-32">
+      <div className="py-12 md:py-20 lg:py-24">
         <div className="max-w-6xl mx-auto px-6 lg:px-12">
           <div className="relative bg-[#1f2023] text-white rounded-lg overflow-hidden p-10 lg:p-16">
             <div className="mb-6">

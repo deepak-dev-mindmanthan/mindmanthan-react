@@ -17,8 +17,8 @@ const sampleEvents: EventItem[] = [
 
 const EventsPage: React.FC<{ onContactClick?: () => void }> = ({ onContactClick }) => {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-6xl mx-auto py-24 px-6">
+    <div className="bg-white">
+      <div className="max-w-6xl mx-auto pt-32 pb-12 md:pb-18 lg:pb-24 px-6">
         <h1 className="text-4xl font-black mb-6">Events & Job Postings</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
