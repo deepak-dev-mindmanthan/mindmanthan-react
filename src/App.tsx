@@ -3,15 +3,6 @@ import SEO from "./components/SEO";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 import { getSEO, getSchema } from "./config/seoConfig";
-import Hero from "./sections/Hero";
-import StatsBanner from "./sections/StatsBanner";
-import LatestInsights from "./sections/LatestInsights";
-import ContactSection from "./sections/ContactSection";
-import JourneySection from "./sections/JourneySection";
-import CoreValues from "./sections/CoreValues";
-import Reviews from "./sections/Reviews";
-import RecognitionGrid from "./sections/RecognitionGrid";
-import FAQSection from "./sections/FAQSection";
 const AboutUsPage = React.lazy(() => import("./pages/AboutUsPage"));
 const WhyUsPage = React.lazy(() => import("./pages/WhyUsPage"));
 const TeamPage = React.lazy(() => import("./pages/TeamPage"));
@@ -52,6 +43,15 @@ const ConsultingProvidersPage = React.lazy(
 const EventsPage = React.lazy(() => import("./pages/EventsPage"));
 const BlogArchive = React.lazy(() => import("./pages/BlogArchive"));
 const BlogPage = React.lazy(() => import("./pages/BlogPage"));
+const Hero = React.lazy(() => import("./sections/Hero"));
+const StatsBanner = React.lazy(() => import("./sections/StatsBanner"));
+const LatestInsights = React.lazy(() => import("./sections/LatestInsights"));
+const ContactSection = React.lazy(() => import("./sections/ContactSection"));
+const JourneySection = React.lazy(() => import("./sections/JourneySection"));
+const CoreValues = React.lazy(() => import("./sections/CoreValues"));
+const Reviews = React.lazy(() => import("./sections/Reviews"));
+const RecognitionGrid = React.lazy(() => import("./sections/RecognitionGrid"));
+const FAQSection = React.lazy(() => import("./sections/FAQSection"));
 import { Shield, RefreshCw } from "lucide-react";
 import {
   Navigate,
