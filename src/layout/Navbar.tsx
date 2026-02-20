@@ -45,7 +45,7 @@ interface NavbarProps {
 
 const MindManthanLogo = ({ isLight = false }: { isLight?: boolean }) => {
   const activeLogo = isLight ? logoDark : logoLight;
-  const textColor = isLight ? "text-[#2563eb]" : "text-white";
+  const textColor = isLight ? "text-[#001fcc]" : "text-white";
 
   return (
     <div className="flex items-center gap-3 group cursor-pointer">
@@ -294,7 +294,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => {
                   handleGetInTouch();
                 }}
-                className="px-6 py-2.5 rounded-lg font-semibold text-[14px] text-white bg-blue-600 hover:bg-blue-700 transition-all active:scale-95 shadow-sm"
+                className="px-6 py-2.5 rounded-lg font-semibold text-[14px] text-white bg-[#001fcc] hover:bg-blue-700 transition-all active:scale-95 shadow-sm"
               >
                 {CONTENT_CONFIG.cta.getInTouch}
               </button>
@@ -305,7 +305,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => {
                   handleGetInTouch();
                 }}
-                className="max-[419px]:hidden px-3 py-2 rounded-md text-[12px] font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                className="max-[419px]:hidden px-3 py-2 rounded-md text-[12px] font-semibold text-white bg-[#001fcc] hover:bg-blue-700 transition-colors"
               >
                 {CONTENT_CONFIG.cta.getInTouch}
               </button>

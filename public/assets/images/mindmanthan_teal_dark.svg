@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164.56 178.53">
-  
-    <defs>
-      <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#2563EB"/>
-        <stop offset="100%" stop-color="#7C3AED"/>
-      </linearGradient>
-    </defs>
-    
-<defs>
+  <defs>
     <style>
       .cls-1 {
         stroke: #001fcc;
@@ -21,7 +13,7 @@
       }
 
       .cls-3 {
-        fill: url(#g);
+        fill: #0D9488;
       }
 
       .cls-4 {
@@ -29,7 +21,7 @@
       }
 
       .cls-2 {
-        stroke: url(#g);
+        stroke: #0D9488;
       }
     </style>
   </defs>
