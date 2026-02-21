@@ -143,12 +143,12 @@ const ContactPage: React.FC<ContactPageProps> = ({ onExploreServicesClick }) => 
   return (
     <div className="w-full">
       {/* Header Section */}
-      <section className="pt-32 pb-12 md:pb-18 lg:pb-24 px-6 bg-gradient-to-br from-[#f4f7ff] to-white">
+      <section className="pt-24 sm:pt-28 md:pt-32 pb-10 md:pb-18 lg:pb-24 px-6 bg-gradient-to-br from-[#f4f7ff] to-white">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-[#010417] mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-[#010417] mb-4 sm:mb-6 tracking-tight">
             Get in Touch
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Have a project in mind? We'd love to hear from you. Contact our team and let's discuss how we can help transform your business.
           </p>
         </div>
@@ -157,22 +157,22 @@ const ContactPage: React.FC<ContactPageProps> = ({ onExploreServicesClick }) => 
       {/* Contact Information & Form */}
       <section className="py-12 md:py-18 lg:py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-20">
             {contactInfo.map((info, index) => {
               const Icon = info.icon;
               return (
                 <a
                   key={index}
                   href={info.link}
-                  className="group p-8 rounded-2xl border border-gray-200 hover:border-[#001fcc] hover:bg-[#f4f7ff] transition-all duration-300 bg-white"
+                  className="group w-full p-6 sm:p-7 md:p-8 rounded-2xl border border-gray-200 hover:border-[#001fcc] hover:bg-[#f4f7ff] transition-all duration-300 bg-white overflow-hidden"
                 >
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
-                      <Icon className="w-8 h-8 text-[#001fcc] group-hover:scale-110 transition-transform" />
+                      <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-[#001fcc] group-hover:scale-110 transition-transform" />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-[#010417] mb-2">{info.title}</h3>
-                      <p className="text-gray-600 group-hover:text-[#001fcc] transition-colors">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-base sm:text-lg font-bold text-[#010417] mb-1 sm:mb-2">{info.title}</h3>
+                      <p className="text-sm sm:text-base text-gray-600 group-hover:text-[#001fcc] transition-colors break-words">
                         {info.value}
                       </p>
                     </div>
