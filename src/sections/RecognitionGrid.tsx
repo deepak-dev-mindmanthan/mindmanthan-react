@@ -1,7 +1,7 @@
 import React from 'react';
 
 const RecognitionGrid: React.FC = () => {
-  const technologies = ['React', 'React Native', 'TypeScript', 'Node.js', 'Java', 'Swift', 'Flutter' ,'Jetpack Compose', 'Kotlin', 'AWS', 'Docker','kubernetes', 'Jenkins'];
+  const technologies = ['React', 'React Native', 'TypeScript', 'Node.js', 'Java', 'Swift', 'Flutter' ,'Kotlin', 'AWS', 'Docker','kubernetes', 'Jenkins'];
 
   return (
     <section className="bg-white py-12 px-6">
