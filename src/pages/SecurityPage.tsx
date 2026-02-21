@@ -8,7 +8,7 @@ interface SecurityPageProps {
   onBackHome: () => void;
 }
 
-const SecurityTechItem: React.FC<{ title: string; index: number }> = ({ title, index }) => {
+const SecurityTechItem: React.FC<{ title: string; description: string; index: number }> = ({ title, description, index }) => {
   const [isVisible, setIsVisible] = useState(false);
   const itemRef = useRef<HTMLDivElement>(null);
 
@@ -37,7 +37,7 @@ const SecurityTechItem: React.FC<{ title: string; index: number }> = ({ title, i
           {title}
         </h4>
         <p className="text-gray-500 text-[17px] font-medium leading-relaxed max-w-xl">
-          Our security experts implement Zero-Trust architectures and proactive monitoring to ensure your digital ecosystem remains resilient against the most sophisticated cyber threats.
+          {description}
         </p>
       </div>
     </div>
@@ -85,12 +85,30 @@ const SecurityPage: React.FC<SecurityPageProps> = ({ onBackHome }) => {
   const prevTestimonial = () => { setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length); };
 
   const securityStack = [
-    "Managed Detection & Response (MDR)",
-    "Identity & Access Management (IAM)",
-    "Penetration Testing & Audits",
-    "Zero-Trust Cloud Architecture",
-    "Endpoint Protection (EDR)",
-    "Compliance Management (SOC2/HIPAA)"
+    {
+      title: "Managed Detection & Response (MDR)",
+      description: "24/7 threat monitoring, triage, and containment with actionable response playbooks."
+    },
+    {
+      title: "Identity & Access Management (IAM)",
+      description: "Least-privilege access, SSO, MFA, and privileged account controls across your organization."
+    },
+    {
+      title: "Penetration Testing & Audits",
+      description: "Adversarial testing, remediation guidance, and repeatable audits to close critical gaps."
+    },
+    {
+      title: "Zero-Trust Cloud Architecture",
+      description: "Network segmentation, continuous verification, and policy enforcement across cloud workloads."
+    },
+    {
+      title: "Endpoint Protection (EDR)",
+      description: "Behavior-based detection, isolation, and fleet-level visibility across devices."
+    },
+    {
+      title: "Compliance Management (SOC2/HIPAA)",
+      description: "Control mapping, evidence collection, and readiness programs to pass audits confidently."
+    }
   ];
 
   const benefits = [
@@ -298,7 +316,7 @@ const SecurityPage: React.FC<SecurityPageProps> = ({ onBackHome }) => {
             <div className="flex-1 w-full">
               <div className="flex flex-col">
                 {securityStack.map((tech, idx) => (
-                  <SecurityTechItem key={tech} title={tech} index={idx} />
+                  <SecurityTechItem key={tech.title} title={tech.title} description={tech.description} index={idx} />
                 ))}
               </div>
             </div>

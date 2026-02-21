@@ -28,7 +28,7 @@ interface TestimonialData {
   logo: React.ReactNode;
 }
 
-const ToolItem: React.FC<{ title: string; index: number }> = ({ title, index }) => {
+const ToolItem: React.FC<{ title: string; description: string; index: number }> = ({ title, description, index }) => {
   const [isVisible, setIsVisible] = useState(false);
   const itemRef = useRef<HTMLDivElement>(null);
 
@@ -58,7 +58,7 @@ const ToolItem: React.FC<{ title: string; index: number }> = ({ title, index }) 
           {title}
         </h4>
         <p className="text-gray-500 text-[17px] font-medium leading-relaxed max-w-xl">
-          We design API ecosystems that are secure, observable, and reliable under real production traffic with structured support after go-live.
+          {description}
         </p>
       </div>
     </div>
@@ -118,12 +118,30 @@ const ApiIntegrationSupportPage: React.FC<ApiIntegrationSupportPageProps> = ({ o
   };
 
   const integrationStack = [
-    'API Contract Design & Governance',
-    'OAuth2, JWT, and Access Control',
-    'Webhook & Event-Driven Workflows',
-    'Queueing, Retry, and Circuit Breakers',
-    'Endpoint Monitoring & Alerting',
-    'Versioning and Lifecycle Management'
+    {
+      title: 'API Contract Design & Governance',
+      description: 'Consistent schemas, error standards, and version policies to keep teams and vendors aligned.'
+    },
+    {
+      title: 'OAuth2, JWT, and Access Control',
+      description: 'Token strategy, scopes, and least-privilege access to protect sensitive data flows.'
+    },
+    {
+      title: 'Webhook & Event-Driven Workflows',
+      description: 'Reliable async integrations with idempotency, replay safety, and audit-ready event trails.'
+    },
+    {
+      title: 'Queueing, Retry, and Circuit Breakers',
+      description: 'Resilience patterns that prevent cascading failures and protect downstream systems.'
+    },
+    {
+      title: 'Endpoint Monitoring & Alerting',
+      description: 'Latency, error-rate, and SLA dashboards with automated escalation for incidents.'
+    },
+    {
+      title: 'Versioning and Lifecycle Management',
+      description: 'Deprecation planning, migration guides, and smooth rollouts without breaking clients.'
+    }
   ];
 
   const benefits = [
@@ -344,7 +362,7 @@ const ApiIntegrationSupportPage: React.FC<ApiIntegrationSupportPageProps> = ({ o
             <div className="flex-1 w-full">
               <div className="flex flex-col">
                 {integrationStack.map((item, idx) => (
-                  <ToolItem key={item} title={item} index={idx} />
+                  <ToolItem key={item.title} title={item.title} description={item.description} index={idx} />
                 ))}
               </div>
             </div>

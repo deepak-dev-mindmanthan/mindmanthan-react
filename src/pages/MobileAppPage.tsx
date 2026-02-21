@@ -17,7 +17,7 @@ interface TestimonialData {
   logo: React.ReactNode;
 }
 
-const ToolItem: React.FC<{ title: string; index: number }> = ({ title, index }) => {
+const ToolItem: React.FC<{ title: string; description: string; index: number }> = ({ title, description, index }) => {
   const [isVisible, setIsVisible] = useState(false);
   const itemRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +52,7 @@ const ToolItem: React.FC<{ title: string; index: number }> = ({ title, index }) 
           {title}
         </h4>
         <p className="text-gray-500 text-[17px] font-medium leading-relaxed max-w-xl">
-          Our mobile development expertise ensures high-performance, native-like experiences. We focus on low latency, intuitive gestures, and seamless integration with hardware features.
+          {description}
         </p>
       </div>
     </div>
@@ -112,12 +112,30 @@ const MobileAppPage: React.FC<MobileAppPageProps> = ({ onBackHome }) => {
   };
 
   const tools = [
-    "iOS (Swift/SwiftUI)",
-    "Android (Kotlin/Jetpack Compose)",
-    "Cross-platform (React Native)",
-    "Flutter Ecosystem",
-    "PWA Development",
-    "App Store Optimization"
+    {
+      title: "iOS (Swift/SwiftUI)",
+      description: "Native Apple experiences with SwiftUI, Combine, and performance tuning for smooth, responsive interactions."
+    },
+    {
+      title: "Android (Kotlin/Jetpack Compose)",
+      description: "Modern Android stacks using Kotlin and Compose, optimized for fragmentation and battery-aware performance."
+    },
+    {
+      title: "Cross-platform (React Native)",
+      description: "Shared codebases with native modules where it matters, delivering speed without compromising platform feel."
+    },
+    {
+      title: "Flutter Ecosystem",
+      description: "Pixel-perfect UI and rapid iteration with Dart, backed by platform channels for deep device access."
+    },
+    {
+      title: "PWA Development",
+      description: "Installable web apps with offline support, push notifications, and fast load times for lean deployments."
+    },
+    {
+      title: "App Store Optimization",
+      description: "Metadata strategy, screenshots, and release workflows to improve discoverability and conversion."
+    }
   ];
 
   const benefits = [
@@ -343,7 +361,7 @@ const MobileAppPage: React.FC<MobileAppPageProps> = ({ onBackHome }) => {
             <div className="flex-1 w-full">
               <div className="flex flex-col">
                 {tools.map((tool, idx) => (
-                  <ToolItem key={tool} title={tool} index={idx} />
+                  <ToolItem key={tool.title} title={tool.title} description={tool.description} index={idx} />
                 ))}
               </div>
             </div>

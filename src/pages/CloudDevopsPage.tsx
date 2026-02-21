@@ -28,7 +28,7 @@ interface TestimonialData {
   logo: React.ReactNode;
 }
 
-const ToolItem: React.FC<{ title: string; index: number }> = ({ title, index }) => {
+const ToolItem: React.FC<{ title: string; description: string; index: number }> = ({ title, description, index }) => {
   const [isVisible, setIsVisible] = useState(false);
   const itemRef = useRef<HTMLDivElement>(null);
 
@@ -58,7 +58,7 @@ const ToolItem: React.FC<{ title: string; index: number }> = ({ title, index }) 
           {title}
         </h4>
         <p className="text-gray-500 text-[17px] font-medium leading-relaxed max-w-xl">
-          We build production-grade cloud and DevOps systems focused on repeatable delivery, resilient infrastructure, and measurable reliability.
+          {description}
         </p>
       </div>
     </div>
@@ -118,12 +118,30 @@ const CloudDevopsPage: React.FC<CloudDevopsPageProps> = ({ onBackHome }) => {
   };
 
   const stack = [
-    'Infrastructure as Code (Terraform)',
-    'CI/CD Pipelines (GitHub Actions/GitLab)',
-    'Containers & Orchestration (Docker/Kubernetes)',
-    'Observability (Logs, Metrics, Traces)',
-    'Cloud Security & IAM Controls',
-    'Cost Optimization & FinOps'
+    {
+      title: 'Infrastructure as Code (Terraform)',
+      description: 'Versioned, repeatable environments with policy checks, drift detection, and controlled rollouts.'
+    },
+    {
+      title: 'CI/CD Pipelines (GitHub Actions/GitLab)',
+      description: 'Automated build, test, and deploy stages with security gates and rollback paths.'
+    },
+    {
+      title: 'Containers & Orchestration (Docker/Kubernetes)',
+      description: 'Resilient service orchestration, autoscaling, and zero-downtime deployments.'
+    },
+    {
+      title: 'Observability (Logs, Metrics, Traces)',
+      description: 'Unified telemetry for fast root-cause analysis and SLO-driven reliability.'
+    },
+    {
+      title: 'Cloud Security & IAM Controls',
+      description: 'Least-privilege access, secrets management, and audit-ready change controls.'
+    },
+    {
+      title: 'Cost Optimization & FinOps',
+      description: 'Spend visibility, rightsizing, and cost governance without sacrificing performance.'
+    }
   ];
 
   const benefits = [
@@ -344,7 +362,7 @@ const CloudDevopsPage: React.FC<CloudDevopsPageProps> = ({ onBackHome }) => {
             <div className="flex-1 w-full">
               <div className="flex flex-col">
                 {stack.map((item, idx) => (
-                  <ToolItem key={item} title={item} index={idx} />
+                  <ToolItem key={item.title} title={item.title} description={item.description} index={idx} />
                 ))}
               </div>
             </div>

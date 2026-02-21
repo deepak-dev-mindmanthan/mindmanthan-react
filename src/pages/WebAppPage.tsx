@@ -17,7 +17,7 @@ interface TestimonialData {
   logo: React.ReactNode;
 }
 
-const WebTechItem: React.FC<{ title: string; index: number }> = ({ title, index }) => {
+const WebTechItem: React.FC<{ title: string; description: string; index: number }> = ({ title, description, index }) => {
   const [isVisible, setIsVisible] = useState(false);
   const itemRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +52,7 @@ const WebTechItem: React.FC<{ title: string; index: number }> = ({ title, index 
           {title}
         </h4>
         <p className="text-gray-500 text-[17px] font-medium leading-relaxed max-w-xl">
-          We build enterprise-grade web applications that integrate seamlessly into your existing ecosystem. Our solutions bring senior-level engineering to solve complex business challenges.
+          {description}
         </p>
       </div>
     </div>
@@ -112,12 +112,30 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
   };
 
   const webExpertise = [
-    "Enterprise SaaS Solutions",
-    "Custom CMS Portals",
-    "Cloud-Native Dashboards",
-    "E-commerce Platforms",
-    "B2B Web Systems",
-    "Internal Management Tools"
+    {
+      title: "Enterprise SaaS Solutions",
+      description: "Multi-tenant platforms with role-based access, audit trails, and scalable billing-ready architecture."
+    },
+    {
+      title: "Custom CMS Portals",
+      description: "Editorial workflows, permissions, and content modeling tailored to your teams and publishing cadence."
+    },
+    {
+      title: "Cloud-Native Dashboards",
+      description: "Real-time analytics with optimized queries, caching, and observability across services."
+    },
+    {
+      title: "E-commerce Platforms",
+      description: "High-conversion storefronts, checkout reliability, and inventory synchronization at scale."
+    },
+    {
+      title: "B2B Web Systems",
+      description: "Complex workflows, approvals, and integrations built for enterprise operations."
+    },
+    {
+      title: "Internal Management Tools",
+      description: "Ops-focused tools that reduce manual work with automation, permissions, and reporting."
+    }
   ];
 
   const benefits = [
@@ -342,7 +360,7 @@ const WebAppPage: React.FC<WebAppPageProps> = ({ onBackHome }) => {
             <div className="flex-1 w-full">
               <div className="flex flex-col">
                 {webExpertise.map((expertise, idx) => (
-                  <WebTechItem key={expertise} title={expertise} index={idx} />
+                  <WebTechItem key={expertise.title} title={expertise.title} description={expertise.description} index={idx} />
                 ))}
               </div>
             </div>

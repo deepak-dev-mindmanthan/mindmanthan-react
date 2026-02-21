@@ -18,7 +18,7 @@ interface TestimonialData {
   logo: React.ReactNode;
 }
 
-const ToolItem: React.FC<{ title: string; index: number }> = ({ title, index }) => {
+const ToolItem: React.FC<{ title: string; description: string; index: number }> = ({ title, description, index }) => {
   const [isVisible, setIsVisible] = useState(false);
   const itemRef = useRef<HTMLDivElement>(null);
 
@@ -53,7 +53,7 @@ const ToolItem: React.FC<{ title: string; index: number }> = ({ title, index }) 
           {title}
         </h4>
         <p className="text-gray-500 text-[17px] font-medium leading-relaxed max-w-xl">
-          We design and implement software systems that reduce manual effort, improve visibility, and support long-term business growth.
+          {description}
         </p>
       </div>
     </div>
@@ -130,12 +130,30 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
   };
 
   const tools = [
-    "Technical Implementation",
-    "Software Architecture",
-    "API Integration",
-    "Cloud Deployment",
-    "Performance Optimization",
-    "Ongoing Product Support"
+    {
+      title: "Technical Implementation",
+      description: "Execution-ready builds with clean code standards, automated testing, and reliable delivery pipelines."
+    },
+    {
+      title: "Software Architecture",
+      description: "Scalable system design with clear domain boundaries, service ownership, and long-term maintainability."
+    },
+    {
+      title: "API Integration",
+      description: "Secure, resilient integrations with third-party services, legacy systems, and internal platforms."
+    },
+    {
+      title: "Cloud Deployment",
+      description: "Infrastructure built for elasticity, observability, and cost control across your preferred cloud."
+    },
+    {
+      title: "Performance Optimization",
+      description: "Latency reduction, database tuning, and caching strategies to keep critical workflows fast."
+    },
+    {
+      title: "Ongoing Product Support",
+      description: "Post-launch enhancements, SLA-backed support, and roadmap-driven improvements."
+    }
   ];
 
   const benefits = [
@@ -372,7 +390,7 @@ const CustomSoftwarePage: React.FC<CustomSoftwarePageProps> = ({ onBackHome, onN
             <div className="flex-1 w-full">
               <div className="flex flex-col">
                 {tools.map((tool, idx) => (
-                  <ToolItem key={tool} title={tool} index={idx} />
+                  <ToolItem key={tool.title} title={tool.title} description={tool.description} index={idx} />
                 ))}
               </div>
             </div>

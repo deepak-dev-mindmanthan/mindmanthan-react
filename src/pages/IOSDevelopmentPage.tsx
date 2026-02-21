@@ -17,7 +17,7 @@ interface TestimonialData {
   logo: React.ReactNode;
 }
 
-const IOSTechItem: React.FC<{ title: string; index: number }> = ({ title, index }) => {
+const IOSTechItem: React.FC<{ title: string; description: string; index: number }> = ({ title, description, index }) => {
   const [isVisible, setIsVisible] = useState(false);
   const itemRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +52,7 @@ const IOSTechItem: React.FC<{ title: string; index: number }> = ({ title, index 
           {title}
         </h4>
         <p className="text-gray-500 text-[17px] font-medium leading-relaxed max-w-xl">
-          Our iOS engineering team specializes in Swift and SwiftUI, delivering pixel-perfect interfaces and robust performance that leverages the latest Apple hardware capabilities.
+          {description}
         </p>
       </div>
     </div>
@@ -112,12 +112,30 @@ const IOSDevelopmentPage: React.FC<IOSDevelopmentPageProps> = ({ onBackHome }) =
   };
 
   const iosStack = [
-    "Swift & SwiftUI",
-    "Objective-C Migration",
-    "Core Data & Realm",
-    "Apple Pay Integration",
-    "ARKit & Metal",
-    "WatchOS & TVOS"
+    {
+      title: "Swift & SwiftUI",
+      description: "Modern Swift architecture with SwiftUI components, Combine flows, and clean state management for fast iteration."
+    },
+    {
+      title: "Objective-C Migration",
+      description: "Safe, incremental upgrades that keep legacy apps stable while modernizing performance, tooling, and maintainability."
+    },
+    {
+      title: "Core Data & Realm",
+      description: "Resilient local persistence with optimized sync strategies, offline-first design, and data integrity safeguards."
+    },
+    {
+      title: "Apple Pay Integration",
+      description: "Secure, compliant payments with entitlement setup, validation flows, and robust error handling across regions."
+    },
+    {
+      title: "ARKit & Metal",
+      description: "Immersive AR and high-performance graphics with scene optimization, motion tracking, and GPU-accelerated rendering."
+    },
+    {
+      title: "WatchOS & TVOS",
+      description: "Purpose-built experiences for Apple Watch and Apple TV, including glanceable UI, remote input, and continuity."
+    }
   ];
 
   const benefits = [
@@ -330,7 +348,7 @@ const IOSDevelopmentPage: React.FC<IOSDevelopmentPageProps> = ({ onBackHome }) =
             <div className="flex-1 w-full">
               <div className="flex flex-col">
                 {iosStack.map((tech, idx) => (
-                  <IOSTechItem key={tech} title={tech} index={idx} />
+                  <IOSTechItem key={tech.title} title={tech.title} description={tech.description} index={idx} />
                 ))}
               </div>
             </div>

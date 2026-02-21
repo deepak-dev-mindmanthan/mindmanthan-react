@@ -8,7 +8,7 @@ interface ConsultingProvidersPageProps {
   onBackHome: () => void;
 }
 
-const ConsultingTechItem: React.FC<{ title: string; index: number }> = ({ title, index }) => {
+const ConsultingTechItem: React.FC<{ title: string; description: string; index: number }> = ({ title, description, index }) => {
   const [isVisible, setIsVisible] = useState(false);
   const itemRef = useRef<HTMLDivElement>(null);
 
@@ -37,7 +37,7 @@ const ConsultingTechItem: React.FC<{ title: string; index: number }> = ({ title,
           {title}
         </h4>
         <p className="text-gray-500 text-[17px] font-medium leading-relaxed max-w-xl">
-          We provide strategic technical advisory that aligns your product roadmap with actual business outcomes. Our consultants bring decades of experience in navigating complex digital markets.
+          {description}
         </p>
       </div>
     </div>
@@ -92,12 +92,30 @@ const ConsultingProvidersPage: React.FC<ConsultingProvidersPageProps> = ({ onBac
   const prevTestimonial = () => { setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length); };
 
   const consultingStack = [
-    "Product Roadmap Strategy",
-    "Technical Due Diligence",
-    "Fractional CTO Advisory",
-    "Architecture Reviews",
-    "Agile Process Optimization",
-    "Market Fit Analysis"
+    {
+      title: "Product Roadmap Strategy",
+      description: "Outcome-driven roadmaps that align product milestones with business goals and user value."
+    },
+    {
+      title: "Technical Due Diligence",
+      description: "Risk assessment across architecture, security, scalability, and engineering maturity."
+    },
+    {
+      title: "Fractional CTO Advisory",
+      description: "Senior technical leadership to guide decisions, hiring, and platform direction without full-time overhead."
+    },
+    {
+      title: "Architecture Reviews",
+      description: "System design audits that uncover bottlenecks, reliability gaps, and modernization paths."
+    },
+    {
+      title: "Agile Process Optimization",
+      description: "Delivery process tuning to improve velocity, predictability, and cross-team alignment."
+    },
+    {
+      title: "Market Fit Analysis",
+      description: "Product-market signal analysis to prioritize features, positioning, and measurable differentiation."
+    }
   ];
 
   const benefits = [
@@ -309,7 +327,7 @@ const ConsultingProvidersPage: React.FC<ConsultingProvidersPageProps> = ({ onBac
             <div className="flex-1 w-full">
               <div className="flex flex-col">
                 {consultingStack.map((tech, idx) => (
-                  <ConsultingTechItem key={tech} title={tech} index={idx} />
+                  <ConsultingTechItem key={tech.title} title={tech.title} description={tech.description} index={idx} />
                 ))}
               </div>
             </div>

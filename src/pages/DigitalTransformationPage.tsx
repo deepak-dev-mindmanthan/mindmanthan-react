@@ -8,7 +8,7 @@ interface DigitalTransformationPageProps {
   onBackHome: () => void;
 }
 
-const DTTechItem: React.FC<{ title: string; index: number }> = ({ title, index }) => {
+const DTTechItem: React.FC<{ title: string; description: string; index: number }> = ({ title, description, index }) => {
   const [isVisible, setIsVisible] = useState(false);
   const itemRef = useRef<HTMLDivElement>(null);
 
@@ -43,7 +43,7 @@ const DTTechItem: React.FC<{ title: string; index: number }> = ({ title, index }
           {title}
         </h4>
         <p className="text-gray-500 text-[17px] font-medium leading-relaxed max-w-xl">
-          We leverage modern cloud paradigms and automation frameworks to eliminate legacy friction. Our digital strategy ensures your business logic is fast, resilient, and ready for the next decade of growth.
+          {description}
         </p>
       </div>
     </div>
@@ -103,12 +103,30 @@ const DigitalTransformationPage: React.FC<DigitalTransformationPageProps> = ({ o
   };
 
   const dtStack = [
-    "Legacy System Migration",
-    "Cloud Native Strategy",
-    "Workflow Automation (RPA)",
-    "Data Modernization",
-    "Microservices Architecture",
-    "Agile DevOps Implementation"
+    {
+      title: "Legacy System Migration",
+      description: "Phased cutovers that preserve uptime while modernizing data models, integrations, and user workflows."
+    },
+    {
+      title: "Cloud Native Strategy",
+      description: "Container-first platforms with autoscaling, observability, and cost-aware infrastructure design."
+    },
+    {
+      title: "Workflow Automation (RPA)",
+      description: "Automate repetitive ops with audited bots, exception handling, and measurable throughput gains."
+    },
+    {
+      title: "Data Modernization",
+      description: "Unify fragmented data sources into governed pipelines, analytics layers, and trusted reporting."
+    },
+    {
+      title: "Microservices Architecture",
+      description: "Service boundaries, resilient communication, and deployment patterns that scale with demand."
+    },
+    {
+      title: "Agile DevOps Implementation",
+      description: "CI/CD, infrastructure-as-code, and release strategies that shorten lead time safely."
+    }
   ];
 
   const benefits = [
@@ -321,7 +339,7 @@ const DigitalTransformationPage: React.FC<DigitalTransformationPageProps> = ({ o
             <div className="flex-1 w-full">
               <div className="flex flex-col">
                 {dtStack.map((tech, idx) => (
-                  <DTTechItem key={tech} title={tech} index={idx} />
+                  <DTTechItem key={tech.title} title={tech.title} description={tech.description} index={idx} />
                 ))}
               </div>
             </div>

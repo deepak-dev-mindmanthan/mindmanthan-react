@@ -17,7 +17,7 @@ interface TestimonialData {
   logo: React.ReactNode;
 }
 
-const AndroidTechItem: React.FC<{ title: string; index: number }> = ({ title, index }) => {
+const AndroidTechItem: React.FC<{ title: string; description: string; index: number }> = ({ title, description, index }) => {
   const [isVisible, setIsVisible] = useState(false);
   const itemRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +52,7 @@ const AndroidTechItem: React.FC<{ title: string; index: number }> = ({ title, in
           {title}
         </h4>
         <p className="text-gray-500 text-[17px] font-medium leading-relaxed max-w-xl">
-          Our Android engineering team delivers native quality using Kotlin and Jetpack Compose. We handle the complex fragmentation of the Android ecosystem to ensure a perfect experience on every device.
+          {description}
         </p>
       </div>
     </div>
@@ -105,12 +105,30 @@ const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackH
   };
 
   const androidStack = [
-    "Kotlin & Coroutines",
-    "Jetpack Compose UI",
-    "Java to Kotlin Migration",
-    "Google Pay Integration",
-    "TensorFlow Lite (AI)",
-    "Wear OS & Android TV"
+    {
+      title: "Kotlin & Coroutines",
+      description: "Structured concurrency for fast, safe background work. We design coroutine scopes, dispatchers, and cancellation flows to keep apps responsive."
+    },
+    {
+      title: "Jetpack Compose UI",
+      description: "Modern declarative UI with reusable design systems, theme control, and smooth animations aligned with Material You."
+    },
+    {
+      title: "Java to Kotlin Migration",
+      description: "Incremental migrations that preserve stability. We modernize legacy codebases without breaking releases or slowing delivery."
+    },
+    {
+      title: "Google Pay Integration",
+      description: "Secure, compliant payments with tokenization, Play Services setup, and rigorous QA across devices and regions."
+    },
+    {
+      title: "TensorFlow Lite (AI)",
+      description: "On-device inference for vision, NLP, and personalization with model optimization, quantization, and battery-aware performance."
+    },
+    {
+      title: "Wear OS & Android TV",
+      description: "Platform-specific UX for wearables and living room devices, including navigation, remote input, and glanceable content."
+    }
   ];
 
   const benefits = [
@@ -323,7 +341,7 @@ const AndroidDevelopmentPage: React.FC<AndroidDevelopmentPageProps> = ({ onBackH
             <div className="flex-1 w-full">
               <div className="flex flex-col">
                 {androidStack.map((tech, idx) => (
-                  <AndroidTechItem key={tech} title={tech} index={idx} />
+                  <AndroidTechItem key={tech.title} title={tech.title} description={tech.description} index={idx} />
                 ))}
               </div>
             </div>

@@ -29,7 +29,7 @@ interface TestimonialData {
   logo: React.ReactNode;
 }
 
-const ToolItem: React.FC<{ title: string; index: number }> = ({ title, index }) => {
+const ToolItem: React.FC<{ title: string; description: string; index: number }> = ({ title, description, index }) => {
   const [isVisible, setIsVisible] = useState(false);
   const itemRef = useRef<HTMLDivElement>(null);
 
@@ -64,7 +64,7 @@ const ToolItem: React.FC<{ title: string; index: number }> = ({ title, index }) 
           {title}
         </h4>
         <p className="text-gray-500 text-[17px] font-medium leading-relaxed max-w-xl">
-          We design IoT architectures that scale from pilot deployments to enterprise fleets, focusing on secure telemetry, reliable connectivity, and actionable intelligence.
+          {description}
         </p>
       </div>
     </div>
@@ -124,12 +124,30 @@ const IotSolutionsPage: React.FC<IotSolutionsPageProps> = ({ onBackHome }) => {
   };
 
   const tools = [
-    'MQTT & Secure Device Gateways',
-    'Edge Computing Pipelines',
-    'Time-Series Datastores',
-    'Cloud IoT (AWS, Azure, GCP)',
-    'OTA Firmware Management',
-    'Operational Dashboards & Alerts'
+    {
+      title: 'MQTT & Secure Device Gateways',
+      description: 'Authenticated device onboarding, certificate rotation, and reliable message delivery with QoS controls.'
+    },
+    {
+      title: 'Edge Computing Pipelines',
+      description: 'Local filtering and buffering to keep critical signals flowing during network drops or bandwidth limits.'
+    },
+    {
+      title: 'Time-Series Datastores',
+      description: 'High-ingest storage designed for telemetry, with retention policies and fast query performance.'
+    },
+    {
+      title: 'Cloud IoT (AWS, Azure, GCP)',
+      description: 'Cloud-native device management, scalable ingestion, and secure integrations with enterprise systems.'
+    },
+    {
+      title: 'OTA Firmware Management',
+      description: 'Safe, staged rollouts with rollback support and hardware-specific validation for fleet stability.'
+    },
+    {
+      title: 'Operational Dashboards & Alerts',
+      description: 'Role-based monitoring, anomaly detection, and actionable alerts tied to business SLAs.'
+    }
   ];
 
   const benefits = [
@@ -355,7 +373,7 @@ const IotSolutionsPage: React.FC<IotSolutionsPageProps> = ({ onBackHome }) => {
             <div className="flex-1 w-full">
               <div className="flex flex-col">
                 {tools.map((tool, idx) => (
-                  <ToolItem key={tool} title={tool} index={idx} />
+                  <ToolItem key={tool.title} title={tool.title} description={tool.description} index={idx} />
                 ))}
               </div>
             </div>
