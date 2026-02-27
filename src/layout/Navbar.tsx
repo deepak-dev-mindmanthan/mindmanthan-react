@@ -340,7 +340,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 return (
                   <div key={link.label} className="w-full text-left">
                     <button
-                      className="w-full text-left text-[#1a1b1f] text-2xl font-medium hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors py-3 px-2"
+                      className="w-full text-left text-[#1a1b1f] text-2xl font-medium hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors py-3 px-4"
                       onClick={(e) => {
                         e.preventDefault();
                         if (link.label === 'Portfolio') {
@@ -365,7 +365,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 return (
                   <div key={link.label} className="w-full text-left">
                     <button
-                      className="w-full text-left text-[#1a1b1f] text-2xl font-medium hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors inline-flex items-center gap-3 py-3 px-2"
+                      className="w-full text-left text-[#1a1b1f] text-2xl font-medium hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors inline-flex items-center gap-3 py-3 px-4"
                       onClick={() => toggleMobileSection('Home')}
                     >
                       {link.label}
@@ -399,7 +399,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 return (
                   <div key={link.label} className="w-full text-left">
                     <button
-                      className="w-full text-left text-[#1a1b1f] text-2xl font-medium hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors inline-flex items-center gap-3 py-3 px-2"
+                      className="w-full text-left text-[#1a1b1f] text-2xl font-medium hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors inline-flex items-center gap-3 py-3 px-4"
                       onClick={() => toggleMobileSection('Solutions')}
                     >
                       {link.label}
@@ -478,7 +478,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 return (
                   <div key={link.label} className="w-full text-left">
                     <button
-                      className="w-full text-left text-[#1a1b1f] text-2xl font-medium hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors inline-flex items-center gap-3 py-3 px-2"
+                      className="w-full text-left text-[#1a1b1f] text-2xl font-medium hover:text-[#001fcc] hover:bg-blue-100/60 transition-colors inline-flex items-center gap-3 py-3 px-4"
                       onClick={() => toggleMobileSection('Company')}
                     >
                       {link.label}
